@@ -2,7 +2,7 @@
 
 **Última actualización:** 17 de septiembre de 2026  
 **Titular del software:** Noveleare (Oberon2755)  
-**Contacto:** daniel.2755@hotmail.com
+**Contacto:** noveleare@gmail.com
 
 ---
 
@@ -59,4 +59,4 @@ Nos reservamos el derecho de modificar estos términos para adaptarlos a novedad
 ---
 
 ## 8. Contacto y Soporte
-Para soporte técnico, consultas sobre licencias o aclaraciones de estos términos, contáctanos a: **daniel.2755@hotmail.com**.
+Para soporte técnico, consultas sobre licencias o aclaraciones de estos términos, contáctanos a: **noveleare@gmail.com**.
