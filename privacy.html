@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidad — Noveleare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0A0D12;
+      --card-bg: #111620;
+      --border: #202736;
+      --border-focus: #3A4761;
+      --text-main: #E2E8F0;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+      --accent: #60A5FA;
+      --accent-glow: rgba(96, 165, 250, 0.15);
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-serif: 'Lora', Georgia, serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      padding: 0 1.25rem 4rem 1.25rem;
+    }
+    header {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2.5rem 0 1.75rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: #FFF;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+    .brand-icon {
+      width: 34px;
+      height: 34px;
+      background: linear-gradient(135deg, #1E3A8A, #3B82F6);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #FFF;
+      font-size: 1.05rem;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35);
+    }
+    nav {
+      display: flex;
+      gap: 0.5rem;
+      background: #11151F;
+      padding: 0.3rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+    }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.4rem 0.9rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+    }
+    nav a.active {
+      background: #1E293B;
+      color: #FFF;
+      border: 1px solid #334155;
+    }
+    nav a:hover:not(.active) {
+      color: var(--text-main);
+    }
+    main {
+      max-width: 800px;
+      margin: 2.5rem auto 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      background: var(--accent-glow);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(96, 165, 250, 0.3);
+      margin-bottom: 1.25rem;
+    }
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #FFF;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+    }
+    .meta {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      margin-bottom: 2rem;
+      display: flex;
+      gap: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.25rem;
+    }
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #F1F5F9;
+      margin: 2.25rem 0 0.75rem 0;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #CBD5E1;
+      margin: 1.25rem 0 0.5rem 0;
+    }
+    p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    ul {
+      margin: 0 0 1.25rem 1.25rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    li { margin-bottom: 0.5rem; }
+    strong { color: #FFF; font-weight: 600; }
+    .highlight-card {
+      background: #141A26;
+      border: 1px solid #232D3F;
+      border-left: 4px solid var(--accent);
+      padding: 1.25rem 1.5rem;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+    }
+    .highlight-card p { margin: 0; color: #E2E8F0; font-size: 0.92rem; }
+    footer {
+      max-width: 800px;
+      margin: 2.5rem auto 0 auto;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+    footer a { color: var(--text-muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); text-decoration: underline; }
+    @media (max-width: 640px) {
+      header { flex-direction: column; gap: 1rem; align-items: flex-start; }
+      main { padding: 2rem 1.5rem; }
+      h1 { font-size: 1.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="./index.html" class="brand">
+      <div class="brand-icon">N</div>
+      <span>Noveleare</span>
+    </a>
+    <nav>
+      <a href="./privacy.html" class="active">Privacidad</a>
+      <a href="./terms.html">Términos</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="badge">Documento Oficial de Privacidad</div>
+    <h1>Política de Privacidad</h1>
+    <div class="meta">
+      <span>Última actualización: 17 de septiembre de 2026</span>
+      <span>Responsable: Noveleare (Oberon2755)</span>
+    </div>
+
+    <div class="highlight-card">
+      <p><strong>Filosofía Local-First:</strong> Tus obras, novelas, personajes, capítulos y notas literarias se almacenan exclusivamente en tu computadora. Noveleare jamás almacena, lee ni vende tus manuscritos a terceros ni los utiliza para entrenar modelos de Inteligencia Artificial.</p>
+    </div>
+
+    <h2>1. Información que Recopilamos</h2>
+    
+    <h3>A. Autenticación con Google (Google OAuth)</h3>
+    <p>Cuando decides iniciar sesión con tu cuenta de Google:</p>
+    <ul>
+      <li><strong>Datos recopilados:</strong> Únicamente tu dirección de correo electrónico, nombre público de perfil e identificador numérico de usuario provistos por Google.</li>
+      <li><strong>Finalidad exclusiva:</strong> Identificar tu cuenta de autor, sincronizar de forma segura el estado de tu licencia (Free o Pro) y permitirte usar tu licencia en hasta cinco (5) computadoras personales.</li>
+      <li><strong>No recopilamos:</strong> No tenemos acceso a tus contactos, correos electrónicos personales de Gmail, archivos de Google Drive ni contraseñas.</li>
+    </ul>
+
+    <h3>B. Obras, Manuscritos y Contenido Creativo</h3>
+    <p>Todos los archivos de proyecto (<code>.nov</code>), borradores y notas se guardan únicamente en el sistema de archivos local de tu sistema operativo. Noveleare <strong>no</strong> transmite ni replica tus textos en servidores en la nube.</p>
+
+    <h3>C. Claves de API de Inteligencia Artificial (BYOK)</h3>
+    <p>Si utilizas funciones asistidas por IA (Google Gemini, OpenAI, Anthropic Claude, xAI Grok), introduces tus propias claves de API. Tus claves se almacenan localmente de forma cifrada. Las consultas van directamente desde tu máquina hacia los servidores oficiales del proveedor de IA que elijas, sin pasar por servidores intermediarios de Noveleare.</p>
+
+    <h2>2. Uso de la Información</h2>
+    <p>La información recopilada se utiliza estrictamente para:</p>
+    <ul>
+      <li>Validar la activación y estado de la licencia adquirida (Free vs Pro).</li>
+      <li>Garantizar el control de activación anti-piratería (máximo 5 equipos autorizados por cuenta).</li>
+      <li>Notificar y entregar actualizaciones del software en tu equipo.</li>
+    </ul>
+    <p><strong>Nunca vendemos, alquilamos ni comercializamos tus datos personales con terceros o empresas de publicidad.</strong></p>
+
+    <h2>3. Cumplimiento con la Política de Datos de Google</h2>
+    <p>El uso que hace Noveleare de la información recibida de las API de Google cumple estrictamente con la <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener" style="color:var(--accent);">Política de Datos de Usuario de los Servicios de las API de Google</a>, incluidos los requisitos de Uso Limitado:</p>
+    <ul>
+      <li>Los datos de usuario de Google se utilizan únicamente para la autenticación directa del usuario dentro de la aplicación.</li>
+      <li>No se transfieren a terceros salvo que sea necesario para proporcionar o mejorar estas funciones, cumplir con la ley aplicable o como parte de una fusión/adquisición.</li>
+      <li>No se utilizan para servir anuncios ni para entrenar modelos de Inteligencia Artificial generales.</li>
+    </ul>
+
+    <h2>4. Seguridad de los Datos</h2>
+    <p>Implementamos medidas técnicas y organizativas rigurosas, incluyendo cifrado en tránsito (HTTPS/TLS) con nuestros servicios de backend en Supabase y almacenamiento local seguro mediante claves protegidas en tu sistema operativo.</p>
+
+    <h2>5. Tus Derechos</h2>
+    <p>Tienes derecho en cualquier momento a solicitar la eliminación de los datos de tu cuenta de autor de nuestra base de datos, desvincular tus computadoras autorizadas o dejar de utilizar el software simplemente desinstalándolo.</p>
+    <p>Para cualquier solicitud o duda sobre privacidad, contáctanos a: <strong>daniel.2755@hotmail.com</strong>.</p>
+  </main>
+
+  <footer>
+    <p>© 2026 Noveleare. Todos los derechos reservados. · <a href="./terms.html">Términos de Servicio</a> · <a href="./privacy.html">Política de Privacidad</a></p>
+  </footer>
+
+</body>
+</html>
