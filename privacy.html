@@ -42,15 +42,20 @@
     .brand {
       display: flex;
       align-items: center;
+      gap: 0.75rem;
       text-decoration: none;
+      color: #FFF;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
       transition: opacity 0.2s ease;
     }
     .brand:hover {
       opacity: 0.9;
     }
-    .brand-logo {
-      height: 44px;
-      width: auto;
+    .brand-symbol {
+      height: 34px;
+      width: 34px;
       object-fit: contain;
       display: block;
     }
@@ -176,7 +181,8 @@
 
   <header>
     <a href="./index.html" class="brand" title="Noveleare">
-      <img src="./assets/noveleare-full-transparent.png" alt="Noveleare" class="brand-logo" />
+      <img src="./assets/noveleare-symbol-transparent.png" alt="Logo Noveleare" class="brand-symbol" />
+      <span>Noveleare</span>
     </a>
     <nav>
       <a href="./privacy.html" class="active">Privacidad</a>
