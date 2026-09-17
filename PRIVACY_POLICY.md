@@ -2,7 +2,7 @@
 
 **Última actualización:** 17 de septiembre de 2026  
 **Responsable del software:** Noveleare (Oberon2755)  
-**Contacto:** daniel.2755@hotmail.com
+**Contacto:** noveleare@gmail.com
 
 ---
 
@@ -60,7 +60,7 @@ Tienes derecho en cualquier momento a:
 - Desvincular tus computadoras autorizadas.
 - Dejar de utilizar el software simplemente desinstalándolo y eliminando los archivos locales.
 
-Para cualquier solicitud de privacidad, contáctanos a: **daniel.2755@hotmail.com**.
+Para cualquier solicitud de privacidad, contáctanos a: **noveleare@gmail.com**.
 
 ---
 
