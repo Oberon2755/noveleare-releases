@@ -42,15 +42,20 @@
     .brand {
       display: flex;
       align-items: center;
+      gap: 0.75rem;
       text-decoration: none;
+      color: #FFF;
+      font-weight: 800;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
       transition: opacity 0.2s ease;
     }
     .brand:hover {
       opacity: 0.9;
     }
-    .brand-logo {
-      height: 48px;
-      width: auto;
+    .brand-symbol {
+      height: 38px;
+      width: 38px;
       object-fit: contain;
       display: block;
     }
@@ -191,7 +196,8 @@
   <div class="container">
     <header>
       <a href="./index.html" class="brand" title="Noveleare">
-        <img src="./assets/noveleare-full-transparent.png" alt="Noveleare" class="brand-logo" />
+        <img src="./assets/noveleare-symbol-transparent.png" alt="Logo Noveleare" class="brand-symbol" />
+        <span>Noveleare</span>
       </a>
       <nav>
         <a href="https://github.com/Oberon2755/noveleare-releases/releases/latest">Releases</a>
