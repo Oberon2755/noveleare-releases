@@ -42,25 +42,17 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
       text-decoration: none;
-      color: #FFF;
-      font-weight: 800;
-      font-size: 1.25rem;
-      letter-spacing: -0.02em;
+      transition: opacity 0.2s ease;
     }
-    .brand-icon {
-      width: 34px;
-      height: 34px;
-      background: linear-gradient(135deg, #1E3A8A, #3B82F6);
-      border-radius: 9px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      color: #FFF;
-      font-size: 1.05rem;
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35);
+    .brand:hover {
+      opacity: 0.9;
+    }
+    .brand-logo {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+      display: block;
     }
     nav {
       display: flex;
@@ -183,9 +175,8 @@
 <body>
 
   <header>
-    <a href="./index.html" class="brand">
-      <div class="brand-icon">N</div>
-      <span>Noveleare</span>
+    <a href="./index.html" class="brand" title="Noveleare">
+      <img src="./assets/noveleare-full-transparent.png" alt="Noveleare" class="brand-logo" />
     </a>
     <nav>
       <a href="./privacy.html" class="active">Privacidad</a>
@@ -243,7 +234,7 @@
 
     <h2>5. Tus Derechos</h2>
     <p>Tienes derecho en cualquier momento a solicitar la eliminación de los datos de tu cuenta de autor de nuestra base de datos, desvincular tus computadoras autorizadas o dejar de utilizar el software simplemente desinstalándolo.</p>
-    <p>Para cualquier solicitud o duda sobre privacidad, contáctanos a: <strong>daniel.2755@hotmail.com</strong>.</p>
+    <p>Para cualquier solicitud o duda sobre privacidad, contáctanos a: <strong>noveleare@gmail.com</strong>.</p>
   </main>
 
   <footer>
