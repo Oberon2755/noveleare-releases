@@ -35,7 +35,7 @@
       position: relative;
     }
 
-    /* Fondo atmosférico nítido y reconocible con toque cinematográfico */
+    /* Fondo atmosférico de biblioteca natural */
     .hero-bg {
       position: fixed;
       top: 0;
@@ -45,25 +45,25 @@
       background-image: url('./assets/library-sanctuary.jpg');
       background-size: cover;
       background-position: center 35%;
-      filter: blur(2.5px) brightness(0.5) saturate(1.1);
+      filter: blur(2.5px) brightness(0.48) saturate(1.1);
       transform: scale(1.03);
       z-index: 0;
       pointer-events: none;
     }
 
-    /* Velo sutil de contraste para legibilidad del texto */
+    /* Velo de contraste cinematográfico */
     .hero-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(ellipse at center, rgba(10, 13, 18, 0.32) 0%, rgba(10, 13, 18, 0.62) 70%, rgba(10, 13, 18, 0.85) 100%);
+      background: radial-gradient(ellipse at center, rgba(10, 13, 18, 0.45) 0%, rgba(10, 13, 18, 0.75) 70%, rgba(10, 13, 18, 0.92) 100%);
       z-index: 1;
       pointer-events: none;
     }
 
-    /* Cabecera superior compacta (#121F1C) */
+    /* Cabecera superior compacta y esbelta (#121F1C) */
     header {
       width: 100%;
       padding: 0.55rem 3.5rem;
@@ -74,7 +74,7 @@
       background-color: var(--header-bg);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
       box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
     }
 
@@ -139,38 +139,39 @@
       transform: translateY(-1px);
     }
 
-    /* Área central de escritorio: Ubicada armónicamente en el centro-arriba */
+    /* Layout Split Hero (50/50 Asimétrico estilo CapCut/Camtasia) */
     main {
       flex: 1;
       width: 100%;
-      max-width: 1200px;
+      max-width: 1460px;
       margin: 0 auto;
-      padding: clamp(3rem, 7vh, 5.5rem) 2.5rem 2rem 2.5rem;
+      padding: 2.5rem 3.5rem 2rem 3.5rem;
       position: relative;
       z-index: 2;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1.05fr 1.25fr;
+      gap: 3.5rem;
       align-items: center;
-      justify-content: flex-start;
     }
 
-    .hero-content {
-      text-align: center;
-      max-width: 980px;
-      margin: 0 auto;
+    /* Columna Izquierda: Texto alineado a la izquierda */
+    .hero-text-col {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     h1 {
-      font-size: clamp(3.2rem, 5.2vw, 4.6rem);
+      font-size: clamp(2.8rem, 4.2vw, 4.2rem);
       font-weight: 800;
       color: #FFF;
-      letter-spacing: -0.04em;
-      line-height: 1.18;
-      margin-bottom: 1.5rem;
+      letter-spacing: -0.035em;
+      line-height: 1.15;
+      margin-bottom: 1.4rem;
       text-shadow: 0 4px 28px rgba(0, 0, 0, 0.9), 0 2px 10px rgba(0, 0, 0, 0.95);
     }
 
-    /* "tus historias" resaltante, luminoso y elegante sin desarmonizar */
     .hero-highlight {
       white-space: nowrap;
       display: inline-block;
@@ -181,24 +182,180 @@
     }
 
     .subtitle {
-      font-size: clamp(1.2rem, 1.8vw, 1.45rem);
-      color: #F1F5F9;
-      max-width: 820px;
-      margin: 0 auto;
-      line-height: 1.7;
+      font-size: clamp(1.1rem, 1.45vw, 1.3rem);
+      color: #E2E8F0;
+      max-width: 600px;
+      line-height: 1.68;
       font-weight: 500;
+      margin-bottom: 2.25rem;
       text-shadow: 0 3px 20px rgba(0, 0, 0, 0.9), 0 1px 6px rgba(0, 0, 0, 0.95);
     }
 
-    /* Pie de página integrado directamente sobre el fondo */
-    footer {
+    /* Selector de Vistas / Pestañas Interactivas (Estilo CapCut / Camtasia) */
+    .showcase-switcher {
+      display: flex;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .switch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(18, 25, 34, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #94A3B8;
+      padding: 0.55rem 1.1rem;
+      border-radius: 12px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: all 0.2s ease;
+    }
+
+    .switch-btn:hover {
+      background: rgba(28, 38, 52, 0.9);
+      border-color: rgba(59, 130, 246, 0.4);
+      color: #FFF;
+      transform: translateY(-1px);
+    }
+
+    .switch-btn.active {
+      background: rgba(59, 130, 246, 0.18);
+      border-color: #3B82F6;
+      color: #FFF;
+      box-shadow: 0 0 16px rgba(59, 130, 246, 0.3);
+    }
+
+    /* Columna Derecha: Collage de Capturas Reales (Showcase) */
+    .hero-showcase-col {
+      position: relative;
       width: 100%;
-      padding: 1.5rem 3.5rem;
+      perspective: 1200px;
+    }
+
+    /* Ventana Principal de la Aplicación */
+    .app-window-frame {
+      background: #10141C;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), 0 0 40px rgba(59, 130, 246, 0.12);
+      transition: all 0.35s ease;
+      position: relative;
+    }
+
+    .app-window-frame:hover {
+      border-color: rgba(147, 197, 253, 0.35);
+      box-shadow: 0 30px 70px -12px rgba(0, 0, 0, 0.95), 0 0 50px rgba(59, 130, 246, 0.2);
+    }
+
+    /* Barra superior de la ventana con puntos estilo macOS / Dark App */
+    .window-titlebar {
+      background: #141923;
+      padding: 0.65rem 1rem;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .traffic-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .dot-red { background: #FF5F56; }
+    .dot-yellow { background: #FFBD2E; }
+    .dot-green { background: #27C93F; }
+
+    .window-title {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: #94A3B8;
+      letter-spacing: 0.02em;
+    }
+
+    .main-screen-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    /* Tarjetas flotantes superpuestas (Collage dinámico) */
+    .floating-cards-tray {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      justify-content: flex-end;
+    }
+
+    .thumb-card {
+      background: rgba(16, 20, 28, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 0.4rem;
+      cursor: pointer;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      transition: all 0.25s ease;
+      width: 130px;
+      text-align: center;
+    }
+
+    .thumb-card img {
+      width: 100%;
+      height: 65px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+      margin-bottom: 0.35rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .thumb-card span {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #CBD5E1;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .thumb-card:hover {
+      transform: translateY(-4px) scale(1.03);
+      border-color: #3B82F6;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .thumb-card.active {
+      border-color: #3B82F6;
+      background: rgba(30, 41, 59, 0.95);
+      box-shadow: 0 0 18px rgba(59, 130, 246, 0.4);
+    }
+
+    .thumb-card.active span {
+      color: #93C5FD;
+    }
+
+    /* Pie de página integrado sobre el fondo */
+    footer {
+      width: 100%;
+      padding: 1.25rem 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
       color: rgba(226, 232, 240, 0.65);
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       position: relative;
       z-index: 2;
       background: transparent;
@@ -207,15 +364,39 @@
       letter-spacing: 0.01em;
     }
 
+    @media (max-width: 1080px) {
+      main {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding-top: 2rem;
+      }
+      .hero-text-col {
+        text-align: center;
+        align-items: center;
+      }
+      .showcase-switcher {
+        justify-content: center;
+      }
+      .floating-cards-tray {
+        justify-content: center;
+      }
+      footer {
+        justify-content: center;
+      }
+    }
+
     @media (max-width: 768px) {
       header {
         padding: 0.55rem 1.25rem;
       }
       main {
-        padding: 2.5rem 1.25rem;
+        padding: 2rem 1.25rem;
       }
+      h1 { font-size: 2.35rem; }
+      .thumb-card { width: 105px; }
+      .thumb-card img { height: 50px; }
       footer {
-        padding: 1.5rem 1.25rem;
+        padding: 1.25rem;
         text-align: center;
       }
     }
@@ -223,7 +404,7 @@
 </head>
 <body>
 
-  <!-- Fondo atmosférico nítido del santuario de lectura en la naturaleza -->
+  <!-- Fondo atmosférico de santuario de lectura en la naturaleza -->
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
 
@@ -241,11 +422,62 @@
     </nav>
   </header>
 
-  <!-- Contenido central: Ubicado al centro-arriba, con 'tus historias' en su propio renglón destacado -->
+  <!-- Layout Split Hero: 50% Texto a la Izquierda / 50% Showcase a la Derecha -->
   <main>
-    <div class="hero-content">
+    <!-- Columna Izquierda: Mensaje Central -->
+    <div class="hero-text-col">
       <h1>El hogar donde nacen<br><span class="hero-highlight">tus historias</span></h1>
       <p class="subtitle">Todo lo que necesitas como autor para dar vida a tus textos en un solo lugar, en un entorno que te acompaña en cada palabra.</p>
+
+      <!-- Botones de exploración de vistas (CapCut / Camtasia style) -->
+      <div class="showcase-switcher">
+        <button class="switch-btn active" onclick="switchShowcase('editor', this)">
+          📝 Hoja de Trabajo
+        </button>
+        <button class="switch-btn" onclick="switchShowcase('plot', this)">
+          🗺️ Planeación de Trama
+        </button>
+        <button class="switch-btn" onclick="switchShowcase('zen', this)">
+          🧘 Modo Zen
+        </button>
+      </div>
+    </div>
+
+    <!-- Columna Derecha: Collage de Capturas Reales de Noveleare -->
+    <div class="hero-showcase-col">
+      <div class="app-window-frame">
+        <div class="window-titlebar">
+          <div class="traffic-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <span class="window-title" id="windowTitle">Noveleare — Legado (Capítulo 1: Suspiro)</span>
+          <div style="width: 40px;"></div>
+        </div>
+        <img 
+          id="mainShowcaseImg" 
+          src="./assets/showcase-editor.png" 
+          alt="Hoja de trabajo principal de Noveleare" 
+          class="main-screen-img"
+        />
+      </div>
+
+      <!-- Bandeja de miniaturas interactivas para alternar -->
+      <div class="floating-cards-tray">
+        <div class="thumb-card active" id="thumb-editor" onclick="switchShowcase('editor', document.querySelectorAll('.switch-btn')[0])">
+          <img src="./assets/showcase-editor.png" alt="Editor" />
+          <span>Editor Principal</span>
+        </div>
+        <div class="thumb-card" id="thumb-plot" onclick="switchShowcase('plot', document.querySelectorAll('.switch-btn')[1])">
+          <img src="./assets/showcase-plot.png" alt="Planeación de Trama" />
+          <span>Línea de Trama</span>
+        </div>
+        <div class="thumb-card" id="thumb-zen" onclick="switchShowcase('zen', document.querySelectorAll('.switch-btn')[2])">
+          <img src="./assets/showcase-zen.png" alt="Modo Zen" />
+          <span>Escritura Zen</span>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -253,6 +485,55 @@
   <footer>
     <span>© 2026 Noveleare · Desarrollado por Oberon2755</span>
   </footer>
+
+  <script>
+    const showcases = {
+      editor: {
+        src: './assets/showcase-editor.png',
+        title: 'Noveleare — Legado (Capítulo 1: Suspiro)',
+        alt: 'Hoja de trabajo principal de Noveleare'
+      },
+      plot: {
+        src: './assets/showcase-plot.png',
+        title: 'Noveleare — Planeación de Trama & Línea Temporal (Legado)',
+        alt: 'Planeación de Trama y Subtramas en Noveleare'
+      },
+      zen: {
+        src: './assets/showcase-zen.png',
+        title: 'Noveleare — Escritura Inmersiva en Modo Zen',
+        alt: 'Modo Zen de escritura libre de distracciones'
+      }
+    };
+
+    function switchShowcase(key, btnEl) {
+      const data = showcases[key];
+      if (!data) return;
+
+      const img = document.getElementById('mainShowcaseImg');
+      const title = document.getElementById('windowTitle');
+
+      // Animación suave de cambio
+      img.style.opacity = '0.4';
+      img.style.transform = 'scale(0.985)';
+
+      setTimeout(() => {
+        img.src = data.src;
+        img.alt = data.alt;
+        title.innerText = data.title;
+        img.style.opacity = '1';
+        img.style.transform = 'scale(1)';
+      }, 150);
+
+      // Actualizar botones activos
+      document.querySelectorAll('.switch-btn').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+
+      // Actualizar miniaturas activas
+      document.querySelectorAll('.thumb-card').forEach(c => c.classList.remove('active'));
+      const activeThumb = document.getElementById('thumb-' + key);
+      if (activeThumb) activeThumb.classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
