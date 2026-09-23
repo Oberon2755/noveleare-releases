@@ -148,6 +148,65 @@
       border-color: #3B82F6;
       color: #FFF;
     }
+    .smartscreen-notice {
+      background: rgba(17, 22, 32, 0.85);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      border-radius: 14px;
+      padding: 1.15rem 1.4rem;
+      max-width: 650px;
+      margin: 2rem auto 0 auto;
+      text-align: left;
+      font-size: 0.85rem;
+      backdrop-filter: blur(8px);
+    }
+    .smartscreen-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      color: #93C5FD;
+      margin-bottom: 0.45rem;
+      font-size: 0.9rem;
+    }
+    .smartscreen-desc {
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+      font-size: 0.82rem;
+    }
+    .smartscreen-steps {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    @media (max-width: 640px) {
+      .smartscreen-steps {
+        grid-template-columns: 1fr;
+      }
+    }
+    .smartscreen-step {
+      background: rgba(10, 13, 18, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 0.65rem 0.85rem;
+    }
+    .smartscreen-step-title {
+      font-weight: 600;
+      color: #FFF;
+      font-size: 0.8rem;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .smartscreen-step-text {
+      color: #94A3B8;
+      font-size: 0.78rem;
+      line-height: 1.4;
+    }
+    .smartscreen-step-text strong {
+      color: #E2E8F0;
+    }
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -219,6 +278,31 @@
         <a href="./privacy.html" class="btn-secondary">
           Documentación Legal
         </a>
+      </div>
+
+      <!-- Guía de instalación segura en Windows (SmartScreen) -->
+      <div class="smartscreen-notice">
+        <div class="smartscreen-header">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>Instalación segura en Windows (SmartScreen)</span>
+        </div>
+        <p class="smartscreen-desc">
+          Al ser una versión reciente de lanzamiento beta, tu navegador o Windows podrían mostrar un aviso preventivo de que el archivo <em>"no se descarga habitualmente"</em>. Noveleare está 100% verificado y libre de virus.
+        </p>
+        <div class="smartscreen-steps">
+          <div class="smartscreen-step">
+            <div class="smartscreen-step-title">🌐 En Edge / Chrome:</div>
+            <div class="smartscreen-step-text">
+              Pasa el cursor sobre la descarga ➔ clic en <strong>···</strong> ➔ <strong>Conservar</strong> ➔ <strong>Conservar de todos modos</strong>.
+            </div>
+          </div>
+          <div class="smartscreen-step">
+            <div class="smartscreen-step-title">💻 En Windows SmartScreen:</div>
+            <div class="smartscreen-step-text">
+              Haz clic en <strong>Más información</strong> ➔ y luego en <strong>Ejecutar de todas formas</strong>.
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="features-grid">
