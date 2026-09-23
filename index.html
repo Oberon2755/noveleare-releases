@@ -146,6 +146,7 @@
       max-width: 1540px;
       margin: 0 auto;
       padding: 3rem 3.5rem;
+      min-height: calc(100vh - 70px);
       position: relative;
       z-index: 2;
       display: grid;
@@ -242,10 +243,230 @@
       pointer-events: auto;
     }
 
+    /* ========================================================
+       SECCIÓN FEATURE: MODO ZEN (ENFOQUE TOTAL)
+       ======================================================== */
+    .zen-feature-section {
+      width: 100%;
+      max-width: 1540px;
+      margin: 0 auto;
+      padding: 6rem 3.5rem;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: 4rem;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .zen-text-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+
+    .zen-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      align-self: flex-start;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #34D399;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .zen-badge svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .zen-title {
+      font-size: clamp(2.2rem, 3.2vw, 3rem);
+      font-weight: 800;
+      color: #FFF;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.9);
+    }
+
+    .zen-desc {
+      font-size: clamp(1.05rem, 1.3vw, 1.18rem);
+      color: #E2E8F0;
+      line-height: 1.7;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+    }
+
+    .zen-features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .zen-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      color: #CBD5E1;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .zen-feature-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #34D399;
+      margin-top: 1px;
+      font-size: 0.82rem;
+      font-weight: bold;
+    }
+
+    /* Columna del Showcase Zen (4 imágenes idénticas de 1024x536) */
+    .zen-showcase-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      position: relative;
+      width: 100%;
+    }
+
+    .zen-frame {
+      position: relative;
+      width: 100%;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 40px rgba(16, 185, 129, 0.1);
+      background: #0E1116;
+    }
+
+    .zen-stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1024 / 536;
+      overflow: hidden;
+      background: #080A0D;
+    }
+
+    .zen-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(1.015);
+      transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+    }
+
+    .zen-slide.active {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }
+
+    /* Barra interactiva de control: Pausar/Reanudar y Selección Directa */
+    .zen-controls-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.65rem 0.95rem;
+      background: rgba(18, 25, 35, 0.75);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .zen-tabs {
+      display: flex;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+
+    .zen-tab-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #94A3B8;
+      padding: 0.4rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: inherit;
+    }
+
+    .zen-tab-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #FFF;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .zen-tab-btn.active {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: rgba(16, 185, 129, 0.5);
+      color: #34D399;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.25);
+    }
+
+    .zen-pause-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #E2E8F0;
+      padding: 0.4rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+      font-family: inherit;
+    }
+
+    .zen-pause-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+      color: #FFF;
+    }
+
+    .zen-pause-btn.paused {
+      background: rgba(245, 158, 11, 0.2);
+      border-color: rgba(245, 158, 11, 0.5);
+      color: #FBBF24;
+    }
+
     /* Pie de página integrado sobre el fondo */
     footer {
       width: 100%;
-      padding: 1.5rem 3.5rem;
+      padding: 2rem 3.5rem;
       display: flex;
       align-items: center;
       justify-content: flex-start;
@@ -254,7 +475,7 @@
       position: relative;
       z-index: 2;
       background: transparent;
-      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
       letter-spacing: 0.01em;
     }
@@ -264,6 +485,7 @@
         grid-template-columns: 1fr;
         gap: 2.5rem;
         padding-top: 2rem;
+        min-height: auto;
       }
       .hero-text-col {
         text-align: center;
@@ -273,6 +495,32 @@
       .hero-showcase-col {
         width: 100%;
         margin-left: 0;
+      }
+      .zen-feature-section {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 4rem 1.5rem 3rem;
+      }
+      .zen-text-col {
+        text-align: center;
+        align-items: center;
+      }
+      .zen-badge {
+        align-self: center;
+      }
+      .zen-features-list {
+        align-items: flex-start;
+        text-align: left;
+      }
+      .zen-controls-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .zen-tabs {
+        justify-content: center;
+      }
+      .zen-pause-btn {
+        justify-content: center;
       }
       footer {
         justify-content: center;
@@ -287,6 +535,12 @@
         padding: 2rem 1.25rem;
       }
       h1 { font-size: 2.35rem; }
+      .zen-feature-section {
+        padding: 3rem 1.25rem;
+      }
+      .zen-title {
+        font-size: 2rem;
+      }
       footer {
         padding: 1.25rem;
         text-align: center;
@@ -296,7 +550,7 @@
 </head>
 <body>
 
-  <!-- Fondo atmosférico de santuario de lectura en la naturaleza -->
+  <!-- Fondo atmosférico de santuario de lectura en la naturaleza (Fijo) -->
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
 
@@ -308,6 +562,7 @@
     </a>
     <nav>
       <a href="./index.html" class="active">Inicio</a>
+      <a href="#modo-zen">Modo Zen</a>
       <a href="./download.html" class="nav-btn-download">Descargar</a>
       <a href="./privacy.html">Privacidad</a>
       <a href="./terms.html">Términos</a>
@@ -354,29 +609,156 @@
     </div>
   </main>
 
+  <!-- Nueva Sección: Modo Zen - Escribe en tu Propio Santuario -->
+  <section class="zen-feature-section" id="modo-zen">
+    <div class="zen-text-col">
+      <div class="zen-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+          <path d="M2 12h20"></path>
+        </svg>
+        <span>Enfoque e Inmersión Total</span>
+      </div>
+      <h2 class="zen-title">Modo Zen: Escribe en tu propio santuario</h2>
+      <p class="zen-desc">
+        Diseñado para que te concentres al máximo en tus palabras. Un entorno de escritura limpio y libre de distracciones, sin barras de herramientas que interrumpan tu flujo creativo, con paisajes inmersivos en alta definición y acompañamiento sonoro compaginado para que nada rompa tu inspiración.
+      </p>
+
+      <div class="zen-features-list">
+        <div class="zen-feature-item">
+          <div class="zen-feature-icon">✓</div>
+          <div><strong>Cero Distracciones:</strong> Oculta menús, barras y ventanas para sumergirte en una hoja de trabajo pura y elegante.</div>
+        </div>
+        <div class="zen-feature-item">
+          <div class="zen-feature-icon">✓</div>
+          <div><strong>Paisajes en Alta Definición:</strong> Auroras boreales, cumbres nevadas, senderos de otoño o tu propio fondo personalizado.</div>
+        </div>
+        <div class="zen-feature-item">
+          <div class="zen-feature-icon">✓</div>
+          <div><strong>Atmósfera y Control Total:</strong> Ajuste milimétrico de desenfoque de fondo, opacidad de texto y paisajes sonoros integrados.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="zen-showcase-col">
+      <div class="zen-frame">
+        <div class="zen-stage">
+          <!-- 1. Aurora Boreal -->
+          <img src="./assets/zen-aurora.png" alt="Modo Zen con Aurora Boreal" class="zen-slide active" id="zen-slide-0" />
+          <!-- 2. Cumbre Nevada -->
+          <img src="./assets/zen-mountain.png" alt="Modo Zen en Cumbre Nevada" class="zen-slide" id="zen-slide-1" />
+          <!-- 3. Modal de Personalización -->
+          <img src="./assets/zen-modal.png" alt="Personalizar Modo Zen" class="zen-slide" id="zen-slide-2" />
+          <!-- 4. Catálogo de Paisajes -->
+          <img src="./assets/zen-dropdown.png" alt="Catálogo de paisajes temáticos" class="zen-slide" id="zen-slide-3" />
+        </div>
+      </div>
+
+      <!-- Barra de controles para pausar y alternar entre las 4 imágenes -->
+      <div class="zen-controls-bar">
+        <div class="zen-tabs">
+          <button class="zen-tab-btn active" onclick="selectZenSlide(0)" id="zen-tab-0">
+            <span>Aurora Boreal</span>
+          </button>
+          <button class="zen-tab-btn" onclick="selectZenSlide(1)" id="zen-tab-1">
+            <span>Montaña & Nieve</span>
+          </button>
+          <button class="zen-tab-btn" onclick="selectZenSlide(2)" id="zen-tab-2">
+            <span>Personalización</span>
+          </button>
+          <button class="zen-tab-btn" onclick="selectZenSlide(3)" id="zen-tab-3">
+            <span>Catálogo</span>
+          </button>
+        </div>
+        <button class="zen-pause-btn" onclick="toggleZenPause()" id="zenPauseBtn" title="Pausar o reanudar rotación automática">
+          <span id="zenPauseIcon">❚❚</span>
+          <span id="zenPauseText">Pausar</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer ligero integrado sobre el fondo -->
   <footer>
     <span>© 2026 Noveleare · Desarrollado por Oberon2755</span>
   </footer>
 
   <script>
-    const totalSlides = 3;
-    let current = 0;
+    // 1. Carrusel del Hero (3 imágenes cada 3.5 segundos)
+    const totalHeroSlides = 3;
+    let currentHero = 0;
 
-    function advanceSlide() {
-      const prev = current;
-      current = (current + 1) % totalSlides;
+    function advanceHeroSlide() {
+      const prev = currentHero;
+      currentHero = (currentHero + 1) % totalHeroSlides;
 
-      // Desvanecer slide anterior y activar nuevo suavemente
       const prevSlide = document.getElementById('slide-' + prev);
-      const nextSlide = document.getElementById('slide-' + current);
+      const nextSlide = document.getElementById('slide-' + currentHero);
 
       if (prevSlide) prevSlide.classList.remove('active');
       if (nextSlide) nextSlide.classList.add('active');
     }
 
-    // Ciclo automático con desvanecimiento continuo cada 3.5 segundos
-    setInterval(advanceSlide, 3500);
+    setInterval(advanceHeroSlide, 3500);
+
+    // 2. Carrusel del Bloque Modo Zen (4 imágenes, 3 segundos, pausar / reanudar, tabs clicables)
+    const totalZenSlides = 4;
+    let currentZen = 0;
+    let isZenPaused = false;
+    let zenTimer = null;
+
+    function showZenSlide(index) {
+      if (index === currentZen) return;
+      const prevZen = currentZen;
+      currentZen = index;
+
+      const prevSlide = document.getElementById('zen-slide-' + prevZen);
+      const nextSlide = document.getElementById('zen-slide-' + currentZen);
+      const prevTab = document.getElementById('zen-tab-' + prevZen);
+      const nextTab = document.getElementById('zen-tab-' + currentZen);
+
+      if (prevSlide) prevSlide.classList.remove('active');
+      if (nextSlide) nextSlide.classList.add('active');
+
+      if (prevTab) prevTab.classList.remove('active');
+      if (nextTab) nextTab.classList.add('active');
+    }
+
+    function advanceZenSlide() {
+      if (isZenPaused) return;
+      const nextIndex = (currentZen + 1) % totalZenSlides;
+      showZenSlide(nextIndex);
+    }
+
+    function selectZenSlide(index) {
+      showZenSlide(index);
+      if (!isZenPaused) {
+        clearInterval(zenTimer);
+        zenTimer = setInterval(advanceZenSlide, 3000);
+      }
+    }
+
+    function toggleZenPause() {
+      isZenPaused = !isZenPaused;
+      const btn = document.getElementById('zenPauseBtn');
+      const icon = document.getElementById('zenPauseIcon');
+      const text = document.getElementById('zenPauseText');
+
+      if (isZenPaused) {
+        btn.classList.add('paused');
+        icon.innerText = '▶';
+        text.innerText = 'Reanudar';
+        clearInterval(zenTimer);
+      } else {
+        btn.classList.remove('paused');
+        icon.innerText = '❚❚';
+        text.innerText = 'Pausar';
+        zenTimer = setInterval(advanceZenSlide, 3000);
+      }
+    }
+
+    zenTimer = setInterval(advanceZenSlide, 3000);
   </script>
 
 </body>
