@@ -156,18 +156,25 @@
     .hero-pre-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.38rem 0.95rem;
+      gap: 0.55rem;
+      padding: 0.35rem 0.95rem;
       border-radius: 9999px;
-      background: rgba(14, 19, 26, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(18, 31, 28, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       color: #CBD5E1;
       font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.04em;
       margin-bottom: 1.5rem;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #52B788;
+      display: inline-block;
     }
 
     h1 {
@@ -214,21 +221,21 @@
       gap: 0.65rem;
       padding: 0.85rem 1.85rem;
       border-radius: 12px;
-      background: linear-gradient(135deg, #1C332C 0%, #152621 100%);
+      background: #1C3029;
       color: #FFFFFF;
-      font-weight: 700;
-      font-size: 0.98rem;
+      font-weight: 600;
+      font-size: 0.96rem;
       text-decoration: none;
-      box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.6), 0 0 18px rgba(18, 31, 28, 0.4);
-      border: 1px solid rgba(52, 211, 153, 0.35);
-      transition: all 0.25s ease;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.2s ease;
     }
 
     .hero-btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 30px -6px rgba(0, 0, 0, 0.75), 0 0 24px rgba(26, 45, 40, 0.6);
-      background: linear-gradient(135deg, #244239 0%, #1C332C 100%);
-      border-color: rgba(52, 211, 153, 0.55);
+      background: #254037;
+      border-color: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
       color: #FFF !important;
     }
 
@@ -668,7 +675,8 @@
   <!-- Layout Hero Monumental Central (Estándar de Clase Mundial) -->
   <main>
     <div class="hero-pre-badge">
-      <span>✦ El entorno definitivo para escritores</span>
+      <span class="badge-dot"></span>
+      <span>El entorno definitivo para escritores</span>
     </div>
 
     <h1>El hogar donde nacen<br><span class="hero-highlight">tus historias</span></h1>
