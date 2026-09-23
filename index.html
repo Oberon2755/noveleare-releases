@@ -35,7 +35,7 @@
       position: relative;
     }
 
-    /* Fondo atmosférico de biblioteca natural */
+    /* Fondo atmosférico de santuario de lectura en la naturaleza */
     .hero-bg {
       position: fixed;
       top: 0;
@@ -145,16 +145,16 @@
       width: 100%;
       max-width: 1460px;
       margin: 0 auto;
-      padding: 2.5rem 3.5rem 2rem 3.5rem;
+      padding: 3rem 3.5rem;
       position: relative;
       z-index: 2;
       display: grid;
-      grid-template-columns: 1.05fr 1.25fr;
-      gap: 3.5rem;
+      grid-template-columns: 1fr 1.22fr;
+      gap: 4rem;
       align-items: center;
     }
 
-    /* Columna Izquierda: Texto alineado a la izquierda */
+    /* Columna Izquierda: Mensaje Puro H1 y H2 */
     .hero-text-col {
       text-align: left;
       display: flex;
@@ -163,12 +163,12 @@
     }
 
     h1 {
-      font-size: clamp(2.8rem, 4.2vw, 4.2rem);
+      font-size: clamp(2.8rem, 4.2vw, 4.3rem);
       font-weight: 800;
       color: #FFF;
       letter-spacing: -0.035em;
       line-height: 1.15;
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.5rem;
       text-shadow: 0 4px 28px rgba(0, 0, 0, 0.9), 0 2px 10px rgba(0, 0, 0, 0.95);
     }
 
@@ -182,57 +182,18 @@
     }
 
     .subtitle {
-      font-size: clamp(1.1rem, 1.45vw, 1.3rem);
+      font-size: clamp(1.15rem, 1.5vw, 1.35rem);
       color: #E2E8F0;
-      max-width: 600px;
-      line-height: 1.68;
+      max-width: 620px;
+      line-height: 1.7;
       font-weight: 500;
-      margin-bottom: 2.25rem;
       text-shadow: 0 3px 20px rgba(0, 0, 0, 0.9), 0 1px 6px rgba(0, 0, 0, 0.95);
     }
 
-    /* Selector de Vistas / Pestañas Interactivas (Estilo CapCut / Camtasia) */
-    .showcase-switcher {
-      display: flex;
-      gap: 0.65rem;
-      flex-wrap: wrap;
-    }
-
-    .switch-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(18, 25, 34, 0.75);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #94A3B8;
-      padding: 0.55rem 1.1rem;
-      border-radius: 12px;
-      font-size: 0.86rem;
-      font-weight: 600;
-      cursor: pointer;
-      backdrop-filter: blur(8px);
-      transition: all 0.2s ease;
-    }
-
-    .switch-btn:hover {
-      background: rgba(28, 38, 52, 0.9);
-      border-color: rgba(59, 130, 246, 0.4);
-      color: #FFF;
-      transform: translateY(-1px);
-    }
-
-    .switch-btn.active {
-      background: rgba(59, 130, 246, 0.18);
-      border-color: #3B82F6;
-      color: #FFF;
-      box-shadow: 0 0 16px rgba(59, 130, 246, 0.3);
-    }
-
-    /* Columna Derecha: Collage de Capturas Reales (Showcase) */
+    /* Columna Derecha: Showcase Automático con Transición Suave (Cross-Fade) */
     .hero-showcase-col {
       position: relative;
       width: 100%;
-      perspective: 1200px;
     }
 
     /* Ventana Principal de la Aplicación */
@@ -241,24 +202,19 @@
       border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), 0 0 40px rgba(59, 130, 246, 0.12);
-      transition: all 0.35s ease;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 40px rgba(59, 130, 246, 0.12);
       position: relative;
     }
 
-    .app-window-frame:hover {
-      border-color: rgba(147, 197, 253, 0.35);
-      box-shadow: 0 30px 70px -12px rgba(0, 0, 0, 0.95), 0 0 50px rgba(59, 130, 246, 0.2);
-    }
-
-    /* Barra superior de la ventana con puntos estilo macOS / Dark App */
+    /* Barra superior de la ventana */
     .window-titlebar {
       background: #141923;
-      padding: 0.65rem 1rem;
+      padding: 0.65rem 1.1rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      user-select: none;
     }
 
     .traffic-dots {
@@ -277,80 +233,67 @@
     .dot-green { background: #27C93F; }
 
     .window-title {
-      font-size: 0.76rem;
+      font-size: 0.78rem;
       font-weight: 600;
       color: #94A3B8;
       letter-spacing: 0.02em;
+      transition: color 0.3s ease;
     }
 
-    .main-screen-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: opacity 0.25s ease, transform 0.25s ease;
-    }
-
-    /* Tarjetas flotantes superpuestas (Collage dinámico) */
-    .floating-cards-tray {
+    /* Indicador discreto de diapositiva activa en el titlebar */
+    .slide-indicators {
       display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
-      justify-content: flex-end;
+      gap: 6px;
+      align-items: center;
     }
 
-    .thumb-card {
-      background: rgba(16, 20, 28, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 12px;
-      padding: 0.4rem;
-      cursor: pointer;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-      transition: all 0.25s ease;
-      width: 130px;
-      text-align: center;
+    .indicator-pill {
+      width: 14px;
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.18);
+      transition: all 0.4s ease;
     }
 
-    .thumb-card img {
+    .indicator-pill.active {
+      background: #3B82F6;
+      width: 24px;
+      box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+    }
+
+    /* Contenedor del escenario de imágenes */
+    .showcase-stage {
+      position: relative;
       width: 100%;
-      height: 65px;
-      object-fit: cover;
-      border-radius: 8px;
-      display: block;
-      margin-bottom: 0.35rem;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .thumb-card span {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: #CBD5E1;
-      display: block;
-      white-space: nowrap;
+      aspect-ratio: 1024 / 540;
+      background: #0E1116;
       overflow: hidden;
-      text-overflow: ellipsis;
     }
 
-    .thumb-card:hover {
-      transform: translateY(-4px) scale(1.03);
-      border-color: #3B82F6;
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(59, 130, 246, 0.3);
+    /* Capas de imágenes superpuestas con desvanecimiento cruzado */
+    .showcase-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(1.015);
+      transition: opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
     }
 
-    .thumb-card.active {
-      border-color: #3B82F6;
-      background: rgba(30, 41, 59, 0.95);
-      box-shadow: 0 0 18px rgba(59, 130, 246, 0.4);
-    }
-
-    .thumb-card.active span {
-      color: #93C5FD;
+    .showcase-slide.active {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
     }
 
     /* Pie de página integrado sobre el fondo */
     footer {
       width: 100%;
-      padding: 1.25rem 3.5rem;
+      padding: 1.5rem 3.5rem;
       display: flex;
       align-items: center;
       justify-content: flex-start;
@@ -367,18 +310,12 @@
     @media (max-width: 1080px) {
       main {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 3rem;
         padding-top: 2rem;
       }
       .hero-text-col {
         text-align: center;
         align-items: center;
-      }
-      .showcase-switcher {
-        justify-content: center;
-      }
-      .floating-cards-tray {
-        justify-content: center;
       }
       footer {
         justify-content: center;
@@ -393,8 +330,6 @@
         padding: 2rem 1.25rem;
       }
       h1 { font-size: 2.35rem; }
-      .thumb-card { width: 105px; }
-      .thumb-card img { height: 50px; }
       footer {
         padding: 1.25rem;
         text-align: center;
@@ -422,28 +357,15 @@
     </nav>
   </header>
 
-  <!-- Layout Split Hero: 50% Texto a la Izquierda / 50% Showcase a la Derecha -->
+  <!-- Layout Split Hero: 50% Mensaje a la Izquierda / 50% Showcase a la Derecha -->
   <main>
-    <!-- Columna Izquierda: Mensaje Central -->
+    <!-- Columna Izquierda: Mensaje Limpio (H1 y H2) -->
     <div class="hero-text-col">
       <h1>El hogar donde nacen<br><span class="hero-highlight">tus historias</span></h1>
       <p class="subtitle">Todo lo que necesitas como autor para dar vida a tus textos en un solo lugar, en un entorno que te acompaña en cada palabra.</p>
-
-      <!-- Botones de exploración de vistas (CapCut / Camtasia style) -->
-      <div class="showcase-switcher">
-        <button class="switch-btn active" onclick="switchShowcase('editor', this)">
-          📝 Hoja de Trabajo
-        </button>
-        <button class="switch-btn" onclick="switchShowcase('plot', this)">
-          🗺️ Planeación de Trama
-        </button>
-        <button class="switch-btn" onclick="switchShowcase('zen', this)">
-          🧘 Modo Zen
-        </button>
-      </div>
     </div>
 
-    <!-- Columna Derecha: Collage de Capturas Reales de Noveleare -->
+    <!-- Columna Derecha: Showcase Automático con Desvanecimiento Suave -->
     <div class="hero-showcase-col">
       <div class="app-window-frame">
         <div class="window-titlebar">
@@ -452,30 +374,38 @@
             <span class="dot dot-yellow"></span>
             <span class="dot dot-green"></span>
           </div>
-          <span class="window-title" id="windowTitle">Noveleare — Legado (Capítulo 1: Suspiro)</span>
-          <div style="width: 40px;"></div>
+          <span class="window-title" id="windowTitle">Noveleare — Hoja de Trabajo Principal</span>
+          <div class="slide-indicators">
+            <span class="indicator-pill active" id="ind-0"></span>
+            <span class="indicator-pill" id="ind-1"></span>
+            <span class="indicator-pill" id="ind-2"></span>
+          </div>
         </div>
-        <img 
-          id="mainShowcaseImg" 
-          src="./assets/showcase-editor.png" 
-          alt="Hoja de trabajo principal de Noveleare" 
-          class="main-screen-img"
-        />
-      </div>
 
-      <!-- Bandeja de miniaturas interactivas para alternar -->
-      <div class="floating-cards-tray">
-        <div class="thumb-card active" id="thumb-editor" onclick="switchShowcase('editor', document.querySelectorAll('.switch-btn')[0])">
-          <img src="./assets/showcase-editor.png" alt="Editor" />
-          <span>Editor Principal</span>
-        </div>
-        <div class="thumb-card" id="thumb-plot" onclick="switchShowcase('plot', document.querySelectorAll('.switch-btn')[1])">
-          <img src="./assets/showcase-plot.png" alt="Planeación de Trama" />
-          <span>Línea de Trama</span>
-        </div>
-        <div class="thumb-card" id="thumb-zen" onclick="switchShowcase('zen', document.querySelectorAll('.switch-btn')[2])">
-          <img src="./assets/showcase-zen.png" alt="Modo Zen" />
-          <span>Escritura Zen</span>
+        <div class="showcase-stage">
+          <!-- 1. Hoja de Trabajo Principal (Editor) -->
+          <img 
+            src="./assets/showcase-editor.png" 
+            alt="Hoja de trabajo principal de Noveleare" 
+            class="showcase-slide active"
+            id="slide-0"
+          />
+
+          <!-- 2. Planeación de Trama & Línea Temporal -->
+          <img 
+            src="./assets/showcase-plot.png" 
+            alt="Planeación de trama y línea temporal en Noveleare" 
+            class="showcase-slide"
+            id="slide-1"
+          />
+
+          <!-- 3. Modo Zen Inmersivo -->
+          <img 
+            src="./assets/showcase-zen.png" 
+            alt="Modo Zen inmersivo de escritura" 
+            class="showcase-slide"
+            id="slide-2"
+          />
         </div>
       </div>
     </div>
@@ -487,52 +417,43 @@
   </footer>
 
   <script>
-    const showcases = {
-      editor: {
-        src: './assets/showcase-editor.png',
-        title: 'Noveleare — Legado (Capítulo 1: Suspiro)',
-        alt: 'Hoja de trabajo principal de Noveleare'
-      },
-      plot: {
-        src: './assets/showcase-plot.png',
-        title: 'Noveleare — Planeación de Trama & Línea Temporal (Legado)',
-        alt: 'Planeación de Trama y Subtramas en Noveleare'
-      },
-      zen: {
-        src: './assets/showcase-zen.png',
-        title: 'Noveleare — Escritura Inmersiva en Modo Zen',
-        alt: 'Modo Zen de escritura libre de distracciones'
+    const titles = [
+      'Noveleare — Hoja de Trabajo Principal',
+      'Noveleare — Planeación de Trama & Línea Temporal',
+      'Noveleare — Modo Zen Inmersivo'
+    ];
+
+    const totalSlides = 3;
+    let current = 0;
+    const titleEl = document.getElementById('windowTitle');
+
+    function advanceSlide() {
+      const prev = current;
+      current = (current + 1) % totalSlides;
+
+      // Desvanecer slide anterior y activar nuevo
+      const prevSlide = document.getElementById('slide-' + prev);
+      const nextSlide = document.getElementById('slide-' + current);
+      const prevInd = document.getElementById('ind-' + prev);
+      const nextInd = document.getElementById('ind-' + current);
+
+      if (prevSlide) prevSlide.classList.remove('active');
+      if (nextSlide) nextSlide.classList.add('active');
+
+      if (prevInd) prevInd.classList.remove('active');
+      if (nextInd) nextInd.classList.add('active');
+
+      if (titleEl) {
+        titleEl.style.opacity = '0.3';
+        setTimeout(() => {
+          titleEl.innerText = titles[current];
+          titleEl.style.opacity = '1';
+        }, 200);
       }
-    };
-
-    function switchShowcase(key, btnEl) {
-      const data = showcases[key];
-      if (!data) return;
-
-      const img = document.getElementById('mainShowcaseImg');
-      const title = document.getElementById('windowTitle');
-
-      // Animación suave de cambio
-      img.style.opacity = '0.4';
-      img.style.transform = 'scale(0.985)';
-
-      setTimeout(() => {
-        img.src = data.src;
-        img.alt = data.alt;
-        title.innerText = data.title;
-        img.style.opacity = '1';
-        img.style.transform = 'scale(1)';
-      }, 150);
-
-      // Actualizar botones activos
-      document.querySelectorAll('.switch-btn').forEach(b => b.classList.remove('active'));
-      if (btnEl) btnEl.classList.add('active');
-
-      // Actualizar miniaturas activas
-      document.querySelectorAll('.thumb-card').forEach(c => c.classList.remove('active'));
-      const activeThumb = document.getElementById('thumb-' + key);
-      if (activeThumb) activeThumb.classList.add('active');
     }
+
+    // Ciclo automático con desvanecimiento cada 3.5 segundos en bucle infinito
+    setInterval(advanceSlide, 3500);
   </script>
 
 </body>
