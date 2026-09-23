@@ -10,16 +10,14 @@
   <style>
     :root {
       --bg: #0A0D12;
-      --card-bg: #111620;
-      --card-hover: #161D2B;
-      --border: #202736;
-      --border-accent: rgba(59, 130, 246, 0.35);
-      --text-main: #E2E8F0;
-      --text-muted: #94A3B8;
+      --header-bg: #121F1C;
+      --border-header: #202E2A;
+      --text-main: #FFFFFF;
+      --text-muted: #CBD5E1;
       --text-dim: #64748B;
       --accent: #3B82F6;
       --accent-light: #93C5FD;
-      --mint: #6FA887;
+      --mint: #B5E5D8;
       --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     }
 
@@ -34,22 +32,51 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
+      position: relative;
     }
 
-    /* Header superior de ancho completo (Edge-to-Edge) */
+    /* Fondo atmosférico difuminado (Santuario de lectura y biblioteca natural) */
+    .hero-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('./assets/library-sanctuary.jpg');
+      background-size: cover;
+      background-position: center center;
+      filter: blur(14px) brightness(0.38) saturate(1.15);
+      transform: scale(1.08); /* Evita bordes blancos por el desenfoque */
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Velo de degradado para contraste y legibilidad absoluta */
+    .hero-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(18, 31, 28, 0.4) 0%, rgba(10, 13, 18, 0.78) 65%, rgba(10, 13, 18, 0.94) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Cabecera superior sólida con el color oficial de Noveleare (#121F1C) */
     header {
       width: 100%;
       padding: 1.25rem 3.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid var(--border);
-      background: rgba(10, 13, 18, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-header);
+      background-color: var(--header-bg);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 10;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
     }
 
     .brand {
@@ -99,10 +126,10 @@
     }
 
     .nav-btn-download {
-      background: rgba(59, 130, 246, 0.15);
+      background: rgba(59, 130, 246, 0.18);
       color: var(--accent-light) !important;
-      border: 1px solid rgba(59, 130, 246, 0.35);
-      padding: 0.45rem 1.15rem;
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      padding: 0.45rem 1.2rem;
       border-radius: 9999px;
       transition: all 0.2s ease !important;
     }
@@ -113,165 +140,65 @@
       transform: translateY(-1px);
     }
 
-    /* Contenedor principal de escritorio */
+    /* Área central de escritorio enfocada en H1 y H2 */
     main {
       flex: 1;
       width: 100%;
-      max-width: 1360px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 5.5rem 3.5rem 6.5rem 3.5rem;
+      padding: 6rem 2.5rem 8rem 2.5rem;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .hero {
+    .hero-content {
       text-align: center;
-      max-width: 980px;
+      max-width: 960px;
       margin: 0 auto;
-    }
-
-    .badge {
-      display: inline-flex;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent-light);
-      background: rgba(59, 130, 246, 0.12);
-      padding: 0.45rem 1.15rem;
-      border-radius: 9999px;
-      border: 1px solid rgba(59, 130, 246, 0.28);
-      margin-bottom: 2rem;
     }
 
     h1 {
-      font-size: 4rem;
+      font-size: clamp(3.2rem, 5.5vw, 4.75rem);
       font-weight: 800;
       color: #FFF;
       letter-spacing: -0.04em;
-      line-height: 1.12;
-      margin-bottom: 1.5rem;
+      line-height: 1.14;
+      margin-bottom: 2rem;
+      text-shadow: 0 4px 28px rgba(0, 0, 0, 0.6);
     }
 
     h1 span {
-      background: linear-gradient(135deg, #93C5FD 10%, #3B82F6 100%);
+      background: linear-gradient(135deg, #B5E5D8 15%, #93C5FD 60%, #3B82F6 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .subtitle {
-      font-size: 1.28rem;
-      color: var(--text-muted);
-      max-width: 780px;
-      margin: 0 auto 3rem auto;
-      line-height: 1.65;
-    }
-
-    .cta-group {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1.25rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.65rem;
-      background: #FFF;
-      color: #0A0D12;
-      font-weight: 700;
-      font-size: 1.02rem;
-      padding: 1rem 2.25rem;
-      border-radius: 14px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.16);
-    }
-
-    .btn-primary:hover {
-      background: #F1F5F9;
-      transform: translateY(-2px);
-      box-shadow: 0 14px 34px rgba(255, 255, 255, 0.25);
-    }
-
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.65rem;
-      background: #161C26;
+      font-size: clamp(1.22rem, 2vw, 1.5rem);
       color: #E2E8F0;
-      font-weight: 600;
-      font-size: 1.02rem;
-      padding: 1rem 2.25rem;
-      border-radius: 14px;
-      text-decoration: none;
-      border: 1px solid var(--border);
-      transition: all 0.2s ease;
+      max-width: 840px;
+      margin: 0 auto;
+      line-height: 1.7;
+      font-weight: 500;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.7);
     }
 
-    .btn-secondary:hover {
-      border-color: #3B82F6;
-      background: #1B2230;
-      color: #FFF;
-      transform: translateY(-2px);
-    }
-
-    /* Grid de Características de Escritorio Ensanchada (3 columnas) */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.75rem;
-      max-width: 1240px;
-      margin: 6rem auto 0 auto;
-    }
-
-    .feature-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 2.25rem 2rem;
-      text-align: left;
-      transition: all 0.25s ease;
-    }
-
-    .feature-card:hover {
-      background: var(--card-hover);
-      border-color: var(--border-accent);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
-    }
-
-    .feature-card-icon {
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-      display: inline-block;
-    }
-
-    .feature-card h3 {
-      font-size: 1.2rem;
-      color: #FFF;
-      margin-bottom: 0.65rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .feature-card p {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      line-height: 1.6;
-    }
-
-    /* Footer de ancho completo (Edge-to-Edge) */
+    /* Footer sólido a juego con la cabecera */
     footer {
       width: 100%;
-      border-top: 1px solid var(--border);
-      padding: 2.25rem 3.5rem;
+      border-top: 1px solid var(--border-header);
+      padding: 2rem 3.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       color: var(--text-dim);
       font-size: 0.9rem;
-      background: var(--bg);
+      background-color: var(--header-bg);
+      position: relative;
+      z-index: 2;
       flex-wrap: wrap;
       gap: 1.25rem;
     }
@@ -292,29 +219,12 @@
       color: #FFF;
     }
 
-    /* Adaptabilidad */
-    @media (max-width: 1024px) {
-      header, footer, main {
-        padding-left: 2rem;
-        padding-right: 2rem;
-      }
-      h1 { font-size: 3.25rem; }
-      .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
     @media (max-width: 768px) {
       header {
         padding: 1.25rem 1.5rem;
       }
       main {
-        padding: 3.5rem 1.5rem 4rem 1.5rem;
-      }
-      h1 { font-size: 2.45rem; }
-      .subtitle { font-size: 1.1rem; }
-      .features-grid {
-        grid-template-columns: 1fr;
+        padding: 4rem 1.5rem;
       }
       footer {
         padding: 2rem 1.5rem;
@@ -326,7 +236,11 @@
 </head>
 <body>
 
-  <!-- Cabecera de ancho completo con logo arriba a la izquierda -->
+  <!-- Fondo difuminado de biblioteca natural -->
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+
+  <!-- Cabecera sólida (#121F1C) con logo arriba a la izquierda -->
   <header>
     <a href="./index.html" class="brand" title="Noveleare">
       <img src="./assets/noveleare-symbol-transparent.png" alt="Logo Noveleare" class="brand-symbol" />
@@ -340,45 +254,15 @@
     </nav>
   </header>
 
-  <!-- Área de contenido ensanchada para escritorio con H1 y H2 como atracción principal -->
+  <!-- Contenido central: H1 y H2 como atracción principal y protagonista -->
   <main>
-    <section class="hero">
-      <div class="badge">Noveleare Beta · Versión 1.1.3</div>
+    <div class="hero-content">
       <h1>El hogar donde nacen <span>tus historias</span></h1>
       <p class="subtitle">Todo lo que necesitas como autor para dar vida a tus textos en un solo lugar, en un entorno que te acompaña en cada palabra.</p>
-      
-      <div class="cta-group">
-        <a href="./download.html" class="btn-primary">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Descargar Noveleare
-        </a>
-        <a href="./privacy.html" class="btn-secondary">
-          Documentación Legal
-        </a>
-      </div>
-
-      <!-- Grid de características en 3 columnas anchas -->
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-card-icon">🔒</div>
-          <h3>100% Local-First</h3>
-          <p>Tus manuscritos residen únicamente en tu disco duro. Nunca subimos, escaneamos ni comercializamos tus textos.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-card-icon">⚡</div>
-          <h3>Hot-Swap Updater</h3>
-          <p>Actualizaciones automáticas instantáneas en 2 segundos sin reinstalar ni volver a descargar instaladores pesados.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-card-icon">🤖</div>
-          <h3>IA Privada (BYOK)</h3>
-          <p>Conecta Google Gemini o Groq con tus propias claves API directamente desde tu equipo, sin intermediarios.</p>
-        </div>
-      </div>
-    </section>
+    </div>
   </main>
 
-  <!-- Footer de ancho completo -->
+  <!-- Footer sólido alineado -->
   <footer>
     <span>© 2026 Noveleare · Desarrollado por Oberon2755</span>
     <div class="footer-links">
