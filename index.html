@@ -139,33 +139,47 @@
       transform: translateY(-1px);
     }
 
-    /* Layout Hero: H1 Central Superior + Fila Inferior (H2 + Showcase) */
+    /* Layout Hero: Formato Monumental Central Estándar SaaS & Desktop */
     main {
       flex: 1;
       width: 100%;
-      max-width: 1540px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 3.5rem 3.5rem 4rem;
+      padding: 4.5rem 2rem 5rem;
       min-height: calc(100vh - 70px);
       position: relative;
       z-index: 2;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      text-align: center;
       justify-content: center;
     }
 
-    .hero-header-center {
-      text-align: center;
-      margin-bottom: 2.75rem;
+    .hero-pre-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.38rem 0.95rem;
+      border-radius: 9999px;
+      background: rgba(14, 19, 26, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #CBD5E1;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     }
 
     h1 {
-      font-size: clamp(3rem, 4.6vw, 4.5rem);
+      font-size: clamp(3rem, 5vw, 4.8rem);
       font-weight: 800;
       color: #FFF;
-      letter-spacing: -0.035em;
-      line-height: 1.15;
-      margin-bottom: 0;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 1.35rem;
       text-shadow: 0 4px 28px rgba(0, 0, 0, 0.9), 0 2px 10px rgba(0, 0, 0, 0.95);
     }
 
@@ -178,53 +192,163 @@
       filter: drop-shadow(0 2px 18px rgba(186, 230, 253, 0.45));
     }
 
-    .hero-body-grid {
-      display: grid;
-      grid-template-columns: 0.95fr 1.45fr;
-      gap: 3.5rem;
-      align-items: center;
-      width: 100%;
+    .hero-subtitle {
+      font-size: clamp(1.12rem, 1.45vw, 1.28rem);
+      color: #CBD5E1;
+      max-width: 740px;
+      margin: 0 auto 2.2rem;
+      line-height: 1.72;
+      font-weight: 400;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9);
     }
 
-    /* Columna Izquierda: Mensaje H2 con Mayor Presencia */
-    .hero-text-col {
-      text-align: left;
+    .hero-cta-group {
       display: flex;
-      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      position: relative;
-      z-index: 2;
+      gap: 1.15rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
     }
 
-    .subtitle {
-      font-size: clamp(1.22rem, 1.6vw, 1.42rem);
+    .hero-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.85rem 1.85rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.98rem;
+      text-decoration: none;
+      box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4), 0 0 20px rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.25s ease;
+    }
+
+    .hero-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 35px -5px rgba(16, 185, 129, 0.55), 0 0 30px rgba(16, 185, 129, 0.35);
+      background: linear-gradient(135deg, #34D399 0%, #059669 100%);
+      color: #FFF !important;
+    }
+
+    .hero-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.6rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.06);
       color: #F1F5F9;
-      max-width: 580px;
-      line-height: 1.75;
-      font-weight: 500;
-      text-shadow: 0 3px 20px rgba(0, 0, 0, 0.9), 0 1px 6px rgba(0, 0, 0, 0.95);
+      font-weight: 600;
+      font-size: 0.98rem;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(12px);
+      transition: all 0.25s ease;
     }
 
-    /* Columna Derecha: Showcase Automático en su Propio Espacio Generoso */
-    .hero-showcase-col {
-      position: relative;
-      width: 100%;
-      margin-left: 0;
-      z-index: 2;
+    .hero-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      color: #FFF !important;
+    }
+
+    .cta-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .cta-icon-subtle {
+      width: 16px;
+      height: 16px;
+      opacity: 0.75;
+    }
+
+    .hero-trust-row {
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 0.75rem;
+      color: #94A3B8;
+      font-size: 0.82rem;
+      margin-bottom: 3.5rem;
+      flex-wrap: wrap;
     }
 
-    /* Marco Elegante y Moderno de la Pantalla (sin barras ni botones) */
+    .trust-sep {
+      opacity: 0.4;
+    }
+
+    /* Escaparate Central del Software (Gran Escala con Barra de Ventana) */
+    .hero-stage-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
     .app-screen-frame {
       position: relative;
       width: 100%;
-      border-radius: 18px;
+      border-radius: 16px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), 0 0 35px rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 35px 80px -20px rgba(0, 0, 0, 0.95), 0 0 60px rgba(16, 185, 129, 0.08);
       background: #0E1116;
+    }
+
+    .app-window-titlebar {
+      height: 38px;
+      background: #111720;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1rem;
+      user-select: none;
+    }
+
+    .window-dots {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .window-dots .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot-close { background: #FF5F56; }
+    .dot-min { background: #FFBD2E; }
+    .dot-max { background: #27C93F; }
+
+    .window-title {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: #64748B;
+      letter-spacing: 0.02em;
+    }
+
+    .window-badge-wrap {
+      display: flex;
+      align-items: center;
+    }
+
+    .window-pill {
+      font-size: 0.68rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94A3B8;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
     }
 
     /* Escenario de imágenes en formato panorámico 16:9 */
@@ -487,21 +611,8 @@
 
     @media (max-width: 1080px) {
       main {
-        padding: 2.5rem 1.5rem 2rem;
+        padding: 3.5rem 1.5rem 4rem;
         min-height: auto;
-      }
-      .hero-body-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-      .hero-text-col {
-        text-align: center;
-        align-items: center;
-        padding-right: 0;
-      }
-      .hero-showcase-col {
-        width: 100%;
-        margin-left: 0;
       }
       .zen-feature-section {
         grid-template-columns: 1fr;
@@ -529,9 +640,18 @@
         padding: 0.55rem 1.25rem;
       }
       main {
-        padding: 2rem 1.25rem;
+        padding: 2.5rem 1.25rem 3rem;
       }
       h1 { font-size: 2.35rem; }
+      .hero-subtitle { font-size: 1.05rem; }
+      .hero-cta-group {
+        flex-direction: column;
+        width: 100%;
+      }
+      .hero-btn-primary, .hero-btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
       .zen-feature-section {
         padding: 3rem 1.25rem;
       }
@@ -566,46 +686,81 @@
     </nav>
   </header>
 
-  <!-- Layout Hero: H1 Central Superior + Fila Inferior (H2 a la izquierda + Showcase al centro-derecha) -->
+  <!-- Layout Hero Monumental Central (Estándar de Clase Mundial) -->
   <main>
-    <div class="hero-header-center">
-      <h1>El hogar donde nacen<br><span class="hero-highlight">tus historias</span></h1>
+    <div class="hero-pre-badge">
+      <span>✦ El entorno definitivo para escritores</span>
     </div>
 
-    <div class="hero-body-grid">
-      <!-- Columna Izquierda: Mensaje H2 Destacado -->
-      <div class="hero-text-col">
-        <p class="subtitle">Todo lo que necesitas como autor para dar vida a tus textos en un solo lugar, en un entorno que te acompaña en cada palabra.</p>
-      </div>
+    <h1>El hogar donde nacen<br><span class="hero-highlight">tus historias</span></h1>
 
-      <!-- Columna Derecha: Showcase Automático Ampliado -->
-      <div class="hero-showcase-col">
-        <div class="app-screen-frame">
-          <div class="showcase-stage">
-            <!-- 1. Hoja de Trabajo Principal (Editor) -->
-            <img 
-              src="./assets/showcase-editor.png" 
-              alt="Hoja de trabajo principal de Noveleare" 
-              class="showcase-slide active"
-              id="slide-0"
-            />
+    <p class="hero-subtitle">
+      Todo lo que necesitas como autor para dar vida a tus obras maestras: planificación de tramas complejas, asistencia inteligente y un santuario de concentración sin distracciones.
+    </p>
 
-            <!-- 2. Planeación de Trama & Línea Temporal -->
-            <img 
-              src="./assets/showcase-plot.png" 
-              alt="Planeación de trama y línea temporal en Noveleare" 
-              class="showcase-slide"
-              id="slide-1"
-            />
+    <div class="hero-cta-group">
+      <a href="./download.html" class="hero-btn-primary">
+        <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        <span>Descargar para Windows</span>
+      </a>
+      <a href="#modo-zen" class="hero-btn-secondary">
+        <span>Explorar Funciones</span>
+        <svg class="cta-icon-subtle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </a>
+    </div>
 
-            <!-- 3. Modo Zen Inmersivo -->
-            <img 
-              src="./assets/showcase-zen.png" 
-              alt="Modo Zen inmersivo de escritura" 
-              class="showcase-slide"
-              id="slide-2"
-            />
+    <div class="hero-trust-row">
+      <span>Compatible con Windows 10/11</span>
+      <span class="trust-sep">·</span>
+      <span>Funciona 100% Offline</span>
+      <span class="trust-sep">·</span>
+      <span>Tus manuscritos en tu equipo</span>
+    </div>
+
+    <!-- Escaparate Central del Software -->
+    <div class="hero-stage-container">
+      <div class="app-screen-frame">
+        <div class="app-window-titlebar">
+          <div class="window-dots">
+            <span class="dot dot-close"></span>
+            <span class="dot dot-min"></span>
+            <span class="dot dot-max"></span>
           </div>
+          <div class="window-title">Noveleare — Legado · Capítulo 1</div>
+          <div class="window-badge-wrap">
+            <span class="window-pill">v1.1</span>
+          </div>
+        </div>
+        <div class="showcase-stage">
+          <!-- 1. Hoja de Trabajo Principal (Editor) -->
+          <img 
+            src="./assets/showcase-editor.png" 
+            alt="Hoja de trabajo principal de Noveleare" 
+            class="showcase-slide active"
+            id="slide-0"
+          />
+
+          <!-- 2. Planeación de Trama & Línea Temporal -->
+          <img 
+            src="./assets/showcase-plot.png" 
+            alt="Planeación de trama y línea temporal en Noveleare" 
+            class="showcase-slide"
+            id="slide-1"
+          />
+
+          <!-- 3. Modo Zen Inmersivo -->
+          <img 
+            src="./assets/showcase-zen.png" 
+            alt="Modo Zen inmersivo de escritura" 
+            class="showcase-slide"
+            id="slide-2"
+          />
         </div>
       </div>
     </div>
