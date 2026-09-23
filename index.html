@@ -143,23 +143,26 @@
     main {
       flex: 1;
       width: 100%;
-      max-width: 1460px;
+      max-width: 1720px;
       margin: 0 auto;
-      padding: 3rem 3.5rem;
+      padding: 2rem 3rem;
       position: relative;
       z-index: 2;
       display: grid;
-      grid-template-columns: 1fr 1.22fr;
-      gap: 4rem;
+      grid-template-columns: 0.9fr 1.55fr;
+      gap: 0;
       align-items: center;
     }
 
-    /* Columna Izquierda: Mensaje Puro H1 y H2 */
+    /* Columna Izquierda: Mensaje Puro H1 y H2 en Primer Plano Absoluto */
     .hero-text-col {
       text-align: left;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      position: relative;
+      z-index: 30; /* 100% por encima de cualquier elemento o resplandor */
+      pointer-events: auto;
     }
 
     h1 {
@@ -169,7 +172,7 @@
       letter-spacing: -0.035em;
       line-height: 1.15;
       margin-bottom: 1.5rem;
-      text-shadow: 0 4px 28px rgba(0, 0, 0, 0.9), 0 2px 10px rgba(0, 0, 0, 0.95);
+      text-shadow: 0 4px 12px rgba(0, 0, 0, 1), 0 2px 28px rgba(0, 0, 0, 0.95);
     }
 
     .hero-highlight {
@@ -183,35 +186,36 @@
 
     .subtitle {
       font-size: clamp(1.15rem, 1.5vw, 1.35rem);
-      color: #E2E8F0;
-      max-width: 620px;
+      color: #F8FAFC;
+      max-width: 600px;
       line-height: 1.7;
       font-weight: 500;
-      text-shadow: 0 3px 20px rgba(0, 0, 0, 0.9), 0 1px 6px rgba(0, 0, 0, 0.95);
+      /* Sombra nítida de alto contraste para que el texto sea 100% legible y opaco sin importar el fondo */
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 1), 0 4px 16px rgba(0, 0, 0, 0.95), 0 0 24px rgba(0, 0, 0, 0.85);
     }
 
-    /* Columna Derecha: Showcase Integrado como Fondo Atmosférico (Feathered Blend) */
+    /* Columna Derecha: Showcase Expandido hacia Ambos Lados y Fundido con el Fondo */
     .hero-showcase-col {
       position: relative;
-      width: 118%;
-      margin-left: -18%;
-      z-index: 3;
+      width: 128%;
+      margin-left: -28%;
+      z-index: 2; /* Estrictamente por debajo de .hero-text-col (z-index: 30) */
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-end;
     }
 
     /* Resplandor y halo ambiental detrás del software */
     .showcase-ambient-glow {
       position: absolute;
-      inset: -15%;
+      inset: -12%;
       background: radial-gradient(circle at 60% 50%, rgba(16, 185, 129, 0.16) 0%, rgba(59, 130, 246, 0.12) 35%, transparent 70%);
-      filter: blur(75px);
+      filter: blur(80px);
       pointer-events: none;
       z-index: 1;
     }
 
-    /* Escenario con máscara perimetral difusa (Feathered / Vignette) que se disuelve en el fondo */
+    /* Escenario con máscara perimetral difusa ampliada (Feathered / Vignette) */
     .showcase-stage {
       position: relative;
       width: 100%;
@@ -219,9 +223,9 @@
       border-radius: 20px;
       overflow: hidden;
       z-index: 2;
-      /* Máscara elíptica suave: nítida en el centro de trabajo y desvanecida 100% en los 4 bordes */
-      -webkit-mask-image: radial-gradient(ellipse 92% 86% at 55% 50%, black 50%, rgba(0, 0, 0, 0.75) 75%, transparent 100%);
-      mask-image: radial-gradient(ellipse 92% 86% at 55% 50%, black 50%, rgba(0, 0, 0, 0.75) 75%, transparent 100%);
+      /* Máscara elíptica calibrada: mayor campo nítido central y desvanecimiento suave en los bordes lejanos */
+      -webkit-mask-image: radial-gradient(ellipse 96% 90% at 55% 50%, black 58%, rgba(0, 0, 0, 0.8) 78%, transparent 100%);
+      mask-image: radial-gradient(ellipse 96% 90% at 55% 50%, black 58%, rgba(0, 0, 0, 0.8) 78%, transparent 100%);
       box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7);
     }
 
