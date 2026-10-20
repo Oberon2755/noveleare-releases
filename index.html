@@ -449,18 +449,20 @@
       100% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
     }
 
-    .hero-brand-img {
+    .hero-brand-img,
+    .hero-animated-logo {
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 330px;
+      max-width: 360px;
       height: auto;
       display: block;
-      filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 28px rgba(157, 227, 208, 0.25));
+      filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 28px rgba(181, 229, 216, 0.25));
       transition: transform 0.5s var(--ease-smooth);
     }
 
-    .hero-brand-card:hover .hero-brand-img {
+    .hero-brand-card:hover .hero-brand-img,
+    .hero-brand-card:hover .hero-animated-logo {
       transform: scale(1.03);
     }
 
@@ -1667,18 +1669,58 @@
           </div>
         </div>
 
-        <!-- Right: Majestic Noveleare Brand Showcase -->
+        <!-- Right: Majestic Noveleare Brand Showcase (Interactive Animated SVG) -->
         <div class="hero-brand-showcase gs-hero-visual" data-slot="hero-brand-showcase" aria-label="Noveleare Estudio Literario">
-          <div class="hero-brand-card">
-            <div class="hero-brand-glow" aria-hidden="true"></div>
-            <img 
-              src="./assets/noveleare-hero-logo.png" 
-              alt="Noveleare - Estudio Literario para Escritores" 
-              width="506" 
-              height="675" 
-              class="hero-brand-img"
-              fetchpriority="high"
-            >
+          <div class="hero-brand-card" id="hero-brand-card">
+            <div class="hero-brand-glow" id="hero-brand-glow" aria-hidden="true"></div>
+            <!-- Master Animated Vector SVG Logo (Scroll-Driven Interactive) -->
+            <svg class="hero-animated-logo" id="hero-animated-logo" viewBox="250 150 524 670" xmlns="http://www.w3.org/2000/svg" aria-label="Logotipo Animado de Noveleare">
+              <defs>
+                <filter id="hero-glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="8" result="blur" />
+                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+              </defs>
+
+              <!-- 1. Outer Ring: Begins at 1:00 (626.5, 221.8) and sweeps around to 2:15 (712.3, 324.1) leaving the gap -->
+              <path 
+                id="hero-elem-ring" 
+                d="M 626.5 221.8 A 216 216 0 1 0 712.3 324.1" 
+                fill="none" 
+                stroke="#b5e5d8" 
+                stroke-width="22" 
+                stroke-linecap="round" 
+                stroke-dasharray="1225" 
+                stroke-dashoffset="1225"
+              />
+
+              <!-- 2. Slender & Razor-Sharp Four-Pointed Star (Center at 512, 405) with narrow waist (dx=9) -->
+              <path 
+                id="hero-elem-star" 
+                d="M 512 320 Q 521 396 597 405 Q 521 414 512 490 Q 503 414 427 405 Q 503 396 512 320 Z" 
+                fill="#b5e5d8"
+              />
+
+              <!-- 3. Satellite Sphere: Enlarged (r=16.5) and centered in gap (678, 266) -->
+              <circle 
+                id="hero-elem-ball" 
+                cx="678" 
+                cy="266" 
+                r="16.5" 
+                fill="#b5e5d8"
+              />
+
+              <!-- 4. Noveleare Wordmark (Scaled large and prominent) -->
+              <g id="hero-elem-wordmark" transform="translate(0, 0)">
+                <image 
+                  href="./assets/noveleare-wordmark.png" 
+                  x="268" 
+                  y="712" 
+                  width="488" 
+                  height="74"
+                />
+              </g>
+            </svg>
           </div>
         </div>
       </div>
@@ -2881,6 +2923,92 @@
         window.addEventListener('load', () => ScrollTrigger.refresh());
       }
 
+      // 0. Hero Animated Brand Logo with Scroll-Driven Contraction/Expansion
+      const heroRing = document.getElementById('hero-elem-ring');
+      const heroStar = document.getElementById('hero-elem-star');
+      const heroBall = document.getElementById('hero-elem-ball');
+      const heroWordmark = document.getElementById('hero-elem-wordmark');
+      const heroGlow = document.getElementById('hero-brand-glow');
+
+      if (heroRing && heroStar && heroBall && heroWordmark) {
+        // Master Logo Timeline: progress 0 = fully collapsed/hidden, progress 1 = fully open/assembled
+        const logoTl = gsap.timeline({ paused: true });
+
+        // Phase 1 (0.0 -> 0.45): Outer ring draws clockwise from 1:00 leaving the gap
+        logoTl.fromTo(heroRing, 
+          { strokeDashoffset: 1225 }, 
+          { strokeDashoffset: 0, duration: 0.45, ease: 'power2.inOut' }, 
+          0.0
+        );
+
+        // Phase 2 (0.35 -> 0.68): Slender star pops up in center
+        logoTl.fromTo(heroStar, 
+          { scale: 0, opacity: 0, transformOrigin: '512px 405px' }, 
+          { scale: 1, opacity: 1, duration: 0.33, ease: 'back.out(2.0)' }, 
+          0.35
+        );
+
+        // Phase 3 (0.55 -> 0.85): Satellite sphere drops from top-right into the gap
+        logoTl.fromTo(heroBall, 
+          { x: 140, y: -280, opacity: 0 }, 
+          { x: 0, y: 0, opacity: 1, duration: 0.35, ease: 'bounce.out' }, 
+          0.55
+        );
+
+        // Phase 4 (0.70 -> 1.00): Noveleare wordmark slides in from left
+        logoTl.fromTo(heroWordmark, 
+          { x: -120, opacity: 0 }, 
+          { x: 0, opacity: 1, duration: 0.30, ease: 'power3.out' }, 
+          0.70
+        );
+
+        if (heroGlow) {
+          logoTl.fromTo(heroGlow, 
+            { opacity: 0 }, 
+            { opacity: 0.7, duration: 0.3, ease: 'power2.out' }, 
+            0.70
+          );
+        }
+
+        // Initial Page Load: If user is at top, play the grand build entrance
+        const initialScroll = window.scrollY || window.pageYOffset || 0;
+        let isIntroPlaying = false;
+
+        if (initialScroll < 60) {
+          logoTl.progress(0);
+          isIntroPlaying = true;
+          gsap.to(logoTl, {
+            progress: 1,
+            duration: 2.1,
+            ease: 'power2.out',
+            onComplete: () => {
+              isIntroPlaying = false;
+            }
+          });
+        } else {
+          // If page loaded scrolled down, match scroll position directly
+          const prog = Math.max(0, Math.min(1, 1 - (initialScroll / 300)));
+          logoTl.progress(prog);
+        }
+
+        // Scroll-driven scrubbing: 0 to 300px contraction/expansion
+        const SCROLL_THRESHOLD = 300;
+        window.addEventListener('scroll', () => {
+          const currentY = window.scrollY || window.pageYOffset || 0;
+          if (isIntroPlaying) {
+            gsap.killTweensOf(logoTl);
+            isIntroPlaying = false;
+          }
+          const targetProgress = Math.max(0, Math.min(1, 1 - (currentY / SCROLL_THRESHOLD)));
+          gsap.to(logoTl, {
+            progress: targetProgress,
+            duration: 0.14,
+            ease: 'power1.out',
+            overwrite: 'auto'
+          });
+        }, { passive: true });
+      }
+
       const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
       heroTl
         .from('.gs-hero-text > *', {
@@ -2954,6 +3082,6 @@
       });
     });
   </script>
-  <!-- deploy-v1.3.1: 1792528700 -->
+  <!-- deploy-v1.3.2: 1792530350 -->
 </body>
 </html>
