@@ -76,6 +76,7 @@
       z-index: -2;
       pointer-events: none;
       overflow: hidden;
+      background-color: #07090E;
     }
 
     .ambient-backdrop__image {
@@ -83,17 +84,20 @@
       inset: 0;
       background-image: url('./assets/misty-morning-forest.jpg');
       background-size: cover;
-      background-position: center 28%;
-      opacity: 0.52;
-      filter: saturate(1.05) contrast(1.02);
+      background-position: center center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      opacity: 0.72;
+      filter: saturate(1.15) contrast(1.06);
+      transform: scale(1.01);
     }
 
     .ambient-backdrop__luminous-layer {
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(1200px 650px at 50% 0%, rgba(255, 255, 255, 0.14), transparent 70%),
-        linear-gradient(180deg, rgba(11, 14, 20, 0.42) 0%, rgba(11, 14, 20, 0.68) 45%, rgba(11, 14, 20, 0.92) 100%);
+        radial-gradient(1400px 800px at 50% 0%, rgba(255, 255, 255, 0.2), transparent 75%),
+        linear-gradient(180deg, rgba(7, 9, 14, 0.28) 0%, rgba(7, 9, 14, 0.48) 50%, rgba(7, 9, 14, 0.75) 100%);
     }
 
     .container {
