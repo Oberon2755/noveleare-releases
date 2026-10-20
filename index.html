@@ -57,15 +57,57 @@
       line-height: 1.6;
       overflow-x: hidden;
       position: relative;
-      background-color: #070A0F;
-      background-image:
-        radial-gradient(1600px 900px at 50% 0%, rgba(255, 255, 255, 0.14), transparent 75%),
-        linear-gradient(180deg, rgba(7, 10, 16, 0.22) 0%, rgba(7, 10, 16, 0.42) 45%, rgba(7, 10, 16, 0.72) 100%),
-        url('./assets/misty-morning-forest.jpg');
-      background-attachment: fixed;
+      background-color: #07090E;
+    }
+
+    /* DUAL-PLANE ELEVATOR PARALLAX SYSTEM */
+    #parallax-viewport {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      background-color: #07090E;
+    }
+
+    /* Layer 1 (Back): Tall vertical forest canvas that translates downward through the elevator ride */
+    .parallax-forest-layer {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 190vh;
+      background-image: url('./assets/vertical-forest-canvas.jpg');
+      background-size: cover;
+      background-position: top center;
+      background-repeat: no-repeat;
+      will-change: transform;
+      filter: saturate(1.15) contrast(1.06);
+      transform: translate3d(0, 0, 0);
+    }
+
+    /* Layer 2 (Front): 100% Static glass window with water droplets, condensation and streaks */
+    .parallax-glass-layer {
+      position: absolute;
+      inset: 0;
+      background-image: url('./assets/rain-glass-overlay.jpg');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
+      opacity: 0.65;
+      mix-blend-mode: screen;
+      filter: contrast(1.15) brightness(1.05);
+      pointer-events: none;
+    }
+
+    /* Layer 3: Soft luminous morning vignette */
+    .parallax-vignette-layer {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(1500px 850px at 50% 0%, rgba(255, 255, 255, 0.12), transparent 75%),
+        linear-gradient(180deg, rgba(7, 10, 16, 0.15) 0%, rgba(7, 10, 16, 0.38) 50%, rgba(7, 10, 16, 0.72) 100%);
+      pointer-events: none;
     }
 
     /* Skip link */
@@ -1177,6 +1219,13 @@
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
+  <!-- DUAL-PLANE ELEVATOR PARALLAX SYSTEM -->
+  <div id="parallax-viewport" aria-hidden="true">
+    <div id="parallax-forest" class="parallax-forest-layer"></div>
+    <div id="parallax-glass" class="parallax-glass-layer"></div>
+    <div class="parallax-vignette-layer"></div>
+  </div>
+
   <!-- Sticky Top Navigation -->
   <header class="site-header">
     <div class="container nav-bar">
@@ -1831,6 +1880,18 @@
       if (prefersReducedMotion || typeof window.gsap === 'undefined') return;
 
       gsap.registerPlugin(ScrollTrigger);
+
+      // Dual-Plane Elevator Parallax: Smooth vertical descent from sunlit cloud canopy to deep mossy base
+      gsap.to('#parallax-forest', {
+        yPercent: -45,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: document.body,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 1.2
+        }
+      });
 
       const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
       heroTl
