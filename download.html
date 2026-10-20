@@ -1,369 +1,740 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" style="color-scheme: dark;">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Descargar Noveleare — Suite de Escritorio para Escritores</title>
+  <meta name="theme-color" content="#07070A">
+  <title>Descargar Noveleare v1.1.8 — Instalador Oficial para Windows</title>
+  <meta name="description" content="Descarga Noveleare v1.1.8 para Windows 10 y 11 (64-bit). El estudio literario y taller de escritura creativa 100% Local-First.">
+  <link rel="icon" type="image/png" href="./assets/noveleare-symbol-transparent.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0A0D12;
-      --card-bg: #111620;
-      --card-hover: #161D2B;
-      --border: #202736;
-      --border-accent: rgba(59, 130, 246, 0.35);
-      --text-main: #E2E8F0;
-      --text-muted: #94A3B8;
-      --text-dim: #64748B;
-      --accent: #3B82F6;
-      --accent-light: #93C5FD;
-      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --bg-void: #07070A;
+      --bg-surface-1: #0D0E13;
+      --bg-surface-2: #12141C;
+      --bg-surface-3: #181B26;
+      --border-hairline: rgba(255, 255, 255, 0.08);
+      --border-elevated: rgba(255, 255, 255, 0.14);
+      --text-primary: #F4F3EF;
+      --text-secondary: #A3A19A;
+      --text-muted: #6C6B65;
+      --accent-gold: #DAB36A;
+      --accent-amber: #FBBF24;
+      --accent-emerald: #34D399;
+      --radius-outer: 22px;
+      --radius-inner: 12px;
+      --radius-pill: 9999px;
+      --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+      --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.5), 0 12px 32px -8px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.09);
+      --shadow-window: 0 2px 6px rgba(0, 0, 0, 0.6), 0 28px 72px -12px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.1);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-void);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
 
     body {
-      background-color: var(--bg);
-      color: var(--text-main);
-      font-family: var(--font-sans);
+      background-color: var(--bg-void);
+      color: var(--text-primary);
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      overflow-x: hidden;
     }
 
-    header {
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      z-index: 9999;
+      background: var(--text-primary);
+      color: var(--bg-void);
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .skip-link:focus-visible { top: 16px; }
+
+    a, button {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent-gold);
+      outline-offset: 3px;
+    }
+
+    /* Ambient Atmospheric Layer */
+    .ambient-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .ambient-backdrop__image {
+      position: absolute;
+      inset: 0;
+      background-image: url('./assets/library-sanctuary.jpg');
+      background-size: cover;
+      background-position: center 22%;
+      opacity: 0.2;
+      filter: saturate(0.85) contrast(1.08);
+    }
+
+    .ambient-backdrop__vignette {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(1000px 620px at 50% 10%, rgba(218, 179, 106, 0.12), transparent 65%),
+        linear-gradient(180deg, rgba(7, 7, 10, 0.48) 0%, rgba(7, 7, 10, 0.9) 45%, #07070A 80%);
+    }
+
+    .container {
       width: 100%;
-      padding: 1.25rem 3.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--border);
-      background: rgba(10, 13, 18, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Sticky Navigation */
+    .site-header {
       position: sticky;
       top: 0;
       z-index: 100;
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      background: rgba(7, 7, 10, 0.76);
+      border-bottom: 1px solid var(--border-hairline);
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      text-decoration: none;
-      color: #FFF;
-      font-weight: 800;
-      font-size: 1.45rem;
-      letter-spacing: -0.03em;
-    }
-
-    .brand-symbol {
-      height: 40px;
-      width: 40px;
-      object-fit: contain;
-      display: block;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 600;
-      transition: color 0.2s ease;
-    }
-
-    nav a.active {
-      color: #FFF;
-    }
-
-    nav a:hover {
-      color: #FFF;
-    }
-
-    .nav-btn-download {
-      background: var(--accent);
-      color: #FFF !important;
-      padding: 0.45rem 1.15rem;
-      border-radius: 9999px;
-    }
-
-    main {
-      flex: 1;
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 5rem 2.5rem 6rem 2.5rem;
-      text-align: center;
-    }
-
-    .badge {
-      display: inline-flex;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent-light);
-      background: rgba(59, 130, 246, 0.12);
-      padding: 0.45rem 1.15rem;
-      border-radius: 9999px;
-      border: 1px solid rgba(59, 130, 246, 0.28);
-      margin-bottom: 2rem;
-    }
-
-    h1 {
-      font-size: 3.5rem;
-      font-weight: 800;
-      color: #FFF;
-      letter-spacing: -0.04em;
-      line-height: 1.15;
-      margin-bottom: 1.25rem;
-    }
-
-    h1 span {
-      background: linear-gradient(135deg, #93C5FD 10%, #3B82F6 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .subtitle {
-      font-size: 1.22rem;
-      color: var(--text-muted);
-      max-width: 680px;
-      margin: 0 auto 3rem auto;
-      line-height: 1.6;
-    }
-
-    .download-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 3rem 2.5rem;
-      max-width: 700px;
-      margin: 0 auto 3.5rem auto;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-    }
-
-    .btn-download-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      background: #FFF;
-      color: #0A0D12;
-      font-weight: 700;
-      font-size: 1.1rem;
-      padding: 1.15rem 2.75rem;
-      border-radius: 16px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.18);
-      margin-bottom: 1.25rem;
-    }
-
-    .btn-download-primary:hover {
-      background: #F1F5F9;
-      transform: translateY(-2px);
-      box-shadow: 0 14px 38px rgba(255, 255, 255, 0.28);
-    }
-
-    .meta-details {
-      color: var(--text-dim);
-      font-size: 0.88rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1.25rem;
-      flex-wrap: wrap;
-    }
-
-    .meta-details span {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    /* Aviso de instalación segura para SmartScreen */
-    .smartscreen-notice {
-      background: rgba(17, 22, 32, 0.85);
-      border: 1px solid rgba(59, 130, 246, 0.28);
-      border-radius: 18px;
-      padding: 1.5rem 2rem;
-      max-width: 820px;
-      margin: 0 auto;
-      text-align: left;
-      font-size: 0.88rem;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    }
-
-    .smartscreen-header {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-weight: 700;
-      color: #93C5FD;
-      margin-bottom: 0.5rem;
-      font-size: 0.95rem;
-    }
-
-    .smartscreen-desc {
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-      line-height: 1.55;
-      font-size: 0.85rem;
-    }
-
-    .smartscreen-steps {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .smartscreen-step {
-      background: rgba(10, 13, 18, 0.65);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: 0.95rem 1.15rem;
-    }
-
-    .smartscreen-step-title {
-      font-weight: 700;
-      color: #FFF;
-      font-size: 0.85rem;
-      margin-bottom: 0.35rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .smartscreen-step-text {
-      color: #94A3B8;
-      font-size: 0.82rem;
-      line-height: 1.45;
-    }
-
-    .smartscreen-step-text strong {
-      color: #E2E8F0;
-    }
-
-    footer {
-      width: 100%;
-      border-top: 1px solid var(--border);
-      padding: 2.25rem 3.5rem;
+    .nav-bar {
+      height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      color: var(--text-dim);
-      font-size: 0.9rem;
-      background: var(--bg);
-      flex-wrap: wrap;
-      gap: 1.25rem;
+      gap: 20px;
     }
 
-    footer .footer-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    footer a {
-      color: var(--text-muted);
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
       text-decoration: none;
-      transition: color 0.2s ease;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .brand-link img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+
+    .brand-name-serif {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 999px;
+      transition: color 0.18s ease, background-color 0.18s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: inherit;
+      font-size: 0.94rem;
+      font-weight: 600;
+      line-height: 1;
+      padding: 14px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform 0.18s var(--ease-out-quart), background-color 0.18s ease, box-shadow 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn-primary {
+      background: #F4F3EF;
+      color: #07070A;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 10px 28px -4px rgba(244, 243, 239, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: #FFFFFF;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 0 14px 32px -4px rgba(244, 243, 239, 0.34);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-primary);
+      border-color: var(--border-elevated);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.09);
+      transform: translateY(-1px);
+    }
+
+    .btn-sm {
+      padding: 9px 16px;
+      font-size: 0.84rem;
+      border-radius: 9px;
+    }
+
+    .btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-gold);
+      background: rgba(218, 179, 106, 0.09);
+      border: 1px solid rgba(218, 179, 106, 0.24);
+      padding: 6px 13px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 18px;
+    }
+
+    .section-eyebrow__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+      box-shadow: 0 0 8px var(--accent-emerald);
+    }
+
+    /* Download Hero Split Grid */
+    .download-hero {
+      padding: 72px 0 56px;
+    }
+
+    .download-hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 36px;
+      align-items: stretch;
+    }
+
+    .download-main-card {
+      background: linear-gradient(165deg, rgba(24, 26, 38, 0.9) 0%, rgba(11, 12, 18, 0.96) 100%);
+      border: 1px solid rgba(218, 179, 106, 0.35);
+      border-radius: var(--radius-outer);
+      padding: 40px 36px;
+      box-shadow: var(--shadow-window);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .download-title {
+      font-size: clamp(2.1rem, 3.6vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 14px;
+      text-wrap: balance;
+    }
+
+    .download-title span {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .download-desc {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .installer-specs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      padding: 16px;
+      border-radius: var(--radius-inner);
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border-hairline);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .spec-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .spec-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    .spec-value {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Right Card: Release Highlights & Preview */
+    .release-card {
+      background: linear-gradient(180deg, rgba(19, 21, 30, 0.84) 0%, rgba(11, 12, 18, 0.95) 100%);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-outer);
+      padding: 32px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .release-card h2 {
+      font-size: 1.28rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .changelog-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .changelog-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .changelog-list li svg {
+      width: 16px;
+      height: 16px;
+      color: var(--accent-gold);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* Info Bento Grid (System Requirements + Safe Installation Guide) */
+    .info-section {
+      padding: 32px 0 88px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .info-card {
+      background: linear-gradient(180deg, rgba(18, 20, 28, 0.82) 0%, rgba(11, 12, 18, 0.94) 100%);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-outer);
+      padding: 30px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .info-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-card h3 svg {
+      width: 20px;
+      height: 20px;
+      color: var(--accent-gold);
+    }
+
+    .req-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    .req-table tr {
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .req-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .req-table th {
+      text-align: left;
+      padding: 11px 8px 11px 0;
+      color: var(--text-muted);
+      font-weight: 500;
+      width: 38%;
+    }
+
+    .req-table td {
+      padding: 11px 0;
+      color: var(--text-primary);
       font-weight: 500;
     }
 
-    footer a:hover {
-      color: #FFF;
+    .smartscreen-steps {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 12px;
     }
 
-    @media (max-width: 768px) {
-      header { padding: 1.25rem 1.5rem; }
-      main { padding: 3.5rem 1.5rem; }
-      h1 { font-size: 2.4rem; }
-      .smartscreen-steps { grid-template-columns: 1fr; }
-      footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+    .smartscreen-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.89rem;
+      color: var(--text-secondary);
+    }
+
+    .step-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent-gold);
+      background: rgba(218, 179, 106, 0.12);
+      border: 1px solid rgba(218, 179, 106, 0.3);
+      padding: 2px 8px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--border-hairline);
+      background: #050508;
+      padding: 48px 0 36px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .footer-links-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .footer-links-inline a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.18s ease;
+    }
+
+    .footer-links-inline a:hover {
+      color: var(--accent-gold);
+    }
+
+    @media (max-width: 960px) {
+      .download-hero-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+      .installer-specs {
+        grid-template-columns: 1fr;
+      }
+      .download-main-card {
+        padding: 28px 22px;
+      }
     }
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-  <header>
-    <a href="./index.html" class="brand" title="Noveleare">
-      <img src="./assets/noveleare-symbol-transparent.png" alt="Logo Noveleare" class="brand-symbol" />
-      <span>Noveleare</span>
-    </a>
-    <nav>
-      <a href="./index.html">Inicio</a>
-      <a href="./download.html" class="active nav-btn-download">Descargar</a>
-      <a href="./privacy.html">Privacidad</a>
-      <a href="./terms.html">Términos</a>
-    </nav>
-  </header>
+  <div class="ambient-backdrop" aria-hidden="true">
+    <div class="ambient-backdrop__image"></div>
+    <div class="ambient-backdrop__vignette"></div>
+  </div>
 
-  <main>
-    <div class="badge">Versión Oficial 1.1.7 Disponible</div>
-    <h1>Lleva Noveleare a <span>tu escritorio</span></h1>
-    <p class="subtitle">Descarga el instalador independiente para Windows y escribe tu próximo manuscrito en un entorno privado, cálido y libre de distracciones.</p>
-
-    <!-- Tarjeta principal de descarga -->
-    <div class="download-card">
-      <a href="https://github.com/Oberon2755/noveleare-releases/releases/download/1.1.7/Noveleare-Setup-1.1.7.exe" class="btn-download-primary">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Descargar para Windows (.exe)
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="./index.html" class="brand-link" aria-label="Noveleare Inicio">
+        <img src="./assets/noveleare-symbol-transparent.png" alt="Símbolo de Noveleare" width="32" height="32">
+        <span class="brand-name-serif">Noveleare</span>
       </a>
 
-      <div class="meta-details">
-        <span>💻 Windows 10 / 11 (64-bit)</span>
-        <span>📦 125.4 MB</span>
-        <span>⚡ 100% Autocontenido</span>
-      </div>
-    </div>
+      <nav aria-label="Navegación principal">
+        <ul class="nav-links">
+          <li><a href="./index.html#herramientas">Herramientas</a></li>
+          <li><a href="./index.html#flujo">Flujo Editorial</a></li>
+          <li><a href="./download.html" aria-current="page">Descargas</a></li>
+          <li><a href="./privacy.html">Privacidad</a></li>
+          <li><a href="./terms.html">Términos</a></li>
+        </ul>
+      </nav>
 
-    <!-- Guía de instalación segura en Windows (SmartScreen) -->
-    <div class="smartscreen-notice">
-      <div class="smartscreen-header">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-        <span>Instalación segura en Windows (SmartScreen)</span>
-      </div>
-      <p class="smartscreen-desc">
-        Al ser una versión reciente de lanzamiento beta, tu navegador o Windows podrían mostrar un aviso preventivo de que el archivo <em>"no se descarga habitualmente"</em>. Noveleare está 100% verificado y libre de virus.
-      </p>
-      <div class="smartscreen-steps">
-        <div class="smartscreen-step">
-          <div class="smartscreen-step-title">🌐 En Edge / Chrome:</div>
-          <div class="smartscreen-step-text">
-            Pasa el cursor sobre la descarga ➔ clic en <strong>···</strong> ➔ <strong>Conservar</strong> ➔ <strong>Conservar de todos modos</strong>.
-          </div>
-        </div>
-        <div class="smartscreen-step">
-          <div class="smartscreen-step-title">💻 En Windows SmartScreen:</div>
-          <div class="smartscreen-step-text">
-            Haz clic en <strong>Más información</strong> ➔ y luego en <strong>Ejecutar de todas formas</strong>.
-          </div>
-        </div>
+      <div>
+        <a href="./index.html" class="btn btn-secondary btn-sm">Volver al Inicio</a>
       </div>
     </div>
+  </header>
+
+  <main id="main-content">
+    <section class="download-hero">
+      <div class="container download-hero-grid">
+        <!-- Main Download Action Card -->
+        <div class="download-main-card gs-dl-card">
+          <div>
+            <div class="section-eyebrow">
+              <span class="section-eyebrow__dot" aria-hidden="true"></span>
+              <span>Versión Oficial Estable · v1.1.8</span>
+            </div>
+
+            <h1 class="download-title">
+              Descargar Noveleare para <span>Windows</span>
+            </h1>
+
+            <p class="download-desc">
+              Instala el estudio literario completo en tu computadora. Incluye actualizaciones automáticas integradas, motor de guardado Local-First y soporte completo sin conexión a internet.
+            </p>
+          </div>
+
+          <div class="installer-specs" aria-label="Especificaciones del instalador">
+            <div class="spec-item">
+              <span class="spec-label">Versión</span>
+              <span class="spec-value">v1.1.8 (64-bit)</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Tamaño</span>
+              <span class="spec-value">125.4&nbsp;MB (.exe)</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Plataforma</span>
+              <span class="spec-value">Windows 10 / 11</span>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <a href="https://github.com/Oberon2755/noveleare-releases/releases/download/1.1.8/Noveleare-Setup-1.1.8.exe" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 1rem; padding: 16px 24px;">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M10 3v10m0 0l-3.5-3.5M10 13l3.5-3.5M4 16h12" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Descargar Noveleare-Setup-1.1.8.exe</span>
+            </a>
+            <p style="font-size: 0.78rem; color: var(--text-muted); text-align: center;">
+              Al descargar aceptas nuestros <a href="./terms.html" style="color: var(--accent-gold); text-decoration: none;">Términos del Servicio</a> y <a href="./privacy.html" style="color: var(--accent-gold); text-decoration: none;">Política de Privacidad</a>.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Card: Novedades de la versión v1.1.8 -->
+        <div class="release-card gs-dl-card">
+          <div>
+            <span class="section-eyebrow" style="margin-bottom: 12px;">Notas de Lanzamiento</span>
+            <h2>Novedades en Noveleare v1.1.8</h2>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 18px;">
+              Refinamiento profundo en el motor de comparación, fluidez de interfaz y herramientas de revisión.
+            </p>
+
+            <ul class="changelog-list">
+              <li>
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span><strong>Modo Comparativo 50/50 y Revisiones R1/R2:</strong> Resaltado automático en amarillo de palabras modificadas con restauración instantánea en un clic y soporte de <code>Ctrl+Z</code> entre hojas.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span><strong>Visor de Análisis In-Situ:</strong> Detección de repeticiones léxicas por radio de cercanía configurable y sugerencias de sinónimos en vivo.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span><strong>Delimitadores de Escena y Notas en el Margen:</strong> Marcadores visuales arrastrables directamente en el texto y notas flotantes por escena.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span><strong>Bóveda de Copias de Seguridad y Actualizador Automático:</strong> Tus futuras versiones se descargan e instalan sin salir de la aplicación.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border-hairline); aspect-ratio: 16 / 9;">
+            <img src="./assets/showcase-zen.png" alt="Vista previa de Noveleare v1.1.8" width="800" height="450" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <div class="container info-grid">
+        <!-- System Requirements -->
+        <article id="requisitos" class="info-card gs-info">
+          <h3>
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <rect x="2" y="3" width="16" height="11" rx="2"/>
+              <path d="M7 17h6M10 14v3" stroke-linecap="round"/>
+            </svg>
+            Requisitos del Sistema
+          </h3>
+          <table class="req-table">
+            <tbody>
+              <tr>
+                <th>Sistema Operativo</th>
+                <td>Windows 10 (64-bit) o Windows 11</td>
+              </tr>
+              <tr>
+                <th>Memoria RAM</th>
+                <td>4&nbsp;GB mínimo (8&nbsp;GB recomendado)</td>
+              </tr>
+              <tr>
+                <th>Espacio en Disco</th>
+                <td>450&nbsp;MB libres para la instalación</td>
+              </tr>
+              <tr>
+                <th>Conexión a Internet</th>
+                <td>Opcional (solo para sincronización de licencia o funciones de IA)</td>
+              </tr>
+              <tr>
+                <th>Almacenamiento</th>
+                <td>100% Local-First (archivos <code>.novel</code> en tu equipo)</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <!-- Safe Installation Guide (Windows SmartScreen) -->
+        <article id="instalacion-segura" class="info-card gs-info">
+          <h3>
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M10 2L4 5v5c0 4.5 2.6 8.4 6 10 3.4-1.6 6-5.5 6-10V5l-6-3z"/>
+            </svg>
+            Guía de Instalación Rápida en Windows
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary);">
+            Si Windows Defender SmartScreen muestra un aviso preventivo al abrir el instalador de una versión recién publicada, sigue estos pasos:
+          </p>
+          <ul class="smartscreen-steps">
+            <li>
+              <span class="step-pill">PASO 01</span>
+              <span>Ejecuta el archivo descargado <strong>Noveleare-Setup-1.1.8.exe</strong>.</span>
+            </li>
+            <li>
+              <span class="step-pill">PASO 02</span>
+              <span>Si aparece la ventana azul de Windows SmartScreen, haz clic en el enlace subrayado <strong>«Más información»</strong>.</span>
+            </li>
+            <li>
+              <span class="step-pill">PASO 03</span>
+              <span>Pulsa el botón <strong>«Ejecutar de todas formas»</strong>. Noveleare se instalará y abrirá automáticamente en segundos.</span>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <span>© 2026 Noveleare · Desarrollado por Oberon2755</span>
-    <div class="footer-links">
-      <a href="./index.html">Inicio</a>
-      <a href="./download.html">Descargar</a>
-      <a href="./privacy.html">Política de Privacidad</a>
-      <a href="./terms.html">Términos de Servicio</a>
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <span>&copy; 2026 Noveleare. Todos los derechos reservados.</span>
+      <ul class="footer-links-inline">
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="./privacy.html">Política de Privacidad</a></li>
+        <li><a href="./terms.html">Términos del Servicio</a></li>
+        <li><a href="mailto:noveleare@gmail.com">noveleare@gmail.com</a></li>
+      </ul>
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || typeof window.gsap === 'undefined') return;
+      gsap.from('.gs-dl-card', {
+        y: 26,
+        opacity: 0,
+        duration: 0.75,
+        stagger: 0.12,
+        ease: 'power3.out'
+      });
+      gsap.from('.gs-info', {
+        y: 24,
+        opacity: 0,
+        duration: 0.75,
+        delay: 0.2,
+        stagger: 0.12,
+        ease: 'power3.out'
+      });
+    });
+  </script>
 </body>
 </html>
