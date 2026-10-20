@@ -1,68 +1,80 @@
 # 🔒 Política de Privacidad de Noveleare
 
-**Última actualización:** 17 de septiembre de 2026  
+**Última actualización:** 20 de octubre de 2026 · Versión 1.2.0  
 **Responsable del software:** Noveleare (Oberon2755)  
-**Contacto:** noveleare@gmail.com
+**Contacto:** noveleare@gmail.com  
+**Sitio Web Oficial:** https://noveleare.vercel.app  
+**Política de Privacidad en Vivo:** https://noveleare.vercel.app/privacy  
+**Términos del Servicio:** https://noveleare.vercel.app/terms  
 
 ---
 
-## 1. Introducción y Compromiso con la Privacidad del Escritor
-En **Noveleare**, entendemos que la creación literaria exige la máxima confidencialidad. Diseñamos nuestro software bajo el principio fundamental de **"Local-First"** (primero en tu equipo): tus manuscritos, personajes, tramas, notas y universos creativos pertenecen única y exclusivamente a ti y permanecen en tu computadora.
+## Resumen de Privacidad y Compromiso con el Autor
 
-Esta Política de Privacidad describe qué información recopilamos, cómo la usamos y cómo protegemos tus derechos.
-
----
-
-## 2. Información que Recopilamos
-
-### A. Autenticación con Google (Google OAuth)
-Cuando decides iniciar sesión con tu cuenta de Google a través de Supabase:
-- **Datos recopilados:** Únicamente tu dirección de correo electrónico, nombre público de perfil e identificador de usuario provistos por Google.
-- **Finalidad exclusiva:** Identificar tu cuenta de autor, sincronizar de forma segura el estado de tu licencia (Free o Pro) y permitirte usar tu licencia en hasta 5 de tus computadoras personales.
-- **No recopilamos:** No tenemos acceso a tus contactos, correos electrónicos personales de Gmail, archivos de Google Drive ni contraseñas.
-
-### B. Obras, Manuscritos y Contenido Creativo
-- **Almacenamiento 100% Local:** Todos los archivos de proyecto (`.nov`), capítulos, escenas, fichas de personajes y notas se guardan en el sistema de archivos local de tu computadora.
-- **Cero transferencia:** Noveleare **no** sube, ni almacena, ni lee tus textos literarios en servidores en la nube. Tus creaciones nunca se utilizan para entrenar modelos de Inteligencia Artificial generales ni se comparten con terceros.
-
-### C. Claves de API de Inteligencia Artificial (BYOK - Bring Your Own Key)
-- Si utilizas funciones asistidas por IA (Gemini, OpenAI, Claude, Grok), introduces tus propias claves de API.
-- Tus claves se almacenan localmente y cifradas en tu sistema. Las consultas van directamente desde tu máquina hacia los servidores oficiales de los proveedores de IA que elijas, sin pasar por intermediarios de Noveleare.
+- **Arquitectura Local-First:** Tus manuscritos, personajes, tramas, notas y universos creativos pertenecen única y exclusivamente a ti y residen físicamente en tu propia computadora en formato `.novel`.
+- **Cero Entrenamiento de IA:** Noveleare **nunca** recopila, vende, lee ni utiliza el contenido de tus obras literarias para entrenar o afinar modelos de Inteligencia Artificial propios ni de terceros.
+- **Claves Cifradas (BYOK):** Tus credenciales y claves API personales de Google Gemini, Anthropic Claude, OpenAI o xAI Grok se cifran localmente mediante el llavero criptográfico nativo de tu sistema operativo (`safeStorage` con DPAPI en Windows) y viajan directamente hacia el proveedor oficial sin servidores intermediarios.
 
 ---
 
-## 3. Uso de la Información
-La información recopilada se utiliza estrictamente para:
-1. Validar la activación y estado de la licencia adquirida (Free vs Pro).
-2. Garantizar el control de activación anti-piratería (máximo 5 equipos por cuenta).
-3. Notificar y entregar actualizaciones del software en tu equipo.
+## 1. Introducción y Principio «Local-First»
 
-**Nunca vendemos, alquilamos ni comercializamos tus datos personales con terceros o anunciantes.**
+En **Noveleare**, entendemos que la creación literaria exige la máxima confidencialidad y respeto por la intimidad del proceso creativo. Diseñamos nuestro software bajo el principio fundamental de **"Local-First"** (primero en tu equipo): tus borradores, escaletas, árboles genealógicos y notas creativas nunca se envían a servidores de Noveleare.
+
+Esta Política de Privacidad describe qué mínima información de cuenta se procesa para la validación de licencias, cómo se protegen tus derechos y el estricto cumplimiento de los estándares de Google API Services.
+
+---
+
+## 2. Información que se Almacena Únicamente en tu Dispositivo
+
+Los siguientes datos residen de forma 100% local en tu computadora y **nunca** se transmiten a servidores de Noveleare:
+1. **Manuscritos y proyectos (.novel):** Todo el texto de tus capítulos, escenas, revisiones paralelas R1/R2, notas al margen, esquemas de trama y configuración de mundo.
+2. **Bóveda de Copias de Seguridad:** Los respaldos automáticos y manuales generados periódicamente en tu almacenamiento local.
+3. **Claves API de Inteligencia Artificial (BYOK):** Si decides conectar tus propias claves API de Google Gemini, OpenAI, Anthropic Claude o xAI Grok, dichas claves se guardan cifradas localmente en tu equipo.
+
+---
+
+## 3. Inicio de Sesión con Google (Google OAuth) y Datos de Cuenta
+
+El inicio de sesión en Noveleare es opcional para el uso básico y se emplea exclusivamente para identificar tu perfil y validar licencias **Noveleare Pro** a través de autenticación segura. Al iniciar sesión con tu cuenta de Google, recibimos únicamente los datos básicos de identidad autorizados por ti:
+- **Dirección de correo electrónico:** para identificar tu cuenta de autor y vincular tu licencia Pro.
+- **Nombre público y fotografía de perfil:** para mostrarlos de forma personalizada en la cabecera del estudio.
+- **Identificador único de usuario (UID)** y un hash de máquina anónimo para gestionar el límite de hasta 5 computadoras personales por cuenta.
+
+No recopilamos ni solicitamos acceso a tus correos de Gmail, contactos, calendarios, archivos de Google Drive ni contraseñas.
 
 ---
 
 ## 4. Cumplimiento con la Política de Datos de Usuario de las API de Google
-El uso que hace Noveleare de la información recibida de las API de Google cumple estrictamente con la [Política de Datos de Usuario de los Servicios de las API de Google](https://developers.google.com/terms/api-services-user-data-policy), incluidos los requisitos de Uso Limitado:
-- Los datos de usuario de Google se utilizan únicamente para la autenticación directa del usuario dentro de la aplicación.
-- No se transfieren a terceros salvo que sea necesario para proporcionar o mejorar estas funciones, cumplir con la ley aplicable o como parte de una fusión/adquisición.
-- No se utilizan para servir anuncios ni para entrenar modelos de IA.
+
+El uso y la transferencia que hace Noveleare de la información recibida a través de las APIs de Google cumplen rigurosamente con la [Política de Datos de Usuario de los Servicios de las API de Google](https://developers.google.com/terms/api-services-user-data-policy) (Google API Services User Data Policy), incluidos los requisitos de **Uso Limitado** (*Limited Use*):
+- Los datos obtenidos de Google se utilizan exclusivamente para la autenticación directa del usuario y la verificación de su licencia.
+- No se transfieren a terceros con fines publicitarios, de marketing ni de intermediación de datos.
+- No se utilizan jamás para alimentar ni entrenar modelos de Inteligencia Artificial.
 
 ---
 
-## 5. Seguridad de los Datos
-Implementamos medidas técnicas y organizativas rigurosas, incluyendo cifrado en tránsito (HTTPS/TLS) con nuestros servicios de backend en Supabase y almacenamiento local seguro mediante claves protegidas en tu sistema operativo.
+## 5. Proveedores Externos de Inteligencia Artificial (BYOK)
+
+Cuando el Usuario decide voluntariamente hacer uso de las herramientas del Asistente de IA (embellecimiento de prosa, sugerencia de continuidad o chat editorial), la aplicación envía los fragmentos seleccionados directamente desde su equipo hacia los servidores oficiales del proveedor configurado (Google, OpenAI, Anthropic o xAI).
+- Noveleare no intercepta, no almacena ni registra tus prompts ni las respuestas generadas.
+- El procesamiento por parte del proveedor externo se rige por las políticas de privacidad y uso de API de dicho proveedor.
 
 ---
 
-## 6. Tus Derechos (Acceso, Rectificación y Eliminación)
-Tienes derecho en cualquier momento a:
-- Solicitar la eliminación de los datos de tu cuenta de autor de nuestra base de datos.
-- Desvincular tus computadoras autorizadas.
-- Dejar de utilizar el software simplemente desinstalándolo y eliminando los archivos locales.
+## 6. Pagos y Facturación Segura
 
-Para cualquier solicitud de privacidad, contáctanos a: **noveleare@gmail.com**.
+Las compras de licencias de **Noveleare Pro** son procesadas de manera segura e independiente por nuestro comerciante registrado (*Merchant of Record*), **Lemon Squeezy**. Noveleare no almacena, no procesa ni tiene acceso a números de tarjetas de crédito o datos bancarios del usuario.
 
 ---
 
-## 7. Cambios en esta Política
-Podemos actualizar esta Política de Privacidad periódicamente. Cualquier cambio significativo será comunicado a través de las notas de versión del software o en este documento.
+## 7. Tus Derechos y Contacto Directo
+
+Tienes el derecho inalienable en cualquier momento a:
+- Desvincular tus computadoras autorizadas desde los ajustes de la aplicación.
+- Solicitar la eliminación definitiva de tu cuenta y los metadatos de licencia de nuestra base de datos de autenticación.
+- Exportar o eliminar tus proyectos locales simplemente administrando tus archivos `.novel`.
+
+Para cualquier solicitud de privacidad, ejercicio de derechos o dudas legales:
+📧 **Correo electrónico:** `noveleare@gmail.com`  
+🌐 **Sitio web oficial:** `https://noveleare.vercel.app`
