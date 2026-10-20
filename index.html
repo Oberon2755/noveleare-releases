@@ -648,127 +648,207 @@
     }
 
     /* ============================================================
-       PURE BORDERLESS SHOWCASE SLIDER (HOJA DE TRABAJO PRINCIPAL)
+       INTERACTIVE EXPLORABLE WORKSPACE CANVAS
        ============================================================ */
-    .pure-showcase-slider {
+    .interactive-workspace-canvas {
       position: relative;
+      width: 100%;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      width: 100%;
+      gap: 14px;
       background: transparent;
       border: none;
-      padding: 0;
       box-shadow: none;
     }
 
-    .slider-viewport {
+    .iw-stage {
       position: relative;
       width: 100%;
-      height: 520px;
+      border-radius: var(--radius-inner);
+      overflow: hidden;
+      aspect-ratio: 16 / 9.8;
+      min-height: 440px;
+      background: #080B10;
+      border: 1px solid var(--border-subtle);
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
-      background: transparent;
+      cursor: crosshair;
+      box-shadow: 0 16px 48px -12px rgba(0, 0, 0, 0.7);
     }
 
-    .slider-slide {
+    /* Base Panorama Image */
+    .iw-base-view {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+      z-index: 1;
+    }
+
+    .iw-base-view img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .iw-base-view.is-dimmed {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.985);
+    }
+
+    /* Zoom Overlays */
+    .iw-zoom-overlay {
       position: absolute;
       inset: 0;
       display: none;
       align-items: center;
       justify-content: center;
+      z-index: 2;
       opacity: 0;
-      visibility: hidden;
       pointer-events: none;
+      transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      background: rgba(8, 11, 16, 0.78);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
-    .slider-slide.is-active {
+    .iw-zoom-overlay.is-active {
       display: flex;
       opacity: 1;
-      visibility: visible;
       pointer-events: auto;
     }
 
-    .slider-slide img {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      display: block;
-      border: none;
-      outline: none;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    .iw-zoom-box {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      max-width: 95%;
+      max-height: 95%;
     }
 
-    .slider-controls {
+    .iw-zoom-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 5px 14px;
+      border-radius: 20px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Specific Zoom Presentations */
+    .iw-zoom-header .iw-zoom-box img {
+      width: 100%;
+      max-width: 980px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.15);
+      object-fit: contain;
+    }
+
+    .iw-zoom-sidebar .iw-zoom-box img {
+      max-height: 480px;
+      width: auto;
+      border-radius: 8px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.15);
+      object-fit: contain;
+    }
+
+    /* Hotzones Layer (Sensors placed over the image) */
+    .iw-hotzones-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Hotzone: spans full width, top 24% */
+    .iw-zone-header {
+      width: 100%;
+      height: 24%;
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 20px;
+    }
+
+    /* Lateral Strip: spans left 26%, height 76% */
+    .iw-lateral-strip {
+      width: 26%;
+      height: 76%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .iw-zone-lateral {
+      flex: 1;
+      width: 100%;
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding-left: 14px;
+    }
+
+    /* Micro Hotspot Hints */
+    .iw-hotspot-hint {
       display: inline-flex;
       align-items: center;
-      gap: 14px;
-      padding: 6px 14px;
-      background: rgba(255, 255, 255, 0.05);
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.65);
+      background: rgba(10, 14, 22, 0.72);
+      border: 1px dashed rgba(255, 255, 255, 0.24);
+      padding: 3px 9px;
+      border-radius: 6px;
+      pointer-events: none;
+      transition: all 0.2s ease;
+      opacity: 0.75;
+    }
+
+    .iw-zone:hover .iw-hotspot-hint {
+      opacity: 1;
+      color: #FFFFFF;
+      background: rgba(30, 41, 59, 0.95);
+      border-style: solid;
+      border-color: #60A5FA;
+      box-shadow: 0 0 14px rgba(96, 165, 250, 0.45);
+      transform: scale(1.05);
+    }
+
+    /* Bottom Status / Hint Bar */
+    .iw-footer-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      background: rgba(255, 255, 255, 0.04);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 20px;
-    }
-
-    .slider-arrow {
-      background: transparent;
-      border: none;
-      color: var(--text-sub);
-      width: 28px;
-      height: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      border-radius: 50%;
-      transition: all 0.2s ease;
-      padding: 0;
-    }
-
-    .slider-arrow:hover {
-      color: #FFFFFF;
-      background: rgba(255, 255, 255, 0.1);
-      transform: scale(1.1);
-    }
-
-    .slider-arrow svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    .slider-dots {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-    }
-
-    .slider-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      border: none;
-      background: rgba(255, 255, 255, 0.22);
-      cursor: pointer;
-      padding: 0;
-      transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .slider-dot:hover {
-      background: rgba(255, 255, 255, 0.5);
-    }
-
-    .slider-dot.is-active {
-      width: 22px;
-      border-radius: 8px;
-      background: #FFFFFF;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+      width: fit-content;
+      transition: color 0.2s ease;
     }
 
     .window-status-footer {
@@ -1671,45 +1751,77 @@
         </div>
 
         <div class="feature-showcase-grid">
-          <!-- Left: Pure Borderless Image Showcase Slider -->
-          <div class="pure-showcase-slider gs-card" id="editorial-slider" aria-label="Capturas del espacio de trabajo">
-            <div class="slider-viewport" id="slider-viewport">
-              <div class="slider-slide is-active" data-slider-slide="0">
-                <img src="./assets/workspace-canvas.png" alt="Lienzo de escritura de Noveleare" loading="lazy">
+          <!-- Left: Interactive Explorable Workspace with Dynamic Zoom Hotspots -->
+          <div class="interactive-workspace-canvas gs-card" id="interactive-workspace" aria-label="Espacio de trabajo interactivo de Noveleare">
+            <div class="iw-stage" id="iw-stage">
+              <!-- Base Panorama Image -->
+              <div class="iw-base-view" id="iw-base-view">
+                <img src="./assets/workspace-canvas.png" alt="Lienzo editorial panorámico de Noveleare" width="1024" height="537" loading="lazy">
               </div>
-              <div class="slider-slide" data-slider-slide="1">
-                <img src="./assets/workspace-sidebar-chapters.png" alt="Árbol de capítulos de Noveleare" loading="lazy">
+
+              <!-- Zoom Overlay 1: Header / Toolbar Zoom -->
+              <div class="iw-zoom-overlay iw-zoom-header" id="iw-zoom-toolbar" data-zoom="toolbar">
+                <div class="iw-zoom-box">
+                  <span class="iw-zoom-label">🔍 Vista Ampliada · Cinta de Herramientas y Telemetría</span>
+                  <img src="./assets/workspace-toolbar.png" alt="Zoom de cinta de herramientas de Noveleare" width="1024" height="179" loading="lazy">
+                </div>
               </div>
-              <div class="slider-slide" data-slider-slide="2">
-                <img src="./assets/workspace-sidebar-world.png" alt="Construcción de mundo y lore de Noveleare" loading="lazy">
+
+              <!-- Zoom Overlay 2: Chapters Sidebar Zoom -->
+              <div class="iw-zoom-overlay iw-zoom-sidebar" id="iw-zoom-chapters" data-zoom="chapters">
+                <div class="iw-zoom-box">
+                  <span class="iw-zoom-label">🔍 Vista Ampliada · Árbol de Capítulos y Escenas</span>
+                  <img src="./assets/workspace-sidebar-chapters.png" alt="Zoom de árbol de capítulos de Noveleare" width="425" height="1024" loading="lazy">
+                </div>
               </div>
-              <div class="slider-slide" data-slider-slide="3">
-                <img src="./assets/workspace-sidebar-ai.png" alt="Taller creativo de IA de Noveleare" loading="lazy">
+
+              <!-- Zoom Overlay 3: Worldbuilding & Lore Sidebar Zoom -->
+              <div class="iw-zoom-overlay iw-zoom-sidebar" id="iw-zoom-world" data-zoom="world">
+                <div class="iw-zoom-box">
+                  <span class="iw-zoom-label">🔍 Vista Ampliada · Fichas, Mapas y Biblia de Mundo</span>
+                  <img src="./assets/workspace-sidebar-world.png" alt="Zoom de construcción de mundo de Noveleare" width="428" height="1024" loading="lazy">
+                </div>
               </div>
-              <div class="slider-slide" data-slider-slide="4">
-                <img src="./assets/workspace-toolbar.png" alt="Cinta de control y herramientas de Noveleare" loading="lazy">
+
+              <!-- Zoom Overlay 4: AI Workshop Sidebar Zoom -->
+              <div class="iw-zoom-overlay iw-zoom-sidebar" id="iw-zoom-ai" data-zoom="ai">
+                <div class="iw-zoom-box">
+                  <span class="iw-zoom-label">🔍 Vista Ampliada · Taller Creativo y Asistencia de IA</span>
+                  <img src="./assets/workspace-sidebar-ai.png" alt="Zoom de taller creativo con IA de Noveleare" width="425" height="1024" loading="lazy">
+                </div>
+              </div>
+
+              <!-- Interactive Hotspots Grid (Overlay transparent mouse sensors) -->
+              <div class="iw-hotzones-layer" id="iw-hotzones">
+                <!-- Top Header Zone -->
+                <div class="iw-zone iw-zone-header" data-target="toolbar" title="Pasa el cursor para ampliar la cabecera">
+                  <span class="iw-hotspot-hint">Cabecera de Edición</span>
+                </div>
+
+                <!-- Lateral Strip -->
+                <div class="iw-lateral-strip">
+                  <!-- Upper Left: Capítulos -->
+                  <div class="iw-zone iw-zone-lateral" data-target="chapters" title="Pasa el cursor para ver el árbol de capítulos">
+                    <span class="iw-hotspot-hint">Capítulos</span>
+                  </div>
+
+                  <!-- Middle Left: Fichas & Lore -->
+                  <div class="iw-zone iw-zone-lateral" data-target="world" title="Pasa el cursor para ver la construcción de mundo">
+                    <span class="iw-hotspot-hint">Fichas &amp; Lore</span>
+                  </div>
+
+                  <!-- Lower Left: Taller de IA -->
+                  <div class="iw-zone iw-zone-lateral" data-target="ai" title="Pasa el cursor para ver las herramientas de IA">
+                    <span class="iw-hotspot-hint">Taller IA</span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <!-- Minimal Controls: Arrows & Dots -->
-            <div class="slider-controls">
-              <button type="button" class="slider-arrow" id="slider-prev" aria-label="Imagen anterior">
-                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 15l-5-5 5-5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
-              <div class="slider-dots" role="tablist" aria-label="Navegación de diapositivas">
-                <button type="button" class="slider-dot is-active" data-slider-dot="0" aria-label="Ver imagen 1"></button>
-                <button type="button" class="slider-dot" data-slider-dot="1" aria-label="Ver imagen 2"></button>
-                <button type="button" class="slider-dot" data-slider-dot="2" aria-label="Ver imagen 3"></button>
-                <button type="button" class="slider-dot" data-slider-dot="3" aria-label="Ver imagen 4"></button>
-                <button type="button" class="slider-dot" data-slider-dot="4" aria-label="Ver imagen 5"></button>
-              </div>
-              <button type="button" class="slider-arrow" id="slider-next" aria-label="Imagen siguiente">
-                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M8 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
+            <!-- Subtle Interactive Hint Footer -->
+            <div class="iw-footer-bar">
+              <span class="pulse-dot"></span>
+              <span id="iw-footer-text">Mueve el cursor sobre la cabecera o el lateral izquierdo para explorar cada menú en detalle</span>
             </div>
           </div>
 
@@ -2365,90 +2477,92 @@
         });
       });
 
-      // 3. Pure Borderless Showcase Slider (Hoja de Trabajo Principal)
-      const sliderSlides = document.querySelectorAll('[data-slider-slide]');
-      const sliderDots = document.querySelectorAll('[data-slider-dot]');
-      const sliderPrev = document.getElementById('slider-prev');
-      const sliderNext = document.getElementById('slider-next');
-      const sliderContainer = document.getElementById('editorial-slider');
+      // 3. Interactive Explorable Workspace Canvas
+      const iwStage = document.getElementById('iw-stage');
+      const iwBaseView = document.getElementById('iw-base-view');
+      const iwOverlays = document.querySelectorAll('.iw-zoom-overlay');
+      const iwZones = document.querySelectorAll('.iw-zone');
+      const iwFooterText = document.getElementById('iw-footer-text');
 
-      let currentSlide = 0;
-      let sliderTimer = null;
-      const totalSlides = sliderSlides.length;
+      const zoomTitles = {
+        toolbar: '🔍 Cabecera de Edición: Formato tipográfico, atajos y telemetría de palabras',
+        chapters: '🔍 Panel Lateral: Árbol de capítulos y delimitación de escenas',
+        world: '🔍 Panel Lateral: Fichas de personajes, bestiario, mapas y construcción de mundo',
+        ai: '🔍 Panel Lateral: Taller creativo y herramientas de asistencia con IA'
+      };
 
-      function goToSlide(index) {
-        if (totalSlides === 0) return;
-        currentSlide = (index + totalSlides) % totalSlides;
+      const defaultFooterText = 'Mueve el cursor sobre la cabecera o el lateral izquierdo para explorar cada menú en detalle';
 
-        sliderSlides.forEach((slide, i) => {
-          if (typeof gsap !== 'undefined') {
-            gsap.killTweensOf(slide);
-          }
-          if (i === currentSlide) {
-            slide.classList.add('is-active');
-            slide.style.display = 'flex';
-            slide.style.visibility = 'visible';
+      function activateZoom(targetKey) {
+        if (!targetKey) {
+          resetZoom();
+          return;
+        }
+
+        // Hide other zoom overlays, show target
+        iwOverlays.forEach((overlay) => {
+          const isTarget = overlay.getAttribute('data-zoom') === targetKey;
+          if (isTarget) {
+            overlay.classList.add('is-active');
             if (typeof gsap !== 'undefined') {
-              gsap.fromTo(slide, { opacity: 0, scale: 0.98 }, { opacity: 1, scale: 1, duration: 0.38, ease: 'power2.out' });
-            } else {
-              slide.style.opacity = '1';
+              gsap.killTweensOf(overlay);
+              gsap.fromTo(overlay, { opacity: 0, scale: 0.97 }, { opacity: 1, scale: 1, duration: 0.25, ease: 'power2.out' });
             }
           } else {
-            slide.classList.remove('is-active');
-            slide.style.display = 'none';
-            slide.style.opacity = '0';
-            slide.style.visibility = 'hidden';
-            slide.style.transform = '';
+            overlay.classList.remove('is-active');
+            if (typeof gsap !== 'undefined') {
+              gsap.killTweensOf(overlay);
+            }
           }
         });
 
-        sliderDots.forEach((dot, i) => {
-          dot.classList.toggle('is-active', i === currentSlide);
+        // Hide base panorama view while zooming
+        if (iwBaseView) {
+          iwBaseView.classList.add('is-dimmed');
+        }
+
+        // Update footer text
+        if (iwFooterText && zoomTitles[targetKey]) {
+          iwFooterText.textContent = zoomTitles[targetKey];
+          iwFooterText.style.color = '#FFFFFF';
+        }
+      }
+
+      function resetZoom() {
+        iwOverlays.forEach((overlay) => {
+          overlay.classList.remove('is-active');
+          if (typeof gsap !== 'undefined') {
+            gsap.killTweensOf(overlay);
+          }
         });
+
+        if (iwBaseView) {
+          iwBaseView.classList.remove('is-dimmed');
+        }
+
+        if (iwFooterText) {
+          iwFooterText.textContent = defaultFooterText;
+          iwFooterText.style.color = '';
+        }
       }
 
-      // Initialize state cleanly
-      goToSlide(0);
-
-      function startSliderTimer() {
-        if (sliderTimer) clearInterval(sliderTimer);
-        sliderTimer = setInterval(() => {
-          goToSlide(currentSlide + 1);
-        }, 4500);
-      }
-
-      function stopSliderTimer() {
-        if (sliderTimer) clearInterval(sliderTimer);
-      }
-
-      if (sliderPrev) {
-        sliderPrev.addEventListener('click', () => {
-          goToSlide(currentSlide - 1);
-          stopSliderTimer();
+      iwZones.forEach((zone) => {
+        zone.addEventListener('mouseenter', () => {
+          const target = zone.getAttribute('data-target');
+          activateZoom(target);
         });
-      }
 
-      if (sliderNext) {
-        sliderNext.addEventListener('click', () => {
-          goToSlide(currentSlide + 1);
-          stopSliderTimer();
-        });
-      }
-
-      sliderDots.forEach((dot) => {
-        dot.addEventListener('click', () => {
-          const idx = Number(dot.getAttribute('data-slider-dot'));
-          goToSlide(idx);
-          stopSliderTimer();
+        // Also allow click / tap for touch screens
+        zone.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const target = zone.getAttribute('data-target');
+          activateZoom(target);
         });
       });
 
-      if (sliderContainer) {
-        sliderContainer.addEventListener('mouseenter', stopSliderTimer);
-        sliderContainer.addEventListener('mouseleave', startSliderTimer);
+      if (iwStage) {
+        iwStage.addEventListener('mouseleave', resetZoom);
       }
-
-      startSliderTimer();
 
       // 4. GSAP Animations
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -2520,7 +2634,7 @@
         }
       });
 
-      gsap.from('.pure-showcase-slider, .showcase-window-card, .zen-gallery-card', {
+      gsap.from('.interactive-workspace-canvas, .showcase-window-card, .zen-gallery-card', {
         scrollTrigger: {
           trigger: '.editorial-section',
           start: 'top 82%',
@@ -2546,6 +2660,6 @@
       });
     });
   </script>
-  <!-- deploy-v1.2.3: 1792523900 -->
+  <!-- deploy-v1.2.4: 1792524900 -->
 </body>
 </html>
