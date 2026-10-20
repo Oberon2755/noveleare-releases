@@ -653,9 +653,6 @@
     .interactive-workspace-canvas {
       position: relative;
       width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
       background: transparent;
       border: none;
       box-shadow: none;
@@ -673,11 +670,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: crosshair;
       box-shadow: 0 16px 48px -12px rgba(0, 0, 0, 0.7);
     }
 
-    /* Base Panorama Image */
+    /* Base Panorama Image (stays in background, blurs on interaction) */
     .iw-base-view {
       position: absolute;
       inset: 0;
@@ -686,8 +682,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+      transition: filter 0.35s ease, transform 0.35s ease;
       z-index: 1;
+      pointer-events: none;
     }
 
     .iw-base-view img {
@@ -698,13 +695,12 @@
       display: block;
     }
 
-    .iw-base-view.is-dimmed {
-      opacity: 0;
-      pointer-events: none;
-      transform: scale(0.985);
+    .iw-base-view.is-blurred {
+      filter: blur(16px) brightness(0.65);
+      transform: scale(1.02);
     }
 
-    /* Zoom Overlays */
+    /* Zoom Overlays (centered over the blurred base panorama) */
     .iw-zoom-overlay {
       position: absolute;
       inset: 0;
@@ -714,60 +710,45 @@
       z-index: 2;
       opacity: 0;
       pointer-events: none;
+      background: transparent;
       transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-      background: rgba(8, 11, 16, 0.78);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
     }
 
     .iw-zoom-overlay.is-active {
       display: flex;
       opacity: 1;
-      pointer-events: auto;
+      pointer-events: none;
     }
 
     .iw-zoom-box {
       position: relative;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 12px;
-      max-width: 95%;
-      max-height: 95%;
+      justify-content: center;
+      max-width: 94%;
+      max-height: 92%;
     }
 
-    .iw-zoom-label {
-      font-size: 0.76rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: #FFFFFF;
-      background: rgba(15, 23, 42, 0.92);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 5px 14px;
-      border-radius: 20px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Specific Zoom Presentations */
     .iw-zoom-header .iw-zoom-box img {
       width: 100%;
-      max-width: 980px;
+      max-width: 960px;
       height: auto;
       border-radius: 8px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.15);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.14);
       object-fit: contain;
+      display: block;
     }
 
     .iw-zoom-sidebar .iw-zoom-box img {
       max-height: 480px;
       width: auto;
       border-radius: 8px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.15);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.14);
       object-fit: contain;
+      display: block;
     }
 
-    /* Hotzones Layer (Sensors placed over the image) */
+    /* 100% Invisible Hotzones Layer */
     .iw-hotzones-layer {
       position: absolute;
       inset: 0;
@@ -777,19 +758,13 @@
       flex-direction: column;
     }
 
-    /* Header Hotzone: spans full width, top 24% */
     .iw-zone-header {
       width: 100%;
       height: 24%;
       position: relative;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding-right: 20px;
     }
 
-    /* Lateral Strip: spans left 26%, height 76% */
     .iw-lateral-strip {
       width: 26%;
       height: 76%;
@@ -803,52 +778,6 @@
       width: 100%;
       position: relative;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      padding-left: 14px;
-    }
-
-    /* Micro Hotspot Hints */
-    .iw-hotspot-hint {
-      display: inline-flex;
-      align-items: center;
-      font-size: 0.68rem;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.65);
-      background: rgba(10, 14, 22, 0.72);
-      border: 1px dashed rgba(255, 255, 255, 0.24);
-      padding: 3px 9px;
-      border-radius: 6px;
-      pointer-events: none;
-      transition: all 0.2s ease;
-      opacity: 0.75;
-    }
-
-    .iw-zone:hover .iw-hotspot-hint {
-      opacity: 1;
-      color: #FFFFFF;
-      background: rgba(30, 41, 59, 0.95);
-      border-style: solid;
-      border-color: #60A5FA;
-      box-shadow: 0 0 14px rgba(96, 165, 250, 0.45);
-      transform: scale(1.05);
-    }
-
-    /* Bottom Status / Hint Bar */
-    .iw-footer-bar {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 16px;
-      font-size: 0.8rem;
-      color: var(--text-sub);
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      width: fit-content;
-      transition: color 0.2s ease;
     }
 
     .window-status-footer {
@@ -1762,66 +1691,48 @@
               <!-- Zoom Overlay 1: Header / Toolbar Zoom -->
               <div class="iw-zoom-overlay iw-zoom-header" id="iw-zoom-toolbar" data-zoom="toolbar">
                 <div class="iw-zoom-box">
-                  <span class="iw-zoom-label">🔍 Vista Ampliada · Cinta de Herramientas y Telemetría</span>
-                  <img src="./assets/workspace-toolbar.png" alt="Zoom de cinta de herramientas de Noveleare" width="1024" height="179" loading="lazy">
+                  <img src="./assets/workspace-toolbar.png" alt="Cinta de herramientas de Noveleare" width="1024" height="179" loading="lazy">
                 </div>
               </div>
 
               <!-- Zoom Overlay 2: Chapters Sidebar Zoom -->
               <div class="iw-zoom-overlay iw-zoom-sidebar" id="iw-zoom-chapters" data-zoom="chapters">
                 <div class="iw-zoom-box">
-                  <span class="iw-zoom-label">🔍 Vista Ampliada · Árbol de Capítulos y Escenas</span>
-                  <img src="./assets/workspace-sidebar-chapters.png" alt="Zoom de árbol de capítulos de Noveleare" width="425" height="1024" loading="lazy">
+                  <img src="./assets/workspace-sidebar-chapters.png" alt="Árbol de capítulos de Noveleare" width="425" height="1024" loading="lazy">
                 </div>
               </div>
 
               <!-- Zoom Overlay 3: Worldbuilding & Lore Sidebar Zoom -->
               <div class="iw-zoom-overlay iw-zoom-sidebar" id="iw-zoom-world" data-zoom="world">
                 <div class="iw-zoom-box">
-                  <span class="iw-zoom-label">🔍 Vista Ampliada · Fichas, Mapas y Biblia de Mundo</span>
-                  <img src="./assets/workspace-sidebar-world.png" alt="Zoom de construcción de mundo de Noveleare" width="428" height="1024" loading="lazy">
+                  <img src="./assets/workspace-sidebar-world.png" alt="Construcción de mundo de Noveleare" width="428" height="1024" loading="lazy">
                 </div>
               </div>
 
               <!-- Zoom Overlay 4: AI Workshop Sidebar Zoom -->
               <div class="iw-zoom-overlay iw-zoom-sidebar" id="iw-zoom-ai" data-zoom="ai">
                 <div class="iw-zoom-box">
-                  <span class="iw-zoom-label">🔍 Vista Ampliada · Taller Creativo y Asistencia de IA</span>
-                  <img src="./assets/workspace-sidebar-ai.png" alt="Zoom de taller creativo con IA de Noveleare" width="425" height="1024" loading="lazy">
+                  <img src="./assets/workspace-sidebar-ai.png" alt="Taller creativo de IA de Noveleare" width="425" height="1024" loading="lazy">
                 </div>
               </div>
 
-              <!-- Interactive Hotspots Grid (Overlay transparent mouse sensors) -->
+              <!-- Interactive Hotspots Grid (100% Invisible sensors) -->
               <div class="iw-hotzones-layer" id="iw-hotzones">
-                <!-- Top Header Zone -->
-                <div class="iw-zone iw-zone-header" data-target="toolbar" title="Pasa el cursor para ampliar la cabecera">
-                  <span class="iw-hotspot-hint">Cabecera de Edición</span>
-                </div>
+                <!-- Top Header Invisible Zone -->
+                <div class="iw-zone iw-zone-header" data-target="toolbar" aria-hidden="true"></div>
 
-                <!-- Lateral Strip -->
+                <!-- Lateral Strip Invisible Zones -->
                 <div class="iw-lateral-strip">
                   <!-- Upper Left: Capítulos -->
-                  <div class="iw-zone iw-zone-lateral" data-target="chapters" title="Pasa el cursor para ver el árbol de capítulos">
-                    <span class="iw-hotspot-hint">Capítulos</span>
-                  </div>
+                  <div class="iw-zone iw-zone-lateral" data-target="chapters" aria-hidden="true"></div>
 
                   <!-- Middle Left: Fichas & Lore -->
-                  <div class="iw-zone iw-zone-lateral" data-target="world" title="Pasa el cursor para ver la construcción de mundo">
-                    <span class="iw-hotspot-hint">Fichas &amp; Lore</span>
-                  </div>
+                  <div class="iw-zone iw-zone-lateral" data-target="world" aria-hidden="true"></div>
 
                   <!-- Lower Left: Taller de IA -->
-                  <div class="iw-zone iw-zone-lateral" data-target="ai" title="Pasa el cursor para ver las herramientas de IA">
-                    <span class="iw-hotspot-hint">Taller IA</span>
-                  </div>
+                  <div class="iw-zone iw-zone-lateral" data-target="ai" aria-hidden="true"></div>
                 </div>
               </div>
-            </div>
-
-            <!-- Subtle Interactive Hint Footer -->
-            <div class="iw-footer-bar">
-              <span class="pulse-dot"></span>
-              <span id="iw-footer-text">Mueve el cursor sobre la cabecera o el lateral izquierdo para explorar cada menú en detalle</span>
             </div>
           </div>
 
@@ -2482,16 +2393,6 @@
       const iwBaseView = document.getElementById('iw-base-view');
       const iwOverlays = document.querySelectorAll('.iw-zoom-overlay');
       const iwZones = document.querySelectorAll('.iw-zone');
-      const iwFooterText = document.getElementById('iw-footer-text');
-
-      const zoomTitles = {
-        toolbar: '🔍 Cabecera de Edición: Formato tipográfico, atajos y telemetría de palabras',
-        chapters: '🔍 Panel Lateral: Árbol de capítulos y delimitación de escenas',
-        world: '🔍 Panel Lateral: Fichas de personajes, bestiario, mapas y construcción de mundo',
-        ai: '🔍 Panel Lateral: Taller creativo y herramientas de asistencia con IA'
-      };
-
-      const defaultFooterText = 'Mueve el cursor sobre la cabecera o el lateral izquierdo para explorar cada menú en detalle';
 
       function activateZoom(targetKey) {
         if (!targetKey) {
@@ -2499,14 +2400,19 @@
           return;
         }
 
-        // Hide other zoom overlays, show target
+        // Blur base panorama image
+        if (iwBaseView) {
+          iwBaseView.classList.add('is-blurred');
+        }
+
+        // Display targeted zoom overlay, hide others
         iwOverlays.forEach((overlay) => {
           const isTarget = overlay.getAttribute('data-zoom') === targetKey;
           if (isTarget) {
             overlay.classList.add('is-active');
             if (typeof gsap !== 'undefined') {
               gsap.killTweensOf(overlay);
-              gsap.fromTo(overlay, { opacity: 0, scale: 0.97 }, { opacity: 1, scale: 1, duration: 0.25, ease: 'power2.out' });
+              gsap.fromTo(overlay, { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.25, ease: 'power2.out' });
             }
           } else {
             overlay.classList.remove('is-active');
@@ -2515,35 +2421,21 @@
             }
           }
         });
-
-        // Hide base panorama view while zooming
-        if (iwBaseView) {
-          iwBaseView.classList.add('is-dimmed');
-        }
-
-        // Update footer text
-        if (iwFooterText && zoomTitles[targetKey]) {
-          iwFooterText.textContent = zoomTitles[targetKey];
-          iwFooterText.style.color = '#FFFFFF';
-        }
       }
 
       function resetZoom() {
+        // Restore clear unblurred base panorama
+        if (iwBaseView) {
+          iwBaseView.classList.remove('is-blurred');
+        }
+
+        // Hide all zoom overlays
         iwOverlays.forEach((overlay) => {
           overlay.classList.remove('is-active');
           if (typeof gsap !== 'undefined') {
             gsap.killTweensOf(overlay);
           }
         });
-
-        if (iwBaseView) {
-          iwBaseView.classList.remove('is-dimmed');
-        }
-
-        if (iwFooterText) {
-          iwFooterText.textContent = defaultFooterText;
-          iwFooterText.style.color = '';
-        }
       }
 
       iwZones.forEach((zone) => {
@@ -2552,7 +2444,6 @@
           activateZoom(target);
         });
 
-        // Also allow click / tap for touch screens
         zone.addEventListener('click', (e) => {
           e.stopPropagation();
           const target = zone.getAttribute('data-target');
@@ -2660,6 +2551,6 @@
       });
     });
   </script>
-  <!-- deploy-v1.2.4: 1792524900 -->
+  <!-- deploy-v1.2.5: 1792525500 -->
 </body>
 </html>
