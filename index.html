@@ -647,6 +647,218 @@
       transform: scale(1.02);
     }
 
+    /* ============================================================
+       STUDIO WORKSPACE SIMULATOR (HOJA DE TRABAJO PRINCIPAL)
+       ============================================================ */
+    .ws-tabs {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 2px 0;
+    }
+    .ws-tabs::-webkit-scrollbar {
+      display: none;
+    }
+    .ws-tab-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.73rem;
+      font-weight: 600;
+      padding: 5px 9px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .ws-tab-btn svg {
+      width: 13px;
+      height: 13px;
+      stroke-width: 1.6;
+      opacity: 0.8;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .ws-tab-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .ws-tab-btn:hover svg {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+    .ws-tab-btn.is-active {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.18);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+    }
+    .ws-tab-btn.is-active svg {
+      opacity: 1;
+      color: #93C5FD;
+    }
+
+    .ws-stage-box {
+      border-radius: var(--radius-inner);
+      overflow: hidden;
+      aspect-ratio: 16 / 10.2;
+      min-height: 440px;
+      background: #080B10;
+      border: 1px solid var(--border-subtle);
+      position: relative;
+      display: flex;
+    }
+
+    /* Left Sidebar Dock */
+    .ws-sidebar-dock {
+      width: 32%;
+      height: 100%;
+      flex-shrink: 0;
+      position: relative;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      background: #0B0E14;
+      overflow: hidden;
+      transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+    }
+    .ws-sidebar-dock.is-collapsed {
+      width: 0 !important;
+      opacity: 0;
+      border-right: none;
+    }
+
+    .ws-sidebar-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(-14px);
+      transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .ws-sidebar-slide.is-active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(0);
+    }
+    .ws-sidebar-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top left;
+      display: block;
+    }
+
+    /* Right Canvas Dock */
+    .ws-canvas-dock {
+      flex: 1;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      background: #080A0F;
+      display: flex;
+    }
+
+    .ws-canvas-view {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.99);
+      transition: opacity 0.38s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+    .ws-canvas-view.is-active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1);
+    }
+
+    .ws-canvas-view img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    /* Dedicated Toolbar View */
+    .ws-canvas-view--toolbar {
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at center, rgba(30, 41, 59, 0.35) 0%, rgba(8, 11, 16, 0.98) 75%);
+      padding: 24px;
+    }
+    .ws-toolbar-frame {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-hover);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+      background: #0A0D14;
+    }
+    .ws-toolbar-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    /* Navigation arrows and indicator in footer */
+    .ws-nav-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ws-nav-arrow {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-sub);
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      padding: 0;
+    }
+    .ws-nav-arrow:hover {
+      background: rgba(255, 255, 255, 0.14);
+      color: var(--text-main);
+      border-color: var(--border-hover);
+    }
+    .ws-nav-arrow svg {
+      width: 14px;
+      height: 14px;
+    }
+    .ws-progress-dots {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .ws-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: all 0.22s ease;
+      cursor: pointer;
+    }
+    .ws-dot.is-active {
+      width: 18px;
+      border-radius: 10px;
+      background: #FFFFFF;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    }
+
     .window-status-footer {
       display: flex;
       flex-wrap: wrap;
@@ -1348,6 +1560,9 @@
       .footer-grid { grid-template-columns: 1fr; }
       .cta-banner { padding: 48px 22px; }
       .byok-banner { padding: 24px; }
+      .ws-stage-box { min-height: 320px; aspect-ratio: auto; height: 340px; }
+      .ws-sidebar-dock { width: 42%; }
+      .ws-tab-btn { font-size: 0.7rem; padding: 4px 7px; }
     }
   </style>
 </head>
@@ -1544,27 +1759,91 @@
         </div>
 
         <div class="feature-showcase-grid">
-          <!-- Left: Framed Window Card with Real Screenshot -->
-          <div class="showcase-window-card gs-card" data-slot="editorial-window-card">
+          <!-- Left: Framed Interactive Studio Workspace Simulator -->
+          <div class="showcase-window-card gs-card" data-slot="editorial-window-card" id="studio-workspace">
             <div class="window-chrome">
               <div class="window-dots" aria-hidden="true">
                 <span></span><span></span><span></span>
               </div>
-              <span class="window-title-tag">CAPÍTULO 14 · EL VALLE DE LA NIEBLA</span>
-              <span class="window-badge">LIENZO DISTRACTION-FREE</span>
+              <div class="ws-tabs" role="tablist" aria-label="Módulos del Estudio de Trabajo">
+                <button type="button" class="ws-tab-btn is-active" data-ws-tab="0" role="tab" aria-selected="true">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor"><path d="M2 3h12M2 7h12M2 11h7" stroke-width="1.6" stroke-linecap="round"/></svg>
+                  <span>Capítulos</span>
+                </button>
+                <button type="button" class="ws-tab-btn" data-ws-tab="1" role="tab" aria-selected="false">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor"><circle cx="8" cy="8" r="6" stroke-width="1.6"/><path d="M2 8h12M8 2a10 10 0 010 12" stroke-width="1.6"/></svg>
+                  <span>Construcción</span>
+                </button>
+                <button type="button" class="ws-tab-btn" data-ws-tab="2" role="tab" aria-selected="false">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor"><path d="M8 2l1.5 3.5L13 7l-3.5 1.5L8 12l-1.5-3.5L3 7l3.5-1.5L8 2z" stroke-width="1.4"/></svg>
+                  <span>Taller IA</span>
+                </button>
+                <button type="button" class="ws-tab-btn" data-ws-tab="3" role="tab" aria-selected="false">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor"><path d="M3 2h10a1 1 0 011 1v10a1 1 0 01-1 1H3a1 1 0 01-1-1V3a1 1 0 011-1z" stroke-width="1.6"/><path d="M5 5h6M5 8h6M5 11h4" stroke-width="1.4"/></svg>
+                  <span>Lienzo Puro</span>
+                </button>
+                <button type="button" class="ws-tab-btn" data-ws-tab="4" role="tab" aria-selected="false">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor"><path d="M2 4h12M2 8h12M2 12h12" stroke-width="1.6" stroke-linecap="round"/></svg>
+                  <span>Cinta de Control</span>
+                </button>
+              </div>
+              <span class="window-badge" id="ws-badge">CAPÍTULOS (3)</span>
             </div>
 
-            <div class="showcase-img-box">
-              <img src="./assets/showcase-editor.png" alt="Lienzo editorial principal de Noveleare con árbol de capítulos y escenas" width="1280" height="800" loading="lazy">
+            <div class="ws-stage-box" id="ws-stage">
+              <!-- Left Sidebar Dock -->
+              <div class="ws-sidebar-dock" id="ws-sidebar-dock">
+                <!-- Slide 0: Chapters Sidebar -->
+                <div class="ws-sidebar-slide is-active" data-ws-sidebar-slide="0">
+                  <img src="./assets/workspace-sidebar-chapters.png" alt="Árbol de capítulos y escenas de Noveleare" width="425" height="1024" loading="lazy">
+                </div>
+                <!-- Slide 1: Worldbuilding Sidebar -->
+                <div class="ws-sidebar-slide" data-ws-sidebar-slide="1">
+                  <img src="./assets/workspace-sidebar-world.png" alt="Módulo de Construcción de mundo y Lore en Noveleare" width="428" height="1024" loading="lazy">
+                </div>
+                <!-- Slide 2: AI Creative Sidebar -->
+                <div class="ws-sidebar-slide" data-ws-sidebar-slide="2">
+                  <img src="./assets/workspace-sidebar-ai.png" alt="Taller creativo de Inteligencia Artificial en Noveleare" width="425" height="1024" loading="lazy">
+                </div>
+              </div>
+
+              <!-- Right Canvas Dock -->
+              <div class="ws-canvas-dock">
+                <!-- Default Canvas View (Used in tabs 0, 1, 2, 3) -->
+                <div class="ws-canvas-view is-active" data-ws-canvas-view="main">
+                  <img src="./assets/workspace-canvas.png" alt="Lienzo editorial principal de Noveleare con manuscrito real" width="1024" height="537" loading="lazy">
+                </div>
+                <!-- Dedicated Ribbon Toolbar View (Used in tab 4) -->
+                <div class="ws-canvas-view ws-canvas-view--toolbar" data-ws-canvas-view="toolbar">
+                  <div class="ws-toolbar-frame">
+                    <img src="./assets/workspace-toolbar.png" alt="Cinta superior de herramientas tipográficas y telemetría de palabras" width="1024" height="179" loading="lazy">
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="window-status-footer">
               <div class="status-indicator">
                 <span class="pulse-dot"></span>
-                <span>Bóveda local activa · Archivo .novel protegido</span>
+                <span id="ws-status-text">Capítulo activo: #1 Suspiro · 3,503 palabras</span>
+              </div>
+              <div class="ws-nav-controls">
+                <button type="button" class="ws-nav-arrow" id="ws-prev-btn" aria-label="Captura anterior">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor"><path d="M10 12L6 8l4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="ws-progress-dots" role="tablist" aria-label="Progreso de capturas">
+                  <span class="ws-dot is-active" data-ws-dot="0"></span>
+                  <span class="ws-dot" data-ws-dot="1"></span>
+                  <span class="ws-dot" data-ws-dot="2"></span>
+                  <span class="ws-dot" data-ws-dot="3"></span>
+                  <span class="ws-dot" data-ws-dot="4"></span>
+                </div>
+                <button type="button" class="ws-nav-arrow" id="ws-next-btn" aria-label="Captura siguiente">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor"><path d="M6 4l4 4-4 4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
               </div>
               <div class="status-meta">
-                <span>4,820 palabras · Autoguardado instantáneo</span>
+                <span id="ws-mode-meta">Autoguardado .novel · Milisegundo a milisegundo</span>
               </div>
             </div>
           </div>
@@ -2221,7 +2500,168 @@
         });
       });
 
-      // 3. GSAP Animations
+      // 3. Studio Workspace Simulator Interactive Logic
+      const wsTabs = document.querySelectorAll('[data-ws-tab]');
+      const wsDots = document.querySelectorAll('[data-ws-dot]');
+      const wsSidebarDock = document.getElementById('ws-sidebar-dock');
+      const wsSidebarSlides = document.querySelectorAll('[data-ws-sidebar-slide]');
+      const wsCanvasViews = document.querySelectorAll('[data-ws-canvas-view]');
+      const wsBadge = document.getElementById('ws-badge');
+      const wsStatusText = document.getElementById('ws-status-text');
+      const wsModeMeta = document.getElementById('ws-mode-meta');
+      const wsPrevBtn = document.getElementById('ws-prev-btn');
+      const wsNextBtn = document.getElementById('ws-next-btn');
+      const studioCard = document.getElementById('studio-workspace');
+
+      const wsStates = [
+        {
+          badge: 'CAPÍTULOS (3)',
+          status: 'Capítulo activo: #1 Suspiro · 3,503 palabras',
+          meta: 'Árbol Capitular · Arrastrar y soltar escenas',
+          sidebarIndex: 0,
+          showSidebar: true,
+          canvasView: 'main'
+        },
+        {
+          badge: 'CONSTRUCCIÓN DE MUNDO',
+          status: 'Biblia del Universo · 9 módulos narrativos activos',
+          meta: 'Fichas de personajes, mapas y linajes',
+          sidebarIndex: 1,
+          showSidebar: true,
+          canvasView: 'main'
+        },
+        {
+          badge: 'TALLER CREATIVO IA',
+          status: 'Asistencia Inteligente · Embellecedor y Corrector listos',
+          meta: 'Modelos BYOK · Cero entrenamiento sobre tu obra',
+          sidebarIndex: 2,
+          showSidebar: true,
+          canvasView: 'main'
+        },
+        {
+          badge: 'LIENZO DISTRACTION-FREE',
+          status: 'Modo Escritura Libre de Fricción · Margen zen',
+          meta: 'Tipografía calibrada · 100% inmersión en tu prosa',
+          sidebarIndex: -1,
+          showSidebar: false,
+          canvasView: 'main'
+        },
+        {
+          badge: 'CINTA DE HERRAMIENTAS',
+          status: 'Contador en tiempo real · 3,503 palabras ~ 17 min',
+          meta: 'Formato editorial, atajos y audio integrado',
+          sidebarIndex: -1,
+          showSidebar: false,
+          canvasView: 'toolbar'
+        }
+      ];
+
+      let currentWsIndex = 0;
+      let wsTimer = null;
+
+      function setWsState(index) {
+        currentWsIndex = (index + wsStates.length) % wsStates.length;
+        const state = wsStates[currentWsIndex];
+
+        // Tabs & Dots
+        wsTabs.forEach((tab, i) => {
+          const active = i === currentWsIndex;
+          tab.classList.toggle('is-active', active);
+          tab.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        wsDots.forEach((dot, i) => {
+          dot.classList.toggle('is-active', i === currentWsIndex);
+        });
+
+        // Badges & Texts
+        if (wsBadge) wsBadge.textContent = state.badge;
+        if (wsStatusText) wsStatusText.textContent = state.status;
+        if (wsModeMeta) wsModeMeta.textContent = state.meta;
+
+        // Sidebar Dock toggle
+        if (wsSidebarDock) {
+          if (state.showSidebar) {
+            wsSidebarDock.classList.remove('is-collapsed');
+          } else {
+            wsSidebarDock.classList.add('is-collapsed');
+          }
+        }
+
+        // Sidebar Slides
+        wsSidebarSlides.forEach((slide) => {
+          const idx = Number(slide.getAttribute('data-ws-sidebar-slide'));
+          slide.classList.toggle('is-active', idx === state.sidebarIndex);
+        });
+
+        // Canvas Views
+        wsCanvasViews.forEach((view) => {
+          const viewName = view.getAttribute('data-ws-canvas-view');
+          view.classList.toggle('is-active', viewName === state.canvasView);
+        });
+
+        // GSAP transition if loaded
+        if (typeof gsap !== 'undefined') {
+          if (state.showSidebar && state.sidebarIndex >= 0) {
+            const activeSlide = document.querySelector(`[data-ws-sidebar-slide="${state.sidebarIndex}"]`);
+            if (activeSlide) {
+              gsap.fromTo(activeSlide, { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.38, ease: 'power2.out' });
+            }
+          }
+          const activeCanvas = document.querySelector(`[data-ws-canvas-view="${state.canvasView}"]`);
+          if (activeCanvas) {
+            gsap.fromTo(activeCanvas, { opacity: 0.75, scale: 0.99 }, { opacity: 1, scale: 1, duration: 0.42, ease: 'power2.out' });
+          }
+        }
+      }
+
+      function startWsTimer() {
+        if (wsTimer) clearInterval(wsTimer);
+        wsTimer = setInterval(() => {
+          setWsState(currentWsIndex + 1);
+        }, 5500);
+      }
+
+      function pauseWsTimer() {
+        if (wsTimer) clearInterval(wsTimer);
+      }
+
+      wsTabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          const idx = Number(tab.getAttribute('data-ws-tab'));
+          setWsState(idx);
+          pauseWsTimer();
+        });
+      });
+
+      wsDots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+          const idx = Number(dot.getAttribute('data-ws-dot'));
+          setWsState(idx);
+          pauseWsTimer();
+        });
+      });
+
+      if (wsPrevBtn) {
+        wsPrevBtn.addEventListener('click', () => {
+          setWsState(currentWsIndex - 1);
+          pauseWsTimer();
+        });
+      }
+      if (wsNextBtn) {
+        wsNextBtn.addEventListener('click', () => {
+          setWsState(currentWsIndex + 1);
+          pauseWsTimer();
+        });
+      }
+
+      if (studioCard) {
+        studioCard.addEventListener('mouseenter', pauseWsTimer);
+        studioCard.addEventListener('mouseleave', startWsTimer);
+      }
+
+      startWsTimer();
+
+      // 4. GSAP Animations
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (prefersReducedMotion || typeof window.gsap === 'undefined') return;
 
@@ -2317,6 +2757,6 @@
       });
     });
   </script>
-  <!-- deploy-v1.2.0: 1792474100 -->
+  <!-- deploy-v1.2.1: 1792522700 -->
 </body>
 </html>
