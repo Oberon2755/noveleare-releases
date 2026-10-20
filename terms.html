@@ -5,24 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0B0E14">
   <title>Términos del Servicio — Noveleare</title>
-  <meta name="description" content="Términos y Condiciones del Servicio de Noveleare. Conoce tus derechos de propiedad intelectual del 100% sobre tus obras y las condiciones de uso de Noveleare.">
+  <meta name="description" content="Términos y Condiciones del Servicio de Noveleare. Conoce tus derechos de propiedad intelectual del 100% sobre tus obras, la arquitectura Local-First y las condiciones de uso de la suite literaria.">
   <link rel="icon" type="image/png" href="./assets/noveleare-symbol-transparent.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-base: #0B0E14;
       --bg-glass-card: rgba(16, 21, 30, 0.68);
-      --bg-glass-nav: rgba(11, 14, 20, 0.75);
+      --bg-glass-nav: rgba(11, 14, 20, 0.85);
       --border-subtle: rgba(255, 255, 255, 0.12);
       --border-hover: rgba(255, 255, 255, 0.24);
+      --brand-mint: #b5e5d8;
+      --brand-glow: rgba(181, 229, 216, 0.25);
       --text-main: #FFFFFF;
       --text-sub: #CBD5E1;
       --text-muted: #8E9BAE;
-      --accent-pill-bg: rgba(255, 255, 255, 0.08);
-      --accent-pill-border: rgba(255, 255, 255, 0.18);
-      --accent-pill-text: #F8FAFC;
+      --accent-pill-bg: rgba(181, 229, 216, 0.1);
+      --accent-pill-border: rgba(181, 229, 216, 0.25);
+      --accent-pill-text: #b5e5d8;
       --radius-outer: 20px;
       --radius-inner: 12px;
       --radius-pill: 9999px;
@@ -54,8 +56,8 @@
       position: relative;
       background-color: #070A0F;
       background-image:
-        radial-gradient(1600px 900px at 50% 0%, rgba(255, 255, 255, 0.14), transparent 75%),
-        linear-gradient(180deg, rgba(7, 10, 16, 0.22) 0%, rgba(7, 10, 16, 0.42) 45%, rgba(7, 10, 16, 0.72) 100%),
+        radial-gradient(1600px 900px at 50% 0%, rgba(181, 229, 216, 0.12), transparent 75%),
+        linear-gradient(180deg, rgba(7, 10, 16, 0.22) 0%, rgba(7, 10, 16, 0.45) 45%, rgba(7, 10, 16, 0.78) 100%),
         url('./assets/misty-morning-forest.jpg');
       background-attachment: fixed;
       background-size: cover;
@@ -78,13 +80,13 @@
     .skip-link:focus-visible { top: 16px; }
 
     :focus-visible {
-      outline: 2px solid rgba(255, 255, 255, 0.6);
+      outline: 2px solid var(--brand-mint);
       outline-offset: 3px;
     }
 
     .container {
       width: 100%;
-      max-width: 1680px;
+      max-width: 1380px;
       margin: 0 auto;
       padding: 0 clamp(16px, 2vw, 32px);
     }
@@ -147,6 +149,11 @@
       background: rgba(255, 255, 255, 0.08);
     }
 
+    .nav-links a[aria-current="page"] {
+      border: 1px solid rgba(181, 229, 216, 0.3);
+      color: var(--brand-mint);
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -155,21 +162,25 @@
       font-family: inherit;
       font-size: 0.85rem;
       font-weight: 600;
-      padding: 9px 16px;
+      padding: 9px 18px;
       border-radius: 10px;
       text-decoration: none;
       background: #FFFFFF;
       color: #0B0E14;
-      transition: transform 0.18s var(--ease-smooth);
+      transition: transform 0.18s var(--ease-smooth), box-shadow 0.18s ease;
+      box-shadow: 0 4px 14px rgba(255, 255, 255, 0.2);
     }
 
-    .btn:hover { transform: translateY(-1px); }
+    .btn:hover { 
+      transform: translateY(-1px); 
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+    }
     .btn:active { transform: scale(0.97); }
 
     .legal-hero {
       padding: 64px 0 36px;
       text-align: center;
-      max-width: 780px;
+      max-width: 840px;
       margin: 0 auto;
     }
 
@@ -178,8 +189,9 @@
       align-items: center;
       gap: 7px;
       font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.01em;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       color: var(--accent-pill-text);
       background: var(--accent-pill-bg);
       border: 1px solid var(--accent-pill-border);
@@ -190,18 +202,31 @@
     }
 
     .legal-hero h1 {
-      font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+      font-size: clamp(2.2rem, 3.8vw, 3.4rem);
       font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1.12;
+      margin-bottom: 14px;
+    }
+
+    .legal-hero h1 span {
+      color: var(--brand-mint);
+    }
+
+    .legal-hero p.subtitle {
+      font-size: 1.05rem;
+      color: var(--text-sub);
+      line-height: 1.6;
       margin-bottom: 12px;
     }
 
     .legal-updated {
-      font-size: 0.84rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
       color: var(--text-muted);
     }
 
+    /* Summary Bento Cards */
     .summary-bento {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -216,22 +241,28 @@
       border-radius: 18px;
       padding: 24px;
       box-shadow: var(--shadow-glass);
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .summary-card:hover {
+      border-color: rgba(181, 229, 216, 0.35);
+      transform: translateY(-2px);
     }
 
     .summary-card__tag {
       font-size: 0.72rem;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--text-muted);
-      margin-bottom: 6px;
+      color: var(--brand-mint);
+      margin-bottom: 8px;
       display: block;
     }
 
     .summary-card h2 {
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       font-weight: 700;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       color: var(--text-main);
     }
 
@@ -241,19 +272,79 @@
       line-height: 1.55;
     }
 
-    .legal-document {
+    /* Clarification Bento: What Noveleare IS vs NOT */
+    .clarification-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 36px;
+    }
+
+    .clarification-card {
       background: var(--bg-glass-card);
       backdrop-filter: blur(20px);
+      border-radius: 18px;
+      padding: 26px 28px;
+      box-shadow: var(--shadow-glass);
+    }
+
+    .clarification-card.is-what-is {
+      border: 1px solid rgba(181, 229, 216, 0.3);
+    }
+
+    .clarification-card.is-what-not {
+      border: 1px solid rgba(248, 113, 113, 0.25);
+    }
+
+    .clarification-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .clarification-card.is-what-is h3 { color: var(--brand-mint); }
+    .clarification-card.is-what-not h3 { color: #f87171; }
+
+    .clarification-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--text-sub);
+    }
+
+    .clarification-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.55;
+    }
+
+    .clarification-list li svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Master Legal Document */
+    .legal-document {
+      background: var(--bg-glass-card);
+      backdrop-filter: blur(24px);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-outer);
-      padding: 48px 52px;
+      padding: 52px 56px;
       box-shadow: var(--shadow-glass);
       margin-bottom: 80px;
     }
 
     .legal-section {
-      padding-bottom: 28px;
-      margin-bottom: 28px;
+      padding-bottom: 36px;
+      margin-bottom: 36px;
       border-bottom: 1px solid var(--border-subtle);
     }
 
@@ -264,17 +355,35 @@
     }
 
     .legal-section h2 {
-      font-size: 1.25rem;
-      font-weight: 700;
+      font-size: 1.35rem;
+      font-weight: 800;
       color: var(--text-main);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       letter-spacing: -0.015em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .legal-section h2 .sec-num {
+      color: var(--brand-mint);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem;
+    }
+
+    .legal-section h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #F1F5F9;
+      margin-top: 20px;
+      margin-bottom: 8px;
     }
 
     .legal-section p {
       color: var(--text-sub);
       font-size: 0.95rem;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      line-height: 1.75;
     }
 
     .legal-section ul {
@@ -283,8 +392,13 @@
       font-size: 0.94rem;
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      margin-top: 8px;
+      gap: 10px;
+      margin-top: 10px;
+      margin-bottom: 14px;
+    }
+
+    .legal-section li {
+      line-height: 1.65;
     }
 
     .legal-section strong {
@@ -292,24 +406,40 @@
     }
 
     .legal-section code {
-      font-family: inherit;
+      font-family: 'JetBrains Mono', monospace;
       font-weight: 600;
-      font-size: 0.86rem;
-      color: var(--text-main);
-      background: rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem;
+      color: var(--brand-mint);
+      background: rgba(181, 229, 216, 0.08);
+      border: 1px solid rgba(181, 229, 216, 0.2);
       padding: 2px 7px;
       border-radius: 5px;
     }
 
     .legal-section a {
-      color: var(--text-main);
+      color: var(--brand-mint);
       text-decoration: underline;
       text-underline-offset: 3px;
     }
 
+    .legal-callout {
+      background: rgba(181, 229, 216, 0.06);
+      border-left: 3px solid var(--brand-mint);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      margin: 18px 0;
+      color: #E2E8F0;
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    .legal-callout strong {
+      color: var(--brand-mint);
+    }
+
     .site-footer {
       border-top: 1px solid var(--border-subtle);
-      background: rgba(8, 10, 15, 0.75);
+      background: rgba(8, 10, 15, 0.85);
       backdrop-filter: blur(16px);
       padding: 44px 0 36px;
       font-size: 0.88rem;
@@ -334,18 +464,20 @@
     .footer-links-inline a {
       color: var(--text-sub);
       text-decoration: none;
+      transition: color 0.18s;
     }
 
     .footer-links-inline a:hover {
-      color: #FFFFFF;
+      color: var(--brand-mint);
     }
 
     @media (max-width: 900px) {
-      .summary-bento { grid-template-columns: 1fr; }
+      .summary-bento,
+      .clarification-grid { grid-template-columns: 1fr; }
       .legal-document { padding: 32px 24px; }
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 768px) {
       .nav-links { display: none; }
     }
   </style>
@@ -353,6 +485,7 @@
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
+  <!-- Top Sticky Navigation -->
   <header class="site-header">
     <div class="container nav-bar">
       <a href="./index.html" class="brand-link" aria-label="Noveleare Inicio">
@@ -363,6 +496,8 @@
       <nav aria-label="Navegación principal">
         <ul class="nav-links">
           <li><a href="./index.html">Inicio</a></li>
+          <li><a href="./index.html#hoja-editorial">Hoja de Trabajo</a></li>
+          <li><a href="./index.html#inspector">Inspector</a></li>
           <li><a href="./download.html">Descargas</a></li>
           <li><a href="./privacy.html">Privacidad</a></li>
           <li><a href="./terms.html" aria-current="page">Términos</a></li>
@@ -377,96 +512,271 @@
 
   <main id="main-content" class="container">
     <div class="legal-hero gs-legal">
-      <div class="section-eyebrow">Condiciones de Uso y Derechos de Autor</div>
-      <h1>Términos del Servicio</h1>
-      <p class="legal-updated">Última actualización: 31 de marzo de 2026</p>
+      <div class="section-eyebrow">Marco Jurídico &amp; Derechos de Autor</div>
+      <h1>Términos del <span>Servicio</span></h1>
+      <p class="subtitle">
+        El compromiso legal de Noveleare: soberanía autoral absoluta del 100%, arquitectura Local-First inviolable y transparencia plena en cada línea de código.
+      </p>
+      <p class="legal-updated">Última actualización: 20 de octubre de 2026 · Versión 1.2.0</p>
     </div>
 
     <!-- Summary Bento Cards -->
     <div class="summary-bento gs-legal">
       <div class="summary-card">
-        <span class="summary-card__tag">01 · Propiedad 100% Tuya</span>
-        <h2>Tus derechos de autor son intocables</h2>
-        <p>Conservas el 100% de los derechos patrimoniales, morales y comerciales sobre cada palabra, personaje y novela que escribas en Noveleare.</p>
+        <span class="summary-card__tag">01 · Propiedad Intocable</span>
+        <h2>Tus obras son 100% tuyas</h2>
+        <p>Conservas el 100% de los derechos de autor, morales, patrimoniales y comerciales sobre cada manuscrito, novela, personaje o mundo creado en Noveleare.</p>
       </div>
       <div class="summary-card">
-        <span class="summary-card__tag">02 · Licencia Multi-Equipo</span>
-        <h2>Hasta 5 dispositivos por cuenta</h2>
-        <p>Tu licencia Noveleare Pro permite activar y gestionar hasta 5 computadoras personales de forma simultánea.</p>
+        <span class="summary-card__tag">02 · Local-First Real</span>
+        <h2>Archivos .novel en tu disco duro</h2>
+        <p>Tus proyectos residen físicamente en tu propia computadora. Noveleare jamás aloja, sincroniza ni custodia tus textos en servidores propios.</p>
       </div>
       <div class="summary-card">
-        <span class="summary-card__tag">03 · Libertad BYOK</span>
-        <h2>Sin comisiones por IA</h2>
-        <p>Conecta tus propias claves API de Gemini, OpenAI, Claude o Grok bajo los términos directos de cada proveedor.</p>
+        <span class="summary-card__tag">03 · Modelo BYOK Transparente</span>
+        <h2>Sin comisiones ni intermediarios</h2>
+        <p>Conecta directamente tus propias claves API de Gemini, Claude o OpenAI sin sobreprecios, sin suscripciones ocultas y con cifrado local.</p>
       </div>
     </div>
 
+    <!-- What Noveleare IS vs What Noveleare is NOT -->
+    <div class="clarification-grid gs-legal">
+      <div class="clarification-card is-what-is">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Qué ES Noveleare
+        </h3>
+        <ul class="clarification-list">
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            <span>Un <strong>entorno de desarrollo literario de escritorio (IDE)</strong> local para escritores, novelistas y guionistas.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            <span>Un motor de <strong>inspección editorial client-side</strong> (tensión narrativa, radar de muletillas, balance de personajes y ortotipografía RAE).</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            <span>Un conector directo seguro que permite enlazar tus propias claves de inteligencia artificial (BYOK) sin servidores puente.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            <span>Una <strong>Bóveda de Respaldos automáticos</strong> que genera instantáneas locales periódicas de tu trabajo en tu equipo.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="clarification-card is-what-not">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Qué NO ES Noveleare
+        </h3>
+        <ul class="clarification-list">
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            <span><strong>NO es un servicio en la nube de custodia centralizada</strong>: no guardamos, no leemos ni tenemos acceso a tus manuscritos en ningún servidor.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            <span><strong>NO es una granja de entrenamiento de IA</strong>: jamás vendemos, cedemos ni usamos tus textos para entrenar modelos propios ni de terceros.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            <span><strong>NO es un intermediario revendedor de tokens</strong>: no cobramos comisiones ocultas por el uso de modelos de lenguaje de terceros.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            <span><strong>NO es un coautor ni agencia con derechos sobre tu obra</strong>: no cobramos regalías ni reclamamos porcentaje sobre tus publicaciones.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Master Document -->
     <article class="legal-document gs-legal">
+
+      <!-- Section 1 -->
       <section class="legal-section">
-        <h2>1. Aceptación de los Términos</h2>
+        <h2><span class="sec-num">01.</span> Aceptación de los Términos y Ámbito de Aplicación</h2>
         <p>
-          Al descargar, instalar o utilizar la aplicación de escritorio <strong>Noveleare</strong> o su sitio web oficial, aceptas los presentes Términos del Servicio. Si no estás de acuerdo con alguna de estas condiciones, por favor abstente de utilizar el software.
+          Los presentes Términos y Condiciones del Servicio (en adelante, los <strong>«Términos»</strong>) regulan el acceso, descarga, instalación, ejecución y uso de la aplicación de software de escritorio <strong>Noveleare</strong> (incluyendo sus versiones compiladas para Windows 10/11 de 64 bits), así como de su sitio web oficial (<a href="https://noveleare.vercel.app">https://noveleare.vercel.app</a>) y los servicios asociados provistos por el titular del software (en adelante, <strong>«Noveleare»</strong>, <strong>«el Estudio»</strong> o <strong>«Nosotros»</strong>).
+        </p>
+        <p>
+          Al descargar el instalador, abrir la aplicación, aceptar expresamente el modal de consentimiento legal en el primer inicio o navegar en este sitio web, usted (en adelante, <strong>«el Usuario»</strong> o <strong>«el Autor»</strong>) declara ser mayor de edad en su jurisdicción de residencia y acepta quedar legal y plenamente vinculado por estos Términos. Si no está de acuerdo con la totalidad de estas condiciones, debe abstenerse de instalar y utilizar el Software.
         </p>
       </section>
 
+      <!-- Section 2 -->
       <section class="legal-section">
-        <h2>2. Propiedad Intelectual del Autor (100% Tuya)</h2>
+        <h2><span class="sec-num">02.</span> Definición del Software y Arquitectura Local-First</h2>
         <p>
-          <strong>Noveleare no reclama ningún derecho de propiedad, licencia ni participación sobre tus obras literarias.</strong> Todo texto, capítulo, escena, árbol genealógico, ficha de personaje, nota o mundo creado dentro de Noveleare —incluyendo los textos asistidos o embellecidos mediante herramientas de IA— es propiedad exclusiva del usuario autor.
-        </p>
-        <p>
-          Eres completamente libre de publicar, registrar, distribuir y comercializar tus obras sin atribución obligatoria ni regalías hacia Noveleare.
-        </p>
-      </section>
-
-      <section class="legal-section">
-        <h2>3. Licencias de Uso del Software (Gratuita y Pro)</h2>
-        <p>
-          Noveleare te otorga una licencia personal, intransferible y no exclusiva para instalar y ejecutar la aplicación en tus equipos conforme a tu nivel de cuenta:
+          Noveleare es una suite de productividad y creación literaria diseñada específicamente para novelistas, dramaturgos, guionistas y arquitectos de mundos ficticios. El Software opera bajo el principio técnico fundamental de <strong>Local-First</strong> (primero en tu equipo local):
         </p>
         <ul>
-          <li><strong>Edición Gratuita:</strong> Permite el uso indefinido de las funciones esenciales de escritura y organización local.</li>
-          <li><strong>Licencia Noveleare Pro:</strong> Desbloquea las herramientas avanzadas del estudio literario (Modo Comparativo 50/50, Revisiones R1/R2, Visor de Análisis In-Situ, Modo Zen completo, Árbol Genealógico y Polígono de Estilos) en un máximo de <strong>cinco (5) dispositivos</strong> vinculados a tu cuenta.</li>
+          <li><strong>Formato Propietario Abierto (.novel):</strong> Los proyectos creados en Noveleare se estructuran y almacenan exclusivamente como archivos de contenedor local <code>.novel</code> dentro del sistema de archivos de su propia computadora.</li>
+          <li><strong>Independencia de Conexión:</strong> El núcleo editorial, el procesador de texto, la gestión de capítulos, las fichas de lore, los árboles genealógicos y los algoritmos del Inspector de Obra son 100% operativos de forma local sin requerir conexión continua a Internet.</li>
+          <li><strong>Sin Custodia en Servidores Propios:</strong> Noveleare no dispone ni mantiene servidores centrales de almacenamiento en la nube para hospedar manuscritos ni bases de datos de texto narrativo de los usuarios.</li>
         </ul>
       </section>
 
+      <!-- Section 3 -->
       <section class="legal-section">
-        <h2>4. Uso de Inteligencia Artificial (Modelo BYOK)</h2>
+        <h2><span class="sec-num">03.</span> Propiedad Intelectual y Soberanía del Autor (100% Intocables)</h2>
+        <div class="legal-callout">
+          <strong>Declaración Expresa de Soberanía Autoral:</strong> Noveleare no reclama ningún derecho patrimonial, moral, de autor ni de participación sobre ninguna obra literaria creada, editada, estructurada o exportada a través del Software. La propiedad de sus obras es, ha sido y será siempre 100% suya.
+        </div>
         <p>
-          Las funciones de asistencia creativa con IA operan bajo el esquema <em>Bring Your Own Key</em> (BYOK). El usuario es responsable de configurar su propia clave API válida (Google Gemini, OpenAI, Anthropic Claude o xAI Grok) y de cumplir con las políticas de uso y facturación del proveedor seleccionado.
+          El Usuario conserva la titularidad exclusiva y perpetua sobre cada palabra, capítulo, sinopsis, esquema dramático, ficha de personaje, glosario de lore, árbol genealógico, mapa o nota marginal generada dentro de Noveleare. Esto incluye expresamente:
+        </p>
+        <ul>
+          <li><strong>Obras Asistidas por Inteligencia Artificial:</strong> Cualquier fragmento de prosa embellecido, continuado o sugerido mediante las integraciones de IA (BYOK) es propiedad única del Autor bajo las leyes de propiedad intelectual aplicables en su país.</li>
+          <li><strong>Libertad Absoluta de Explotación Comercial:</strong> El Autor es enteramente libre de publicar, registrar ante oficinas gubernamentales de propiedad intelectual (Safe Creative, Indautor, Registro de la Propiedad Intelectual de España, US Copyright Office, etc.), autoeditar, vender, ceder a editoriales o comercializar sus libros sin necesidad de atribuir a Noveleare ni de abonar comisiones o regalías (<em>royalty-free</em>).</li>
+          <li><strong>Inexistencia de Licencias Cruzadas:</strong> Noveleare no adquiere ninguna licencia implícita para leer, reproducir, divulgar, entrenar algoritmos ni utilizar con fines publicitarios el contenido de sus manuscritos.</li>
+        </ul>
+      </section>
+
+      <!-- Section 4 -->
+      <section class="legal-section">
+        <h2><span class="sec-num">04.</span> Propiedad Intelectual de Noveleare (El Software y la Marca)</h2>
+        <p>
+          Todos los derechos de propiedad intelectual sobre el código fuente, la arquitectura de compilación en Electron, los componentes de interfaz de usuario, los estilos visuales, logotipos, marcas comerciales registradas, iconografía, sonidos orquestales y algoritmos de telemetría editorial (incluyendo el balance de personajes, detección de muletillas y curvas de tensión) son de la titularidad exclusiva de Noveleare y sus licenciantes.
+        </p>
+        <p>
+          Queda terminantemente prohibido descompilar, realizar ingeniería inversa con fines comerciales fraudulentos, redistribuir versiones modificadas o crackeadas del Software, sublicenciar o vender copias no autorizadas del instalador de Noveleare.
         </p>
       </section>
 
+      <!-- Section 5 -->
       <section class="legal-section">
-        <h2>5. Respaldos Locales y Limitación de Responsabilidad</h2>
+        <h2><span class="sec-num">05.</span> Régimen de Licencias: Edición Gratuita y Licencia Pro</h2>
         <p>
-          Dado que Noveleare almacena tus proyectos .novel directamente en tu disco duro local para garantizar tu privacidad absoluta, eres responsable de mantener el buen estado de tu equipo y conservar las copias generadas por la <strong>Bóveda de Copias de Seguridad</strong> integrada en la aplicación.
+          Noveleare otorga al Usuario una licencia de uso personal, no exclusiva, intransferible y revocable únicamente bajo las condiciones estipuladas en estos Términos:
+        </p>
+        <h3>A. Edición Gratuita (Free Tier)</h3>
+        <p>
+          Permite el uso sin límite de tiempo de las funcionalidades esenciales de redacción de texto, organización de escenas y almacenamiento local en formato <code>.novel</code>, sujeta a los límites de catálogo definidos para la versión base.
+        </p>
+        <h3>B. Licencia Noveleare Pro</h3>
+        <p>
+          Desbloquea el estudio literario avanzado: Modo Comparativo 50/50, Revisiones Históricas R1/R2, Inspector de Obra integral con métricas en vivo, Bóveda de Respaldos, Árbol Genealógico interactivo, Mapas y Catálogo Sonoro completo.
+        </p>
+        <ul>
+          <li><strong>Activación Multi-Dispositivo:</strong> Una sola licencia Noveleare Pro autoriza la activación simultánea en un máximo de <strong>cinco (5) computadoras personales</strong> asociadas a la cuenta del titular.</li>
+          <li><strong>Identificador de Máquina Anónimo:</strong> Para hacer cumplir el límite de 5 equipos, el Software genera un hash criptográfico local derivado del hardware, el cual no contiene información personal identificable.</li>
+          <li><strong>Revocación por Fraude:</strong> Noveleare se reserva el derecho de desactivar licencias en caso de reversión no justificada de cargos, contracargos bancarios fraudulentos o publicación de claves de activación en foros de piratería.</li>
+        </ul>
+      </section>
+
+      <!-- Section 6 -->
+      <section class="legal-section">
+        <h2><span class="sec-num">06.</span> Inteligencia Artificial bajo Esquema BYOK (Bring Your Own Key)</h2>
+        <p>
+          Las funcionalidades del Asistente Creativo de Noveleare operan estrictamente bajo la modalidad <strong>Bring Your Own Key</strong> (<em>trae tu propia clave API</em>):
+        </p>
+        <ul>
+          <li><strong>Conexión Directa Cliente-Proveedor:</strong> Cuando el Usuario envía una solicitud de embellecimiento o chat editorial, la petición viaja de forma directa y cifrada mediante HTTPS desde la aplicación hacia los endpoints oficiales del proveedor configurado (Google Gemini, OpenAI, Anthropic Claude o xAI Grok).</li>
+          <li><strong>Cero Servidores Intermediarios:</strong> Ninguna clave API ni texto de prompt pasa por servidores de Noveleare.</li>
+          <li><strong>Cifrado Local Seguro:</strong> Sus claves API se guardan en el almacenamiento protegido del sistema operativo del Usuario (mediante <code>safeStorage</code> con DPAPI en Windows).</li>
+          <li><strong>Responsabilidad y Costos de Consumo:</strong> El Usuario es el único responsable de contratar, pagar y mantener el saldo de sus claves API con cada proveedor externo, así como de cumplir con sus respectivas políticas de uso.</li>
+          <li><strong>Exoneración sobre Respuestas de IA:</strong> Los modelos de lenguaje pueden generar errores, alucinaciones o anacronismos. Noveleare no garantiza la veracidad factual de los textos sugeridos por IA; el Autor es el único responsable de la versión final de su texto.</li>
+        </ul>
+      </section>
+
+      <!-- Section 7 -->
+      <section class="legal-section">
+        <h2><span class="sec-num">07.</span> Custodia de Proyectos y Bóveda de Copias de Seguridad</h2>
+        <p>
+          Al tratarse de una arquitectura 100% Local-First, <strong>el Usuario es el único depositario y custodio físico de sus archivos <code>.novel</code></strong>.
         </p>
         <p>
-          El software se proporciona «tal cual» (<em>as-is</em>), sin garantías implícitas de disponibilidad ininterrumpida de servicios externos de terceros.
+          Para salvaguardar la obra del escritor frente a incidentes de hardware, el Software incluye la <strong>Bóveda de Copias de Seguridad</strong>, la cual genera respaldos automáticos en una carpeta local dedicada. No obstante, se recomienda expresamente al Autor:
+        </p>
+        <ul>
+          <li>Mantener respaldos externos periódicos en unidades físicas secundarias (pendrives, discos duros externos) o en carpetas sincronizadas con servicios personales de almacenamiento (OneDrive, Google Drive, Dropbox o NAS).</li>
+          <li>No manipular manualmente la estructura interna del archivo <code>.novel</code> mientras la aplicación se encuentre en ejecución activa para evitar inconsistencias de escritura.</li>
+        </ul>
+      </section>
+
+      <!-- Section 8 -->
+      <section class="legal-section">
+        <h2><span class="sec-num">08.</span> Garantías y Limitación de Responsabilidad</h2>
+        <p>
+          El Software se suministra «TAL CUAL» (<em>AS-IS</em>) y «SEGÚN DISPONIBILIDAD» (<em>AS-AVAILABLE</em>), sin garantías de ningún tipo, ya sean expresas o implícitas, incluyendo garantías de comerciabilidad, idoneidad para un fin específico o ausencia de pequeños errores de software inherentes a cualquier producto informático.
+        </p>
+        <p>
+          En la máxima medida permitida por la legislación aplicable:
+        </p>
+        <ul>
+          <li>Noveleare no será responsable ante el Usuario por daños indirectos, incidentales, punitivos o consecuentes, incluyendo lucro cesante, pérdida de datos, corrupción de archivos por fallos de hardware del equipo del usuario, cortes eléctricos o incompatibilidades con software de terceros.</li>
+          <li><strong>Límite Máximo de Responsabilidad Contractual:</strong> La responsabilidad económica acumulada total de Noveleare ante el Usuario por cualquier reclamación contractual o extracontractual estará estrictamente limitada al monto efectivamente abonado por el Usuario por su licencia de Noveleare durante los doce (12) meses inmediatamente anteriores al hecho causal.</li>
+        </ul>
+      </section>
+
+      <!-- Section 9 -->
+      <section class="legal-section">
+        <h2><span class="sec-num">09.</span> Pagos, Facturación y Política de Reembolso</h2>
+        <p>
+          Las transacciones de adquisición de licencias Noveleare Pro son administradas de forma segura por nuestro comerciante registrado oficial (<em>Merchant of Record</em>), <strong>Lemon Squeezy</strong>, quien se encarga del cobro, cumplimiento tributario internacional (IVA/sales tax) y emisión de facturas oficiales.
+        </p>
+        <ul>
+          <li><strong>Garantía de Satisfacción de 14 Días:</strong> Si adquiere una licencia Noveleare Pro y considera de buena fe que el Software no satisface sus expectativas, dispone de un plazo de catorce (14) días naturales desde la fecha de compra para solicitar el reembolso íntegro de su dinero escribiendo a <a href="mailto:noveleare@gmail.com">noveleare@gmail.com</a> con su número de orden.</li>
+          <li>Tras el procesamiento del reembolso, la clave de licencia quedará revocada en el registro de activaciones.</li>
+        </ul>
+      </section>
+
+      <!-- Section 10 -->
+      <section class="legal-section">
+        <h2><span class="sec-num">10.</span> Cumplimiento con Directrices de Plataformas y Google OAuth</h2>
+        <p>
+          Noveleare cumple rigurosamente con los estándares y directrices de desarrollo para aplicaciones de escritorio y proveedores de identidad digital:
+        </p>
+        <ul>
+          <li><strong>Google API Services User Data Policy:</strong> El uso que hace Noveleare de la información recibida a través de las APIs de Google (OAuth para autenticación de cuenta y validación de licencias) se adhiere en su totalidad a los requisitos de <em>Uso Limitado</em> (Limited Use). La información de su cuenta jamás se comparte con intermediarios ni se emplea para publicidad dirigida.</li>
+          <li><strong>Respeto a las Normas de Desarrollador:</strong> Noveleare no instala adware, telemetría intrusiva, mineros de criptomonedas ni procesos en segundo plano ajenos a la actividad literaria del Usuario.</li>
+        </ul>
+      </section>
+
+      <!-- Section 11 -->
+      <section class="legal-section">
+        <h2><span class="sec-num">11.</span> Modificaciones a los Términos del Servicio</h2>
+        <p>
+          Noveleare se reserva el derecho de actualizar o modificar los presentes Términos cuando sea necesario para reflejar cambios legales, mejoras en la arquitectura del Software o lanzamiento de nuevas características.
+        </p>
+        <p>
+          Toda modificación será publicada en esta misma página con la correspondiente actualización de la fecha de revisión. En caso de cambios sustanciales que afecten derechos fundamentales, se publicará un aviso destacado en el sitio web o se requerirá nueva confirmación de consentimiento en la aplicación de escritorio. El uso continuado del Software tras la publicación de los términos revisados constituirá su aceptación plena de los mismos.
         </p>
       </section>
 
+      <!-- Section 12 -->
       <section class="legal-section">
-        <h2>6. Pagos, Suscripciones y Soporte</h2>
+        <h2><span class="sec-num">12.</span> Legislación Aplicable, Resolución de Conflictos y Contacto</h2>
         <p>
-          Las transacciones de licencias Pro son gestionadas por nuestro comerciante registrado (<em>Merchant of Record</em>), <strong>Lemon Squeezy</strong>. Para soporte técnico, consultas sobre licencias o asistencia directa, puedes escribirnos en cualquier momento a:
+          Estos Términos se rigen e interpretan de conformidad con los principios generales del derecho comercial internacional y las leyes aplicables al titular del software, con exclusión de sus disposiciones sobre conflicto de leyes.
         </p>
         <p>
-          <strong>Correo de contacto oficial:</strong> <a href="mailto:noveleare@gmail.com">noveleare@gmail.com</a>
+          En caso de cualquier controversia o duda respecto al funcionamiento del Software o la interpretación de este documento, las partes se comprometen a buscar prioritariamente una solución amistosa mediante comunicación directa por correo electrónico.
         </p>
+        <div class="legal-callout">
+          <strong>Canal de Contacto Legal y Soporte Técnico Oficial:</strong><br>
+          Para consultas jurídicas, soporte sobre licencias, solicitudes de reembolso o aclaraciones normativas:<br>
+          📧 Correo electrónico: <a href="mailto:noveleare@gmail.com"><strong>noveleare@gmail.com</strong></a><br>
+          🌐 Sitio web oficial: <a href="https://noveleare.vercel.app">https://noveleare.vercel.app</a>
+        </div>
       </section>
+
     </article>
   </main>
 
+  <!-- Site Footer -->
   <footer class="site-footer">
     <div class="container footer-bottom">
-      <span>&copy; 2026 Noveleare. Todos los derechos reservados.</span>
+      <span>&copy; 2026 Noveleare. Todos los derechos reservados. Arquitectura Local-First.</span>
       <ul class="footer-links-inline">
         <li><a href="./index.html">Inicio</a></li>
         <li><a href="./download.html">Descargas</a></li>
         <li><a href="./privacy.html">Política de Privacidad</a></li>
-        <li><a href="mailto:noveleare@gmail.com">noveleare@gmail.com</a></li>
+        <li><a href="./terms.html" style="color: var(--brand-mint); font-weight: 600;">Términos del Servicio</a></li>
+        <li><a href="mailto:noveleare@gmail.com">Contacto Legal</a></li>
       </ul>
     </div>
   </footer>
