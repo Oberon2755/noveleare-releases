@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noveleare · Animación de Logo (Versión Perfeccionada)</title>
+  <title>Noveleare · Animación de Logo y Suite Sonora</title>
   <link rel="icon" type="image/svg+xml" href="./assets/noveleare-symbol-transparent.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,22 +34,22 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 24px;
+      justify-content: flex-start;
+      padding: 40px 20px;
       overflow-x: hidden;
     }
 
     .preview-header {
       text-align: center;
       margin-bottom: 24px;
-      max-width: 680px;
+      max-width: 720px;
     }
 
     .preview-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 5px 12px;
+      padding: 5px 14px;
       border-radius: 20px;
       background: rgba(181, 229, 216, 0.1);
       border: 1px solid rgba(181, 229, 216, 0.25);
@@ -70,7 +70,7 @@
     }
 
     .preview-title {
-      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-size: clamp(1.6rem, 3.2vw, 2.3rem);
       font-weight: 800;
       letter-spacing: -0.025em;
       margin-bottom: 8px;
@@ -81,9 +81,9 @@
     }
 
     .preview-desc {
-      font-size: 0.92rem;
+      font-size: 0.94rem;
       color: var(--text-sub);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     /* Stage Container */
@@ -156,17 +156,17 @@
 
     /* Player Controls Deck */
     .controls-deck {
-      margin-top: 20px;
+      margin-top: 24px;
       width: 100%;
-      max-width: 520px;
+      max-width: 680px;
       background: var(--card-bg);
-      backdrop-filter: blur(16px);
       border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 16px 20px;
+      border-radius: 20px;
+      padding: 20px;
+      backdrop-filter: blur(16px);
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 16px;
     }
 
     .timeline-bar-wrapper {
@@ -284,9 +284,196 @@
       color: var(--brand-mint);
     }
 
-    .back-nav {
+    /* Sound Suite Section */
+    .audio-suite {
       margin-top: 24px;
-      font-size: 0.86rem;
+      width: 100%;
+      max-width: 680px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 24px;
+      backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .audio-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .audio-title-group h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .audio-title-group p {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      margin-top: 2px;
+    }
+
+    .audio-master-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .vol-slider-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: var(--text-sub);
+    }
+
+    .vol-slider {
+      width: 90px;
+      height: 5px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .vol-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--brand-mint);
+      cursor: pointer;
+    }
+
+    /* Sound Preset Cards */
+    .sound-presets-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sound-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .sound-card:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .sound-card.is-selected {
+      background: rgba(181, 229, 216, 0.08);
+      border-color: var(--brand-mint);
+      box-shadow: 0 0 16px rgba(181, 229, 216, 0.12);
+    }
+
+    .sound-card-info {
+      flex: 1;
+    }
+
+    .sound-card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .sound-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: rgba(181, 229, 216, 0.14);
+      color: var(--brand-mint);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .sound-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .sound-desc {
+      font-size: 0.77rem;
+      color: var(--text-sub);
+      line-height: 1.4;
+    }
+
+    .sound-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .audio-action-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 6px 11px;
+      border-radius: 7px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.18s ease;
+      text-decoration: none;
+    }
+
+    .audio-action-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .audio-action-btn.play-solo {
+      background: rgba(181, 229, 216, 0.14);
+      border-color: rgba(181, 229, 216, 0.3);
+      color: var(--brand-mint);
+    }
+
+    .audio-action-btn.play-solo:hover {
+      background: rgba(181, 229, 216, 0.24);
+    }
+
+    .sound-card.is-selected .select-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.7rem;
+      color: var(--brand-mint);
+      font-weight: 700;
+    }
+
+    .back-nav {
+      margin-top: 32px;
+      margin-bottom: 20px;
+      font-size: 0.88rem;
     }
 
     .back-nav a {
@@ -305,11 +492,11 @@
   <div class="preview-header">
     <div class="preview-badge">
       <span class="dot"></span>
-      Visualizador de Animación de Marca · v2 Calibrada
+      Visualizador de Animación de Marca · v3 Afinada + Audio
     </div>
     <h1 class="preview-title">Logotipo Animado de <span>Noveleare</span></h1>
     <p class="preview-desc">
-      Proporciones exactas al logo oficial: anillo esbelto de 22px, estrella delgada y estilizada, trazo orgánico que nace a la 1:00 y recorre el perímetro, y palabra «Noveleare» en gran tamaño.
+      Esfera satélite ampliada y perfectamente centrada en el gap, estrella con cintura esbelta y afilada, y suite con 5 opciones de tintineos semitecnológicos cálidos e independientes.
     </p>
   </div>
 
@@ -339,19 +526,19 @@
         stroke-dashoffset="1225"
       />
 
-      <!-- 2. Slender & Stylized Four-Pointed Star (Center at 512, 405) -->
+      <!-- 2. Slender & Razor-Sharp Four-Pointed Star (Center at 512, 405) with narrow pinched waist (dx=9) -->
       <path 
         id="elem-star" 
-        d="M 512 320 Q 527 390 597 405 Q 527 420 512 490 Q 497 420 427 405 Q 497 390 512 320 Z" 
+        d="M 512 320 Q 521 396 597 405 Q 521 414 512 490 Q 503 414 427 405 Q 503 396 512 320 Z" 
         fill="#b5e5d8"
       />
 
-      <!-- 3. Satellite Sphere (Resting in the gap at 684, 244) -->
+      <!-- 3. Satellite Sphere: Enlarged (r=16.5) and symmetrically centered in gap (678, 266) -->
       <circle 
         id="elem-ball" 
-        cx="684" 
-        cy="244" 
-        r="13" 
+        cx="678" 
+        cy="266" 
+        r="16.5" 
         fill="#b5e5d8"
       />
 
@@ -412,6 +599,138 @@
     </div>
   </div>
 
+  <!-- Audio Suite Section -->
+  <div class="audio-suite">
+    <div class="audio-header">
+      <div class="audio-title-group">
+        <h2>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b5e5d8" stroke-width="2.2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          Diseño Sonoro & Tintineos de Marca
+        </h2>
+        <p>5 opciones semitecnológicas y cálidas. Activa una para sincronizar con la animación o pruébalas por separado.</p>
+      </div>
+
+      <div class="audio-master-controls">
+        <div class="vol-slider-wrap">
+          <span>Vol:</span>
+          <input type="range" class="vol-slider" id="vol-slider" min="0" max="100" value="80">
+          <span id="vol-readout">80%</span>
+        </div>
+        <button type="button" class="ctrl-btn" id="btn-audio-mute">🔊 Audio: ON</button>
+      </div>
+    </div>
+
+    <!-- 5 Sound Presets List -->
+    <div class="sound-presets-grid" id="sound-presets-container">
+
+      <!-- Preset 1 -->
+      <div class="sound-card is-selected" data-sound-id="1" data-file="./assets/noveleare-sound-1-eter-cristalino.wav">
+        <div class="sound-card-info">
+          <div class="sound-card-header">
+            <span class="sound-badge">Opción 1</span>
+            <span class="sound-name">Éter Cristalino</span>
+          </div>
+          <p class="sound-desc">Shimmer suave ascendente, tintineo de cuarzo en el pop estelar, doble gota cristalina en el rebote y acorde mayor cálido y reconfortante.</p>
+        </div>
+        <div class="sound-actions">
+          <button type="button" class="audio-action-btn play-solo" title="Escuchar solo el sonido">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Solo
+          </button>
+          <a href="./assets/noveleare-sound-1-eter-cristalino.wav" download="noveleare-sound-1-eter-cristalino.wav" class="audio-action-btn" title="Descargar archivo WAV original">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            .WAV
+          </a>
+        </div>
+      </div>
+
+      <!-- Preset 2 -->
+      <div class="sound-card" data-sound-id="2" data-file="./assets/noveleare-sound-2-cyberpunk-acustico.wav">
+        <div class="sound-card-info">
+          <div class="sound-card-header">
+            <span class="sound-badge">Opción 2</span>
+            <span class="sound-name">Cyberpunk Acústico</span>
+          </div>
+          <p class="sound-desc">Barrido analógico cálido, glockenspiel metálico con saturación suave tipo cinta, micro-blips redondos y resonancia nocturna con subgrave sutil.</p>
+        </div>
+        <div class="sound-actions">
+          <button type="button" class="audio-action-btn play-solo" title="Escuchar solo el sonido">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Solo
+          </button>
+          <a href="./assets/noveleare-sound-2-cyberpunk-acustico.wav" download="noveleare-sound-2-cyberpunk-acustico.wav" class="audio-action-btn" title="Descargar archivo WAV original">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            .WAV
+          </a>
+        </div>
+      </div>
+
+      <!-- Preset 3 -->
+      <div class="sound-card" data-sound-id="3" data-file="./assets/noveleare-sound-3-pulso-neon.wav">
+        <div class="sound-card-info">
+          <div class="sound-card-header">
+            <span class="sound-badge">Opción 3</span>
+            <span class="sound-name">Pulso de Neón (Kalimba / Mallet)</span>
+          </div>
+          <p class="sound-desc">Ataques hiper-redondeados y orgánicos inspirados en maderas y kalimba digital. Tintineo pentatónico dulce sin agudos hirientes.</p>
+        </div>
+        <div class="sound-actions">
+          <button type="button" class="audio-action-btn play-solo" title="Escuchar solo el sonido">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Solo
+          </button>
+          <a href="./assets/noveleare-sound-3-pulso-neon.wav" download="noveleare-sound-3-pulso-neon.wav" class="audio-action-btn" title="Descargar archivo WAV original">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            .WAV
+          </a>
+        </div>
+      </div>
+
+      <!-- Preset 4 -->
+      <div class="sound-card" data-sound-id="4" data-file="./assets/noveleare-sound-4-resonancia-estelar.wav">
+        <div class="sound-card-info">
+          <div class="sound-card-header">
+            <span class="sound-badge">Opción 4</span>
+            <span class="sound-name">Resonancia Estelar (Cuenco Zen & Chimes)</span>
+          </div>
+          <p class="sound-desc">Tono de 432Hz tipo santuario literario, campana brillante con micro-vibrato envolvente, rebote de gota metálica y halo estéreo dorado.</p>
+        </div>
+        <div class="sound-actions">
+          <button type="button" class="audio-action-btn play-solo" title="Escuchar solo el sonido">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Solo
+          </button>
+          <a href="./assets/noveleare-sound-4-resonancia-estelar.wav" download="noveleare-sound-4-resonancia-estelar.wav" class="audio-action-btn" title="Descargar archivo WAV original">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            .WAV
+          </a>
+        </div>
+      </div>
+
+      <!-- Preset 5 -->
+      <div class="sound-card" data-sound-id="5" data-file="./assets/noveleare-sound-5-minimal-tech.wav">
+        <div class="sound-card-info">
+          <div class="sound-card-header">
+            <span class="sound-badge">Opción 5</span>
+            <span class="sound-name">Minimal Tech (Luxury UI)</span>
+          </div>
+          <p class="sound-desc">Estilo sistema operativo de lujo: intervalo de quinta pura ultra-limpio, micro-click de precisión en el hueco del anillo y estela concisa que no satura.</p>
+        </div>
+        <div class="sound-actions">
+          <button type="button" class="audio-action-btn play-solo" title="Escuchar solo el sonido">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Solo
+          </button>
+          <a href="./assets/noveleare-sound-5-minimal-tech.wav" download="noveleare-sound-5-minimal-tech.wav" class="audio-action-btn" title="Descargar archivo WAV original">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            .WAV
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <div class="back-nav">
     <a href="./index.html">← Volver a la Landing Page principal</a>
   </div>
@@ -433,13 +752,66 @@
       const btnLoop = document.getElementById('btn-loop');
       const stageBox = document.getElementById('stage-box');
       
+      // Audio Suite Elements
+      const volSlider = document.getElementById('vol-slider');
+      const volReadout = document.getElementById('vol-readout');
+      const btnMute = document.getElementById('btn-audio-mute');
+      const soundCards = document.querySelectorAll('.sound-card');
+
       let isLooping = true;
       let isSeeking = false;
+      let isAudioMuted = false;
+      let currentVolume = 0.8;
+      let selectedSoundId = "1";
+
+      // Audio Elements Cache for zero-latency instant playback
+      const audioPlayers = {};
+      soundCards.forEach(card => {
+        const id = card.getAttribute('data-sound-id');
+        const file = card.getAttribute('data-file');
+        const aud = new Audio(file);
+        aud.preload = 'auto';
+        aud.volume = currentVolume;
+        audioPlayers[id] = aud;
+      });
+
+      // Master audio synced to animation
+      let syncAudio = audioPlayers[selectedSoundId];
+
+      function triggerSyncAudio() {
+        if (isAudioMuted || !syncAudio) return;
+        try {
+          syncAudio.pause();
+          syncAudio.currentTime = 0;
+          syncAudio.volume = currentVolume;
+          const playPromise = syncAudio.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(err => {
+              // Autoplay restrictions handle gracefully
+              console.log('Audio espera interacción del usuario:', err);
+            });
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      function stopSyncAudio() {
+        if (syncAudio) {
+          syncAudio.pause();
+        }
+      }
 
       // Master GSAP Timeline
       const masterTl = gsap.timeline({
         repeat: -1,
         repeatDelay: 1.5,
+        onStart: () => {
+          triggerSyncAudio();
+        },
+        onRepeat: () => {
+          triggerSyncAudio();
+        },
         onUpdate: updateUI,
         defaults: { ease: 'power2.out' }
       });
@@ -529,6 +901,7 @@
       slider.addEventListener('input', () => {
         isSeeking = true;
         masterTl.pause();
+        stopSyncAudio();
         btnPause.textContent = 'Reanudar';
         masterTl.progress(slider.value / 100);
       });
@@ -537,22 +910,32 @@
         isSeeking = false;
         if (btnPause.textContent === 'Pausar') {
           masterTl.play();
+          if (syncAudio && !isAudioMuted) {
+            syncAudio.currentTime = masterTl.time();
+            syncAudio.play().catch(() => {});
+          }
         }
       });
 
-      // Buttons
+      // Playback Buttons
       btnReplay.addEventListener('click', () => {
         masterTl.restart();
         masterTl.play();
         btnPause.textContent = 'Pausar';
+        triggerSyncAudio();
       });
 
       btnPause.addEventListener('click', () => {
         if (masterTl.paused()) {
           masterTl.play();
           btnPause.textContent = 'Pausar';
+          if (syncAudio && !isAudioMuted) {
+            syncAudio.currentTime = masterTl.time();
+            syncAudio.play().catch(() => {});
+          }
         } else {
           masterTl.pause();
+          stopSyncAudio();
           btnPause.textContent = 'Reanudar';
         }
       });
@@ -583,6 +966,87 @@
           stageBox.className = 'stage-wrapper ' + bg;
         });
       });
+
+      // ================= AUDIO SUITE EVENT HANDLERS =================
+      
+      // Select sound card
+      soundCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+          // If clicked download button, don't trigger selection change
+          if (e.target.closest('a') || e.target.closest('.play-solo')) return;
+
+          soundCards.forEach(c => c.classList.remove('is-selected'));
+          card.classList.add('is-selected');
+
+          const newId = card.getAttribute('data-sound-id');
+          selectedSoundId = newId;
+
+          if (syncAudio) {
+            syncAudio.pause();
+          }
+          syncAudio = audioPlayers[selectedSoundId];
+          syncAudio.volume = currentVolume;
+
+          // Restart animation with new sound
+          masterTl.restart();
+          masterTl.play();
+          btnPause.textContent = 'Pausar';
+          triggerSyncAudio();
+        });
+      });
+
+      // "Solo" button: plays sound immediately without interrupting animation
+      document.querySelectorAll('.play-solo').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const card = btn.closest('.sound-card');
+          const id = card.getAttribute('data-sound-id');
+          const soloPlayer = audioPlayers[id];
+          if (soloPlayer) {
+            soloPlayer.pause();
+            soloPlayer.currentTime = 0;
+            soloPlayer.volume = isAudioMuted ? 0.7 : currentVolume;
+            soloPlayer.play().catch(err => console.log(err));
+          }
+        });
+      });
+
+      // Volume slider
+      volSlider.addEventListener('input', () => {
+        currentVolume = Number(volSlider.value) / 100;
+        volReadout.textContent = volSlider.value + '%';
+        Object.values(audioPlayers).forEach(aud => {
+          aud.volume = isAudioMuted ? 0 : currentVolume;
+        });
+      });
+
+      // Mute Toggle
+      btnMute.addEventListener('click', () => {
+        isAudioMuted = !isAudioMuted;
+        if (isAudioMuted) {
+          btnMute.textContent = '🔇 Audio: Muted';
+          btnMute.classList.add('is-active');
+          stopSyncAudio();
+        } else {
+          btnMute.textContent = '🔊 Audio: ON';
+          btnMute.classList.remove('is-active');
+          if (!masterTl.paused()) {
+            triggerSyncAudio();
+          }
+        }
+        Object.values(audioPlayers).forEach(aud => {
+          aud.volume = isAudioMuted ? 0 : currentVolume;
+        });
+      });
+
+      // Unlock browser audio policy on first user click anywhere
+      function unlockAudio() {
+        if (syncAudio && !isAudioMuted && masterTl.time() < 2.5) {
+          syncAudio.play().catch(() => {});
+        }
+        window.removeEventListener('click', unlockAudio);
+      }
+      window.addEventListener('click', unlockAudio);
     });
   </script>
 </body>
