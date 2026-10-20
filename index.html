@@ -83,13 +83,14 @@
       outline-offset: 3px;
     }
 
-    /* Ambient Misty Morning Forest Backdrop (Lively, aesthetic, softly luminous) */
+    /* Ambient Misty Morning Forest Backdrop (Static full-bleed background across the whole page) */
     .ambient-backdrop {
       position: fixed;
       inset: 0;
       z-index: -2;
       pointer-events: none;
       overflow: hidden;
+      background-color: #07090E;
     }
 
     .ambient-backdrop__image {
@@ -97,19 +98,20 @@
       inset: 0;
       background-image: url('./assets/misty-morning-forest.jpg');
       background-size: cover;
-      background-position: center 28%;
-      opacity: 0.58;
-      filter: saturate(1.05) contrast(1.02);
-      transform: scale(1.02);
+      background-position: center center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      opacity: 0.72;
+      filter: saturate(1.15) contrast(1.06);
+      transform: scale(1.01);
     }
 
     .ambient-backdrop__luminous-layer {
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(1300px 750px at 50% 0%, rgba(255, 255, 255, 0.16), transparent 72%),
-        radial-gradient(900px 600px at 85% 15%, rgba(210, 230, 255, 0.1), transparent 60%),
-        linear-gradient(180deg, rgba(11, 14, 20, 0.38) 0%, rgba(11, 14, 20, 0.62) 45%, rgba(11, 14, 20, 0.88) 100%);
+        radial-gradient(1400px 800px at 50% 0%, rgba(255, 255, 255, 0.2), transparent 75%),
+        linear-gradient(180deg, rgba(7, 9, 14, 0.28) 0%, rgba(7, 9, 14, 0.48) 50%, rgba(7, 9, 14, 0.75) 100%);
     }
 
     .container {
@@ -1068,21 +1070,11 @@
       overflow: hidden;
       padding: 72px 40px;
       text-align: center;
-      border: 1px solid var(--border-subtle);
+      border: 1px solid var(--border-hover);
       box-shadow: var(--shadow-window);
       isolation: isolate;
-      background: var(--bg-glass-card);
-      backdrop-filter: blur(24px);
-    }
-
-    .cta-banner__bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('./assets/misty-morning-forest.jpg');
-      background-size: cover;
-      background-position: center 30%;
-      z-index: -2;
-      filter: brightness(0.48) saturate(1.05);
+      background: rgba(14, 18, 27, 0.65);
+      backdrop-filter: blur(24px) saturate(140%);
     }
 
     .cta-banner__overlay {
@@ -1090,8 +1082,8 @@
       inset: 0;
       z-index: -1;
       background:
-        radial-gradient(800px 400px at 50% 50%, rgba(11, 14, 20, 0.45), rgba(11, 14, 20, 0.9)),
-        linear-gradient(180deg, rgba(11, 14, 20, 0.3) 0%, rgba(11, 14, 20, 0.92) 100%);
+        radial-gradient(900px 420px at 50% 50%, rgba(255, 255, 255, 0.08), transparent 70%),
+        linear-gradient(180deg, rgba(7, 9, 14, 0.2) 0%, rgba(7, 9, 14, 0.65) 100%);
     }
 
     .cta-banner h2 {
@@ -1579,7 +1571,7 @@
 
         <div class="profiles-grid">
           <article class="profile-card gs-profile">
-            <img class="profile-card__bg" src="./assets/misty-morning-forest.jpg" alt="Bosque lluvioso con gotas en cristal" width="600" height="800" loading="lazy">
+            <img class="profile-card__bg" src="./assets/library-sanctuary.jpg" alt="Santuario clásico de lectura y escritura" width="600" height="800" loading="lazy">
             <div class="profile-card__scrim" aria-hidden="true"></div>
             <span class="profile-card__tag">Ficción &amp; Fantasía</span>
             <h3>Creadores de Mundos y Sagas</h3>
@@ -1740,7 +1732,6 @@
     <section style="padding-top: 24px;">
       <div class="container">
         <div class="cta-banner gs-reveal">
-          <div class="cta-banner__bg" aria-hidden="true"></div>
           <div class="cta-banner__overlay" aria-hidden="true"></div>
           <div class="section-eyebrow">
             <span>Comienza Hoy Mismo</span>
