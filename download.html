@@ -3,33 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#07070A">
+  <meta name="theme-color" content="#0B0E14">
   <title>Descargar Noveleare v1.1.8 — Instalador Oficial para Windows</title>
   <meta name="description" content="Descarga Noveleare v1.1.8 para Windows 10 y 11 (64-bit). El estudio literario y taller de escritura creativa 100% Local-First.">
   <link rel="icon" type="image/png" href="./assets/noveleare-symbol-transparent.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-void: #07070A;
-      --bg-surface-1: #0D0E13;
-      --bg-surface-2: #12141C;
-      --bg-surface-3: #181B26;
-      --border-hairline: rgba(255, 255, 255, 0.08);
-      --border-elevated: rgba(255, 255, 255, 0.14);
-      --text-primary: #F4F3EF;
-      --text-secondary: #A3A19A;
-      --text-muted: #6C6B65;
-      --accent-gold: #DAB36A;
-      --accent-amber: #FBBF24;
-      --accent-emerald: #34D399;
-      --radius-outer: 22px;
+      --bg-base: #0B0E14;
+      --bg-glass-card: rgba(16, 21, 30, 0.68);
+      --bg-glass-nav: rgba(11, 14, 20, 0.75);
+      --border-subtle: rgba(255, 255, 255, 0.12);
+      --border-hover: rgba(255, 255, 255, 0.24);
+      --text-main: #FFFFFF;
+      --text-sub: #CBD5E1;
+      --text-muted: #8E9BAE;
+      --accent-pill-bg: rgba(255, 255, 255, 0.08);
+      --accent-pill-border: rgba(255, 255, 255, 0.18);
+      --accent-pill-text: #F8FAFC;
+      --radius-outer: 20px;
       --radius-inner: 12px;
       --radius-pill: 9999px;
-      --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
-      --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.5), 0 12px 32px -8px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.09);
-      --shadow-window: 0 2px 6px rgba(0, 0, 0, 0.6), 0 28px 72px -12px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-glass: 0 4px 24px -2px rgba(0, 0, 0, 0.35), 0 18px 48px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+      --shadow-window: 0 8px 32px -4px rgba(0, 0, 0, 0.45), 0 24px 64px -12px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.14);
     }
 
     *, *::before, *::after {
@@ -40,15 +39,15 @@
 
     html {
       scroll-behavior: smooth;
-      background-color: var(--bg-void);
-      color: var(--text-primary);
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       -webkit-font-smoothing: antialiased;
     }
 
     body {
-      background-color: var(--bg-void);
-      color: var(--text-primary);
+      background-color: var(--bg-base);
+      color: var(--text-main);
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -58,8 +57,8 @@
       top: -100px;
       left: 16px;
       z-index: 9999;
-      background: var(--text-primary);
-      color: var(--bg-void);
+      background: #FFFFFF;
+      color: #0B0E14;
       padding: 10px 18px;
       border-radius: 8px;
       font-weight: 600;
@@ -73,11 +72,10 @@
     }
 
     :focus-visible {
-      outline: 2px solid var(--accent-gold);
+      outline: 2px solid rgba(255, 255, 255, 0.6);
       outline-offset: 3px;
     }
 
-    /* Ambient Atmospheric Layer */
     .ambient-backdrop {
       position: fixed;
       inset: 0;
@@ -89,19 +87,19 @@
     .ambient-backdrop__image {
       position: absolute;
       inset: 0;
-      background-image: url('./assets/library-sanctuary.jpg');
+      background-image: url('./assets/misty-morning-forest.jpg');
       background-size: cover;
-      background-position: center 22%;
-      opacity: 0.2;
-      filter: saturate(0.85) contrast(1.08);
+      background-position: center 28%;
+      opacity: 0.55;
+      filter: saturate(1.05) contrast(1.02);
     }
 
-    .ambient-backdrop__vignette {
+    .ambient-backdrop__luminous-layer {
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(1000px 620px at 50% 10%, rgba(218, 179, 106, 0.12), transparent 65%),
-        linear-gradient(180deg, rgba(7, 7, 10, 0.48) 0%, rgba(7, 7, 10, 0.9) 45%, #07070A 80%);
+        radial-gradient(1300px 700px at 50% 0%, rgba(255, 255, 255, 0.15), transparent 70%),
+        linear-gradient(180deg, rgba(11, 14, 20, 0.4) 0%, rgba(11, 14, 20, 0.65) 45%, rgba(11, 14, 20, 0.9) 100%);
     }
 
     .container {
@@ -111,15 +109,14 @@
       padding: 0 24px;
     }
 
-    /* Top Sticky Navigation */
     .site-header {
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(18px) saturate(140%);
-      -webkit-backdrop-filter: blur(18px) saturate(140%);
-      background: rgba(7, 7, 10, 0.76);
-      border-bottom: 1px solid var(--border-hairline);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      background: var(--bg-glass-nav);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .nav-bar {
@@ -135,21 +132,16 @@
       align-items: center;
       gap: 11px;
       text-decoration: none;
-      color: var(--text-primary);
-      font-weight: 600;
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
     }
 
     .brand-link img {
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       object-fit: contain;
-    }
-
-    .brand-name-serif {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.45rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
     }
 
     .nav-links {
@@ -160,19 +152,19 @@
     }
 
     .nav-links a {
-      color: var(--text-secondary);
+      color: var(--text-sub);
       text-decoration: none;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 500;
       padding: 8px 14px;
-      border-radius: 999px;
+      border-radius: var(--radius-pill);
       transition: color 0.18s ease, background-color 0.18s ease;
     }
 
     .nav-links a:hover,
     .nav-links a[aria-current="page"] {
-      color: var(--text-primary);
-      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.08);
     }
 
     .btn {
@@ -189,41 +181,39 @@
       text-decoration: none;
       cursor: pointer;
       border: 1px solid transparent;
-      transition: transform 0.18s var(--ease-out-quart), background-color 0.18s ease, box-shadow 0.18s ease;
+      transition: transform 0.18s var(--ease-smooth), background-color 0.18s ease, box-shadow 0.18s ease;
       white-space: nowrap;
     }
 
-    .btn:active {
-      transform: scale(0.97);
-    }
+    .btn:active { transform: scale(0.97); }
 
     .btn-primary {
-      background: #F4F3EF;
-      color: #07070A;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 10px 28px -4px rgba(244, 243, 239, 0.25);
+      background: #FFFFFF;
+      color: #0B0E14;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 10px 28px -4px rgba(255, 255, 255, 0.25);
     }
 
     .btn-primary:hover {
-      background: #FFFFFF;
+      background: #F8FAFC;
       transform: translateY(-1px);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 0 14px 32px -4px rgba(244, 243, 239, 0.34);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 14px 34px -4px rgba(255, 255, 255, 0.35);
     }
 
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--text-primary);
-      border-color: var(--border-elevated);
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text-main);
+      border-color: var(--border-subtle);
     }
 
     .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.09);
+      background: rgba(255, 255, 255, 0.12);
       transform: translateY(-1px);
     }
 
     .btn-sm {
       padding: 9px 16px;
-      font-size: 0.84rem;
-      border-radius: 9px;
+      font-size: 0.85rem;
+      border-radius: 10px;
     }
 
     .btn svg {
@@ -235,30 +225,21 @@
     .section-eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.74rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent-gold);
-      background: rgba(218, 179, 106, 0.09);
-      border: 1px solid rgba(218, 179, 106, 0.24);
-      padding: 6px 13px;
+      gap: 7px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: var(--accent-pill-text);
+      background: var(--accent-pill-bg);
+      border: 1px solid var(--accent-pill-border);
+      padding: 6px 14px;
       border-radius: var(--radius-pill);
+      backdrop-filter: blur(10px);
       margin-bottom: 18px;
     }
 
-    .section-eyebrow__dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent-emerald);
-      box-shadow: 0 0 8px var(--accent-emerald);
-    }
-
-    /* Download Hero Split Grid */
     .download-hero {
-      padding: 72px 0 56px;
+      padding: 68px 0 52px;
     }
 
     .download-hero-grid {
@@ -269,8 +250,9 @@
     }
 
     .download-main-card {
-      background: linear-gradient(165deg, rgba(24, 26, 38, 0.9) 0%, rgba(11, 12, 18, 0.96) 100%);
-      border: 1px solid rgba(218, 179, 106, 0.35);
+      background: var(--bg-glass-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-subtle);
       border-radius: var(--radius-outer);
       padding: 40px 36px;
       box-shadow: var(--shadow-window);
@@ -282,23 +264,16 @@
 
     .download-title {
       font-size: clamp(2.1rem, 3.6vw, 3rem);
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1.1;
       margin-bottom: 14px;
       text-wrap: balance;
     }
 
-    .download-title span {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
-      color: var(--accent-gold);
-      font-weight: 600;
-    }
-
     .download-desc {
-      font-size: 1rem;
-      color: var(--text-secondary);
+      font-size: 1.02rem;
+      color: var(--text-sub);
       line-height: 1.65;
     }
 
@@ -309,7 +284,7 @@
       padding: 16px;
       border-radius: var(--radius-inner);
       background: rgba(0, 0, 0, 0.35);
-      border: 1px solid var(--border-hairline);
+      border: 1px solid var(--border-subtle);
       font-variant-numeric: tabular-nums;
     }
 
@@ -320,26 +295,26 @@
     }
 
     .spec-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.68rem;
+      font-size: 0.72rem;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       color: var(--text-muted);
     }
 
     .spec-value {
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--text-primary);
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: var(--text-main);
     }
 
-    /* Right Card: Release Highlights & Preview */
     .release-card {
-      background: linear-gradient(180deg, rgba(19, 21, 30, 0.84) 0%, rgba(11, 12, 18, 0.95) 100%);
-      border: 1px solid var(--border-hairline);
+      background: var(--bg-glass-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-subtle);
       border-radius: var(--radius-outer);
       padding: 32px;
-      box-shadow: var(--shadow-card);
+      box-shadow: var(--shadow-glass);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -347,7 +322,7 @@
     }
 
     .release-card h2 {
-      font-size: 1.28rem;
+      font-size: 1.3rem;
       font-weight: 700;
       letter-spacing: -0.02em;
       margin-bottom: 6px;
@@ -365,21 +340,20 @@
       align-items: flex-start;
       gap: 10px;
       font-size: 0.9rem;
-      color: var(--text-secondary);
+      color: var(--text-sub);
       line-height: 1.5;
     }
 
     .changelog-list li svg {
       width: 16px;
       height: 16px;
-      color: var(--accent-gold);
+      color: #CBD5E1;
       flex-shrink: 0;
       margin-top: 3px;
     }
 
-    /* Info Bento Grid (System Requirements + Safe Installation Guide) */
     .info-section {
-      padding: 32px 0 88px;
+      padding: 24px 0 84px;
     }
 
     .info-grid {
@@ -389,17 +363,18 @@
     }
 
     .info-card {
-      background: linear-gradient(180deg, rgba(18, 20, 28, 0.82) 0%, rgba(11, 12, 18, 0.94) 100%);
-      border: 1px solid var(--border-hairline);
+      background: var(--bg-glass-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-subtle);
       border-radius: var(--radius-outer);
-      padding: 30px;
-      box-shadow: var(--shadow-card);
+      padding: 32px;
+      box-shadow: var(--shadow-glass);
     }
 
     .info-card h3 {
-      font-size: 1.2rem;
+      font-size: 1.22rem;
       font-weight: 700;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -408,17 +383,17 @@
     .info-card h3 svg {
       width: 20px;
       height: 20px;
-      color: var(--accent-gold);
+      color: #CBD5E1;
     }
 
     .req-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
     }
 
     .req-table tr {
-      border-bottom: 1px solid var(--border-hairline);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .req-table tr:last-child {
@@ -427,16 +402,16 @@
 
     .req-table th {
       text-align: left;
-      padding: 11px 8px 11px 0;
+      padding: 12px 8px 12px 0;
       color: var(--text-muted);
       font-weight: 500;
       width: 38%;
     }
 
     .req-table td {
-      padding: 11px 0;
-      color: var(--text-primary);
-      font-weight: 500;
+      padding: 12px 0;
+      color: var(--text-main);
+      font-weight: 600;
     }
 
     .smartscreen-steps {
@@ -444,35 +419,35 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-top: 12px;
+      margin-top: 14px;
     }
 
     .smartscreen-steps li {
       display: flex;
       align-items: flex-start;
       gap: 12px;
-      font-size: 0.89rem;
-      color: var(--text-secondary);
+      font-size: 0.9rem;
+      color: var(--text-sub);
     }
 
     .step-pill {
-      font-family: 'JetBrains Mono', monospace;
       font-size: 0.72rem;
-      color: var(--accent-gold);
-      background: rgba(218, 179, 106, 0.12);
-      border: 1px solid rgba(218, 179, 106, 0.3);
+      font-weight: 600;
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border-subtle);
       padding: 2px 8px;
       border-radius: 6px;
       flex-shrink: 0;
       margin-top: 2px;
     }
 
-    /* Footer */
     .site-footer {
-      border-top: 1px solid var(--border-hairline);
-      background: #050508;
+      border-top: 1px solid var(--border-subtle);
+      background: rgba(8, 10, 15, 0.75);
+      backdrop-filter: blur(16px);
       padding: 48px 0 36px;
-      font-size: 0.86rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
     }
 
@@ -492,32 +467,24 @@
     }
 
     .footer-links-inline a {
-      color: var(--text-secondary);
+      color: var(--text-sub);
       text-decoration: none;
       transition: color 0.18s ease;
     }
 
     .footer-links-inline a:hover {
-      color: var(--accent-gold);
+      color: #FFFFFF;
     }
 
     @media (max-width: 960px) {
       .download-hero-grid,
-      .info-grid {
-        grid-template-columns: 1fr;
-      }
+      .info-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 720px) {
-      .nav-links {
-        display: none;
-      }
-      .installer-specs {
-        grid-template-columns: 1fr;
-      }
-      .download-main-card {
-        padding: 28px 22px;
-      }
+      .nav-links { display: none; }
+      .installer-specs { grid-template-columns: 1fr; }
+      .download-main-card { padding: 28px 22px; }
     }
   </style>
 </head>
@@ -526,14 +493,14 @@
 
   <div class="ambient-backdrop" aria-hidden="true">
     <div class="ambient-backdrop__image"></div>
-    <div class="ambient-backdrop__vignette"></div>
+    <div class="ambient-backdrop__luminous-layer"></div>
   </div>
 
   <header class="site-header">
     <div class="container nav-bar">
       <a href="./index.html" class="brand-link" aria-label="Noveleare Inicio">
-        <img src="./assets/noveleare-symbol-transparent.png" alt="Símbolo de Noveleare" width="32" height="32">
-        <span class="brand-name-serif">Noveleare</span>
+        <img src="./assets/noveleare-symbol-transparent.png" alt="Símbolo de Noveleare" width="30" height="30">
+        <span>Noveleare</span>
       </a>
 
       <nav aria-label="Navegación principal">
@@ -555,16 +522,14 @@
   <main id="main-content">
     <section class="download-hero">
       <div class="container download-hero-grid">
-        <!-- Main Download Action Card -->
         <div class="download-main-card gs-dl-card">
           <div>
             <div class="section-eyebrow">
-              <span class="section-eyebrow__dot" aria-hidden="true"></span>
               <span>Versión Oficial Estable · v1.1.8</span>
             </div>
 
             <h1 class="download-title">
-              Descargar Noveleare para <span>Windows</span>
+              Descargar Noveleare para Windows
             </h1>
 
             <p class="download-desc">
@@ -579,7 +544,7 @@
             </div>
             <div class="spec-item">
               <span class="spec-label">Tamaño</span>
-              <span class="spec-value">125.4&nbsp;MB (.exe)</span>
+              <span class="spec-value">125.4 MB (.exe)</span>
             </div>
             <div class="spec-item">
               <span class="spec-label">Plataforma</span>
@@ -594,25 +559,24 @@
               </svg>
               <span>Descargar Noveleare-Setup-1.1.8.exe</span>
             </a>
-            <p style="font-size: 0.78rem; color: var(--text-muted); text-align: center;">
-              Al descargar aceptas nuestros <a href="./terms.html" style="color: var(--accent-gold); text-decoration: none;">Términos del Servicio</a> y <a href="./privacy.html" style="color: var(--accent-gold); text-decoration: none;">Política de Privacidad</a>.
+            <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center;">
+              Al descargar aceptas nuestros <a href="./terms.html" style="color: var(--text-sub); text-decoration: underline;">Términos del Servicio</a> y <a href="./privacy.html" style="color: var(--text-sub); text-decoration: underline;">Política de Privacidad</a>.
             </p>
           </div>
         </div>
 
-        <!-- Right Card: Novedades de la versión v1.1.8 -->
         <div class="release-card gs-dl-card">
           <div>
-            <span class="section-eyebrow" style="margin-bottom: 12px;">Notas de Lanzamiento</span>
+            <div class="section-eyebrow" style="margin-bottom: 12px;">Notas de Lanzamiento</div>
             <h2>Novedades en Noveleare v1.1.8</h2>
-            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 18px;">
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 18px;">
               Refinamiento profundo en el motor de comparación, fluidez de interfaz y herramientas de revisión.
             </p>
 
             <ul class="changelog-list">
               <li>
                 <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span><strong>Modo Comparativo 50/50 y Revisiones R1/R2:</strong> Resaltado automático en amarillo de palabras modificadas con restauración instantánea en un clic y soporte de <code>Ctrl+Z</code> entre hojas.</span>
+                <span><strong>Modo Comparativo 50/50 y Revisiones R1/R2:</strong> Resaltado de palabras modificadas con restauración instantánea en un clic y soporte de Ctrl+Z entre hojas.</span>
               </li>
               <li>
                 <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -620,16 +584,16 @@
               </li>
               <li>
                 <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span><strong>Delimitadores de Escena y Notas en el Margen:</strong> Marcadores visuales arrastrables directamente en el texto y notas flotantes por escena.</span>
+                <span><strong>Delimitadores de Escena y Notas en el Margen:</strong> Marcadores visuales arrastrables en el texto y notas flotantes por escena.</span>
               </li>
               <li>
                 <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span><strong>Bóveda de Copias de Seguridad y Actualizador Automático:</strong> Tus futuras versiones se descargan e instalan sin salir de la aplicación.</span>
+                <span><strong>Bóveda de Copias de Seguridad y Actualizador Automático:</strong> Respaldos locales y descargas directas sin salir de la app.</span>
               </li>
             </ul>
           </div>
 
-          <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border-hairline); aspect-ratio: 16 / 9;">
+          <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border-subtle); aspect-ratio: 16 / 9;">
             <img src="./assets/showcase-zen.png" alt="Vista previa de Noveleare v1.1.8" width="800" height="450" style="width: 100%; height: 100%; object-fit: cover;">
           </div>
         </div>
@@ -638,7 +602,6 @@
 
     <section class="info-section">
       <div class="container info-grid">
-        <!-- System Requirements -->
         <article id="requisitos" class="info-card gs-info">
           <h3>
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
@@ -655,25 +618,24 @@
               </tr>
               <tr>
                 <th>Memoria RAM</th>
-                <td>4&nbsp;GB mínimo (8&nbsp;GB recomendado)</td>
+                <td>4 GB mínimo (8 GB recomendado)</td>
               </tr>
               <tr>
                 <th>Espacio en Disco</th>
-                <td>450&nbsp;MB libres para la instalación</td>
+                <td>450 MB libres para la instalación</td>
               </tr>
               <tr>
                 <th>Conexión a Internet</th>
-                <td>Opcional (solo para sincronización de licencia o funciones de IA)</td>
+                <td>Opcional (solo para sincronización de licencia o IA)</td>
               </tr>
               <tr>
                 <th>Almacenamiento</th>
-                <td>100% Local-First (archivos <code>.novel</code> en tu equipo)</td>
+                <td>100% Local-First (archivos .novel en tu equipo)</td>
               </tr>
             </tbody>
           </table>
         </article>
 
-        <!-- Safe Installation Guide (Windows SmartScreen) -->
         <article id="instalacion-segura" class="info-card gs-info">
           <h3>
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
@@ -681,7 +643,7 @@
             </svg>
             Guía de Instalación Rápida en Windows
           </h3>
-          <p style="font-size: 0.88rem; color: var(--text-secondary);">
+          <p style="font-size: 0.9rem; color: var(--text-sub);">
             Si Windows Defender SmartScreen muestra un aviso preventivo al abrir el instalador de una versión recién publicada, sigue estos pasos:
           </p>
           <ul class="smartscreen-steps">
@@ -720,18 +682,18 @@
     document.addEventListener('DOMContentLoaded', () => {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || typeof window.gsap === 'undefined') return;
       gsap.from('.gs-dl-card', {
-        y: 26,
+        y: 24,
         opacity: 0,
-        duration: 0.75,
-        stagger: 0.12,
+        duration: 0.7,
+        stagger: 0.1,
         ease: 'power3.out'
       });
       gsap.from('.gs-info', {
-        y: 24,
+        y: 22,
         opacity: 0,
-        duration: 0.75,
-        delay: 0.2,
-        stagger: 0.12,
+        duration: 0.7,
+        delay: 0.15,
+        stagger: 0.1,
         ease: 'power3.out'
       });
     });
