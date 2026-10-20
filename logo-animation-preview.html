@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noveleare · Animación de Logo (Visualizador Interactivo)</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/noveleare-symbol-transparent.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #080B10;
+      --card-bg: rgba(16, 22, 34, 0.7);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-active: rgba(181, 229, 216, 0.35);
+      --brand-mint: #b5e5d8;
+      --brand-glow: rgba(181, 229, 216, 0.25);
+      --text-main: #F1F5F9;
+      --text-sub: #94A3B8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      overflow-x: hidden;
+    }
+
+    .preview-header {
+      text-align: center;
+      margin-bottom: 24px;
+      max-width: 680px;
+    }
+
+    .preview-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: rgba(181, 229, 216, 0.1);
+      border: 1px solid rgba(181, 229, 216, 0.25);
+      color: var(--brand-mint);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .preview-badge span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brand-mint);
+      box-shadow: 0 0 6px var(--brand-mint);
+    }
+
+    .preview-title {
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 8px;
+    }
+
+    .preview-title span {
+      color: var(--brand-mint);
+    }
+
+    .preview-desc {
+      font-size: 0.92rem;
+      color: var(--text-sub);
+      line-height: 1.5;
+    }
+
+    /* Stage Container */
+    .stage-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 620px;
+      aspect-ratio: 1 / 1.05;
+      border-radius: 20px;
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.7);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    /* Background Modes */
+    .stage-wrapper.bg-dark {
+      background: radial-gradient(circle at 50% 45%, rgba(181, 229, 216, 0.08) 0%, #080B10 75%);
+    }
+
+    .stage-wrapper.bg-checkered {
+      background-color: #121824;
+      background-image: 
+        linear-gradient(45deg, #182030 25%, transparent 25%),
+        linear-gradient(-45deg, #182030 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #182030 75%),
+        linear-gradient(-45deg, transparent 75%, #182030 75%);
+      background-size: 24px 24px;
+      background-position: 0 0, 0 12px, 12px -12px, -12px 0px;
+    }
+
+    .stage-wrapper.bg-light {
+      background: #FFFFFF;
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    /* Ambient Glow Behind Logo */
+    .ambient-glow {
+      position: absolute;
+      top: 42%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(181, 229, 216, 0.3) 0%, rgba(96, 165, 250, 0.12) 50%, transparent 72%);
+      filter: blur(48px);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .stage-wrapper.bg-light .ambient-glow {
+      display: none;
+    }
+
+    /* SVG Logo Canvas */
+    .logo-canvas {
+      width: 82%;
+      height: auto;
+      max-height: 82%;
+      position: relative;
+      z-index: 2;
+      display: block;
+      filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.3));
+    }
+
+    /* Player Controls Deck */
+    .controls-deck {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 620px;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .timeline-bar-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .timeline-slider {
+      flex: 1;
+      height: 6px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .timeline-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--brand-mint);
+      box-shadow: 0 0 10px var(--brand-mint);
+      cursor: pointer;
+      border: 2px solid #080B10;
+    }
+
+    .time-readout {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      width: 72px;
+      text-align: right;
+    }
+
+    .controls-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .btn-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ctrl-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.18s ease;
+    }
+
+    .ctrl-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .ctrl-btn.primary {
+      background: var(--brand-mint);
+      color: #080B10;
+      border-color: var(--brand-mint);
+      box-shadow: 0 0 14px rgba(181, 229, 216, 0.3);
+    }
+
+    .ctrl-btn.primary:hover {
+      background: #cbf0e6;
+    }
+
+    .ctrl-btn.is-active {
+      background: rgba(181, 229, 216, 0.18);
+      border-color: var(--brand-mint);
+      color: var(--brand-mint);
+    }
+
+    /* Step Timeline Indicators */
+    .steps-timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .step-pill {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 6px 8px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-sub);
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .step-pill.is-active {
+      background: rgba(181, 229, 216, 0.12);
+      border-color: rgba(181, 229, 216, 0.4);
+      color: var(--brand-mint);
+    }
+
+    .back-nav {
+      margin-top: 24px;
+      font-size: 0.86rem;
+    }
+
+    .back-nav a {
+      color: var(--text-sub);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .back-nav a:hover {
+      color: var(--text-main);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="preview-header">
+    <div class="preview-badge">
+      <span class="dot"></span>
+      Visualizador de Animación de Marca
+    </div>
+    <h1 class="preview-title">Logotipo Animado de <span>Noveleare</span></h1>
+    <p class="preview-desc">
+      Secuencia vectorial de 4 etapas: Trazado del anillo exterior, pop elástico de estrella central, rebote balístico de la esfera satelital y deslizamiento tipográfico.
+    </p>
+  </div>
+
+  <!-- Stage Box -->
+  <div class="stage-wrapper bg-dark" id="stage-box">
+    <div class="ambient-glow" id="ambient-glow"></div>
+
+    <!-- Master Vector SVG -->
+    <svg class="logo-canvas" id="logo-svg" viewBox="0 0 1024 1120" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Soft Glow Filter -->
+        <filter id="glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="8" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+      </defs>
+
+      <!-- 1. Outer Ring with Gap (Center at 512, 460) -->
+      <circle 
+        id="elem-ring" 
+        cx="512" 
+        cy="460" 
+        r="310" 
+        fill="none" 
+        stroke="#b5e5d8" 
+        stroke-width="32" 
+        stroke-linecap="round" 
+        stroke-dasharray="1700 248" 
+        stroke-dashoffset="1792"
+      />
+
+      <!-- 2. Four-Pointed Star (Center at 512, 460) -->
+      <path 
+        id="elem-star" 
+        d="M 512 336 Q 533 439 636 460 Q 533 481 512 584 Q 491 481 388 460 Q 491 439 512 336 Z" 
+        fill="#b5e5d8"
+      />
+
+      <!-- 3. Satellite Sphere (Resting in the gap at 747, 240) -->
+      <circle 
+        id="elem-ball" 
+        cx="747" 
+        cy="240" 
+        r="30" 
+        fill="#b5e5d8"
+      />
+
+      <!-- 4. Noveleare Wordmark (Centered under symbol) -->
+      <g id="elem-wordmark" transform="translate(0, 0)">
+        <image 
+          href="./assets/noveleare-wordmark.png" 
+          x="283" 
+          y="830" 
+          width="458" 
+          height="69"
+        />
+      </g>
+    </svg>
+  </div>
+
+  <!-- Player Controls Deck -->
+  <div class="controls-deck">
+    <!-- Timeline Slider -->
+    <div class="timeline-bar-wrapper">
+      <input type="range" class="timeline-slider" id="timeline-slider" min="0" max="100" value="0" step="0.1">
+      <span class="time-readout" id="time-readout">0.00s</span>
+    </div>
+
+    <!-- Controls Row -->
+    <div class="controls-row">
+      <!-- Playback Buttons -->
+      <div class="btn-group">
+        <button type="button" class="ctrl-btn primary" id="btn-replay">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+          Reproducir
+        </button>
+        <button type="button" class="ctrl-btn" id="btn-pause">Pausar</button>
+        <button type="button" class="ctrl-btn" id="btn-loop">Loop: ON</button>
+      </div>
+
+      <!-- Speed Selector -->
+      <div class="btn-group">
+        <button type="button" class="ctrl-btn" data-speed="0.5">0.5x</button>
+        <button type="button" class="ctrl-btn is-active" data-speed="1.0">1.0x</button>
+        <button type="button" class="ctrl-btn" data-speed="1.5">1.5x</button>
+      </div>
+
+      <!-- Background Mode -->
+      <div class="btn-group">
+        <button type="button" class="ctrl-btn is-active" data-bg="bg-dark">Oscuro</button>
+        <button type="button" class="ctrl-btn" data-bg="bg-checkered">Transparente</button>
+        <button type="button" class="ctrl-btn" data-bg="bg-light">Claro</button>
+      </div>
+    </div>
+
+    <!-- 4 Phases Indicators -->
+    <div class="steps-timeline">
+      <div class="step-pill" id="step-0">1. Anillo</div>
+      <div class="step-pill" id="step-1">2. Pop Estrella</div>
+      <div class="step-pill" id="step-2">3. Bote Esfera</div>
+      <div class="step-pill" id="step-3">4. Nombre</div>
+    </div>
+  </div>
+
+  <div class="back-nav">
+    <a href="./index.html">← Volver a la Landing Page principal</a>
+  </div>
+
+  <!-- GSAP Animation Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const ring = document.getElementById('elem-ring');
+      const star = document.getElementById('elem-star');
+      const ball = document.getElementById('elem-ball');
+      const wordmark = document.getElementById('elem-wordmark');
+      const glow = document.getElementById('ambient-glow');
+      
+      const slider = document.getElementById('timeline-slider');
+      const readout = document.getElementById('time-readout');
+      const btnReplay = document.getElementById('btn-replay');
+      const btnPause = document.getElementById('btn-pause');
+      const btnLoop = document.getElementById('btn-loop');
+      const stageBox = document.getElementById('stage-box');
+      
+      let isLooping = true;
+      let isSeeking = false;
+
+      // Master GSAP Timeline
+      const masterTl = gsap.timeline({
+        repeat: -1,
+        repeatDelay: 1.4,
+        onUpdate: updateUI,
+        defaults: { ease: 'power2.out' }
+      });
+
+      // Initial Setup
+      gsap.set(ring, { strokeDashoffset: 1792 });
+      gsap.set(star, { scale: 0, opacity: 0, transformOrigin: '512px 460px' });
+      gsap.set(ball, { opacity: 0, x: 220, y: -450 });
+      gsap.set(wordmark, { opacity: 0, x: -160 });
+      gsap.set(glow, { opacity: 0 });
+
+      // Build Sequential Steps
+      // 0.0s - 0.95s: Dibujo del círculo exterior dejando el gap a las 2h
+      masterTl.to(ring, {
+        strokeDashoffset: 92,
+        duration: 0.95,
+        ease: 'power2.inOut'
+      }, 0.15);
+
+      // 0.85s - 1.35s: Pop mágico de la estrella central
+      masterTl.to(star, {
+        scale: 1,
+        opacity: 1,
+        duration: 0.48,
+        ease: 'back.out(2.4)'
+      }, 0.85);
+
+      // 1.15s - 1.95s: Rebote dinámico de la esfera satelital (pelota que bota y calza en el gap)
+      masterTl.to(ball, {
+        opacity: 1,
+        duration: 0.08
+      }, 1.15);
+
+      masterTl.to(ball, {
+        y: 0,
+        duration: 0.75,
+        ease: 'bounce.out'
+      }, 1.15);
+
+      masterTl.to(ball, {
+        x: 0,
+        duration: 0.75,
+        ease: 'power2.out'
+      }, 1.15);
+
+      // 1.70s - 2.45s: Deslizamiento suave de las letras de Noveleare desde el lateral
+      masterTl.to(wordmark, {
+        x: 0,
+        opacity: 1,
+        duration: 0.75,
+        ease: 'power3.out'
+      }, 1.70);
+
+      // 2.10s - 2.80s: Destello y respiración ambiental de culminación
+      masterTl.to(glow, {
+        opacity: 0.9,
+        duration: 0.45,
+        ease: 'power2.out'
+      }, 2.0);
+
+      masterTl.to(glow, {
+        opacity: 0.5,
+        duration: 0.6,
+        ease: 'power2.inOut'
+      }, 2.45);
+
+      function updateUI() {
+        if (!isSeeking) {
+          const progress = masterTl.progress();
+          slider.value = progress * 100;
+        }
+        readout.textContent = masterTl.time().toFixed(2) + 's';
+
+        // Step indicators
+        const t = masterTl.time();
+        document.getElementById('step-0').classList.toggle('is-active', t >= 0.15 && t < 0.85);
+        document.getElementById('step-1').classList.toggle('is-active', t >= 0.85 && t < 1.15);
+        document.getElementById('step-2').classList.toggle('is-active', t >= 1.15 && t < 1.70);
+        document.getElementById('step-3').classList.toggle('is-active', t >= 1.70);
+      }
+
+      // Slider scrub
+      slider.addEventListener('input', () => {
+        isSeeking = true;
+        masterTl.pause();
+        btnPause.textContent = 'Reanudar';
+        masterTl.progress(slider.value / 100);
+      });
+
+      slider.addEventListener('change', () => {
+        isSeeking = false;
+        if (btnPause.textContent === 'Pausar') {
+          masterTl.play();
+        }
+      });
+
+      // Buttons
+      btnReplay.addEventListener('click', () => {
+        masterTl.restart();
+        masterTl.play();
+        btnPause.textContent = 'Pausar';
+      });
+
+      btnPause.addEventListener('click', () => {
+        if (masterTl.paused()) {
+          masterTl.play();
+          btnPause.textContent = 'Pausar';
+        } else {
+          masterTl.pause();
+          btnPause.textContent = 'Reanudar';
+        }
+      });
+
+      btnLoop.addEventListener('click', () => {
+        isLooping = !isLooping;
+        btnLoop.textContent = 'Loop: ' + (isLooping ? 'ON' : 'OFF');
+        btnLoop.classList.toggle('is-active', isLooping);
+        masterTl.repeat(isLooping ? -1 : 0);
+      });
+
+      // Speed selectors
+      document.querySelectorAll('[data-speed]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-speed]').forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const speed = Number(btn.getAttribute('data-speed'));
+          masterTl.timeScale(speed);
+        });
+      });
+
+      // Background selectors
+      document.querySelectorAll('[data-bg]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-bg]').forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const bg = btn.getAttribute('data-bg');
+          stageBox.className = 'stage-wrapper ' + bg;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
