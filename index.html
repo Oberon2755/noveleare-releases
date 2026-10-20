@@ -1540,6 +1540,23 @@
       font-size: 0.84rem;
     }
 
+    .footer-links-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      list-style: none;
+    }
+
+    .footer-links-inline a {
+      color: var(--text-sub);
+      text-decoration: none;
+      transition: color 0.18s ease;
+    }
+
+    .footer-links-inline a:hover {
+      color: var(--brand-mint, #b5e5d8);
+    }
+
     /* Responsive */
     @media (max-width: 1024px) {
       .hero-grid,
@@ -1604,6 +1621,8 @@
           <li><a href="#asistencia-ia">Asistencia IA</a></li>
           <li><a href="#ediciones">Ediciones</a></li>
           <li><a href="./download.html">Descargas</a></li>
+          <li><a href="./privacy.html">Privacidad</a></li>
+          <li><a href="./terms.html">Términos</a></li>
         </ul>
       </nav>
 
@@ -2678,8 +2697,13 @@
       </div>
 
       <div class="footer-bottom">
-        <span>&copy; 2026 Noveleare. Todos los derechos reservados.</span>
-        <span>Arquitectura Local-First · Privacidad por Diseño</span>
+        <span>&copy; 2026 Noveleare. Todos los derechos reservados. Arquitectura Local-First.</span>
+        <ul class="footer-links-inline">
+          <li><a href="./privacy.html">Política de Privacidad</a></li>
+          <li><a href="./terms.html">Términos del Servicio</a></li>
+          <li><a href="./download.html">Descargas</a></li>
+          <li><a href="mailto:noveleare@gmail.com">noveleare@gmail.com</a></li>
+        </ul>
       </div>
     </div>
   </footer>
