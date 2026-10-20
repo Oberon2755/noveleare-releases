@@ -42,19 +42,30 @@
 
     html {
       scroll-behavior: smooth;
-      background-color: var(--bg-base);
       color: var(--text-main);
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      background-color: #070A0F;
     }
 
     body {
-      background-color: var(--bg-base);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
       color: var(--text-main);
       line-height: 1.6;
       overflow-x: hidden;
       position: relative;
+      background-color: #070A0F;
+      background-image:
+        radial-gradient(1600px 900px at 50% 0%, rgba(255, 255, 255, 0.14), transparent 75%),
+        linear-gradient(180deg, rgba(7, 10, 16, 0.22) 0%, rgba(7, 10, 16, 0.42) 45%, rgba(7, 10, 16, 0.72) 100%),
+        url('./assets/misty-morning-forest.jpg');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
     }
 
     /* Skip link */
@@ -83,42 +94,12 @@
       outline-offset: 3px;
     }
 
-    /* Ambient Misty Morning Forest Backdrop (Static full-bleed background across the whole page) */
-    .ambient-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      pointer-events: none;
-      overflow: hidden;
-      background-color: #07090E;
-    }
-
-    .ambient-backdrop__image {
-      position: absolute;
-      inset: 0;
-      background-image: url('./assets/misty-morning-forest.jpg');
-      background-size: cover;
-      background-position: center center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      opacity: 0.72;
-      filter: saturate(1.15) contrast(1.06);
-      transform: scale(1.01);
-    }
-
-    .ambient-backdrop__luminous-layer {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(1400px 800px at 50% 0%, rgba(255, 255, 255, 0.2), transparent 75%),
-        linear-gradient(180deg, rgba(7, 9, 14, 0.28) 0%, rgba(7, 9, 14, 0.48) 50%, rgba(7, 9, 14, 0.75) 100%);
-    }
-
+    /* Widescreen container filling full available width */
     .container {
       width: 100%;
-      max-width: 1220px;
+      max-width: 1560px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 clamp(24px, 4vw, 64px);
     }
 
     /* Sticky Navigation */
@@ -269,13 +250,13 @@
     }
 
     .section-header {
-      max-width: 740px;
-      margin: 0 auto 52px;
+      max-width: 880px;
+      margin: 0 auto 56px;
       text-align: center;
     }
 
     .section-title {
-      font-size: clamp(2.1rem, 3.8vw, 3.1rem);
+      font-size: clamp(2.3rem, 4vw, 3.5rem);
       font-weight: 800;
       letter-spacing: -0.035em;
       line-height: 1.12;
@@ -292,7 +273,7 @@
     }
 
     .section-subtitle {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       color: var(--text-sub);
       line-height: 1.65;
       text-wrap: pretty;
@@ -300,14 +281,14 @@
 
     /* 1. HERO SECTION */
     .hero-section {
-      padding: 68px 0 60px;
+      padding: 72px 0 64px;
       overflow: hidden;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: 48px;
+      grid-template-columns: 1fr 1.2fr;
+      gap: clamp(36px, 4vw, 76px);
       align-items: center;
     }
 
@@ -318,9 +299,9 @@
     }
 
     .hero-title {
-      font-size: clamp(2.5rem, 4.4vw, 3.85rem);
+      font-size: clamp(2.6rem, 4.5vw, 4.2rem);
       font-weight: 800;
-      line-height: 1.06;
+      line-height: 1.05;
       letter-spacing: -0.04em;
       color: var(--text-main);
       text-wrap: balance;
@@ -328,11 +309,11 @@
     }
 
     .hero-lead {
-      font-size: 1.1rem;
+      font-size: 1.14rem;
       color: var(--text-sub);
       line-height: 1.68;
-      margin-bottom: 30px;
-      max-width: 540px;
+      margin-bottom: 32px;
+      max-width: 640px;
       text-wrap: pretty;
     }
 
@@ -556,7 +537,7 @@
     .bento-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      gap: 20px;
+      gap: clamp(20px, 2vw, 32px);
     }
 
     .bento-card {
@@ -752,8 +733,8 @@
 
     .workflow-grid {
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 52px;
+      grid-template-columns: 1fr 1.15fr;
+      gap: clamp(36px, 4vw, 76px);
       align-items: center;
     }
 
@@ -883,7 +864,7 @@
     .profiles-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      gap: clamp(20px, 2vw, 32px);
     }
 
     .profile-card {
@@ -969,7 +950,7 @@
     .editions-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      gap: clamp(20px, 2vw, 32px);
       align-items: stretch;
     }
 
@@ -1115,8 +1096,8 @@
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.6fr 1fr 1fr 1fr;
-      gap: 40px;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: clamp(32px, 4vw, 64px);
       margin-bottom: 48px;
     }
 
@@ -1195,12 +1176,6 @@
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
-
-  <!-- Ambient Misty Morning Forest Backdrop (Lively, aesthetic, soft morning light) -->
-  <div class="ambient-backdrop" aria-hidden="true">
-    <div class="ambient-backdrop__image"></div>
-    <div class="ambient-backdrop__luminous-layer"></div>
-  </div>
 
   <!-- Sticky Top Navigation -->
   <header class="site-header">
