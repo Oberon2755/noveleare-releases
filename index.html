@@ -576,261 +576,180 @@
       opacity: 0.85;
     }
 
-    /* 3. ASYMMETRIC BENTO GRID */
-    .bento-grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: clamp(20px, 2vw, 32px);
+    /* ============================================================
+       FLAGSHIP SECTIONS STYLES
+       1. Editorial Workspace
+       2. Zen Mode Sanctuary
+       3. Inspector De Obra
+       4. Custom AI Creative Suite
+       ============================================================ */
+
+    .editorial-section,
+    .zen-section,
+    .inspector-section,
+    .ai-section {
+      position: relative;
     }
 
-    .bento-card {
-      position: relative;
+    .feature-showcase-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(32px, 4vw, 64px);
+      align-items: center;
+    }
+
+    .zen-showcase-grid {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: clamp(32px, 4vw, 64px);
+      align-items: center;
+    }
+
+    .showcase-window-card {
       background: var(--bg-glass-card);
       backdrop-filter: blur(20px) saturate(140%);
       -webkit-backdrop-filter: blur(20px) saturate(140%);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-outer);
-      padding: 30px;
-      box-shadow: var(--shadow-glass);
+      padding: 12px;
+      box-shadow: var(--shadow-window);
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: 22px;
-      transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.28s var(--ease-smooth);
+      gap: 12px;
     }
 
-    .bento-card:hover {
-      border-color: var(--border-hover);
-      background: var(--bg-glass-card-hover);
-      transform: translateY(-2px);
-    }
-
-    .bento-card--span-7 { grid-column: span 7; }
-    .bento-card--span-5 { grid-column: span 5; }
-
-    .bento-card__top {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .bento-badge {
-      display: inline-flex;
-      align-items: center;
-      align-self: flex-start;
-      font-size: 0.74rem;
+    .window-title-tag {
+      font-size: 0.78rem;
       font-weight: 600;
-      letter-spacing: 0.02em;
-      color: var(--text-sub);
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid var(--border-subtle);
-      padding: 4px 11px;
-      border-radius: 7px;
+      color: var(--text-muted);
+      letter-spacing: -0.01em;
     }
 
-    .bento-card h3 {
-      font-size: 1.35rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--text-main);
-      line-height: 1.25;
-    }
-
-    .bento-card p {
-      font-size: 0.94rem;
-      color: var(--text-sub);
-      line-height: 1.62;
-    }
-
-    .bento-visual {
-      position: relative;
+    .showcase-img-box {
       border-radius: var(--radius-inner);
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
       background: #080B10;
       border: 1px solid var(--border-subtle);
-      overflow: hidden;
     }
 
-    .bento-visual__img-wrap {
-      position: relative;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-    }
-
-    .bento-visual__img-wrap img {
+    .showcase-img-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: top center;
       display: block;
-      transition: transform 0.55s var(--ease-smooth);
+      transition: transform 0.6s var(--ease-smooth);
     }
 
-    .bento-card:hover .bento-visual__img-wrap img {
+    .showcase-window-card:hover .showcase-img-box img {
       transform: scale(1.02);
     }
 
-    .diff-live-pill-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 12px 16px;
-      background: rgba(11, 14, 20, 0.92);
-      border-top: 1px solid var(--border-subtle);
-      font-size: 0.84rem;
-    }
-
-    .diff-demo-sentence {
-      font-size: 0.96rem;
-      color: var(--text-main);
-    }
-
-    .diff-word-yellow {
-      color: var(--diff-highlight);
-      border-bottom: 1px dashed rgba(251, 191, 36, 0.6);
-      padding: 0 4px;
-      position: relative;
-      font-weight: 600;
-    }
-
-    .diff-restore-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 0.74rem;
-      font-weight: 500;
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--text-sub);
-      border: 1px solid var(--border-subtle);
-      padding: 3px 9px;
-      border-radius: 6px;
-    }
-
-    /* Proximity Analyzer Mockup */
-    .analyzer-mockup {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      background: #080B10;
-    }
-
-    .analyzer-toolbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.74rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .analyzer-excerpt {
-      font-size: 1rem;
-      line-height: 1.65;
-      color: var(--text-main);
-    }
-
-    .echo-highlight {
-      background: rgba(251, 191, 36, 0.16);
-      color: var(--diff-highlight);
-      padding: 1px 5px;
-      border-radius: 4px;
-      border: 1px solid rgba(251, 191, 36, 0.35);
-    }
-
-    .synonym-chips {
+    .window-status-footer {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 6px;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 10px 4px;
+      font-size: 0.78rem;
     }
 
-    .synonym-chips span {
-      font-size: 0.76rem;
-      font-weight: 500;
-      padding: 4px 10px;
-      border-radius: 7px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--border-subtle);
+    .status-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       color: var(--text-sub);
+      font-weight: 500;
     }
 
-    .synonym-chips span.is-suggested {
-      background: rgba(255, 255, 255, 0.14);
-      border-color: var(--border-hover);
-      color: #FFFFFF;
-      font-weight: 600;
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+      animation: pulseGreen 2.2s infinite;
     }
 
-    /* 4. WORKFLOW SECTION */
-    .workflow-section {
-      background: rgba(14, 18, 26, 0.45);
-      border-top: 1px solid var(--border-subtle);
-      border-bottom: 1px solid var(--border-subtle);
-      backdrop-filter: blur(14px);
+    @keyframes pulseGreen {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
     }
 
-    .workflow-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: clamp(36px, 4vw, 76px);
-      align-items: center;
-    }
-
-    .workflow-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-top: 26px;
-    }
-
-    .workflow-step {
-      display: grid;
-      grid-template-columns: 42px 1fr;
-      gap: 16px;
-      padding: 20px;
-      border-radius: 16px;
-      background: var(--bg-glass-card);
-      border: 1px solid var(--border-subtle);
-      transition: border-color 0.22s ease, background-color 0.22s ease;
-    }
-
-    .workflow-step:hover {
-      border-color: var(--border-hover);
-      background: var(--bg-glass-card-hover);
-    }
-
-    .workflow-step__num {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-main);
-      font-weight: 700;
-      font-size: 0.92rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .status-meta {
+      color: var(--text-muted);
       font-variant-numeric: tabular-nums;
     }
 
-    .workflow-step h3 {
-      font-size: 1.12rem;
+    .feature-points-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .feature-point-card {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 18px;
+      padding: 22px 24px;
+      background: var(--bg-glass-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-inner);
+      box-shadow: var(--shadow-glass);
+      transition: border-color 0.22s ease, background-color 0.22s ease, transform 0.24s var(--ease-smooth);
+    }
+
+    .feature-point-card:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-glass-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .feature-point-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      flex-shrink: 0;
+    }
+
+    .feature-point-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 1.8;
+    }
+
+    .feature-point-card h3 {
+      font-size: 1.15rem;
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 6px;
-      letter-spacing: -0.015em;
+      letter-spacing: -0.02em;
     }
 
-    .workflow-step p {
+    .feature-point-card p {
       font-size: 0.92rem;
       color: var(--text-sub);
       line-height: 1.6;
+    }
+
+    /* 2. Zen Section Gallery */
+    .zen-section {
+      background: rgba(12, 16, 24, 0.4);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
 
     .zen-gallery-card {
@@ -840,6 +759,9 @@
       padding: 12px;
       box-shadow: var(--shadow-window);
       backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
     .zen-stage {
@@ -848,6 +770,7 @@
       border-radius: var(--radius-inner);
       overflow: hidden;
       background: #080B10;
+      border: 1px solid var(--border-subtle);
     }
 
     .zen-slide {
@@ -875,7 +798,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-      padding: 12px 6px 4px;
+      padding: 6px 8px 4px;
     }
 
     .zen-pills {
@@ -903,90 +826,295 @@
       color: var(--text-main);
     }
 
-    /* 5. AUTHOR PROFILES SECTION */
-    .profiles-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: clamp(20px, 2vw, 32px);
+    /* 3. Inspector Section */
+    .inspector-section {
+      background: rgba(10, 13, 19, 0.35);
     }
 
-    .profile-card {
-      position: relative;
+    .inspector-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: clamp(20px, 2.5vw, 32px);
+    }
+
+    .inspector-card {
+      background: var(--bg-glass-card);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border: 1px solid var(--border-subtle);
       border-radius: var(--radius-outer);
-      overflow: hidden;
-      min-height: 390px;
+      padding: 30px;
+      box-shadow: var(--shadow-glass);
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      padding: 30px;
-      border: 1px solid var(--border-subtle);
-      box-shadow: var(--shadow-glass);
-      isolation: isolate;
-      background: var(--bg-glass-card);
+      justify-content: space-between;
+      gap: 18px;
+      transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.28s var(--ease-smooth);
     }
 
-    .profile-card__bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -2;
-      transition: transform 0.65s var(--ease-smooth);
-      filter: brightness(0.68) saturate(0.95);
+    .inspector-card:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-glass-card-hover);
+      transform: translateY(-2px);
     }
 
-    .profile-card:hover .profile-card__bg {
-      transform: scale(1.04);
-    }
-
-    .profile-card__scrim {
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: linear-gradient(180deg, rgba(11, 14, 20, 0.1) 0%, rgba(11, 14, 20, 0.72) 48%, rgba(11, 14, 20, 0.96) 100%);
-    }
-
-    .profile-card__tag {
-      font-size: 0.74rem;
+    .inspector-card__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
       font-weight: 600;
+      color: var(--text-muted);
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: var(--text-sub);
-      margin-bottom: 8px;
     }
 
-    .profile-card h3 {
-      font-size: 1.35rem;
+    .inspector-card__badge svg {
+      width: 16px;
+      height: 16px;
+      color: #94A3B8;
+    }
+
+    .inspector-card h3 {
+      font-size: 1.32rem;
       font-weight: 700;
       color: var(--text-main);
-      margin-bottom: 8px;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+    }
+
+    .inspector-card p {
+      font-size: 0.93rem;
+      color: var(--text-sub);
+      line-height: 1.62;
+    }
+
+    .inspector-mini-chart {
+      background: #080B10;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-inner);
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .char-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .char-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-main);
+      width: 48px;
+      flex-shrink: 0;
+    }
+
+    .char-bars {
+      display: flex;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .char-bars .bar {
+      height: 10px;
+      flex: 1;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .char-bars .bar.active {
+      background: linear-gradient(90deg, rgba(226, 232, 240, 0.8), rgba(255, 255, 255, 0.95));
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.25);
+    }
+
+    .tension-chart-demo {
+      padding: 14px 14px 8px;
+    }
+
+    .tension-svg {
+      width: 100%;
+      height: 75px;
+      display: block;
+    }
+
+    .chart-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    .continuity-list-demo {
+      background: #080B10;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-inner);
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .continuity-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 0.82rem;
+    }
+
+    .continuity-item.resolved .item-status {
+      color: #10B981;
+      font-weight: 600;
+      font-size: 0.74rem;
+    }
+
+    .continuity-item.pending .item-status {
+      color: #FBBF24;
+      font-weight: 600;
+      font-size: 0.74rem;
+    }
+
+    .continuity-item .item-text {
+      color: var(--text-sub);
+    }
+
+    .audit-chips-demo {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .audit-chip {
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: #080B10;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-sub);
+    }
+
+    /* 4. AI Creative Suite Section */
+    .ai-section {
+      background: rgba(14, 18, 26, 0.45);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .ai-suite-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(18px, 2vw, 28px);
+      margin-bottom: 36px;
+    }
+
+    .ai-feature-card {
+      background: var(--bg-glass-card);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-outer);
+      padding: 26px 24px;
+      box-shadow: var(--shadow-glass);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color 0.22s ease, background-color 0.22s ease, transform 0.25s var(--ease-smooth);
+    }
+
+    .ai-feature-card:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-glass-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .ai-card-icon {
+      font-size: 1.7rem;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .ai-feature-card h3 {
+      font-size: 1.16rem;
+      font-weight: 700;
+      color: var(--text-main);
       letter-spacing: -0.02em;
     }
 
-    .profile-card p {
-      font-size: 0.92rem;
+    .ai-feature-card p {
+      font-size: 0.91rem;
       color: var(--text-sub);
       line-height: 1.6;
-      margin-bottom: 18px;
     }
 
-    .profile-card__features {
-      list-style: none;
+    .byok-banner {
+      background: var(--bg-glass-card);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-hover);
+      border-radius: var(--radius-outer);
+      padding: 32px 36px;
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      box-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
     }
 
-    .profile-card__features li {
-      font-size: 0.76rem;
-      font-weight: 500;
-      padding: 4px 11px;
+    .byok-content {
+      max-width: 680px;
+    }
+
+    .byok-badge {
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+
+    .byok-content h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.025em;
+      margin-bottom: 8px;
+    }
+
+    .byok-content p {
+      font-size: 0.94rem;
+      color: var(--text-sub);
+      line-height: 1.62;
+    }
+
+    .byok-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .byok-chips span {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 14px;
       border-radius: var(--radius-pill);
       background: rgba(255, 255, 255, 0.1);
       border: 1px solid var(--border-subtle);
       color: #FFFFFF;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
     }
 
     /* 6. EDITIONS SECTION */
@@ -1194,14 +1322,16 @@
     /* Responsive */
     @media (max-width: 1024px) {
       .hero-grid,
-      .workflow-grid {
+      .feature-showcase-grid,
+      .zen-showcase-grid {
         grid-template-columns: 1fr;
       }
-      .bento-card--span-7,
-      .bento-card--span-5 {
-        grid-column: span 12;
+      .inspector-cards-grid {
+        grid-template-columns: 1fr;
       }
-      .profiles-grid,
+      .ai-suite-grid {
+        grid-template-columns: 1fr 1fr;
+      }
       .editions-grid {
         grid-template-columns: 1fr;
       }
@@ -1214,8 +1344,10 @@
       .nav-links { display: none; }
       section { padding: 64px 0; }
       .hero-section { padding: 40px 0 48px; }
+      .ai-suite-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .cta-banner { padding: 48px 22px; }
+      .byok-banner { padding: 24px; }
     }
   </style>
 </head>
@@ -1239,12 +1371,12 @@
 
       <nav aria-label="Navegación principal">
         <ul class="nav-links">
-          <li><a href="#herramientas">Herramientas</a></li>
-          <li><a href="#flujo">Flujo Editorial</a></li>
-          <li><a href="#perfiles">Para Escritores</a></li>
+          <li><a href="#hoja-editorial">Hoja de Trabajo</a></li>
+          <li><a href="#modo-zen">Modo Zen</a></li>
+          <li><a href="#inspector">Inspector de Obra</a></li>
+          <li><a href="#asistencia-ia">Asistencia IA</a></li>
           <li><a href="#ediciones">Ediciones</a></li>
-          <li><a href="./privacy.html">Privacidad</a></li>
-          <li><a href="./terms.html">Términos</a></li>
+          <li><a href="./download.html">Descargas</a></li>
         </ul>
       </nav>
 
@@ -1283,7 +1415,7 @@
               </svg>
               <span>Descargar para Windows</span>
             </a>
-            <a href="#herramientas" class="btn btn-secondary">
+            <a href="#hoja-editorial" class="btn btn-secondary">
               <span>Explorar el Taller</span>
             </a>
           </div>
@@ -1363,284 +1495,495 @@
               <path d="M4 6a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H6a2 2 0 01-2-2V6z"/>
               <path d="M8 10h4"/>
             </svg>
-            100% Local-First (.novel)
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-              <path d="M10 2L4 5v5c0 4.5 2.6 8.4 6 10 3.4-1.6 6-5.5 6-10V5l-6-3z"/>
-            </svg>
-            Cero Entrenamiento con tu Obra
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-              <path d="M3 4h6v12H3zM11 4h6v12h-6z"/>
-            </svg>
-            Modo Comparativo 50/50
+            Hoja de Trabajo 100% Local (.novel)
           </li>
           <li>
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
               <path d="M10 3v14M6 6v8M14 6v8M2 9v2M18 9v2" stroke-linecap="round"/>
             </svg>
-            Paisajes Sonoros &amp; Modo Zen
+            Modo Zen &amp; Paisajes Sonoros
           </li>
           <li>
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-              <path d="M10 3l2.2 4.8L17 10l-4.8 2.2L10 17l-2.2-4.8L3 10l4.8-2.2L10 3z"/>
+              <path d="M3 13l4-4 4 4 6-8"/>
+              <path d="M17 5h-4M17 5v4"/>
             </svg>
-            Multi-IA (Gemini · OpenAI · Claude · Grok)
+            Inspector de Obra y Continuidad
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M10 2L4 5v5c0 4.5 2.6 8.4 6 10 3.4-1.6 6-5.5 6-10V5l-6-3z"/>
+            </svg>
+            Asistencia IA Privada (BYOK)
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Sin Suscripciones Forzadas
           </li>
         </ul>
       </div>
     </div>
 
-    <!-- 3. ASYMMETRIC BENTO GRID -->
-    <section id="herramientas">
+    <!-- ============================================================
+         FLAGSHIP SECTION 1: LA HOJA DE TRABAJO PRINCIPAL
+         ============================================================ -->
+    <section id="hoja-editorial" class="editorial-section">
       <div class="container">
         <div class="section-header gs-reveal">
           <div class="section-eyebrow">
-            <span>Ingeniería Literaria</span>
+            <span>Santuario Editorial</span>
           </div>
           <h2 class="section-title">
-            Herramientas que impulsan <span class="highlight">cada capítulo de tu obra</span>
+            La Hoja de Trabajo Principal: <span class="highlight">Un refugio sereno para tu prosa</span>
           </h2>
           <p class="section-subtitle">
-            Diseñado desde cero para resolver los problemas reales del novelista: comparar versiones sin perder fragmentos valiosos, detectar muletillas invisibles y estructurar tramas complejas.
+            Diseñada para que la tecnología desaparezca y solo queden tus ideas. Un lienzo libre de fricción, con estructura capitular fluida y la absoluta certeza de que cada palabra te pertenece.
           </p>
         </div>
 
-        <div class="bento-grid">
-          <!-- Card 1: Comparativo 50/50 -->
-          <article class="bento-card bento-card--span-7 gs-bento" data-slot="bento-editor-comparison">
-            <div class="bento-card__top">
-              <span class="bento-badge">Hoja Doble · Revisiones R1 / R2</span>
-              <h3>Modo Comparativo 50/50 con Diferencias en Vivo</h3>
+        <div class="feature-showcase-grid">
+          <!-- Left: Framed Window Card with Real Screenshot -->
+          <div class="showcase-window-card gs-card" data-slot="editorial-window-card">
+            <div class="window-chrome">
+              <div class="window-dots" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="window-title-tag">CAPÍTULO 14 · EL VALLE DE LA NIEBLA</span>
+              <span class="window-badge">LIENZO DISTRACTION-FREE</span>
+            </div>
+
+            <div class="showcase-img-box">
+              <img src="./assets/showcase-editor.png" alt="Lienzo editorial principal de Noveleare con árbol de capítulos y escenas" width="1280" height="800" loading="lazy">
+            </div>
+
+            <div class="window-status-footer">
+              <div class="status-indicator">
+                <span class="pulse-dot"></span>
+                <span>Bóveda local activa · Archivo .novel protegido</span>
+              </div>
+              <div class="status-meta">
+                <span>4,820 palabras · Autoguardado instantáneo</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Three Literary Pillars -->
+          <div class="feature-points-stack">
+            <div class="feature-point-card gs-card">
+              <div class="feature-point-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                  <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                  <path d="M2 2l7.586 7.586"/>
+                  <circle cx="11" cy="11" r="2"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Tipografía y Margen Diseñados para Horas de Escritura</h3>
+                <p>
+                  Tipografías editoriales minuciosamente calibradas, interlineado orgánico y notas discretas al margen que jamás invaden tu campo visual. Escribe con la comodidad y calidez de un libro ya impreso.
+                </p>
+              </div>
+            </div>
+
+            <div class="feature-point-card gs-card">
+              <div class="feature-point-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M4 6h16M4 12h10M4 18h16M14 12l4 4m0-8l-4 4"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Árbol Capitular y Delimitación Viva de Escenas</h3>
+                <p>
+                  Navega con ligereza entre actos, capítulos y secuencias. Ajusta los marcadores de inicio y fin de escena directamente sobre el texto y reorganiza tu trama sin perder jamás el hilo de la historia.
+                </p>
+              </div>
+            </div>
+
+            <div class="feature-point-card gs-card">
+              <div class="feature-point-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="M9 12l2 2 4-4"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Bóveda Local y Archivos .novel Soberanos</h3>
+                <p>
+                  Cero dependencias de nubes ajenas o servidores remotos. Tus manuscritos viven exclusivamente en tu disco duro en formato abierto .novel, respaldados por un sistema automático de versiones históricas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FLAGSHIP SECTION 2: MODO ZEN & SANTUARIO SENSORIAL
+         ============================================================ -->
+    <section id="modo-zen" class="zen-section">
+      <div class="container">
+        <div class="section-header gs-reveal">
+          <div class="section-eyebrow">
+            <span>Inmersión Absoluta</span>
+          </div>
+          <h2 class="section-title">
+            Modo Zen &amp; Santuario Sensorial: <span class="highlight">Aísla el ruido exterior</span>
+          </h2>
+          <p class="section-subtitle">
+            Escribir exige una concentración sagrada. Enciende un entorno donde toda la interfaz se desvanece suavemente para dejarte a solas con tus palabras, envuelto en atmósferas vivas, música serena y paisajes sonoros envolventes.
+          </p>
+        </div>
+
+        <div class="zen-showcase-grid">
+          <!-- Left: Zen Atmosphere Features -->
+          <div class="feature-points-stack">
+            <div class="feature-point-card gs-card">
+              <div class="feature-point-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M3 17l6-6 4 4 8-8"/>
+                  <path d="M14 7h7v7"/>
+                  <circle cx="6" cy="6" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Atmósferas Visuales en Alta Definición</h3>
+                <p>
+                  Transforma tu espacio de trabajo con fondos inmersivos: Auroras Boreales etéreas, Cumbres Brumosas, Santuarios Forestales o fondos neutros de oscuridad profunda. Tu pantalla se convierte en una ventana a la calma.
+                </p>
+              </div>
+            </div>
+
+            <div class="feature-point-card gs-card">
+              <div class="feature-point-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M9 18V5l12-2v13"/>
+                  <circle cx="6" cy="18" r="3"/>
+                  <circle cx="18" cy="16" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Música de Concentración y Paisajes Sonoros</h3>
+                <p>
+                  Sintoniza pistas exclusivas de enfoque como <em>Clean Soul</em>, o combina a tu gusto capas de lluvia suave sobre cristales, viento entre abetos, el crujido templado de una chimenea y el murmullo lejano de una cafetería.
+                </p>
+              </div>
+            </div>
+
+            <div class="feature-point-card gs-card">
+              <div class="feature-point-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <rect x="2" y="4" width="20" height="16" rx="3"/>
+                  <path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M8 16h8"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Cadencia Mecánica de Máquina de Escribir</h3>
+                <p>
+                  Activa de forma opcional el sonido táctil de pulsación analógica para dotar a tu sesión del ritmo, la cadencia y el peso nostálgico de los antiguos despachos de escritores.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Zen Gallery -->
+          <div class="zen-gallery-card gs-card" data-slot="zen-interactive-gallery">
+            <div class="window-chrome">
+              <div class="window-dots" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="window-title-tag">SANTUARIO SENSORIAL · VISTA PREVIA</span>
+              <span class="window-badge">AUDIO &amp; PAISAJE</span>
+            </div>
+
+            <div class="zen-stage">
+              <div class="zen-slide is-active" data-zen-slide="0">
+                <img src="./assets/showcase-zen.png" alt="Lienzo en Modo Zen con paisaje nocturno y sonido ambiental" width="1200" height="750" loading="lazy">
+              </div>
+              <div class="zen-slide" data-zen-slide="1">
+                <img src="./assets/zen-aurora.png" alt="Atmósfera de aurora boreal en el Modo Zen de Noveleare" width="1200" height="750" loading="lazy">
+              </div>
+              <div class="zen-slide" data-zen-slide="2">
+                <img src="./assets/zen-mountain.png" alt="Atmósfera de montaña brumosa en el Modo Zen de Noveleare" width="1200" height="750" loading="lazy">
+              </div>
+              <div class="zen-slide" data-zen-slide="3">
+                <img src="./assets/zen-dropdown.png" alt="Selector de música Clean Soul, sonidos ambientales y teclado mecánico" width="1200" height="750" loading="lazy">
+              </div>
+            </div>
+
+            <div class="zen-controls">
+              <div class="zen-pills" role="tablist" aria-label="Atmósferas del Modo Zen">
+                <button type="button" class="zen-pill-btn is-active" data-zen-btn="0">Santuario Nocturno</button>
+                <button type="button" class="zen-pill-btn" data-zen-btn="1">Aurora Boreal</button>
+                <button type="button" class="zen-pill-btn" data-zen-btn="2">Cumbre Brumosa</button>
+                <button type="button" class="zen-pill-btn" data-zen-btn="3">Audio &amp; Teclado</button>
+              </div>
+              <span class="slot-tag">SONIDOS &amp; FONDOS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FLAGSHIP SECTION 3: EL INSPECTOR DE OBRA
+         ============================================================ -->
+    <section id="inspector" class="inspector-section">
+      <div class="container">
+        <div class="section-header gs-reveal">
+          <div class="section-eyebrow">
+            <span>Diagnóstico y Continuidad</span>
+          </div>
+          <h2 class="section-title">
+            El Inspector de Obra: <span class="highlight">La radiografía viva de tu manuscrito</span>
+          </h2>
+          <p class="section-subtitle">
+            No dejes la solidez de tu universo al azar. Visualiza la presencia de cada personaje, la tensión dramática por escena y los cabos sueltos de tu argumento antes de que el libro llegue a manos del lector.
+          </p>
+        </div>
+
+        <div class="inspector-cards-grid">
+          <!-- Card 1: Mapa de Personajes -->
+          <article class="inspector-card gs-card">
+            <div>
+              <div class="inspector-card__badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                </svg>
+                <span>Reparto Coral · Capítulos 01-12</span>
+              </div>
+              <h3>Presencia y Distribución de Personajes</h3>
               <p>
-                Duplica cualquier capítulo para crear una revisión paralela o abre dos capítulos lado a lado. Cada palabra que modifiques se ilumina sutilmente en amarillo; pasa el cursor sobre ella para ver el término original en un recuadro discreto y restablécelo con un solo clic o con Ctrl+Z entre hojas.
+                Descubre al instante cuándo entra y sale cada personaje a lo largo de tu novela. Detecta si algún protagonista clave desaparece durante demasiados capítulos o si una escena se sobrecarga innecesariamente.
               </p>
             </div>
 
-            <div class="bento-visual">
-              <div class="bento-visual__img-wrap">
-                <img src="./assets/showcase-editor.png" alt="Vista del editor de Noveleare preparado para comparación de capítulos" width="900" height="506" loading="lazy">
+            <div class="inspector-mini-chart">
+              <div class="char-row">
+                <span class="char-name">Kaelen</span>
+                <div class="char-bars">
+                  <span class="bar active" title="Capítulo 1"></span>
+                  <span class="bar active" title="Capítulo 2"></span>
+                  <span class="bar active" title="Capítulo 3"></span>
+                  <span class="bar" title="Capítulo 4"></span>
+                  <span class="bar active" title="Capítulo 5"></span>
+                  <span class="bar active" title="Capítulo 6"></span>
+                </div>
               </div>
-              <div class="diff-live-pill-bar">
-                <span class="diff-demo-sentence">
-                  «Descendieron hacia el <span class="diff-word-yellow" title="Original: búnker">refugio</span> subterráneo antes del amanecer…»
-                </span>
-                <span class="diff-restore-badge">búnker · clic para restablecer</span>
+              <div class="char-row">
+                <span class="char-name">Lyra</span>
+                <div class="char-bars">
+                  <span class="bar" title="Capítulo 1"></span>
+                  <span class="bar active" title="Capítulo 2"></span>
+                  <span class="bar active" title="Capítulo 3"></span>
+                  <span class="bar active" title="Capítulo 4"></span>
+                  <span class="bar" title="Capítulo 5"></span>
+                  <span class="bar active" title="Capítulo 6"></span>
+                </div>
+              </div>
+              <div class="char-row">
+                <span class="char-name">Thorne</span>
+                <div class="char-bars">
+                  <span class="bar active" title="Capítulo 1"></span>
+                  <span class="bar" title="Capítulo 2"></span>
+                  <span class="bar" title="Capítulo 3"></span>
+                  <span class="bar active" title="Capítulo 4"></span>
+                  <span class="bar active" title="Capítulo 5"></span>
+                  <span class="bar" title="Capítulo 6"></span>
+                </div>
               </div>
             </div>
           </article>
 
-          <!-- Card 2: Visor de Análisis In-Situ -->
-          <article class="bento-card bento-card--span-5 gs-bento" data-slot="bento-in-situ-analyzer">
-            <div class="bento-card__top">
-              <span class="bento-badge">Visor de Análisis In-Situ</span>
-              <h3>Detector de Ecos Léxicos y Sinónimos Contextuales</h3>
+          <!-- Card 2: Curva de Tensión -->
+          <article class="inspector-card gs-card">
+            <div>
+              <div class="inspector-card__badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+                <span>Pulso Narrativo · Ritmo Emocional</span>
+              </div>
+              <h3>Curva de Tensión Dramática</h3>
               <p>
-                Escanea tu capítulo en busca de palabras repetidas dentro de un radio configurable (30 a 200 palabras), filtra automáticamente los nombres propios de tus personajes y sustituye términos al instante con sugerencias de sinónimos.
+                Monitorea el compás emocional de tu obra escena por escena. Localiza valles donde el interés pueda decaer o picos acumulados que saturen al lector, logrando una cadencia hipnótica.
               </p>
             </div>
 
-            <div class="bento-visual analyzer-mockup">
-              <div class="analyzer-toolbar">
-                <span>RADIO DE CERCANÍA: 80 PALABRAS</span>
-                <span style="color: #FBBF24;">2 ECOS DETECTADOS</span>
-              </div>
-              <p class="analyzer-excerpt">
-                «El <span class="echo-highlight">silencio</span> del pasillo pesaba sobre sus hombros. Cinco pasos más allá, aquel mismo <span class="echo-highlight">silencio</span> parecía observarlo desde la penumbra.»
-              </p>
-              <div class="synonym-chips" aria-label="Sugerencias de sinónimos">
-                <span class="is-suggested">mutismo</span>
-                <span class="is-suggested">quietud</span>
-                <span>calma</span>
-                <span>sosiego</span>
+            <div class="inspector-mini-chart tension-chart-demo">
+              <svg class="tension-svg" viewBox="0 0 340 75" fill="none">
+                <path d="M 10 58 Q 60 62 100 45 T 180 32 T 260 14 T 330 38" stroke="url(#tensionGrad)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                <circle cx="100" cy="45" r="4" fill="#E2E8F0"/>
+                <circle cx="180" cy="32" r="4" fill="#E2E8F0"/>
+                <circle cx="260" cy="14" r="5" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2"/>
+                <circle cx="330" cy="38" r="4" fill="#94A3B8"/>
+                <defs>
+                  <linearGradient id="tensionGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#64748B"/>
+                    <stop offset="60%" stop-color="#E2E8F0"/>
+                    <stop offset="100%" stop-color="#93C5FD"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="chart-labels">
+                <span>Planteamiento (Acto I)</span>
+                <span>Punto de Giro</span>
+                <span>Clímax Central</span>
+                <span>Resolución</span>
               </div>
             </div>
           </article>
 
-          <!-- Card 3: Arquitectura de Trama -->
-          <article class="bento-card bento-card--span-5 gs-bento" data-slot="bento-plot-architecture">
-            <div class="bento-card__top">
-              <span class="bento-badge">Escaleta · Escenas · Linajes</span>
-              <h3>Arquitectura de Trama y Delimitación de Escenas</h3>
+          <!-- Card 3: Hilos Argumentales y Continuidad -->
+          <article class="inspector-card gs-card">
+            <div>
+              <div class="inspector-card__badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <circle cx="18" cy="18" r="3"/>
+                  <circle cx="6" cy="6" r="3"/>
+                  <path d="M6 21V9a9 9 0 009 9"/>
+                </svg>
+                <span>Trazabilidad · Arcos Argumentales</span>
+              </div>
+              <h3>Seguimiento de Hilos de Trama</h3>
               <p>
-                Marca exactamente en qué párrafo inicia y termina cada escena con delimitadores visuales directamente sobre el texto. Organiza arcos narrativos, fichas de personajes y explora sus vínculos en el Árbol Genealógico interactivo.
+                Vincula pistas, promesas narrativas y secretos familiares a lo largo de los capítulos. Comprueba en una sola mirada qué conflictos han sido resueltos y qué cabos permanecen abiertos.
               </p>
             </div>
 
-            <div class="bento-visual">
-              <div class="bento-visual__img-wrap">
-                <img src="./assets/showcase-plot.png" alt="Pizarra de escaleta y fichas de personajes en Noveleare" width="800" height="450" loading="lazy">
+            <div class="continuity-list-demo">
+              <div class="continuity-item resolved">
+                <span class="item-status">✓ RESUELTO</span>
+                <span class="item-text">El origen del guardapelo de plata (Cap. 08)</span>
               </div>
-              <div class="diff-live-pill-bar">
-                <span style="color: var(--text-sub);">Tarjetas de escena vinculadas al texto real</span>
-                <span class="slot-tag">CUADRO #4 · TRAMA</span>
+              <div class="continuity-item pending">
+                <span class="item-status">⏳ EN CURSO</span>
+                <span class="item-text">La traición en el consejo de las mareas (Pendiente)</span>
+              </div>
+              <div class="continuity-item pending">
+                <span class="item-status">⏳ EN CURSO</span>
+                <span class="item-text">Identidad del mensajero de la orden (Cap. 15-18)</span>
               </div>
             </div>
           </article>
 
-          <!-- Card 4: Taller Creativo con IA -->
-          <article class="bento-card bento-card--span-7 gs-bento" data-slot="bento-ai-workshop">
-            <div class="bento-card__top">
-              <span class="bento-badge">Taller IA · Polígono de Estilos</span>
-              <h3>Embellecimiento de Prosa y Voz Autoral a Medida</h3>
+          <!-- Card 4: Auditoría Ortográfica y NotebookLM -->
+          <article class="inspector-card gs-card">
+            <div>
+              <div class="inspector-card__badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                  <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>
+                </svg>
+                <span>Rigor Editorial · Conexión Externa</span>
+              </div>
+              <h3>Auditoría de Estilo y Puente Documental</h3>
               <p>
-                Calibra tu tono narrativo en el Polígono de Estilos y solicita embellecimiento estilístico, continuación de escena o tormenta de ideas. Cuando embelleces un fragmento, Noveleare abre una hoja comparativa resaltando en amarillo cada ajuste sugerido para que tú tengas siempre la última palabra.
+                Detecta anomalías ortotipográficas, comprueba el balance entre diálogo y narración, y aprovecha la exportación estructurada para interrogar la biblia de tu obra mediante herramientas como NotebookLM.
               </p>
             </div>
 
-            <div class="bento-visual">
-              <div class="bento-visual__img-wrap">
-                <img src="./assets/zen-modal.png" alt="Configuración y herramientas avanzadas del entorno de Noveleare" width="900" height="506" loading="lazy">
-              </div>
-              <div class="diff-live-pill-bar">
-                <span style="color: var(--text-sub);">Compatible con Gemini, OpenAI, Claude y Grok (BYOK)</span>
-                <span class="slot-tag">CUADRO #5 · TALLER IA</span>
-              </div>
+            <div class="audit-chips-demo">
+              <span class="audit-chip">✓ Ecos léxicos filtrados</span>
+              <span class="audit-chip">✓ Diálogo / Narración 58:42</span>
+              <span class="audit-chip">✓ Raya española (—) unificada</span>
+              <span class="audit-chip">✓ Exportación Markdown limpia</span>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 4. WORKFLOW SECTION -->
-    <section id="flujo" class="workflow-section">
-      <div class="container workflow-grid">
-        <div class="gs-reveal">
-          <div class="section-eyebrow">
-            <span>Flujo de Trabajo Continuo</span>
-          </div>
-          <h2 class="section-title" style="text-align: left;">
-            De la primera chispa al <span class="highlight">manuscrito definitivo</span>
-          </h2>
-          <p class="section-subtitle" style="text-align: left;">
-            Todo tu proceso literario vive bajo un mismo techo, sin cambiar entre múltiples programas ni perder la concentración.
-          </p>
-
-          <div class="workflow-steps">
-            <div class="workflow-step">
-              <div class="workflow-step__num">01</div>
-              <div>
-                <h3>Sumérgete en el Modo Zen</h3>
-                <p>
-                  Activa paisajes visuales en alta definición, mezcla lluvia suave, cafetería o chimenea, elige el sonido mecánico de máquina de escribir y deja que la interfaz se desvanezca tras 10 segundos de escritura continua.
-                </p>
-              </div>
-            </div>
-
-            <div class="workflow-step">
-              <div class="workflow-step__num">02</div>
-              <div>
-                <h3>Delimita Escenas y Anota en el Margen</h3>
-                <p>
-                  Arrastra los marcadores de inicio y fin de escena directamente entre los párrafos de tu capítulo, y deja notas adhesivas flotantes ancladas al margen de cada escena.
-                </p>
-              </div>
-            </div>
-
-            <div class="workflow-step">
-              <div class="workflow-step__num">03</div>
-              <div>
-                <h3>Mide tu Racha, Protege y Exporta</h3>
-                <p>
-                  Consulta la Radiografía del Manuscrito (récords diarios, rachas y tiempos de lectura), respalda tu obra en la Bóveda de Copias de Seguridad automática y exporta tu novela a .docx, .pdf o .md.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Zen Gallery -->
-        <div class="zen-gallery-card gs-reveal" data-slot="workflow-zen-gallery">
-          <div class="zen-stage">
-            <div class="zen-slide is-active" data-zen-slide="0">
-              <img src="./assets/showcase-zen.png" alt="Lienzo en Modo Zen con paisaje nocturno" width="1200" height="750" loading="lazy">
-            </div>
-            <div class="zen-slide" data-zen-slide="1">
-              <img src="./assets/zen-aurora.png" alt="Atmósfera de aurora boreal en el Modo Zen de Noveleare" width="1200" height="750" loading="lazy">
-            </div>
-            <div class="zen-slide" data-zen-slide="2">
-              <img src="./assets/zen-mountain.png" alt="Atmósfera de montaña brumosa en el Modo Zen de Noveleare" width="1200" height="750" loading="lazy">
-            </div>
-            <div class="zen-slide" data-zen-slide="3">
-              <img src="./assets/zen-dropdown.png" alt="Selector de sonidos ambientales y máquina de escribir en Noveleare" width="1200" height="750" loading="lazy">
-            </div>
-          </div>
-
-          <div class="zen-controls">
-            <div class="zen-pills" role="tablist" aria-label="Atmósferas del Modo Zen">
-              <button type="button" class="zen-pill-btn is-active" data-zen-btn="0">Santuario Nocturno</button>
-              <button type="button" class="zen-pill-btn" data-zen-btn="1">Aurora Boreal</button>
-              <button type="button" class="zen-pill-btn" data-zen-btn="2">Cumbre Brumosa</button>
-              <button type="button" class="zen-pill-btn" data-zen-btn="3">Audio &amp; Teclado</button>
-            </div>
-            <span class="slot-tag">GALERÍA ZEN</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. AUTHOR PROFILES SECTION -->
-    <section id="perfiles">
+    <!-- ============================================================
+         FLAGSHIP SECTION 4: ASISTENCIA DE IA PERSONALIZADA
+         ============================================================ -->
+    <section id="asistencia-ia" class="ai-section">
       <div class="container">
         <div class="section-header gs-reveal">
           <div class="section-eyebrow">
-            <span>Creado para Autores</span>
+            <span>Inteligencia al Servicio del Autor</span>
           </div>
           <h2 class="section-title">
-            Diseñado para quienes <span class="highlight">viven entre páginas</span>
+            Asistencia de IA Personalizada: <span class="highlight">Un confidente que respeta tu voz</span>
           </h2>
           <p class="section-subtitle">
-            Tanto si escribes una saga épica de varios volúmenes como un thriller psicológico milimétrico, Noveleare se adapta a tu método creativo.
+            La inteligencia artificial jamás debe sustituir tu imaginación; su propósito es ser tu lector beta más incisivo, tu tutor de confianza y el faro que disipa la niebla cuando la página en blanco se resiste.
           </p>
         </div>
 
-        <div class="profiles-grid">
-          <article class="profile-card gs-profile">
-            <img class="profile-card__bg" src="./assets/library-sanctuary.jpg" alt="Santuario clásico de lectura y escritura" width="600" height="800" loading="lazy">
-            <div class="profile-card__scrim" aria-hidden="true"></div>
-            <span class="profile-card__tag">Ficción &amp; Fantasía</span>
-            <h3>Creadores de Mundos y Sagas</h3>
+        <!-- 6 Specialized Literary Tools Grid -->
+        <div class="ai-suite-grid">
+          <div class="ai-feature-card gs-card">
+            <div class="ai-card-icon">✨</div>
+            <h3>Embellecimiento de Prosa</h3>
             <p>
-              Mantén la coherencia de docenas de personajes, linajes familiares, facciones y reglas de tu universo sin salir jamás de tu manuscrito.
+              Pule metáforas, enriquece adjetivaciones y afina el ritmo poético de un párrafo difícil conservando intacto tu registro y personalidad autoral.
             </p>
-            <ul class="profile-card__features">
-              <li>Árbol Genealógico</li>
-              <li>Fichas de Personaje</li>
-              <li>Biblia del Mundo</li>
-            </ul>
-          </article>
+          </div>
 
-          <article class="profile-card gs-profile">
-            <img class="profile-card__bg" src="./assets/zen-mountain.png" alt="Paisaje de montaña para concentración profunda" width="600" height="800" loading="lazy">
-            <div class="profile-card__scrim" aria-hidden="true"></div>
-            <span class="profile-card__tag">Thriller &amp; Narrativa</span>
-            <h3>Arquitectos de Trama y Ritmo</h3>
+          <div class="ai-feature-card gs-card">
+            <div class="ai-card-icon">✍️</div>
+            <h3>Continuación de Escena</h3>
             <p>
-              Controla la tensión escena por escena, reordena capítulos con seguridad y compara borradores lado a lado antes de decidir el corte final.
+              Supera el bloqueo creativo explorando propuestas de continuación coherentes con los eventos, la atmósfera y el tono previo del capítulo.
             </p>
-            <ul class="profile-card__features">
-              <li>Comparación 50/50</li>
-              <li>Delimitador de Escenas</li>
-              <li>Notas en el Margen</li>
-            </ul>
-          </article>
+          </div>
 
-          <article class="profile-card gs-profile">
-            <img class="profile-card__bg" src="./assets/zen-aurora.png" alt="Cielo nocturno con aurora boreal" width="600" height="800" loading="lazy">
-            <div class="profile-card__scrim" aria-hidden="true"></div>
-            <span class="profile-card__tag">Estilistas de la Prosa</span>
-            <h3>Escritores de Enfoque Profundo</h3>
+          <div class="ai-feature-card gs-card">
+            <div class="ai-card-icon">🧠</div>
+            <h3>Chat Creativo con Memoria de Lore</h3>
             <p>
-              Aíslate del ruido digital con paisajes sonoros inmersivos, limpia repeticiones léxicas y pule la musicalidad de cada párrafo.
+              Debate ideas y giros con un confidente literario que recuerda las fichas de tus personajes, sus motivaciones secretas y las reglas de tu mundo.
             </p>
-            <ul class="profile-card__features">
-              <li>Modo Zen Inmersivo</li>
-              <li>Detector de Ecos</li>
-              <li>Radiografía de Racha</li>
-            </ul>
-          </article>
+          </div>
+
+          <div class="ai-feature-card gs-card">
+            <div class="ai-card-icon">🧐</div>
+            <h3>Opinador Crítico &amp; Lector Beta</h3>
+            <p>
+              Obtén una primera lectura imparcial: verosimilitud de reacciones, ritmo del suspense y sugerencias honestas antes de compartir tu borrador.
+            </p>
+          </div>
+
+          <div class="ai-feature-card gs-card">
+            <div class="ai-card-icon">📚</div>
+            <h3>Tutor Literario de Técnica</h3>
+            <p>
+              Consulta dudas sobre subtexto, profundidad psicológica, 'mostrar vs decir' y recursos dramáticos para elevar la maestría de tu manuscrito.
+            </p>
+          </div>
+
+          <div class="ai-feature-card gs-card">
+            <div class="ai-card-icon">⏳</div>
+            <h3>Cronología y Coherencia Temporal</h3>
+            <p>
+              Reconstruye líneas temporales complejas y valida edades, viajes y acontecimientos históricos para que las fechas calcen sin fisuras.
+            </p>
+          </div>
+        </div>
+
+        <!-- BYOK Privacy Banner -->
+        <div class="byok-banner gs-reveal">
+          <div class="byok-content">
+            <div class="byok-badge">PRIVACIDAD ABSOLUTA · BYOK (BRING YOUR OWN KEY)</div>
+            <h3>Tus Manuscritos Jamás Entrenan Modelos. Sin Suscripciones Ocultas.</h3>
+            <p>
+              Noveleare se conecta directamente con los proveedores oficiales (Gemini, Claude, OpenAI, Grok) mediante tu propia clave API privada guardada en tu equipo. Pagas únicamente los centavos de tu consumo directo, o escribe al 100% desconectado con total tranquilidad.
+            </p>
+          </div>
+          <div class="hero-cta-group" style="margin: 0;">
+            <a href="./download.html" class="btn btn-primary">
+              <span>Probar Noveleare Gratis</span>
+              <svg class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 10h10M11 6l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -1797,9 +2140,10 @@
         <div class="footer-col">
           <h4>Producto</h4>
           <ul>
-            <li><a href="#herramientas">Herramientas Editoriales</a></li>
-            <li><a href="#flujo">Modo Zen &amp; Flujo</a></li>
-            <li><a href="#perfiles">Perfiles de Autor</a></li>
+            <li><a href="#hoja-editorial">Hoja de Trabajo Principal</a></li>
+            <li><a href="#modo-zen">Modo Zen &amp; Santuario</a></li>
+            <li><a href="#inspector">Inspector de Obra</a></li>
+            <li><a href="#asistencia-ia">Asistencia de IA</a></li>
             <li><a href="#ediciones">Ediciones &amp; Licencias</a></li>
           </ul>
         </div>
@@ -1929,29 +2273,33 @@
         });
       });
 
-      gsap.from('.gs-bento', {
+      gsap.utils.toArray('.feature-points-stack, .inspector-cards-grid, .ai-suite-grid').forEach((grid) => {
+        const cards = grid.querySelectorAll('.gs-card');
+        if (cards.length > 0) {
+          gsap.from(cards, {
+            scrollTrigger: {
+              trigger: grid,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            },
+            y: 22,
+            opacity: 0,
+            duration: 0.65,
+            stagger: 0.08,
+            ease: 'power3.out'
+          });
+        }
+      });
+
+      gsap.from('.showcase-window-card, .zen-gallery-card', {
         scrollTrigger: {
-          trigger: '.bento-grid',
+          trigger: '.editorial-section',
           start: 'top 82%',
           toggleActions: 'play none none none'
         },
         y: 26,
         opacity: 0,
-        duration: 0.7,
-        stagger: 0.1,
-        ease: 'power3.out'
-      });
-
-      gsap.from('.gs-profile', {
-        scrollTrigger: {
-          trigger: '.profiles-grid',
-          start: 'top 84%',
-          toggleActions: 'play none none none'
-        },
-        y: 24,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.1,
+        duration: 0.75,
         ease: 'power3.out'
       });
 
@@ -1969,6 +2317,6 @@
       });
     });
   </script>
-  <!-- deploy-v1.1.9: 1792469850 -->
+  <!-- deploy-v1.2.0: 1792474100 -->
 </body>
 </html>
