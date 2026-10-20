@@ -1,251 +1,528 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" style="color-scheme: dark;">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07070A">
   <title>Política de Privacidad — Noveleare</title>
+  <meta name="description" content="Política de Privacidad de Noveleare. Conoce cómo protegemos tus manuscritos bajo una arquitectura 100% Local-First y sin entrenamiento de IA.">
+  <link rel="icon" type="image/png" href="./assets/noveleare-symbol-transparent.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0A0D12;
-      --card-bg: #111620;
-      --border: #202736;
-      --border-focus: #3A4761;
-      --text-main: #E2E8F0;
-      --text-muted: #94A3B8;
-      --text-dim: #64748B;
-      --accent: #60A5FA;
-      --accent-glow: rgba(96, 165, 250, 0.15);
-      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      --font-serif: 'Lora', Georgia, serif;
+      --bg-void: #07070A;
+      --bg-surface-1: #0D0E13;
+      --bg-surface-2: #12141C;
+      --border-hairline: rgba(255, 255, 255, 0.08);
+      --border-elevated: rgba(255, 255, 255, 0.14);
+      --text-primary: #F4F3EF;
+      --text-secondary: #A3A19A;
+      --text-muted: #6C6B65;
+      --accent-gold: #DAB36A;
+      --accent-emerald: #34D399;
+      --radius-outer: 22px;
+      --radius-inner: 12px;
+      --radius-pill: 9999px;
+      --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+      --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.5), 0 12px 32px -8px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.09);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background-color: var(--bg);
-      color: var(--text-main);
-      font-family: var(--font-sans);
-      line-height: 1.7;
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-void);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       -webkit-font-smoothing: antialiased;
-      padding: 0 1.25rem 4rem 1.25rem;
     }
-    header {
-      max-width: 800px;
+
+    body {
+      background-color: var(--bg-void);
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      z-index: 9999;
+      background: var(--text-primary);
+      color: var(--bg-void);
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .skip-link:focus-visible { top: 16px; }
+
+    :focus-visible {
+      outline: 2px solid var(--accent-gold);
+      outline-offset: 3px;
+    }
+
+    .ambient-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .ambient-backdrop__image {
+      position: absolute;
+      inset: 0;
+      background-image: url('./assets/library-sanctuary.jpg');
+      background-size: cover;
+      background-position: center 22%;
+      opacity: 0.16;
+      filter: saturate(0.8) contrast(1.08);
+    }
+
+    .ambient-backdrop__vignette {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(900px 520px at 50% 8%, rgba(218, 179, 106, 0.1), transparent 65%),
+        linear-gradient(180deg, rgba(7, 7, 10, 0.52) 0%, rgba(7, 7, 10, 0.92) 45%, #07070A 80%);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 2.5rem 0 1.75rem 0;
+      padding: 0 24px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      background: rgba(7, 7, 10, 0.76);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .nav-bar {
+      height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid var(--border);
+      gap: 20px;
     }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-      color: #FFF;
-      font-weight: 800;
-      font-size: 1.25rem;
-      letter-spacing: -0.02em;
-      transition: opacity 0.2s ease;
-    }
-    .brand:hover {
-      opacity: 0.9;
-    }
-    .brand-symbol {
-      height: 34px;
-      width: 34px;
-      object-fit: contain;
-      display: block;
-    }
-    nav {
-      display: flex;
-      gap: 0.5rem;
-      background: #11151F;
-      padding: 0.3rem;
-      border-radius: 9999px;
-      border: 1px solid var(--border);
-    }
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 0.4rem 0.9rem;
-      border-radius: 9999px;
-      transition: all 0.2s ease;
-    }
-    nav a.active {
-      background: #1E293B;
-      color: #FFF;
-      border: 1px solid #334155;
-    }
-    nav a:hover:not(.active) {
-      color: var(--text-main);
-    }
-    main {
-      max-width: 800px;
-      margin: 2.5rem auto 0 auto;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 3rem 2.5rem;
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-    }
-    .badge {
+
+    .brand-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--accent);
-      background: var(--accent-glow);
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      border: 1px solid rgba(96, 165, 250, 0.3);
-      margin-bottom: 1.25rem;
+      gap: 11px;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 600;
     }
-    h1 {
-      font-size: 2.25rem;
-      font-weight: 800;
-      color: #FFF;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.5rem;
+
+    .brand-link img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
     }
-    .meta {
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      margin-bottom: 2rem;
-      display: flex;
-      gap: 1.5rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 1.25rem;
+
+    .brand-name-serif {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 600;
     }
-    h2 {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: #F1F5F9;
-      margin: 2.25rem 0 0.75rem 0;
-      letter-spacing: -0.01em;
+
+    .nav-links {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 6px;
+      list-style: none;
     }
-    h3 {
-      font-size: 1.05rem;
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 999px;
+      transition: color 0.18s ease, background-color 0.18s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 0.84rem;
       font-weight: 600;
-      color: #CBD5E1;
-      margin: 1.25rem 0 0.5rem 0;
+      padding: 9px 16px;
+      border-radius: 9px;
+      text-decoration: none;
+      background: #F4F3EF;
+      color: #07070A;
+      transition: transform 0.18s var(--ease-out-quart);
     }
-    p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-    }
-    ul {
-      margin: 0 0 1.25rem 1.25rem;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-    li { margin-bottom: 0.5rem; }
-    strong { color: #FFF; font-weight: 600; }
-    .highlight-card {
-      background: #141A26;
-      border: 1px solid #232D3F;
-      border-left: 4px solid var(--accent);
-      padding: 1.25rem 1.5rem;
-      border-radius: 12px;
-      margin: 1.5rem 0;
-    }
-    .highlight-card p { margin: 0; color: #E2E8F0; font-size: 0.92rem; }
-    footer {
-      max-width: 800px;
-      margin: 2.5rem auto 0 auto;
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: scale(0.97); }
+
+    /* Legal Page Layout */
+    .legal-hero {
+      padding: 64px 0 36px;
       text-align: center;
-      font-size: 0.82rem;
-      color: var(--text-dim);
+      max-width: 780px;
+      margin: 0 auto;
     }
-    footer a { color: var(--text-muted); text-decoration: none; }
-    footer a:hover { color: var(--accent); text-decoration: underline; }
-    @media (max-width: 640px) {
-      header { flex-direction: column; gap: 1rem; align-items: flex-start; }
-      main { padding: 2rem 1.5rem; }
-      h1 { font-size: 1.75rem; }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-gold);
+      background: rgba(218, 179, 106, 0.09);
+      border: 1px solid rgba(218, 179, 106, 0.24);
+      padding: 5px 13px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 16px;
+    }
+
+    .legal-hero h1 {
+      font-size: clamp(2.1rem, 3.8vw, 3.1rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+      margin-bottom: 12px;
+    }
+
+    .legal-hero h1 em {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .legal-updated {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* 3 Summary Cards (Bento Top Strip) */
+    .summary-bento {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 36px;
+    }
+
+    .summary-card {
+      background: linear-gradient(180deg, rgba(20, 22, 31, 0.85) 0%, rgba(12, 13, 19, 0.95) 100%);
+      border: 1px solid var(--border-hairline);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .summary-card__tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-emerald);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .summary-card h2 {
+      font-size: 1.04rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text-primary);
+    }
+
+    .summary-card p {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    /* Main Legal Document Card */
+    .legal-document {
+      background: linear-gradient(180deg, rgba(16, 18, 25, 0.88) 0%, rgba(10, 11, 16, 0.96) 100%);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-outer);
+      padding: 48px 52px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 80px;
+    }
+
+    .legal-section {
+      padding-bottom: 28px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .legal-section:last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+
+    .legal-section h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      letter-spacing: -0.015em;
+    }
+
+    .legal-section p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .legal-section ul {
+      padding-left: 20px;
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .legal-section strong {
+      color: var(--text-primary);
+    }
+
+    .legal-section code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.84rem;
+      color: var(--accent-gold);
+      background: rgba(218, 179, 106, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .legal-section a {
+      color: var(--accent-gold);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border-hairline);
+      background: #050508;
+      padding: 44px 0 36px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .footer-links-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .footer-links-inline a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    .footer-links-inline a:hover {
+      color: var(--accent-gold);
+    }
+
+    @media (max-width: 900px) {
+      .summary-bento {
+        grid-template-columns: 1fr;
+      }
+      .legal-document {
+        padding: 32px 24px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
     }
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-  <header>
-    <a href="./index.html" class="brand" title="Noveleare">
-      <img src="./assets/noveleare-symbol-transparent.png" alt="Logo Noveleare" class="brand-symbol" />
-      <span>Noveleare</span>
-    </a>
-    <nav>
-      <a href="./privacy.html" class="active">Privacidad</a>
-      <a href="./terms.html">Términos</a>
-    </nav>
+  <div class="ambient-backdrop" aria-hidden="true">
+    <div class="ambient-backdrop__image"></div>
+    <div class="ambient-backdrop__vignette"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="./index.html" class="brand-link" aria-label="Noveleare Inicio">
+        <img src="./assets/noveleare-symbol-transparent.png" alt="Símbolo de Noveleare" width="32" height="32">
+        <span class="brand-name-serif">Noveleare</span>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <ul class="nav-links">
+          <li><a href="./index.html">Inicio</a></li>
+          <li><a href="./download.html">Descargas</a></li>
+          <li><a href="./privacy.html" aria-current="page">Privacidad</a></li>
+          <li><a href="./terms.html">Términos</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <a href="./download.html" class="btn">Descargar v1.1.8</a>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <div class="badge">Documento Oficial de Privacidad</div>
-    <h1>Política de Privacidad</h1>
-    <div class="meta">
-      <span>Última actualización: 17 de septiembre de 2026</span>
-      <span>Responsable: Noveleare (Oberon2755)</span>
+  <main id="main-content" class="container">
+    <div class="legal-hero gs-legal">
+      <div class="section-eyebrow">Transparencia y Soberanía Autoral</div>
+      <h1>Política de <em>Privacidad</em></h1>
+      <p class="legal-updated">Última actualización: 31 de marzo de 2026</p>
     </div>
 
-    <div class="highlight-card">
-      <p><strong>Filosofía Local-First:</strong> Tus obras, novelas, personajes, capítulos y notas literarias se almacenan exclusivamente en tu computadora. Noveleare jamás almacena, lee ni vende tus manuscritos a terceros ni los utiliza para entrenar modelos de Inteligencia Artificial.</p>
+    <!-- Summary Bento Cards -->
+    <div class="summary-bento gs-legal">
+      <div class="summary-card">
+        <span class="summary-card__tag">01 · Local-First</span>
+        <h2>Tus manuscritos viven en tu PC</h2>
+        <p>Los archivos <code>.novel</code>, capítulos, personajes y copias de seguridad se almacenan directamente en tu disco duro local.</p>
+      </div>
+      <div class="summary-card">
+        <span class="summary-card__tag">02 · Cero Entrenamiento IA</span>
+        <h2>No entrenamos modelos con tu obra</h2>
+        <p>Noveleare jamás recopila, vende ni utiliza el contenido de tus novelas para entrenar modelos de inteligencia artificial.</p>
+      </div>
+      <div class="summary-card">
+        <span class="summary-card__tag">03 · Claves Cifradas</span>
+        <h2>Credenciales protegidas</h2>
+        <p>Tus claves API personales (BYOK) se cifran en tu sistema operativo mediante <code>safeStorage</code> y nunca pasan por servidores nuestros.</p>
+      </div>
     </div>
 
-    <h2>1. Información que Recopilamos</h2>
-    
-    <h3>A. Autenticación con Google (Google OAuth)</h3>
-    <p>Cuando decides iniciar sesión con tu cuenta de Google:</p>
-    <ul>
-      <li><strong>Datos recopilados:</strong> Únicamente tu dirección de correo electrónico, nombre público de perfil e identificador numérico de usuario provistos por Google.</li>
-      <li><strong>Finalidad exclusiva:</strong> Identificar tu cuenta de autor, sincronizar de forma segura el estado de tu licencia (Free o Pro) y permitirte usar tu licencia en hasta cinco (5) computadoras personales.</li>
-      <li><strong>No recopilamos:</strong> No tenemos acceso a tus contactos, correos electrónicos personales de Gmail, archivos de Google Drive ni contraseñas.</li>
-    </ul>
+    <article class="legal-document gs-legal">
+      <section class="legal-section">
+        <h2>1. Nuestro Compromiso «Local-First»</h2>
+        <p>
+          <strong>Noveleare</strong> ha sido diseñado bajo una arquitectura estricta <em>Local-First</em> (primero en tu equipo). Creemos que los manuscritos, borradores, árboles genealógicos, fichas de personajes y notas creativas pertenecen única y exclusivamente a su autor.
+        </p>
+        <p>
+          A diferencia de las plataformas basadas en la nube tradicional, <strong>nosotros no alojamos ni tenemos acceso a tus novelas en servidores propios</strong>. Tus proyectos se guardan directamente en el almacenamiento local de tu computadora.
+        </p>
+      </section>
 
-    <h3>B. Obras, Manuscritos y Contenido Creativo</h3>
-    <p>Todos los archivos de proyecto (<code>.nov</code>), borradores y notas se guardan únicamente en el sistema de archivos local de tu sistema operativo. Noveleare <strong>no</strong> transmite ni replica tus textos en servidores en la nube.</p>
+      <section class="legal-section">
+        <h2>2. Información que se almacena únicamente en tu dispositivo</h2>
+        <p>Los siguientes datos residen de forma local en tu computadora y nunca se transmiten a servidores de Noveleare:</p>
+        <ul>
+          <li><strong>Manuscritos y proyectos (<code>.novel</code>):</strong> Todo el texto de tus capítulos, escenas, revisiones paralelas, notas en el margen, escaletas, fichas de personajes y configuración de mundo.</li>
+          <li><strong>Bóveda de Copias de Seguridad:</strong> Los respaldos automáticos y manuales generados en tu carpeta local de usuario.</li>
+          <li><strong>Claves API de Inteligencia Artificial (BYOK):</strong> Si decides conectar tus propias claves de Google Gemini, OpenAI, Anthropic Claude o xAI Grok, dichas claves se cifran localmente en tu equipo utilizando el llavero criptográfico nativo de tu sistema operativo (<code>Electron safeStorage</code> / DPAPI en Windows).</li>
+        </ul>
+      </section>
 
-    <h3>C. Claves de API de Inteligencia Artificial (BYOK)</h3>
-    <p>Si utilizas funciones asistidas por IA (Google Gemini, OpenAI, Anthropic Claude, xAI Grok), introduces tus propias claves de API. Tus claves se almacenan localmente de forma cifrada. Las consultas van directamente desde tu máquina hacia los servidores oficiales del proveedor de IA que elijas, sin pasar por servidores intermediarios de Noveleare.</p>
+      <section class="legal-section">
+        <h2>3. Inicio de Sesión con Google (Google OAuth) y Datos de Cuenta</h2>
+        <p>
+          El inicio de sesión en Noveleare es opcional para las funciones básicas y se utiliza para gestionar tu perfil y validar licencias <strong>Noveleare Pro</strong> mediante Firebase Authentication y Google OAuth. Cuando inicias sesión con tu cuenta de Google, recibimos únicamente los datos básicos de identidad autorizados por ti:
+        </p>
+        <ul>
+          <li><strong>Dirección de correo electrónico</strong> (para identificar tu cuenta y vincular tu licencia Pro).</li>
+          <li><strong>Nombre visible y foto de perfil pública</strong> (para mostrarlos dentro de la interfaz de tu estudio en Noveleare).</li>
+          <li><strong>Identificador único de usuario (UID)</strong> e identificador anónimo de instalación de máquina (para gestionar el límite de hasta 5 dispositivos activos por licencia Pro).</li>
+        </ul>
+        <p>
+          El uso y la transferencia que hace Noveleare de la información recibida de las API de Google cumplen estrictamente con la <em>Política de Datos de Usuario de los Servicios API de Google</em> (Google API Services User Data Policy), incluidos los requisitos de Uso Limitado (<em>Limited Use</em>).
+        </p>
+      </section>
 
-    <h2>2. Uso de la Información</h2>
-    <p>La información recopilada se utiliza estrictamente para:</p>
-    <ul>
-      <li>Validar la activación y estado de la licencia adquirida (Free vs Pro).</li>
-      <li>Garantizar el control de activación anti-piratería (máximo 5 equipos autorizados por cuenta).</li>
-      <li>Notificar y entregar actualizaciones del software en tu equipo.</li>
-    </ul>
-    <p><strong>Nunca vendemos, alquilamos ni comercializamos tus datos personales con terceros o empresas de publicidad.</strong></p>
+      <section class="legal-section">
+        <h2>4. Uso de Proveedores de Inteligencia Artificial (BYOK)</h2>
+        <p>
+          Cuando utilizas de forma voluntaria las herramientas del Taller Creativo con IA (embellecimiento de prosa, continuación narrativa, sinónimos contextuales o chat editorial), los fragmentos de texto seleccionados se envían directamente desde tu aplicación hacia la API oficial del proveedor que hayas configurado (Google Gemini, OpenAI, Anthropic o xAI) utilizando tu propia clave API.
+        </p>
+        <p>
+          Noveleare no intercepta, almacena ni registra tus prompts ni las respuestas generadas. El procesamiento por parte del proveedor elegido se rige por las políticas de privacidad de API de dicho proveedor.
+        </p>
+      </section>
 
-    <h2>3. Cumplimiento con la Política de Datos de Google</h2>
-    <p>El uso que hace Noveleare de la información recibida de las API de Google cumple estrictamente con la <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener" style="color:var(--accent);">Política de Datos de Usuario de los Servicios de las API de Google</a>, incluidos los requisitos de Uso Limitado:</p>
-    <ul>
-      <li>Los datos de usuario de Google se utilizan únicamente para la autenticación directa del usuario dentro de la aplicación.</li>
-      <li>No se transfieren a terceros salvo que sea necesario para proporcionar o mejorar estas funciones, cumplir con la ley aplicable o como parte de una fusión/adquisición.</li>
-      <li>No se utilizan para servir anuncios ni para entrenar modelos de Inteligencia Artificial generales.</li>
-    </ul>
+      <section class="legal-section">
+        <h2>5. Pagos y Facturación</h2>
+        <p>
+          Las compras y suscripciones de <strong>Noveleare Pro</strong> son procesadas de forma segura por nuestro comerciante registrado (<em>Merchant of Record</em>), <strong>Lemon Squeezy</strong>. Noveleare no almacena ni procesa números de tarjetas bancarias ni datos financieros sensibles.
+        </p>
+      </section>
 
-    <h2>4. Seguridad de los Datos</h2>
-    <p>Implementamos medidas técnicas y organizativas rigurosas, incluyendo cifrado en tránsito (HTTPS/TLS) con nuestros servicios de backend en Supabase y almacenamiento local seguro mediante claves protegidas en tu sistema operativo.</p>
-
-    <h2>5. Tus Derechos</h2>
-    <p>Tienes derecho en cualquier momento a solicitar la eliminación de los datos de tu cuenta de autor de nuestra base de datos, desvincular tus computadoras autorizadas o dejar de utilizar el software simplemente desinstalándolo.</p>
-    <p>Para cualquier solicitud o duda sobre privacidad, contáctanos a: <strong>noveleare@gmail.com</strong>.</p>
+      <section class="legal-section">
+        <h2>6. Tus Derechos y Contacto</h2>
+        <p>
+          Puedes desvincular tus dispositivos, cerrar sesión o eliminar tus archivos locales en cualquier momento desde la aplicación. Si deseas solicitar la eliminación definitiva de los metadatos de tu cuenta o tienes cualquier consulta sobre privacidad, escríbenos a:
+        </p>
+        <p>
+          <strong>Correo de contacto oficial:</strong> <a href="mailto:noveleare@gmail.com">noveleare@gmail.com</a>
+        </p>
+      </section>
+    </article>
   </main>
 
-  <footer>
-    <p>© 2026 Noveleare. Todos los derechos reservados. · <a href="./terms.html">Términos de Servicio</a> · <a href="./privacy.html">Política de Privacidad</a></p>
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <span>&copy; 2026 Noveleare. Todos los derechos reservados.</span>
+      <ul class="footer-links-inline">
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="./download.html">Descargas</a></li>
+        <li><a href="./terms.html">Términos del Servicio</a></li>
+        <li><a href="mailto:noveleare@gmail.com">noveleare@gmail.com</a></li>
+      </ul>
+    </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || typeof window.gsap === 'undefined') return;
+      gsap.from('.gs-legal', {
+        y: 22,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.1,
+        ease: 'power3.out'
+      });
+    });
+  </script>
 </body>
 </html>
