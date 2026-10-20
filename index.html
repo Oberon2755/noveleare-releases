@@ -1298,17 +1298,15 @@
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--border-hover);
       border-radius: var(--radius-outer);
-      padding: 32px 36px;
+      padding: clamp(24px, 3vw, 36px);
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
+      flex-direction: column;
       gap: 24px;
       box-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
     }
 
     .byok-content {
-      max-width: 680px;
+      max-width: 820px;
     }
 
     .byok-badge {
@@ -1316,12 +1314,12 @@
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #FFFFFF;
+      color: #93C5FD;
       margin-bottom: 8px;
     }
 
     .byok-content h3 {
-      font-size: 1.35rem;
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
       font-weight: 800;
       color: var(--text-main);
       letter-spacing: -0.025em;
@@ -1334,22 +1332,67 @@
       line-height: 1.62;
     }
 
-    .byok-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
+    .extra-tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 10px;
     }
 
-    .byok-chips span {
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 6px 14px;
-      border-radius: var(--radius-pill);
-      background: rgba(255, 255, 255, 0.1);
+    .tool-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border-subtle);
-      color: #FFFFFF;
-      backdrop-filter: blur(10px);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--text-main);
+      transition: all 0.2s ease;
+    }
+
+    .tool-tag:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--border-hover);
+      transform: translateY(-1px);
+    }
+
+    .tool-tag svg {
+      width: 14px;
+      height: 14px;
+      color: #93C5FD;
+      flex-shrink: 0;
+    }
+
+    .extra-tools-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .extra-tools-legend {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: var(--text-sub);
+    }
+
+    .extra-tools-legend strong {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+    }
+
+    .legend-sparkle {
+      color: #F59E0B;
+      font-size: 1.15rem;
     }
 
     /* 6. EDITIONS SECTION */
@@ -2377,22 +2420,92 @@
           </div>
         </div>
 
-        <!-- BYOK Privacy Banner -->
+        <!-- Suite of Additional Tools List Banner -->
         <div class="byok-banner gs-reveal">
           <div class="byok-content">
-            <div class="byok-badge">PRIVACIDAD ABSOLUTA · BYOK (BRING YOUR OWN KEY)</div>
-            <h3>Tus Manuscritos Jamás Entrenan Modelos. Sin Suscripciones Ocultas.</h3>
+            <div class="byok-badge">SUITE EDITORIAL INTEGRAL</div>
+            <h3>Todo lo que un novelista necesita en un único santuario</h3>
             <p>
-              Noveleare se conecta directamente con los proveedores oficiales (Gemini, Claude, OpenAI, Grok) mediante tu propia clave API privada guardada en tu equipo. Pagas únicamente los centavos de tu consumo directo, o escribe al 100% desconectado con total tranquilidad.
+              Diseñado de autor a autor: decenas de herramientas especializadas integradas de forma nativa para que tu proceso creativo nunca se fragmente entre aplicaciones sueltas.
             </p>
           </div>
-          <div class="hero-cta-group" style="margin: 0;">
-            <a href="./download.html" class="btn btn-primary">
-              <span>Probar Noveleare Gratis</span>
-              <svg class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M5 10h10M11 6l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
+
+          <div class="extra-tools-grid">
+            <span class="tool-tag">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Fichas de Personaje</span>
+            </span>
+            <span class="tool-tag">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Fichas de Razas y Especies</span>
+            </span>
+            <span class="tool-tag">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Fichas de Lore y Trasfondo</span>
+            </span>
+            <span class="tool-tag">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Fichas de Lugares y Ciudades</span>
+            </span>
+            <span class="tool-tag">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Fichas de Conceptos y Datos Clave</span>
+            </span>
+            <span class="tool-tag">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Creador de Mapas</span>
+            </span>
+            <span class="tool-tag">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Planeador de Trama y Líneas Temporales</span>
+            </span>
+            <span class="tool-tag">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Árbol Genealógico Interactivo</span>
+            </span>
+            <span class="tool-tag">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Corrector Ortotipográfico y de Estilo</span>
+            </span>
+            <span class="tool-tag">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Construcción General de Mundo</span>
+            </span>
+            <span class="tool-tag">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Dictado por Voz</span>
+            </span>
+            <span class="tool-tag">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Visor de Análisis y Métricas</span>
+            </span>
+            <span class="tool-tag">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Modo Lectura Inmersivo</span>
+            </span>
+            <span class="tool-tag">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Personalización Editorial de Hoja</span>
+            </span>
+            <span class="tool-tag">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Radiografía de Manuscrito</span>
+            </span>
+          </div>
+
+          <div class="extra-tools-footer">
+            <div class="extra-tools-legend">
+              <span class="legend-sparkle">✦</span>
+              <span><strong>Todo esto y más.</strong> Descubre la experiencia completa en tu propio equipo.</span>
+            </div>
+            <div class="hero-cta-group" style="margin: 0;">
+              <a href="./download.html" class="btn btn-primary">
+                <span>Probar Noveleare Gratis</span>
+                <svg class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 10h10M11 6l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -2894,6 +3007,6 @@
       });
     });
   </script>
-  <!-- deploy-v1.2.8: 1792527500 -->
+  <!-- deploy-v1.2.9: 1792528000 -->
 </body>
 </html>
