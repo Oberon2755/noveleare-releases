@@ -1,234 +1,518 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" style="color-scheme: dark;">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Términos de Servicio — Noveleare</title>
+  <meta name="theme-color" content="#07070A">
+  <title>Términos del Servicio — Noveleare</title>
+  <meta name="description" content="Términos y Condiciones del Servicio de Noveleare. Conoce tus derechos de propiedad intelectual del 100% sobre tus obras y las condiciones de uso de Noveleare.">
+  <link rel="icon" type="image/png" href="./assets/noveleare-symbol-transparent.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0A0D12;
-      --card-bg: #111620;
-      --border: #202736;
-      --border-focus: #3A4761;
-      --text-main: #E2E8F0;
-      --text-muted: #94A3B8;
-      --text-dim: #64748B;
-      --accent: #60A5FA;
-      --accent-glow: rgba(96, 165, 250, 0.15);
-      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      --font-serif: 'Lora', Georgia, serif;
+      --bg-void: #07070A;
+      --bg-surface-1: #0D0E13;
+      --bg-surface-2: #12141C;
+      --border-hairline: rgba(255, 255, 255, 0.08);
+      --border-elevated: rgba(255, 255, 255, 0.14);
+      --text-primary: #F4F3EF;
+      --text-secondary: #A3A19A;
+      --text-muted: #6C6B65;
+      --accent-gold: #DAB36A;
+      --accent-emerald: #34D399;
+      --radius-outer: 22px;
+      --radius-inner: 12px;
+      --radius-pill: 9999px;
+      --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+      --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.5), 0 12px 32px -8px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.09);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background-color: var(--bg);
-      color: var(--text-main);
-      font-family: var(--font-sans);
-      line-height: 1.7;
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-void);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       -webkit-font-smoothing: antialiased;
-      padding: 0 1.25rem 4rem 1.25rem;
     }
-    header {
-      max-width: 800px;
+
+    body {
+      background-color: var(--bg-void);
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      z-index: 9999;
+      background: var(--text-primary);
+      color: var(--bg-void);
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .skip-link:focus-visible { top: 16px; }
+
+    :focus-visible {
+      outline: 2px solid var(--accent-gold);
+      outline-offset: 3px;
+    }
+
+    .ambient-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .ambient-backdrop__image {
+      position: absolute;
+      inset: 0;
+      background-image: url('./assets/library-sanctuary.jpg');
+      background-size: cover;
+      background-position: center 22%;
+      opacity: 0.16;
+      filter: saturate(0.8) contrast(1.08);
+    }
+
+    .ambient-backdrop__vignette {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(900px 520px at 50% 8%, rgba(218, 179, 106, 0.1), transparent 65%),
+        linear-gradient(180deg, rgba(7, 7, 10, 0.52) 0%, rgba(7, 7, 10, 0.92) 45%, #07070A 80%);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 2.5rem 0 1.75rem 0;
+      padding: 0 24px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      background: rgba(7, 7, 10, 0.76);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .nav-bar {
+      height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid var(--border);
+      gap: 20px;
     }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-      color: #FFF;
-      font-weight: 800;
-      font-size: 1.25rem;
-      letter-spacing: -0.02em;
-      transition: opacity 0.2s ease;
-    }
-    .brand:hover {
-      opacity: 0.9;
-    }
-    .brand-symbol {
-      height: 34px;
-      width: 34px;
-      object-fit: contain;
-      display: block;
-    }
-    nav {
-      display: flex;
-      gap: 0.5rem;
-      background: #11151F;
-      padding: 0.3rem;
-      border-radius: 9999px;
-      border: 1px solid var(--border);
-    }
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 0.4rem 0.9rem;
-      border-radius: 9999px;
-      transition: all 0.2s ease;
-    }
-    nav a.active {
-      background: #1E293B;
-      color: #FFF;
-      border: 1px solid #334155;
-    }
-    nav a:hover:not(.active) {
-      color: var(--text-main);
-    }
-    main {
-      max-width: 800px;
-      margin: 2.5rem auto 0 auto;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 3rem 2.5rem;
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-    }
-    .badge {
+
+    .brand-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--accent);
-      background: var(--accent-glow);
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      border: 1px solid rgba(96, 165, 250, 0.3);
-      margin-bottom: 1.25rem;
+      gap: 11px;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 600;
     }
-    h1 {
-      font-size: 2.25rem;
-      font-weight: 800;
-      color: #FFF;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.5rem;
+
+    .brand-link img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
     }
-    .meta {
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      margin-bottom: 2rem;
-      display: flex;
-      gap: 1.5rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 1.25rem;
+
+    .brand-name-serif {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 600;
     }
-    h2 {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: #F1F5F9;
-      margin: 2.25rem 0 0.75rem 0;
-      letter-spacing: -0.01em;
+
+    .nav-links {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 6px;
+      list-style: none;
     }
-    h3 {
-      font-size: 1.05rem;
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 999px;
+      transition: color 0.18s ease, background-color 0.18s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 0.84rem;
       font-weight: 600;
-      color: #CBD5E1;
-      margin: 1.25rem 0 0.5rem 0;
+      padding: 9px 16px;
+      border-radius: 9px;
+      text-decoration: none;
+      background: #F4F3EF;
+      color: #07070A;
+      transition: transform 0.18s var(--ease-out-quart);
     }
-    p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-    }
-    ul {
-      margin: 0 0 1.25rem 1.25rem;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-    li { margin-bottom: 0.5rem; }
-    strong { color: #FFF; font-weight: 600; }
-    .highlight-card {
-      background: #141A26;
-      border: 1px solid #232D3F;
-      border-left: 4px solid var(--accent);
-      padding: 1.25rem 1.5rem;
-      border-radius: 12px;
-      margin: 1.5rem 0;
-    }
-    .highlight-card p { margin: 0; color: #E2E8F0; font-size: 0.92rem; }
-    footer {
-      max-width: 800px;
-      margin: 2.5rem auto 0 auto;
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: scale(0.97); }
+
+    .legal-hero {
+      padding: 64px 0 36px;
       text-align: center;
-      font-size: 0.82rem;
-      color: var(--text-dim);
+      max-width: 780px;
+      margin: 0 auto;
     }
-    footer a { color: var(--text-muted); text-decoration: none; }
-    footer a:hover { color: var(--accent); text-decoration: underline; }
-    @media (max-width: 640px) {
-      header { flex-direction: column; gap: 1rem; align-items: flex-start; }
-      main { padding: 2rem 1.5rem; }
-      h1 { font-size: 1.75rem; }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-gold);
+      background: rgba(218, 179, 106, 0.09);
+      border: 1px solid rgba(218, 179, 106, 0.24);
+      padding: 5px 13px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 16px;
+    }
+
+    .legal-hero h1 {
+      font-size: clamp(2.1rem, 3.8vw, 3.1rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+      margin-bottom: 12px;
+    }
+
+    .legal-hero h1 em {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .legal-updated {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .summary-bento {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 36px;
+    }
+
+    .summary-card {
+      background: linear-gradient(180deg, rgba(20, 22, 31, 0.85) 0%, rgba(12, 13, 19, 0.95) 100%);
+      border: 1px solid var(--border-hairline);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .summary-card__tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-gold);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .summary-card h2 {
+      font-size: 1.04rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text-primary);
+    }
+
+    .summary-card p {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    .legal-document {
+      background: linear-gradient(180deg, rgba(16, 18, 25, 0.88) 0%, rgba(10, 11, 16, 0.96) 100%);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-outer);
+      padding: 48px 52px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 80px;
+    }
+
+    .legal-section {
+      padding-bottom: 28px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .legal-section:last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+
+    .legal-section h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      letter-spacing: -0.015em;
+    }
+
+    .legal-section p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .legal-section ul {
+      padding-left: 20px;
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .legal-section strong {
+      color: var(--text-primary);
+    }
+
+    .legal-section code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.84rem;
+      color: var(--accent-gold);
+      background: rgba(218, 179, 106, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .legal-section a {
+      color: var(--accent-gold);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border-hairline);
+      background: #050508;
+      padding: 44px 0 36px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .footer-links-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .footer-links-inline a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    .footer-links-inline a:hover {
+      color: var(--accent-gold);
+    }
+
+    @media (max-width: 900px) {
+      .summary-bento {
+        grid-template-columns: 1fr;
+      }
+      .legal-document {
+        padding: 32px 24px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
     }
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-  <header>
-    <a href="./index.html" class="brand" title="Noveleare">
-      <img src="./assets/noveleare-symbol-transparent.png" alt="Logo Noveleare" class="brand-symbol" />
-      <span>Noveleare</span>
-    </a>
-    <nav>
-      <a href="./privacy.html">Privacidad</a>
-      <a href="./terms.html" class="active">Términos</a>
-    </nav>
+  <div class="ambient-backdrop" aria-hidden="true">
+    <div class="ambient-backdrop__image"></div>
+    <div class="ambient-backdrop__vignette"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="./index.html" class="brand-link" aria-label="Noveleare Inicio">
+        <img src="./assets/noveleare-symbol-transparent.png" alt="Símbolo de Noveleare" width="32" height="32">
+        <span class="brand-name-serif">Noveleare</span>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <ul class="nav-links">
+          <li><a href="./index.html">Inicio</a></li>
+          <li><a href="./download.html">Descargas</a></li>
+          <li><a href="./privacy.html">Privacidad</a></li>
+          <li><a href="./terms.html" aria-current="page">Términos</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <a href="./download.html" class="btn">Descargar v1.1.8</a>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <div class="badge">Condiciones de Uso</div>
-    <h1>Términos de Servicio</h1>
-    <div class="meta">
-      <span>Última actualización: 17 de septiembre de 2026</span>
-      <span>Responsable: Noveleare (Oberon2755)</span>
+  <main id="main-content" class="container">
+    <div class="legal-hero gs-legal">
+      <div class="section-eyebrow">Condiciones de Uso y Derechos de Autor</div>
+      <h1>Términos del <em>Servicio</em></h1>
+      <p class="legal-updated">Última actualización: 31 de marzo de 2026</p>
     </div>
 
-    <div class="highlight-card">
-      <p><strong>Propiedad Absoluta del Autor:</strong> Cualquier texto, novela, universo, personaje o creación realizada en Noveleare es y seguirá siendo 100% propiedad tuya. Noveleare no reclama ningún derecho, porcentaje ni autoría sobre tus manuscritos.</p>
+    <!-- Summary Bento Cards -->
+    <div class="summary-bento gs-legal">
+      <div class="summary-card">
+        <span class="summary-card__tag">01 · Propiedad 100% Tuya</span>
+        <h2>Tus derechos de autor son intocables</h2>
+        <p>Conservas el 100% de los derechos patrimoniales, morales y comerciales sobre cada palabra, personaje y novela que escribas en Noveleare.</p>
+      </div>
+      <div class="summary-card">
+        <span class="summary-card__tag">02 · Licencia Multi-Equipo</span>
+        <h2>Hasta 5 dispositivos por cuenta</h2>
+        <p>Tu licencia Noveleare Pro permite activar y gestionar hasta 5 computadoras personales de forma simultánea.</p>
+      </div>
+      <div class="summary-card">
+        <span class="summary-card__tag">03 · Libertad BYOK</span>
+        <h2>Sin comisiones por IA</h2>
+        <p>Conecta tus propias claves API de Gemini, OpenAI, Claude o Grok bajo los términos directos de cada proveedor.</p>
+      </div>
     </div>
 
-    <h2>1. Aceptación de los Términos</h2>
-    <p>Al descargar, instalar o utilizar la aplicación de escritorio <strong>Noveleare</strong>, aceptas quedar legalmente vinculado por los presentes Términos y Condiciones. Si no estás de acuerdo con alguno de ellos, debes abstenerte de utilizar el software.</p>
+    <article class="legal-document gs-legal">
+      <section class="legal-section">
+        <h2>1. Aceptación de los Términos</h2>
+        <p>
+          Al descargar, instalar o utilizar la aplicación de escritorio <strong>Noveleare</strong> o su sitio web oficial, aceptas los presentes Términos del Servicio. Si no estás de acuerdo con alguna de estas condiciones, por favor abstente de utilizar el software.
+        </p>
+      </section>
 
-    <h2>2. Modelo de Licenciamiento</h2>
-    
-    <h3>A. Nivel Gratuito (Free Tier)</h3>
-    <p>Permite el uso sin límite de tiempo de las herramientas básicas de redacción literaria y organización capitular, con límites preestablecidos en tarjetas de creación de mundo (Worldbuilding) y estilos de embellecimiento de prosa. No requiere ningún pago ni suscripción periódica.</p>
+      <section class="legal-section">
+        <h2>2. Propiedad Intelectual del Autor (100% Tuya)</h2>
+        <p>
+          <strong>Noveleare no reclama ningún derecho de propiedad, licencia ni participación sobre tus obras literarias.</strong> Todo texto, capítulo, escena, árbol genealógico, ficha de personaje, nota o mundo creado dentro de Noveleare —incluyendo los textos asistidos o embellecidos mediante herramientas de IA— es propiedad exclusiva del usuario autor.
+        </p>
+        <p>
+          Eres completamente libre de publicar, registrar, distribuir y comercializar tus obras sin atribución obligatoria ni regalías hacia Noveleare.
+        </p>
+      </section>
 
-    <h3>B. Licencia Profesional (Pro License)</h3>
-    <p>Desbloquea todas las funcionalidades avanzadas, límites extendidos de tarjetas, estilos ilimitados y herramientas de inspección editorial e Inteligencia Artificial. Concede el derecho de instalación y uso en hasta un máximo de <strong>cinco (5) computadoras personales</strong> asociadas a la misma cuenta de Google del autor.</p>
+      <section class="legal-section">
+        <h2>3. Licencias de Uso del Software (Gratuita y Pro)</h2>
+        <p>
+          Noveleare te otorga una licencia personal, intransferible y no exclusiva para instalar y ejecutar la aplicación en tus equipos conforme a tu nivel de cuenta:
+        </p>
+        <ul>
+          <li><strong>Edición Gratuita:</strong> Permite el uso indefinido de las funciones esenciales de escritura y organización local.</li>
+          <li><strong>Licencia Noveleare Pro:</strong> Desbloquea las herramientas avanzadas del estudio literario (Modo Comparativo 50/50, Revisiones R1/R2, Visor de Análisis In-Situ, Modo Zen completo, Árbol Genealógico y Polígono de Estilos) en un máximo de <strong>cinco (5) dispositivos</strong> vinculados a tu cuenta.</li>
+        </ul>
+      </section>
 
-    <h2>3. Propiedad Intelectual y Confidencialidad</h2>
-    <p>Tus obras literarias son estrictamente tuyas. Noveleare está diseñado como una aplicación local, de modo que tus proyectos se almacenan en tu disco duro. El usuario es el único responsable de mantener copias de seguridad de sus archivos de proyecto.</p>
+      <section class="legal-section">
+        <h2>4. Uso de Inteligencia Artificial (Modelo BYOK)</h2>
+        <p>
+          Las funciones de asistencia creativa con IA operan bajo el esquema <em>Bring Your Own Key</em> (BYOK). El usuario es responsable de configurar su propia clave API válida (Google Gemini, OpenAI, Anthropic Claude o xAI Grok) y de cumplir con las políticas de uso y facturación del proveedor seleccionado.
+        </p>
+      </section>
 
-    <h2>4. Servicios de Inteligencia Artificial (Terceros)</h2>
-    <p>Noveleare permite la integración opcional con modelos de Inteligencia Artificial (Google Gemini, OpenAI, Claude, Grok) mediante claves de API personales suministradas por el usuario (BYOK). El usuario es responsable de cumplir las políticas de uso del proveedor seleccionado.</p>
+      <section class="legal-section">
+        <h2>5. Respaldos Locales y Limitación de Responsabilidad</h2>
+        <p>
+          Dado que Noveleare almacena tus proyectos <code>.novel</code> directamente en tu disco duro local para garantizar tu privacidad absoluta, eres responsable de mantener el buen estado de tu equipo y conservar las copias generadas por la <strong>Bóveda de Copias de Seguridad</strong> integrada en la aplicación.
+        </p>
+        <p>
+          El software se proporciona «tal cual» (<em>as-is</em>), sin garantías implícitas de disponibilidad ininterrumpida de servicios externos de terceros.
+        </p>
+      </section>
 
-    <h2>5. Pasarelas de Pago y Reembolsos</h2>
-    <p>Las compras de la licencia Pro se gestionan a través de distribuidores autorizados como <strong>Lemon Squeezy</strong>, quienes actúan como Comerciante Registrado (<em>Merchant of Record</em>). Las transacciones, recibos, impuestos y garantías de reembolso se sujetan a las condiciones informadas al momento del pago.</p>
-
-    <h2>6. Contacto y Asistencia</h2>
-    <p>Para cualquier consulta respecto a tu licencia o términos de servicio, puedes escribir a: <strong>noveleare@gmail.com</strong>.</p>
+      <section class="legal-section">
+        <h2>6. Pagos, Suscripciones y Soporte</h2>
+        <p>
+          Las transacciones de licencias Pro son gestionadas por nuestro comerciante registrado (<em>Merchant of Record</em>), <strong>Lemon Squeezy</strong>. Para soporte técnico, consultas sobre licencias o asistencia directa, puedes escribirnos en cualquier momento a:
+        </p>
+        <p>
+          <strong>Correo de contacto oficial:</strong> <a href="mailto:noveleare@gmail.com">noveleare@gmail.com</a>
+        </p>
+      </section>
+    </article>
   </main>
 
-  <footer>
-    <p>© 2026 Noveleare. Todos los derechos reservados. · <a href="./terms.html">Términos de Servicio</a> · <a href="./privacy.html">Política de Privacidad</a></p>
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <span>&copy; 2026 Noveleare. Todos los derechos reservados.</span>
+      <ul class="footer-links-inline">
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="./download.html">Descargas</a></li>
+        <li><a href="./privacy.html">Política de Privacidad</a></li>
+        <li><a href="mailto:noveleare@gmail.com">noveleare@gmail.com</a></li>
+      </ul>
+    </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || typeof window.gsap === 'undefined') return;
+      gsap.from('.gs-legal', {
+        y: 22,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.1,
+        ease: 'power3.out'
+      });
+    });
+  </script>
 </body>
 </html>
