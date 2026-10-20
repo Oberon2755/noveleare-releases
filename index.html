@@ -946,175 +946,295 @@
       background: rgba(10, 13, 19, 0.35);
     }
 
-    .inspector-cards-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: clamp(20px, 2.5vw, 32px);
-    }
-
-    .inspector-card {
+    .inspector-studio {
       background: var(--bg-glass-card);
-      backdrop-filter: blur(20px) saturate(140%);
-      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      backdrop-filter: blur(24px) saturate(140%);
+      -webkit-backdrop-filter: blur(24px) saturate(140%);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-outer);
-      padding: 30px;
-      box-shadow: var(--shadow-glass);
+      padding: clamp(16px, 2.5vw, 28px);
+      box-shadow: var(--shadow-window);
+    }
+
+    .inspector-tabs-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .inspector-tabs-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .inspector-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-sub);
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 600;
+      padding: 9px 15px;
+      border-radius: 9px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .inspector-tab-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--border-hover);
+      color: var(--text-main);
+    }
+
+    .inspector-tab-btn.is-active {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.35);
+      color: var(--text-main);
+      box-shadow: 0 0 16px rgba(255, 255, 255, 0.08);
+    }
+
+    .inspector-tab-btn .tab-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .inspector-panes-wrapper {
+      position: relative;
+      margin-top: 20px;
+    }
+
+    .inspector-pane {
+      display: none;
+      opacity: 0;
+    }
+
+    .inspector-pane.is-active {
+      display: block;
+      opacity: 1;
+    }
+
+    .inspector-pane__grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: clamp(24px, 3.5vw, 44px);
+      align-items: start;
+    }
+
+    .inspector-pane__visual {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: 18px;
-      transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.28s var(--ease-smooth);
     }
 
-    .inspector-card:hover {
-      border-color: var(--border-hover);
-      background: var(--bg-glass-card-hover);
-      transform: translateY(-2px);
+    .inspector-img-frame {
+      position: relative;
+      background: #080B10;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-inner);
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
     }
 
-    .inspector-card__badge {
+    .inspector-img-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .inspector-pane__content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .inspector-module-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
+      align-self: flex-start;
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
+      color: #93C5FD;
+      background: rgba(147, 197, 253, 0.08);
+      border: 1px solid rgba(147, 197, 253, 0.2);
+      padding: 4px 11px;
+      border-radius: 20px;
     }
 
-    .inspector-card__badge svg {
-      width: 16px;
-      height: 16px;
-      color: #94A3B8;
+    .inspector-module-badge .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #60A5FA;
+      box-shadow: 0 0 6px #60A5FA;
     }
 
-    .inspector-card h3 {
-      font-size: 1.32rem;
+    .inspector-pane__content h3 {
+      font-size: clamp(1.35rem, 2vw, 1.65rem);
       font-weight: 700;
       color: var(--text-main);
       letter-spacing: -0.025em;
       line-height: 1.25;
+      margin: 0;
     }
 
-    .inspector-card p {
-      font-size: 0.93rem;
-      color: var(--text-sub);
-      line-height: 1.62;
+    .inspector-quote {
+      margin: 0;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 3px solid #64748B;
+      border-radius: 0 8px 8px 0;
+      color: #CBD5E1;
+      font-size: 0.88rem;
+      font-style: italic;
+      line-height: 1.55;
     }
 
-    .inspector-mini-chart {
+    .inspector-kpi-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .kpi-mini-card {
       background: #080B10;
       border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-inner);
-      padding: 16px 18px;
+      border-radius: 8px;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .kpi-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .kpi-value {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .kpi-value small {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .kpi-value.highlight-score {
+      color: #38BDF8;
+    }
+
+    .kpi-value.gold-score {
+      color: #FBBF24;
+    }
+
+    .kpi-value.alert-score {
+      color: #F87171;
+    }
+
+    .inspector-features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
 
-    .char-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
+    .inspector-features-list li {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      line-height: 1.58;
+      position: relative;
+      padding-left: 20px;
     }
 
-    .char-name {
-      font-size: 0.8rem;
-      font-weight: 600;
+    .inspector-features-list li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
+      top: -1px;
+      color: #93C5FD;
+      font-size: 1.2rem;
+    }
+
+    .inspector-features-list li strong {
       color: var(--text-main);
-      width: 48px;
-      flex-shrink: 0;
+      font-weight: 600;
     }
 
-    .char-bars {
+    .inspector-studio-footer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .inspector-footer-card {
       display: flex;
-      gap: 6px;
-      flex: 1;
-    }
-
-    .char-bars .bar {
-      height: 10px;
-      flex: 1;
-      border-radius: 4px;
-      background: rgba(255, 255, 255, 0.07);
-    }
-
-    .char-bars .bar.active {
-      background: linear-gradient(90deg, rgba(226, 232, 240, 0.8), rgba(255, 255, 255, 0.95));
-      box-shadow: 0 0 8px rgba(255, 255, 255, 0.25);
-    }
-
-    .tension-chart-demo {
-      padding: 14px 14px 8px;
-    }
-
-    .tension-svg {
-      width: 100%;
-      height: 75px;
-      display: block;
-    }
-
-    .chart-labels {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-      font-weight: 500;
-    }
-
-    .continuity-list-demo {
-      background: #080B10;
+      align-items: flex-start;
+      gap: 14px;
+      background: rgba(255, 255, 255, 0.025);
       border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-inner);
-      padding: 12px 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+      border-radius: 10px;
+      padding: 16px 18px;
     }
 
-    .continuity-item {
-      display: flex;
+    .footer-card-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 8px 12px;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.04);
-      font-size: 0.82rem;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #94A3B8;
     }
 
-    .continuity-item.resolved .item-status {
-      color: #10B981;
-      font-weight: 600;
-      font-size: 0.74rem;
+    .footer-card-icon svg {
+      width: 20px;
+      height: 20px;
     }
 
-    .continuity-item.pending .item-status {
-      color: #FBBF24;
-      font-weight: 600;
-      font-size: 0.74rem;
+    .inspector-footer-card h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 0 0 6px 0;
     }
 
-    .continuity-item .item-text {
+    .inspector-footer-card p {
+      font-size: 0.84rem;
       color: var(--text-sub);
-    }
-
-    .audit-chips-demo {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .audit-chip {
-      font-size: 0.78rem;
-      font-weight: 500;
-      padding: 6px 12px;
-      border-radius: 8px;
-      background: #080B10;
-      border: 1px solid var(--border-subtle);
-      color: var(--text-sub);
+      line-height: 1.5;
+      margin: 0;
     }
 
     /* 4. AI Creative Suite Section */
@@ -1441,7 +1561,10 @@
       .zen-showcase-grid {
         grid-template-columns: 1fr;
       }
-      .inspector-cards-grid {
+      .inspector-pane__grid {
+        grid-template-columns: 1fr;
+      }
+      .inspector-studio-footer {
         grid-template-columns: 1fr;
       }
       .ai-suite-grid {
@@ -1867,166 +1990,321 @@
       <div class="container">
         <div class="section-header gs-reveal">
           <div class="section-eyebrow">
-            <span>Diagnóstico y Continuidad</span>
+            <span>Auditoría Editorial Profunda</span>
           </div>
           <h2 class="section-title">
             El Inspector de Obra: <span class="highlight">La radiografía viva de tu manuscrito</span>
           </h2>
           <p class="section-subtitle">
-            No dejes la solidez de tu universo al azar. Visualiza la presencia de cada personaje, la tensión dramática por escena y los cabos sueltos de tu argumento antes de que el libro llegue a manos del lector.
+            No adivines la solidez de tu novela. El Inspector somete tu texto a un diagnóstico narrativo implacable: mide el pulso dramático, purga vicios de estilo, audita las voces del reparto, calibra el balance escénico y rastrea cada cabo suelto antes de llegar al lector.
           </p>
         </div>
 
-        <div class="inspector-cards-grid">
-          <!-- Card 1: Mapa de Personajes -->
-          <article class="inspector-card gs-card">
-            <div>
-              <div class="inspector-card__badge">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
-                </svg>
-                <span>Reparto Coral · Capítulos 01-12</span>
-              </div>
-              <h3>Presencia y Distribución de Personajes</h3>
-              <p>
-                Descubre al instante cuándo entra y sale cada personaje a lo largo de tu novela. Detecta si algún protagonista clave desaparece durante demasiados capítulos o si una escena se sobrecarga innecesariamente.
-              </p>
-            </div>
+        <!-- Interactive Inspector Diagnostic Studio -->
+        <div class="inspector-studio gs-card" id="inspector-studio">
+          
+          <!-- Studio Top Navigation Tabs (matching real tool) -->
+          <div class="inspector-tabs-nav" role="tablist" aria-label="Módulos de Auditoría del Inspector">
+            <button type="button" class="inspector-tab-btn is-active" role="tab" aria-selected="true" data-inspector-tab="0">
+              <span class="tab-num">1</span>
+              <span class="tab-name">Ritmo y Curva de Tensión</span>
+            </button>
+            <button type="button" class="inspector-tab-btn" role="tab" aria-selected="false" data-inspector-tab="1">
+              <span class="tab-num">2</span>
+              <span class="tab-name">Muletillas y Show vs. Tell</span>
+            </button>
+            <button type="button" class="inspector-tab-btn" role="tab" aria-selected="false" data-inspector-tab="2">
+              <span class="tab-num">3</span>
+              <span class="tab-name">Personajes y Voces</span>
+            </button>
+            <button type="button" class="inspector-tab-btn" role="tab" aria-selected="false" data-inspector-tab="3">
+              <span class="tab-num">4</span>
+              <span class="tab-name">Balance Narrativo</span>
+            </button>
+            <button type="button" class="inspector-tab-btn" role="tab" aria-selected="false" data-inspector-tab="4">
+              <span class="tab-num">5</span>
+              <span class="tab-name">Continuidad y Cabos Sueltos</span>
+            </button>
+          </div>
 
-            <div class="inspector-mini-chart">
-              <div class="char-row">
-                <span class="char-name">Kaelen</span>
-                <div class="char-bars">
-                  <span class="bar active" title="Capítulo 1"></span>
-                  <span class="bar active" title="Capítulo 2"></span>
-                  <span class="bar active" title="Capítulo 3"></span>
-                  <span class="bar" title="Capítulo 4"></span>
-                  <span class="bar active" title="Capítulo 5"></span>
-                  <span class="bar active" title="Capítulo 6"></span>
+          <!-- Studio Active Viewport -->
+          <div class="inspector-panes-wrapper">
+
+            <!-- PANE 0: Ritmo y Curva de Tensión -->
+            <div class="inspector-pane is-active" data-inspector-pane="0">
+              <div class="inspector-pane__grid">
+                <div class="inspector-pane__visual">
+                  <div class="inspector-img-frame">
+                    <img src="./assets/inspector-tension.png" alt="Auditoría de Curva de Tensión y Ritmo en Noveleare" width="1022" height="902" loading="lazy">
+                  </div>
+                </div>
+                <div class="inspector-pane__content">
+                  <div class="inspector-module-badge">
+                    <span class="badge-dot"></span>
+                    <span>MÓDULO 01 · PULSO NARRATIVO</span>
+                  </div>
+                  <h3>Curva de Tensión y Detección de Baches</h3>
+                  <blockquote class="inspector-quote">
+                    «El manuscrito presenta una estructura de ritmo marcadamente bimodal... La curva de tensión se resiente en el primer bloque debido a la concentración de monólogos expositivos, los cuales frenan el pulso dramático.»
+                  </blockquote>
+
+                  <div class="inspector-kpi-row">
+                    <div class="kpi-mini-card">
+                      <span class="kpi-label">RITMO GENERAL</span>
+                      <span class="kpi-value highlight-score">68 <small>/ 100</small></span>
+                    </div>
+                    <div class="kpi-mini-card">
+                      <span class="kpi-label">PICOS DE CLÍMAX</span>
+                      <span class="kpi-value gold-score">Cap. 2</span>
+                    </div>
+                    <div class="kpi-mini-card">
+                      <span class="kpi-label">BACHES NARRATIVOS</span>
+                      <span class="kpi-value alert-score">Cap. 1</span>
+                    </div>
+                  </div>
+
+                  <ul class="inspector-features-list">
+                    <li>
+                      <strong>Curva interactiva punto a punto:</strong> Traza la progresión de tensión en cada capítulo con identificación visual de clímax, mesetas y valles de desinterés.
+                    </li>
+                    <li>
+                      <strong>Mapeo de Apuestas (Stakes):</strong> Clasifica si lo que arriesga el protagonista es de naturaleza física, emocional, moral o social, garantizando consecuencias reales.
+                    </li>
+                    <li>
+                      <strong>Telemetría de Ganchos &amp; Cliffhangers:</strong> Evalúa la potencia magnética de apertura de cada escena y el tirón del cierre para evitar deserciones lectoras.
+                    </li>
+                  </ul>
                 </div>
               </div>
-              <div class="char-row">
-                <span class="char-name">Lyra</span>
-                <div class="char-bars">
-                  <span class="bar" title="Capítulo 1"></span>
-                  <span class="bar active" title="Capítulo 2"></span>
-                  <span class="bar active" title="Capítulo 3"></span>
-                  <span class="bar active" title="Capítulo 4"></span>
-                  <span class="bar" title="Capítulo 5"></span>
-                  <span class="bar active" title="Capítulo 6"></span>
+            </div>
+
+            <!-- PANE 1: Muletillas y Show vs. Tell -->
+            <div class="inspector-pane" data-inspector-pane="1">
+              <div class="inspector-pane__grid">
+                <div class="inspector-pane__visual">
+                  <div class="inspector-img-frame">
+                    <img src="./assets/inspector-muletillas.png" alt="Análisis de Muletillas, Show vs Tell y Filtros de Percepción" width="1024" height="895" loading="lazy">
+                  </div>
+                </div>
+                <div class="inspector-pane__content">
+                  <div class="inspector-module-badge">
+                    <span class="badge-dot"></span>
+                    <span>MÓDULO 02 · CIRUGÍA DE PROSA</span>
+                  </div>
+                  <h3>Show vs. Tell y Filtros de Percepción</h3>
+                  <blockquote class="inspector-quote">
+                    «Destaca una acusada dependencia de comas para encadenar cláusulas independientes, lo que apaga la musicalidad de la frase. Asimismo, la frecuente interposición de filtros de percepción resta inmediatez dramática.»
+                  </blockquote>
+
+                  <div class="inspector-kpi-row">
+                    <div class="kpi-mini-card">
+                      <span class="kpi-label">SHOW VS. TELL</span>
+                      <span class="kpi-value highlight-score">58% <small>Mostrar</small> · 42% <small>Explicar</small></span>
+                    </div>
+                    <div class="kpi-mini-card">
+                      <span class="kpi-label">DENSIDAD ADVERBIOS</span>
+                      <span class="kpi-value gold-score">42 <small>/ 100 (-mente)</small></span>
+                    </div>
+                    <div class="kpi-mini-card">
+                      <span class="kpi-label">MULETILLAS CLAVE</span>
+                      <span class="kpi-value alert-score">4 detectadas</span>
+                    </div>
+                  </div>
+
+                  <ul class="inspector-features-list">
+                    <li>
+                      <strong>Erradicación de Filtros de Percepción:</strong> Localiza distanciadores como <em>«vio cómo le quedaba...»</em> o <em>«siente cómo se doblan...»</em> y te propone reescrituras directas e inmersivas en voz activa.
+                    </li>
+                    <li>
+                      <strong>Ranking de Repeticiones Inconscientes:</strong> Identifica muletillas como <em>«de nuevo»</em> (18 reps), <em>«por un momento»</em> o <em>«sin más»</em> jerarquizadas por su severidad de impacto.
+                    </li>
+                    <li>
+                      <strong>Termómetro de Adverbios y Clichés Somáticos:</strong> Audita el abuso de adverbios en <em>-mente</em> y expresiones trilladas (<em>«tragó saliva»</em>, <em>«apretó los puños»</em>) oxigenando tu estilo.
+                    </li>
+                  </ul>
                 </div>
               </div>
-              <div class="char-row">
-                <span class="char-name">Thorne</span>
-                <div class="char-bars">
-                  <span class="bar active" title="Capítulo 1"></span>
-                  <span class="bar" title="Capítulo 2"></span>
-                  <span class="bar" title="Capítulo 3"></span>
-                  <span class="bar active" title="Capítulo 4"></span>
-                  <span class="bar active" title="Capítulo 5"></span>
-                  <span class="bar" title="Capítulo 6"></span>
+            </div>
+
+            <!-- PANE 2: Personajes y Voces -->
+            <div class="inspector-pane" data-inspector-pane="2">
+              <div class="inspector-pane__grid">
+                <div class="inspector-pane__visual">
+                  <div class="inspector-img-frame">
+                    <img src="./assets/inspector-personajes.png" alt="Auditoría de Ecosistema de Personajes y Voces" width="1018" height="901" loading="lazy">
+                  </div>
+                </div>
+                <div class="inspector-pane__content">
+                  <div class="inspector-module-badge">
+                    <span class="badge-dot"></span>
+                    <span>MÓDULO 03 · IDIOLECTOS Y AGENCIA</span>
+                  </div>
+                  <h3>Test a Ciegas de Diálogos y Agencia</h3>
+                  <blockquote class="inspector-quote">
+                    «En una prueba a ciegas sin acotaciones ni incisos del narrador, los diálogos entre Esteban y Lucía resultan indistinguibles... La voz de la IA Ana introduce matices de control institucional e inquietud con ritmo cadencioso.»
+                  </blockquote>
+
+                  <div class="inspector-kpi-row">
+                    <div class="kpi-mini-card">
+                      <span class="kpi-label">DISTINCIÓN DE VOCES</span>
+                      <span class="kpi-value alert-score">60 <small>/ 100</small></span>
+                    </div>
+                    <div class="kpi-mini-card">
+                      <span class="kpi-label">DOMINIO PROTAGÓNICO</span>
+                      <span class="kpi-value highlight-score">58%</span>
+                    </div>
+                    <div class="kpi-mini-card">
+                      <span class="kpi-label">PERSONAJES ABANDONADOS</span>
+                      <span class="kpi-value alert-score">Lucía (Lucy)</span>
+                    </div>
+                  </div>
+
+                  <ul class="inspector-features-list">
+                    <li>
+                      <strong>Test a Ciegas de Diálogo:</strong> Comprueba si tus personajes son reconocibles por su sintaxis, léxico y modismos personales cuando se eliminan las acotaciones del autor.
+                    </li>
+                    <li>
+                      <strong>Matriz de Presencia y Agencia:</strong> Mide el nivel de iniciativa proactiva de cada miembro del elenco y la riqueza de su subtexto frente a discursos meramente informativos.
+                    </li>
+                    <li>
+                      <strong>Detector de Personajes Abandonados:</strong> Te advierte si personajes con peso inicial en la trama desaparecen súbitamente sin una despedida o justificación narrativa.
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
-          </article>
 
-          <!-- Card 2: Curva de Tensión -->
-          <article class="inspector-card gs-card">
-            <div>
-              <div class="inspector-card__badge">
+            <!-- PANE 3: Balance Narrativo -->
+            <div class="inspector-pane" data-inspector-pane="3">
+              <div class="inspector-pane__grid">
+                <div class="inspector-pane__visual">
+                  <div class="inspector-img-frame">
+                    <img src="./assets/inspector-balance.png" alt="Balance Narrativo Escénico y Detección de Info-Dumping" width="1014" height="900" loading="lazy">
+                  </div>
+                </div>
+                <div class="inspector-pane__content">
+                  <div class="inspector-module-badge">
+                    <span class="badge-dot"></span>
+                    <span>MÓDULO 04 · PROPORCIÓN ESCÉNICA</span>
+                  </div>
+                  <h3>Balance Escénico y Detección de Info-Dumping</h3>
+                  <blockquote class="inspector-quote">
+                    «Marcado contraste entre el Capítulo 1, dominado por descripción y sobrecarga expositiva (Info-Dumping) a través de la IA Ana, y el Capítulo 2, estructurado sobre combate cooperativo y acción acelerada.»
+                  </blockquote>
+
+                  <div class="inspector-kpi-row">
+                    <div class="kpi-mini-card">
+                      <span class="kpi-label">BALANCE ESCÉNICO</span>
+                      <span class="kpi-value highlight-score">15% D · 38% A · 17% I · 30% Des</span>
+                    </div>
+                    <div class="kpi-mini-card">
+                      <span class="kpi-label">INFO-DUMPING</span>
+                      <span class="kpi-value alert-score">Cap. 1</span>
+                    </div>
+                    <div class="kpi-mini-card">
+                      <span class="kpi-label">CABEZAS FLOTANTES</span>
+                      <span class="kpi-value alert-score">Cap. 1</span>
+                    </div>
+                  </div>
+
+                  <ul class="inspector-features-list">
+                    <li>
+                      <strong>Cuadrante de Proporción Escénica:</strong> Gráfico acumulativo por capítulo de Diálogo, Acción, Introspección y Descripción para asegurar una digestión rítmica óptima.
+                    </li>
+                    <li>
+                      <strong>Cazador de Info-Dumping:</strong> Localiza momentos en que la ambientación o el worldbuilding se convierten en enciclopedia y asfixian el conflicto inmediato.
+                    </li>
+                    <li>
+                      <strong>Alerta de Cabezas Flotantes (Talking Heads):</strong> Detecta charlas en el vacío y sugiere micro-acciones físicas (manipular ropa, mirar termómetros) para devolver anclaje sensorial a la escena.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- PANE 4: Continuidad y Cabos Sueltos -->
+            <div class="inspector-pane" data-inspector-pane="4">
+              <div class="inspector-pane__grid">
+                <div class="inspector-pane__visual">
+                  <div class="inspector-img-frame">
+                    <img src="./assets/inspector-continuidad.png" alt="El Pactómetro y Continuidad de Cabos Sueltos" width="1022" height="896" loading="lazy">
+                  </div>
+                </div>
+                <div class="inspector-pane__content">
+                  <div class="inspector-module-badge">
+                    <span class="badge-dot"></span>
+                    <span>MÓDULO 05 · INTEGRIDAD ARGUMENTAL</span>
+                  </div>
+                  <h3>El Pactómetro y Línea de Vida de Tramas</h3>
+                  <blockquote class="inspector-quote">
+                    «Solidez causal aceptable... Sin embargo, se observan fisuras en la coherencia fisiológica de los personajes tras el letargo y quedan planteadas promesas que requerirán justificación tecnológica rigurosa.»
+                  </blockquote>
+
+                  <div class="inspector-kpi-row">
+                    <div class="kpi-mini-card">
+                      <span class="kpi-label">CONTINUIDAD GLOBAL</span>
+                      <span class="kpi-value highlight-score">68 <small>/ 100</small></span>
+                    </div>
+                    <div class="kpi-mini-card">
+                      <span class="kpi-label">CABOS SUELTOS</span>
+                      <span class="kpi-value alert-score">3 abiertos</span>
+                    </div>
+                    <div class="kpi-mini-card">
+                      <span class="kpi-label">ANOMALÍAS FÍSICAS</span>
+                      <span class="kpi-value alert-score">2 detectadas</span>
+                    </div>
+                  </div>
+
+                  <ul class="inspector-features-list">
+                    <li>
+                      <strong>El Pactómetro (Pactos con el Lector):</strong> Supervisa promesas implícitas o explícitas catalogándolas como <em>Cumplidas</em>, <em>Pendientes</em> o peligrosamente <em>Rotas</em>.
+                    </li>
+                    <li>
+                      <strong>Línea de Vida de Tramas y Objetos:</strong> Aplica el principio de Chéjov para armas, cartas, llaves y subtramas, asegurando que cada artefacto sembrado tenga un cierre merecido.
+                    </li>
+                    <li>
+                      <strong>Detección de Agujeros de Trama:</strong> Previene inconsistencias numéricas, saltos cronológicos ilógicos o recursos providenciales no justificados antes de enviar a imprenta.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Studio Complementary Bar (Ortotipografía RAE & Historial de Registros) -->
+          <div class="inspector-studio-footer">
+            <div class="inspector-footer-card">
+              <div class="footer-card-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                  <path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
                 </svg>
-                <span>Pulso Narrativo · Ritmo Emocional</span>
               </div>
-              <h3>Curva de Tensión Dramática</h3>
-              <p>
-                Monitorea el compás emocional de tu obra escena por escena. Localiza valles donde el interés pueda decaer o picos acumulados que saturen al lector, logrando una cadencia hipnótica.
-              </p>
-            </div>
-
-            <div class="inspector-mini-chart tension-chart-demo">
-              <svg class="tension-svg" viewBox="0 0 340 75" fill="none">
-                <path d="M 10 58 Q 60 62 100 45 T 180 32 T 260 14 T 330 38" stroke="url(#tensionGrad)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-                <circle cx="100" cy="45" r="4" fill="#E2E8F0"/>
-                <circle cx="180" cy="32" r="4" fill="#E2E8F0"/>
-                <circle cx="260" cy="14" r="5" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2"/>
-                <circle cx="330" cy="38" r="4" fill="#94A3B8"/>
-                <defs>
-                  <linearGradient id="tensionGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#64748B"/>
-                    <stop offset="60%" stop-color="#E2E8F0"/>
-                    <stop offset="100%" stop-color="#93C5FD"/>
-                  </linearGradient>
-                </defs>
-              </svg>
-              <div class="chart-labels">
-                <span>Planteamiento (Acto I)</span>
-                <span>Punto de Giro</span>
-                <span>Clímax Central</span>
-                <span>Resolución</span>
+              <div>
+                <h4>6. Ortotipografía y Sintaxis Editorial (RAE)</h4>
+                <p>
+                  Normalización automática de la <strong>raya de diálogo española (—)</strong> sin espacios parásitos, comillas tipográficas angulares (<strong>« »</strong>), correcta puntuación de incisos y detección de erratas mecánicas.
+                </p>
               </div>
             </div>
-          </article>
 
-          <!-- Card 3: Hilos Argumentales y Continuidad -->
-          <article class="inspector-card gs-card">
-            <div>
-              <div class="inspector-card__badge">
+            <div class="inspector-footer-card">
+              <div class="footer-card-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <circle cx="18" cy="18" r="3"/>
-                  <circle cx="6" cy="6" r="3"/>
-                  <path d="M6 21V9a9 9 0 009 9"/>
+                  <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/>
+                  <polyline points="17 21 17 13 7 13 7 21"/>
+                  <polyline points="7 3 7 8 15 8"/>
                 </svg>
-                <span>Trazabilidad · Arcos Argumentales</span>
               </div>
-              <h3>Seguimiento de Hilos de Trama</h3>
-              <p>
-                Vincula pistas, promesas narrativas y secretos familiares a lo largo de los capítulos. Comprueba en una sola mirada qué conflictos han sido resueltos y qué cabos permanecen abiertos.
-              </p>
+              <div>
+                <h4>Historial de Registros Evolutivos (R1, R2, R3...)</h4>
+                <p>
+                  Guarda instantáneas fechadas de cada análisis. Compara el crecimiento de tu prosa entre borradores y observa cómo tu manuscrito madura de versión en versión con datos medibles.
+                </p>
+              </div>
             </div>
+          </div>
 
-            <div class="continuity-list-demo">
-              <div class="continuity-item resolved">
-                <span class="item-status">✓ RESUELTO</span>
-                <span class="item-text">El origen del guardapelo de plata (Cap. 08)</span>
-              </div>
-              <div class="continuity-item pending">
-                <span class="item-status">⏳ EN CURSO</span>
-                <span class="item-text">La traición en el consejo de las mareas (Pendiente)</span>
-              </div>
-              <div class="continuity-item pending">
-                <span class="item-status">⏳ EN CURSO</span>
-                <span class="item-text">Identidad del mensajero de la orden (Cap. 15-18)</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 4: Auditoría Ortográfica y NotebookLM -->
-          <article class="inspector-card gs-card">
-            <div>
-              <div class="inspector-card__badge">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-                  <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>
-                </svg>
-                <span>Rigor Editorial · Conexión Externa</span>
-              </div>
-              <h3>Auditoría de Estilo y Puente Documental</h3>
-              <p>
-                Detecta anomalías ortotipográficas, comprueba el balance entre diálogo y narración, y aprovecha la exportación estructurada para interrogar la biblia de tu obra mediante herramientas como NotebookLM.
-              </p>
-            </div>
-
-            <div class="audit-chips-demo">
-              <span class="audit-chip">✓ Ecos léxicos filtrados</span>
-              <span class="audit-chip">✓ Diálogo / Narración 58:42</span>
-              <span class="audit-chip">✓ Raya española (—) unificada</span>
-              <span class="audit-chip">✓ Exportación Markdown limpia</span>
-            </div>
-          </article>
         </div>
       </div>
     </section>
@@ -2479,6 +2757,47 @@
         iwStage.addEventListener('mouseleave', resetZoom);
       }
 
+      // 3.5 Interactive Inspector Studio Tabs
+      const inspectorTabs = document.querySelectorAll('[data-inspector-tab]');
+      const inspectorPanes = document.querySelectorAll('[data-inspector-pane]');
+      let inspectorCurrentIdx = 0;
+
+      function setInspectorPane(idx) {
+        if (idx === inspectorCurrentIdx && inspectorPanes[idx]?.classList.contains('is-active')) return;
+        inspectorCurrentIdx = idx;
+
+        inspectorTabs.forEach((btn, i) => {
+          const active = i === idx;
+          btn.classList.toggle('is-active', active);
+          btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+
+        inspectorPanes.forEach((pane, i) => {
+          const isTarget = i === idx;
+          if (isTarget) {
+            pane.style.display = 'block';
+            pane.classList.add('is-active');
+            if (typeof gsap !== 'undefined') {
+              gsap.killTweensOf(pane);
+              gsap.fromTo(pane, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' });
+            } else {
+              pane.style.opacity = '1';
+            }
+          } else {
+            pane.classList.remove('is-active');
+            pane.style.display = 'none';
+            pane.style.opacity = '0';
+          }
+        });
+      }
+
+      inspectorTabs.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const idx = Number(btn.getAttribute('data-inspector-tab'));
+          setInspectorPane(idx);
+        });
+      });
+
       // 4. GSAP Animations
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (prefersReducedMotion || typeof window.gsap === 'undefined') return;
@@ -2531,7 +2850,7 @@
         });
       });
 
-      gsap.utils.toArray('.feature-points-stack, .inspector-cards-grid, .ai-suite-grid').forEach((grid) => {
+      gsap.utils.toArray('.feature-points-stack, .inspector-studio, .ai-suite-grid').forEach((grid) => {
         const cards = grid.querySelectorAll('.gs-card');
         if (cards.length > 0) {
           gsap.from(cards, {
@@ -2575,6 +2894,6 @@
       });
     });
   </script>
-  <!-- deploy-v1.2.7: 1792526500 -->
+  <!-- deploy-v1.2.8: 1792527500 -->
 </body>
 </html>
