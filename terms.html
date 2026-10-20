@@ -3,30 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#07070A">
+  <meta name="theme-color" content="#0B0E14">
   <title>Términos del Servicio — Noveleare</title>
   <meta name="description" content="Términos y Condiciones del Servicio de Noveleare. Conoce tus derechos de propiedad intelectual del 100% sobre tus obras y las condiciones de uso de Noveleare.">
   <link rel="icon" type="image/png" href="./assets/noveleare-symbol-transparent.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-void: #07070A;
-      --bg-surface-1: #0D0E13;
-      --bg-surface-2: #12141C;
-      --border-hairline: rgba(255, 255, 255, 0.08);
-      --border-elevated: rgba(255, 255, 255, 0.14);
-      --text-primary: #F4F3EF;
-      --text-secondary: #A3A19A;
-      --text-muted: #6C6B65;
-      --accent-gold: #DAB36A;
-      --accent-emerald: #34D399;
-      --radius-outer: 22px;
+      --bg-base: #0B0E14;
+      --bg-glass-card: rgba(16, 21, 30, 0.68);
+      --bg-glass-nav: rgba(11, 14, 20, 0.75);
+      --border-subtle: rgba(255, 255, 255, 0.12);
+      --border-hover: rgba(255, 255, 255, 0.24);
+      --text-main: #FFFFFF;
+      --text-sub: #CBD5E1;
+      --text-muted: #8E9BAE;
+      --accent-pill-bg: rgba(255, 255, 255, 0.08);
+      --accent-pill-border: rgba(255, 255, 255, 0.18);
+      --accent-pill-text: #F8FAFC;
+      --radius-outer: 20px;
       --radius-inner: 12px;
       --radius-pill: 9999px;
-      --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
-      --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.5), 0 12px 32px -8px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.09);
+      --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-glass: 0 4px 24px -2px rgba(0, 0, 0, 0.35), 0 18px 48px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.14);
     }
 
     *, *::before, *::after {
@@ -37,15 +38,15 @@
 
     html {
       scroll-behavior: smooth;
-      background-color: var(--bg-void);
-      color: var(--text-primary);
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       -webkit-font-smoothing: antialiased;
     }
 
     body {
-      background-color: var(--bg-void);
-      color: var(--text-primary);
+      background-color: var(--bg-base);
+      color: var(--text-main);
       line-height: 1.7;
       overflow-x: hidden;
     }
@@ -55,8 +56,8 @@
       top: -100px;
       left: 16px;
       z-index: 9999;
-      background: var(--text-primary);
-      color: var(--bg-void);
+      background: #FFFFFF;
+      color: #0B0E14;
       padding: 10px 18px;
       border-radius: 8px;
       font-weight: 600;
@@ -65,7 +66,7 @@
     .skip-link:focus-visible { top: 16px; }
 
     :focus-visible {
-      outline: 2px solid var(--accent-gold);
+      outline: 2px solid rgba(255, 255, 255, 0.6);
       outline-offset: 3px;
     }
 
@@ -80,19 +81,19 @@
     .ambient-backdrop__image {
       position: absolute;
       inset: 0;
-      background-image: url('./assets/library-sanctuary.jpg');
+      background-image: url('./assets/misty-morning-forest.jpg');
       background-size: cover;
-      background-position: center 22%;
-      opacity: 0.16;
-      filter: saturate(0.8) contrast(1.08);
+      background-position: center 28%;
+      opacity: 0.52;
+      filter: saturate(1.05) contrast(1.02);
     }
 
-    .ambient-backdrop__vignette {
+    .ambient-backdrop__luminous-layer {
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(900px 520px at 50% 8%, rgba(218, 179, 106, 0.1), transparent 65%),
-        linear-gradient(180deg, rgba(7, 7, 10, 0.52) 0%, rgba(7, 7, 10, 0.92) 45%, #07070A 80%);
+        radial-gradient(1200px 650px at 50% 0%, rgba(255, 255, 255, 0.14), transparent 70%),
+        linear-gradient(180deg, rgba(11, 14, 20, 0.42) 0%, rgba(11, 14, 20, 0.68) 45%, rgba(11, 14, 20, 0.92) 100%);
     }
 
     .container {
@@ -106,10 +107,10 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(18px) saturate(140%);
-      -webkit-backdrop-filter: blur(18px) saturate(140%);
-      background: rgba(7, 7, 10, 0.76);
-      border-bottom: 1px solid var(--border-hairline);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      background: var(--bg-glass-nav);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .nav-bar {
@@ -125,20 +126,16 @@
       align-items: center;
       gap: 11px;
       text-decoration: none;
-      color: var(--text-primary);
-      font-weight: 600;
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
     }
 
     .brand-link img {
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       object-fit: contain;
-    }
-
-    .brand-name-serif {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.45rem;
-      font-weight: 600;
     }
 
     .nav-links {
@@ -149,19 +146,19 @@
     }
 
     .nav-links a {
-      color: var(--text-secondary);
+      color: var(--text-sub);
       text-decoration: none;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 500;
       padding: 8px 14px;
-      border-radius: 999px;
+      border-radius: var(--radius-pill);
       transition: color 0.18s ease, background-color 0.18s ease;
     }
 
     .nav-links a:hover,
     .nav-links a[aria-current="page"] {
-      color: var(--text-primary);
-      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.08);
     }
 
     .btn {
@@ -170,14 +167,14 @@
       justify-content: center;
       gap: 8px;
       font-family: inherit;
-      font-size: 0.84rem;
+      font-size: 0.85rem;
       font-weight: 600;
       padding: 9px 16px;
-      border-radius: 9px;
+      border-radius: 10px;
       text-decoration: none;
-      background: #F4F3EF;
-      color: #07070A;
-      transition: transform 0.18s var(--ease-out-quart);
+      background: #FFFFFF;
+      color: #0B0E14;
+      transition: transform 0.18s var(--ease-smooth);
     }
 
     .btn:hover { transform: translateY(-1px); }
@@ -193,37 +190,29 @@
     .section-eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent-gold);
-      background: rgba(218, 179, 106, 0.09);
-      border: 1px solid rgba(218, 179, 106, 0.24);
-      padding: 5px 13px;
+      gap: 7px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: var(--accent-pill-text);
+      background: var(--accent-pill-bg);
+      border: 1px solid var(--accent-pill-border);
+      padding: 6px 14px;
       border-radius: var(--radius-pill);
+      backdrop-filter: blur(10px);
       margin-bottom: 16px;
     }
 
     .legal-hero h1 {
-      font-size: clamp(2.1rem, 3.8vw, 3.1rem);
-      font-weight: 700;
+      font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+      font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1.12;
       margin-bottom: 12px;
     }
 
-    .legal-hero h1 em {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
-      color: var(--accent-gold);
-      font-weight: 600;
-    }
-
     .legal-updated {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
+      font-size: 0.84rem;
       color: var(--text-muted);
     }
 
@@ -235,49 +224,51 @@
     }
 
     .summary-card {
-      background: linear-gradient(180deg, rgba(20, 22, 31, 0.85) 0%, rgba(12, 13, 19, 0.95) 100%);
-      border: 1px solid var(--border-hairline);
+      background: var(--bg-glass-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-subtle);
       border-radius: 18px;
-      padding: 22px;
-      box-shadow: var(--shadow-card);
+      padding: 24px;
+      box-shadow: var(--shadow-glass);
     }
 
     .summary-card__tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.68rem;
+      font-size: 0.72rem;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent-gold);
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
       margin-bottom: 6px;
       display: block;
     }
 
     .summary-card h2 {
-      font-size: 1.04rem;
+      font-size: 1.05rem;
       font-weight: 700;
       margin-bottom: 6px;
-      color: var(--text-primary);
+      color: var(--text-main);
     }
 
     .summary-card p {
-      font-size: 0.86rem;
-      color: var(--text-secondary);
+      font-size: 0.88rem;
+      color: var(--text-sub);
       line-height: 1.55;
     }
 
     .legal-document {
-      background: linear-gradient(180deg, rgba(16, 18, 25, 0.88) 0%, rgba(10, 11, 16, 0.96) 100%);
-      border: 1px solid var(--border-hairline);
+      background: var(--bg-glass-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-subtle);
       border-radius: var(--radius-outer);
       padding: 48px 52px;
-      box-shadow: var(--shadow-card);
+      box-shadow: var(--shadow-glass);
       margin-bottom: 80px;
     }
 
     .legal-section {
       padding-bottom: 28px;
       margin-bottom: 28px;
-      border-bottom: 1px solid var(--border-hairline);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .legal-section:last-child {
@@ -289,20 +280,20 @@
     .legal-section h2 {
       font-size: 1.25rem;
       font-weight: 700;
-      color: var(--text-primary);
+      color: var(--text-main);
       margin-bottom: 12px;
       letter-spacing: -0.015em;
     }
 
     .legal-section p {
-      color: var(--text-secondary);
+      color: var(--text-sub);
       font-size: 0.95rem;
       margin-bottom: 12px;
     }
 
     .legal-section ul {
       padding-left: 20px;
-      color: var(--text-secondary);
+      color: var(--text-sub);
       font-size: 0.94rem;
       display: flex;
       flex-direction: column;
@@ -311,29 +302,31 @@
     }
 
     .legal-section strong {
-      color: var(--text-primary);
+      color: var(--text-main);
     }
 
     .legal-section code {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.84rem;
-      color: var(--accent-gold);
-      background: rgba(218, 179, 106, 0.1);
-      padding: 2px 6px;
-      border-radius: 4px;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.86rem;
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2px 7px;
+      border-radius: 5px;
     }
 
     .legal-section a {
-      color: var(--accent-gold);
+      color: var(--text-main);
       text-decoration: underline;
       text-underline-offset: 3px;
     }
 
     .site-footer {
-      border-top: 1px solid var(--border-hairline);
-      background: #050508;
+      border-top: 1px solid var(--border-subtle);
+      background: rgba(8, 10, 15, 0.75);
+      backdrop-filter: blur(16px);
       padding: 44px 0 36px;
-      font-size: 0.86rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
     }
 
@@ -353,21 +346,17 @@
     }
 
     .footer-links-inline a {
-      color: var(--text-secondary);
+      color: var(--text-sub);
       text-decoration: none;
     }
 
     .footer-links-inline a:hover {
-      color: var(--accent-gold);
+      color: #FFFFFF;
     }
 
     @media (max-width: 900px) {
-      .summary-bento {
-        grid-template-columns: 1fr;
-      }
-      .legal-document {
-        padding: 32px 24px;
-      }
+      .summary-bento { grid-template-columns: 1fr; }
+      .legal-document { padding: 32px 24px; }
     }
 
     @media (max-width: 720px) {
@@ -380,14 +369,14 @@
 
   <div class="ambient-backdrop" aria-hidden="true">
     <div class="ambient-backdrop__image"></div>
-    <div class="ambient-backdrop__vignette"></div>
+    <div class="ambient-backdrop__luminous-layer"></div>
   </div>
 
   <header class="site-header">
     <div class="container nav-bar">
       <a href="./index.html" class="brand-link" aria-label="Noveleare Inicio">
-        <img src="./assets/noveleare-symbol-transparent.png" alt="Símbolo de Noveleare" width="32" height="32">
-        <span class="brand-name-serif">Noveleare</span>
+        <img src="./assets/noveleare-symbol-transparent.png" alt="Símbolo de Noveleare" width="30" height="30">
+        <span>Noveleare</span>
       </a>
 
       <nav aria-label="Navegación principal">
@@ -408,7 +397,7 @@
   <main id="main-content" class="container">
     <div class="legal-hero gs-legal">
       <div class="section-eyebrow">Condiciones de Uso y Derechos de Autor</div>
-      <h1>Términos del <em>Servicio</em></h1>
+      <h1>Términos del Servicio</h1>
       <p class="legal-updated">Última actualización: 31 de marzo de 2026</p>
     </div>
 
@@ -470,7 +459,7 @@
       <section class="legal-section">
         <h2>5. Respaldos Locales y Limitación de Responsabilidad</h2>
         <p>
-          Dado que Noveleare almacena tus proyectos <code>.novel</code> directamente en tu disco duro local para garantizar tu privacidad absoluta, eres responsable de mantener el buen estado de tu equipo y conservar las copias generadas por la <strong>Bóveda de Copias de Seguridad</strong> integrada en la aplicación.
+          Dado que Noveleare almacena tus proyectos .novel directamente en tu disco duro local para garantizar tu privacidad absoluta, eres responsable de mantener el buen estado de tu equipo y conservar las copias generadas por la <strong>Bóveda de Copias de Seguridad</strong> integrada en la aplicación.
         </p>
         <p>
           El software se proporciona «tal cual» (<em>as-is</em>), sin garantías implícitas de disponibilidad ininterrumpida de servicios externos de terceros.
@@ -506,7 +495,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || typeof window.gsap === 'undefined') return;
       gsap.from('.gs-legal', {
-        y: 22,
+        y: 20,
         opacity: 0,
         duration: 0.7,
         stagger: 0.1,
