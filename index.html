@@ -905,78 +905,40 @@
       -webkit-backdrop-filter: blur(14px);
     }
 
-    .zen-gallery-card {
-      background: var(--bg-glass-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-outer);
-      padding: 12px;
-      box-shadow: var(--shadow-window);
-      backdrop-filter: blur(20px);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .zen-stage {
+    .zen-pure-slider {
       position: relative;
-      aspect-ratio: 16 / 10;
-      border-radius: var(--radius-inner);
+      width: 100%;
+      aspect-ratio: 1024 / 536;
+      border: none;
+      background: transparent;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+      border-radius: 8px;
       overflow: hidden;
-      background: #080B10;
-      border: 1px solid var(--border-subtle);
     }
 
-    .zen-slide {
+    .zen-pure-slider .zen-slide {
       position: absolute;
       inset: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.45s var(--ease-smooth);
     }
 
-    .zen-slide.is-active {
+    .zen-pure-slider .zen-slide.is-active {
+      display: block;
       opacity: 1;
       pointer-events: auto;
     }
 
-    .zen-slide img {
+    .zen-pure-slider .zen-slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-
-    .zen-controls {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 6px 8px 4px;
-    }
-
-    .zen-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .zen-pill-btn {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-sub);
-      font-family: inherit;
-      font-size: 0.78rem;
-      font-weight: 600;
-      padding: 6px 13px;
+      display: block;
+      border: none;
       border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.18s ease;
-    }
-
-    .zen-pill-btn.is-active {
-      background: rgba(255, 255, 255, 0.16);
-      border-color: var(--border-active);
-      color: var(--text-main);
     }
 
     /* 3. Inspector Section */
@@ -1876,39 +1838,22 @@
             </div>
           </div>
 
-          <!-- Right: Interactive Zen Gallery -->
-          <div class="zen-gallery-card gs-card" data-slot="zen-interactive-gallery">
-            <div class="window-chrome">
-              <div class="window-dots" aria-hidden="true">
-                <span></span><span></span><span></span>
-              </div>
-              <span class="window-title-tag">SANTUARIO SENSORIAL · VISTA PREVIA</span>
-              <span class="window-badge">AUDIO &amp; PAISAJE</span>
+          <!-- Right: Pure Borderless Zen Showcase (Auto-advancing every 2s) -->
+          <div class="zen-pure-slider gs-card" id="zen-pure-slider" aria-label="Atmósferas inmersivas del Modo Zen">
+            <div class="zen-slide is-active" data-zen-slide="0">
+              <img src="./assets/zen-slide-1.png" alt="Personalizador de atmósferas y paisajes del Modo Zen" width="1024" height="536" loading="lazy">
             </div>
-
-            <div class="zen-stage">
-              <div class="zen-slide is-active" data-zen-slide="0">
-                <img src="./assets/showcase-zen.png" alt="Lienzo en Modo Zen con paisaje nocturno y sonido ambiental" width="1200" height="750" loading="lazy">
-              </div>
-              <div class="zen-slide" data-zen-slide="1">
-                <img src="./assets/zen-aurora.png" alt="Atmósfera de aurora boreal en el Modo Zen de Noveleare" width="1200" height="750" loading="lazy">
-              </div>
-              <div class="zen-slide" data-zen-slide="2">
-                <img src="./assets/zen-mountain.png" alt="Atmósfera de montaña brumosa en el Modo Zen de Noveleare" width="1200" height="750" loading="lazy">
-              </div>
-              <div class="zen-slide" data-zen-slide="3">
-                <img src="./assets/zen-dropdown.png" alt="Selector de música Clean Soul, sonidos ambientales y teclado mecánico" width="1200" height="750" loading="lazy">
-              </div>
+            <div class="zen-slide" data-zen-slide="1">
+              <img src="./assets/zen-slide-2.png" alt="Atmósfera de Aurora Boreal en el Modo Zen" width="1024" height="536" loading="lazy">
             </div>
-
-            <div class="zen-controls">
-              <div class="zen-pills" role="tablist" aria-label="Atmósferas del Modo Zen">
-                <button type="button" class="zen-pill-btn is-active" data-zen-btn="0">Santuario Nocturno</button>
-                <button type="button" class="zen-pill-btn" data-zen-btn="1">Aurora Boreal</button>
-                <button type="button" class="zen-pill-btn" data-zen-btn="2">Cumbre Brumosa</button>
-                <button type="button" class="zen-pill-btn" data-zen-btn="3">Audio &amp; Teclado</button>
-              </div>
-              <span class="slot-tag">SONIDOS &amp; FONDOS</span>
+            <div class="zen-slide" data-zen-slide="2">
+              <img src="./assets/zen-slide-3.png" alt="Atmósfera de Noche Estrellada en el Modo Zen" width="1024" height="536" loading="lazy">
+            </div>
+            <div class="zen-slide" data-zen-slide="3">
+              <img src="./assets/zen-slide-4.png" alt="Atmósfera de Bosque Otoñal en el Modo Zen" width="1024" height="536" loading="lazy">
+            </div>
+            <div class="zen-slide" data-zen-slide="4">
+              <img src="./assets/zen-slide-5.png" alt="Atmósfera de Cumbre Brumosa en el Modo Zen" width="1024" height="536" loading="lazy">
             </div>
           </div>
         </div>
@@ -2396,17 +2341,70 @@
         setHeroSlide((heroIndex + 1) % heroSlides.length);
       }, 6500);
 
-      // 2. Interactive Zen Gallery Pills
-      const zenBtns = document.querySelectorAll('[data-zen-btn]');
-      const zenSlides = document.querySelectorAll('[data-zen-slide]');
+      // 2. Automated Borderless Zen Gallery (Cycles every 2s, smooth crossfade, no stacking)
+      const zenSlider = document.getElementById('zen-pure-slider');
+      const zenSlides = zenSlider ? zenSlider.querySelectorAll('[data-zen-slide]') : [];
+      let zenCurrentIndex = 0;
+      let zenInterval = null;
 
-      zenBtns.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const idx = Number(btn.getAttribute('data-zen-btn'));
-          zenBtns.forEach((b, i) => b.classList.toggle('is-active', i === idx));
-          zenSlides.forEach((s, i) => s.classList.toggle('is-active', i === idx));
-        });
-      });
+      function goToZenSlide(nextIndex) {
+        if (!zenSlides.length || nextIndex === zenCurrentIndex) return;
+        const currentSlide = zenSlides[zenCurrentIndex];
+        const nextSlide = zenSlides[nextIndex];
+
+        if (typeof gsap !== 'undefined') {
+          gsap.killTweensOf(nextSlide);
+          gsap.killTweensOf(currentSlide);
+        }
+
+        // Set stacking order and display state
+        nextSlide.style.display = 'block';
+        nextSlide.style.zIndex = '2';
+        currentSlide.style.zIndex = '1';
+
+        if (typeof gsap !== 'undefined') {
+          gsap.fromTo(nextSlide, { opacity: 0 }, {
+            opacity: 1,
+            duration: 0.5,
+            ease: 'power2.out',
+            onComplete: () => {
+              // Hide all other slides strictly to avoid any accumulation or ghosting
+              zenSlides.forEach((s, i) => {
+                if (i !== nextIndex) {
+                  s.style.display = 'none';
+                  s.style.opacity = '0';
+                  s.classList.remove('is-active');
+                  s.style.zIndex = '0';
+                }
+              });
+              nextSlide.classList.add('is-active');
+            }
+          });
+          gsap.to(currentSlide, {
+            opacity: 0,
+            duration: 0.5,
+            ease: 'power2.out'
+          });
+        } else {
+          zenSlides.forEach((s, i) => {
+            const active = i === nextIndex;
+            s.style.display = active ? 'block' : 'none';
+            s.style.opacity = active ? '1' : '0';
+            s.classList.toggle('is-active', active);
+          });
+        }
+
+        zenCurrentIndex = nextIndex;
+      }
+
+      if (zenSlides.length > 1) {
+        zenInterval = setInterval(() => {
+          if (!document.hidden) {
+            const next = (zenCurrentIndex + 1) % zenSlides.length;
+            goToZenSlide(next);
+          }
+        }, 2000);
+      }
 
       // 3. Interactive Explorable Workspace Canvas
       const iwStage = document.getElementById('iw-stage');
@@ -2551,7 +2549,7 @@
         }
       });
 
-      gsap.from('.interactive-workspace-canvas, .showcase-window-card, .zen-gallery-card', {
+      gsap.from('.interactive-workspace-canvas, .showcase-window-card, .zen-pure-slider', {
         scrollTrigger: {
           trigger: '.editorial-section',
           start: 'top 82%',
@@ -2577,6 +2575,6 @@
       });
     });
   </script>
-  <!-- deploy-v1.2.6: 1792525900 -->
+  <!-- deploy-v1.2.7: 1792526500 -->
 </body>
 </html>
