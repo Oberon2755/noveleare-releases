@@ -5,24 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0B0E14">
   <title>Política de Privacidad — Noveleare</title>
-  <meta name="description" content="Política de Privacidad de Noveleare. Conoce cómo protegemos tus manuscritos bajo una arquitectura 100% Local-First y sin entrenamiento de IA.">
+  <meta name="description" content="Política de Privacidad de Noveleare. Conoce cómo protegemos tus datos, nuestra arquitectura Local-First, el cifrado local de claves BYOK y el estricto cumplimiento con Google API Services.">
   <link rel="icon" type="image/png" href="./assets/noveleare-symbol-transparent.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-base: #0B0E14;
       --bg-glass-card: rgba(16, 21, 30, 0.68);
-      --bg-glass-nav: rgba(11, 14, 20, 0.75);
+      --bg-glass-nav: rgba(11, 14, 20, 0.85);
       --border-subtle: rgba(255, 255, 255, 0.12);
       --border-hover: rgba(255, 255, 255, 0.24);
+      --brand-mint: #b5e5d8;
+      --brand-glow: rgba(181, 229, 216, 0.25);
       --text-main: #FFFFFF;
       --text-sub: #CBD5E1;
       --text-muted: #8E9BAE;
-      --accent-pill-bg: rgba(255, 255, 255, 0.08);
-      --accent-pill-border: rgba(255, 255, 255, 0.18);
-      --accent-pill-text: #F8FAFC;
+      --accent-pill-bg: rgba(181, 229, 216, 0.1);
+      --accent-pill-border: rgba(181, 229, 216, 0.25);
+      --accent-pill-text: #b5e5d8;
       --radius-outer: 20px;
       --radius-inner: 12px;
       --radius-pill: 9999px;
@@ -54,8 +56,8 @@
       position: relative;
       background-color: #070A0F;
       background-image:
-        radial-gradient(1600px 900px at 50% 0%, rgba(255, 255, 255, 0.14), transparent 75%),
-        linear-gradient(180deg, rgba(7, 10, 16, 0.22) 0%, rgba(7, 10, 16, 0.42) 45%, rgba(7, 10, 16, 0.72) 100%),
+        radial-gradient(1600px 900px at 50% 0%, rgba(181, 229, 216, 0.12), transparent 75%),
+        linear-gradient(180deg, rgba(7, 10, 16, 0.22) 0%, rgba(7, 10, 16, 0.45) 45%, rgba(7, 10, 16, 0.78) 100%),
         url('./assets/misty-morning-forest.jpg');
       background-attachment: fixed;
       background-size: cover;
@@ -78,13 +80,13 @@
     .skip-link:focus-visible { top: 16px; }
 
     :focus-visible {
-      outline: 2px solid rgba(255, 255, 255, 0.6);
+      outline: 2px solid var(--brand-mint);
       outline-offset: 3px;
     }
 
     .container {
       width: 100%;
-      max-width: 1680px;
+      max-width: 1380px;
       margin: 0 auto;
       padding: 0 clamp(16px, 2vw, 32px);
     }
@@ -147,6 +149,11 @@
       background: rgba(255, 255, 255, 0.08);
     }
 
+    .nav-links a[aria-current="page"] {
+      border: 1px solid rgba(181, 229, 216, 0.3);
+      color: var(--brand-mint);
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -155,21 +162,25 @@
       font-family: inherit;
       font-size: 0.85rem;
       font-weight: 600;
-      padding: 9px 16px;
+      padding: 9px 18px;
       border-radius: 10px;
       text-decoration: none;
       background: #FFFFFF;
       color: #0B0E14;
-      transition: transform 0.18s var(--ease-smooth);
+      transition: transform 0.18s var(--ease-smooth), box-shadow 0.18s ease;
+      box-shadow: 0 4px 14px rgba(255, 255, 255, 0.2);
     }
 
-    .btn:hover { transform: translateY(-1px); }
+    .btn:hover { 
+      transform: translateY(-1px); 
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+    }
     .btn:active { transform: scale(0.97); }
 
     .legal-hero {
       padding: 64px 0 36px;
       text-align: center;
-      max-width: 780px;
+      max-width: 840px;
       margin: 0 auto;
     }
 
@@ -178,8 +189,9 @@
       align-items: center;
       gap: 7px;
       font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.01em;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       color: var(--accent-pill-text);
       background: var(--accent-pill-bg);
       border: 1px solid var(--accent-pill-border);
@@ -190,18 +202,31 @@
     }
 
     .legal-hero h1 {
-      font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+      font-size: clamp(2.2rem, 3.8vw, 3.4rem);
       font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1.12;
+      margin-bottom: 14px;
+    }
+
+    .legal-hero h1 span {
+      color: var(--brand-mint);
+    }
+
+    .legal-hero p.subtitle {
+      font-size: 1.05rem;
+      color: var(--text-sub);
+      line-height: 1.6;
       margin-bottom: 12px;
     }
 
     .legal-updated {
-      font-size: 0.84rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
       color: var(--text-muted);
     }
 
+    /* Summary Bento Cards */
     .summary-bento {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -216,22 +241,28 @@
       border-radius: 18px;
       padding: 24px;
       box-shadow: var(--shadow-glass);
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .summary-card:hover {
+      border-color: rgba(181, 229, 216, 0.35);
+      transform: translateY(-2px);
     }
 
     .summary-card__tag {
       font-size: 0.72rem;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--text-muted);
-      margin-bottom: 6px;
+      color: var(--brand-mint);
+      margin-bottom: 8px;
       display: block;
     }
 
     .summary-card h2 {
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       font-weight: 700;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       color: var(--text-main);
     }
 
@@ -241,19 +272,20 @@
       line-height: 1.55;
     }
 
+    /* Master Legal Document */
     .legal-document {
       background: var(--bg-glass-card);
-      backdrop-filter: blur(20px);
+      backdrop-filter: blur(24px);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-outer);
-      padding: 48px 52px;
+      padding: 52px 56px;
       box-shadow: var(--shadow-glass);
       margin-bottom: 80px;
     }
 
     .legal-section {
-      padding-bottom: 28px;
-      margin-bottom: 28px;
+      padding-bottom: 36px;
+      margin-bottom: 36px;
       border-bottom: 1px solid var(--border-subtle);
     }
 
@@ -264,17 +296,35 @@
     }
 
     .legal-section h2 {
-      font-size: 1.25rem;
-      font-weight: 700;
+      font-size: 1.35rem;
+      font-weight: 800;
       color: var(--text-main);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       letter-spacing: -0.015em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .legal-section h2 .sec-num {
+      color: var(--brand-mint);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem;
+    }
+
+    .legal-section h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #F1F5F9;
+      margin-top: 20px;
+      margin-bottom: 8px;
     }
 
     .legal-section p {
       color: var(--text-sub);
       font-size: 0.95rem;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      line-height: 1.75;
     }
 
     .legal-section ul {
@@ -283,8 +333,13 @@
       font-size: 0.94rem;
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      margin-top: 8px;
+      gap: 10px;
+      margin-top: 10px;
+      margin-bottom: 14px;
+    }
+
+    .legal-section li {
+      line-height: 1.65;
     }
 
     .legal-section strong {
@@ -292,24 +347,40 @@
     }
 
     .legal-section code {
-      font-family: inherit;
+      font-family: 'JetBrains Mono', monospace;
       font-weight: 600;
-      font-size: 0.86rem;
-      color: var(--text-main);
-      background: rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem;
+      color: var(--brand-mint);
+      background: rgba(181, 229, 216, 0.08);
+      border: 1px solid rgba(181, 229, 216, 0.2);
       padding: 2px 7px;
       border-radius: 5px;
     }
 
     .legal-section a {
-      color: var(--text-main);
+      color: var(--brand-mint);
       text-decoration: underline;
       text-underline-offset: 3px;
     }
 
+    .legal-callout {
+      background: rgba(181, 229, 216, 0.06);
+      border-left: 3px solid var(--brand-mint);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      margin: 18px 0;
+      color: #E2E8F0;
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    .legal-callout strong {
+      color: var(--brand-mint);
+    }
+
     .site-footer {
       border-top: 1px solid var(--border-subtle);
-      background: rgba(8, 10, 15, 0.75);
+      background: rgba(8, 10, 15, 0.85);
       backdrop-filter: blur(16px);
       padding: 44px 0 36px;
       font-size: 0.88rem;
@@ -334,10 +405,11 @@
     .footer-links-inline a {
       color: var(--text-sub);
       text-decoration: none;
+      transition: color 0.18s;
     }
 
     .footer-links-inline a:hover {
-      color: #FFFFFF;
+      color: var(--brand-mint);
     }
 
     @media (max-width: 900px) {
@@ -345,7 +417,7 @@
       .legal-document { padding: 32px 24px; }
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 768px) {
       .nav-links { display: none; }
     }
   </style>
@@ -353,6 +425,7 @@
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
+  <!-- Top Sticky Navigation -->
   <header class="site-header">
     <div class="container nav-bar">
       <a href="./index.html" class="brand-link" aria-label="Noveleare Inicio">
@@ -363,6 +436,8 @@
       <nav aria-label="Navegación principal">
         <ul class="nav-links">
           <li><a href="./index.html">Inicio</a></li>
+          <li><a href="./index.html#hoja-editorial">Hoja de Trabajo</a></li>
+          <li><a href="./index.html#inspector">Inspector</a></li>
           <li><a href="./download.html">Descargas</a></li>
           <li><a href="./privacy.html" aria-current="page">Privacidad</a></li>
           <li><a href="./terms.html">Términos</a></li>
@@ -377,104 +452,239 @@
 
   <main id="main-content" class="container">
     <div class="legal-hero gs-legal">
-      <div class="section-eyebrow">Transparencia y Soberanía Autoral</div>
-      <h1>Política de Privacidad</h1>
-      <p class="legal-updated">Última actualización: 31 de marzo de 2026</p>
+      <div class="section-eyebrow">Transparencia &amp; Protección de Datos</div>
+      <h1>Política de <span>Privacidad</span></h1>
+      <p class="subtitle">
+        La privacidad literaria es un principio no negociable. Diseñado desde su origen bajo arquitectura Local-First para que tus historias nunca salgan de tu control.
+      </p>
+      <p class="legal-updated">Última actualización: 20 de octubre de 2026 · Versión 1.2.0</p>
     </div>
 
     <!-- Summary Bento Cards -->
     <div class="summary-bento gs-legal">
       <div class="summary-card">
-        <span class="summary-card__tag">01 · Local-First</span>
-        <h2>Tus manuscritos viven en tu PC</h2>
-        <p>Los archivos .novel, capítulos, personajes y copias de seguridad se almacenan directamente en tu disco duro local.</p>
+        <span class="summary-card__tag">01 · Aislamiento Local</span>
+        <h2>Manuscritos 100% en tu equipo</h2>
+        <p>Tus proyectos .novel, borradores, capítulos y fichas de lore residen exclusivamente en el disco duro de tu computadora personal.</p>
       </div>
       <div class="summary-card">
-        <span class="summary-card__tag">02 · Cero Entrenamiento IA</span>
-        <h2>No entrenamos modelos con tu obra</h2>
-        <p>Noveleare jamás recopila, vende ni utiliza el contenido de tus novelas para entrenar modelos de inteligencia artificial.</p>
+        <span class="summary-card__tag">02 · Sin Modelos de Entrenamiento</span>
+        <h2>Tu obra jamás entrena IA</h2>
+        <p>Noveleare no recopila, no comercializa ni procesa tus textos creativos para entrenar o afinar modelos de lenguaje propios ni de terceros.</p>
       </div>
       <div class="summary-card">
-        <span class="summary-card__tag">03 · Claves Cifradas</span>
-        <h2>Credenciales protegidas</h2>
-        <p>Tus claves API personales (BYOK) se cifran en tu sistema operativo mediante safeStorage y nunca pasan por servidores nuestros.</p>
+        <span class="summary-card__tag">03 · Cumplimiento Google</span>
+        <h2>Uso Limitado Certificado</h2>
+        <p>Adhesión formal y estricta a la Google API Services User Data Policy para autenticación segura sin rastreo ni publicidad.</p>
       </div>
     </div>
 
+    <!-- Master Document -->
     <article class="legal-document gs-legal">
+
+      <!-- Section 1 -->
       <section class="legal-section">
-        <h2>1. Nuestro Compromiso «Local-First»</h2>
+        <h2><span class="sec-num">01.</span> Responsable del Tratamiento y Compromiso Fundamental</h2>
         <p>
-          <strong>Noveleare</strong> ha sido diseñado bajo una arquitectura estricta <em>Local-First</em> (primero en tu equipo). Creemos que los manuscritos, borradores, árboles genealógicos, fichas de personajes y notas creativas pertenecen única y exclusivamente a su autor.
+          El responsable del tratamiento de los datos personales asociados a la aplicación de escritorio <strong>Noveleare</strong> y al sitio web oficial (<a href="https://noveleare.vercel.app">https://noveleare.vercel.app</a>) es el titular y desarrollador del software (en adelante, <strong>«Noveleare»</strong> o <strong>«Nosotros»</strong>), con canal de contacto oficial y directo en el correo electrónico <a href="mailto:noveleare@gmail.com"><strong>noveleare@gmail.com</strong></a>.
         </p>
         <p>
-          A diferencia de las plataformas basadas en la nube tradicional, <strong>nosotros no alojamos ni tenemos acceso a tus novelas en servidores propios</strong>. Tus proyectos se guardan directamente en el almacenamiento local de tu computadora.
+          En Noveleare reconocemos que la labor literaria requiere el máximo grado de confidencialidad, intimidad y seguridad. Por esta razón, el software ha sido concebido y desarrollado bajo el estándar de <strong>Privacidad por Diseño</strong> (<em>Privacy by Design</em>) y una estricta arquitectura <strong>Local-First</strong> (primero en tu equipo local).
+        </p>
+        <div class="legal-callout">
+          <strong>Principio Rector de Intangibilidad Literaria:</strong> Noveleare no dispone ni mantiene servidores propios para el almacenamiento, alojamiento o procesamiento en la nube del contenido de sus obras, novelas, escenas, poemas, guiones o notas creativas. Su material narrativo reside física y exclusivamente en el almacenamiento local de su dispositivo.
+        </div>
+      </section>
+
+      <!-- Section 2 -->
+      <section class="legal-section">
+        <h2><span class="sec-num">02.</span> Categorías de Datos y Ubicación de Almacenamiento</h2>
+        <p>
+          Para garantizar la máxima claridad legal, a continuación se detallan con exactitud las categorías de información con las que interactúa el software y su localización física:
+        </p>
+
+        <h3>A. Contenido Creativo y Proyectos Literarios (.novel) — 100% Local</h3>
+        <ul>
+          <li><strong>Manuscritos y Capítulos:</strong> Todos los textos, fragmentos narrativos, revisiones paralelas (versiones R1/R2), anotaciones en los márgenes, escaletas y sinopsis.</li>
+          <li><strong>Biblias de Creación de Mundo:</strong> Fichas descriptivas de personajes, razas y especies, árboles genealógicos, mapas interactivos, líneas temporales y glosarios de terminología ficticia.</li>
+          <li><strong>Telemetría Editorial Client-Side:</strong> El cálculo de la curva de tensión narrativa, el conteo de palabras, la detección de muletillas y la verificación ortotipográfica conforme a la RAE se ejecutan enteramente en la memoria RAM y CPU de su propia computadora. Ningún fragmento se envía a servidores externos para su análisis estadístico.</li>
+          <li><strong>Ubicación física:</strong> Únicamente en su disco duro local dentro de la carpeta o unidad que usted elija al guardar su proyecto en formato <code>.novel</code>.</li>
+        </ul>
+
+        <h3>B. Claves API de Inteligencia Artificial (BYOK) — 100% Local Cifrado</h3>
+        <ul>
+          <li>Si el Usuario opta por utilizar las funciones de asistencia creativa de IA, suministra sus propias claves API personales (Google Gemini, OpenAI, Anthropic Claude o xAI Grok).</li>
+          <li><strong>Cifrado nativo del Sistema Operativo:</strong> Estas claves se almacenan localmente cifradas a través de la API <code>safeStorage</code> de Electron, la cual hace uso de la interfaz DPAPI (<em>Data Protection API</em>) en Windows.</li>
+          <li>Las claves API <strong>jamás se transmiten ni se sincronizan con servidores de Noveleare</strong>.</li>
+        </ul>
+
+        <h3>C. Datos de Autenticación y Gestión de Licencias — Nube Segura</h3>
+        <p>
+          Únicamente cuando el Usuario decide voluntariamente iniciar sesión con su cuenta de Google para activar o sincronizar su licencia <strong>Noveleare Pro</strong>:
+        </p>
+        <ul>
+          <li><strong>Dirección de correo electrónico:</strong> utilizada como identificador único de cuenta para vincular el estado de la licencia adquirida.</li>
+          <li><strong>Nombre público de perfil y URL de avatar:</strong> mostrados en la interfaz gráfica del estudio para personalizar su entorno de trabajo.</li>
+          <li><strong>Identificador de Usuario (UID):</strong> código alfanumérico provisto por el proveedor de autenticación.</li>
+          <li><strong>Identificador Anónimo de Dispositivo:</strong> un hash criptográfico no reversible derivado de parámetros de hardware del equipo para verificar el cumplimiento del límite de hasta <strong>cinco (5) computadoras personales</strong> autorizadas por licencia Pro.</li>
+        </ul>
+
+        <h3>D. Datos de Transacción y Facturación — Gestionados por Merchant of Record</h3>
+        <p>
+          Las transacciones económicas para la compra de licencias Pro son gestionadas directamente por <strong>Lemon Squeezy LLC</strong>, que actúa como comerciante registrado oficial (<em>Merchant of Record</em>). Noveleare <strong>no almacena, no procesa ni tiene acceso a números de tarjetas de crédito o débito</strong>, cuentas bancarias ni datos financieros sensibles.
         </p>
       </section>
 
+      <!-- Section 3 -->
       <section class="legal-section">
-        <h2>2. Información que se almacena únicamente en tu dispositivo</h2>
-        <p>Los siguientes datos residen de forma local en tu computadora y nunca se transmiten a servidores de Noveleare:</p>
+        <h2><span class="sec-num">03.</span> Finalidades Específicas del Tratamiento y Base Jurídica</h2>
+        <p>
+          De conformidad con las normativas internacionales de protección de datos (incluyendo el RGPD europeo y normativas iberoamericanas concordantes), el tratamiento de los datos mínimos de cuenta se realiza bajo las siguientes bases jurídicas:
+        </p>
         <ul>
-          <li><strong>Manuscritos y proyectos (.novel):</strong> Todo el texto de tus capítulos, escenas, revisiones paralelas, notas en el margen, escaletas, fichas de personajes y configuración de mundo.</li>
-          <li><strong>Bóveda de Copias de Seguridad:</strong> Los respaldos automáticos y manuales generados en tu carpeta local de usuario.</li>
-          <li><strong>Claves API de Inteligencia Artificial (BYOK):</strong> Si decides conectar tus propias claves de Google Gemini, OpenAI, Anthropic Claude o xAI Grok, dichas claves se cifran localmente en tu equipo utilizando el llavero criptográfico nativo de tu sistema operativo (Electron safeStorage / DPAPI en Windows).</li>
+          <li><strong>Ejecución del Contrato de Licencia (Art. 6.1.b RGPD):</strong> Validar la compra de la licencia Noveleare Pro, habilitar las funciones avanzadas en los equipos autorizados y gestionar la activación en hasta 5 dispositivos.</li>
+          <li><strong>Consentimiento Expreso del Usuario (Art. 6.1.a RGPD):</strong> Proporcionado voluntariamente al iniciar sesión con Google OAuth o al aceptar los términos y políticas en el modal de primer arranque de la aplicación.</li>
+          <li><strong>Interés Legítimo en la Prevención de Fraude (Art. 6.1.f RGPD):</strong> Controlar el uso lícito de licencias comerciales y evitar la distribución o duplicación ilegítima de claves en redes públicas.</li>
+        </ul>
+        <p>
+          Noveleare <strong>no comercializa, no alquila, no vende ni transfiere</strong> sus datos personales a terceros con fines de publicidad, perfilado de comportamiento ni prospección comercial.
+        </p>
+      </section>
+
+      <!-- Section 4 -->
+      <section class="legal-section">
+        <h2><span class="sec-num">04.</span> Flujo de Datos en la Asistencia de Inteligencia Artificial (BYOK)</h2>
+        <p>
+          Noveleare incorpora herramientas de asistencia creativa que operan bajo el esquema <strong>Bring Your Own Key</strong> (<em>trae tu propia clave</em>):
+        </p>
+        <ul>
+          <li><strong>Transmisión Directa Cliente-Servidor:</strong> Cuando el Autor pulsa un botón de embellecimiento, sugerencia de continuidad o consulta en el chat creativo, la porción de texto expresamente seleccionada es enviada de forma directa y cifrada mediante HTTPS/TLS desde el proceso local de Noveleare hacia los servidores oficiales de la API del proveedor configurado (Google LLC, Anthropic PBC, OpenAI LLC o xAI Corp).</li>
+          <li><strong>Ausencia de Servidores Puente:</strong> La comunicación no es intermediada, reenviada ni registrada en ningún servidor de Noveleare.</li>
+          <li><strong>Condiciones del Proveedor de IA:</strong> El procesamiento de los fragmentos textuales por parte del proveedor seleccionado se rige exclusivamente por sus correspondientes términos y políticas de privacidad para clientes de API comerciales.</li>
+        </ul>
+        <div class="legal-callout">
+          <strong>Garantía de Cero Entrenamiento:</strong> Noveleare no utiliza, no analiza ni suministra los textos de los usuarios para el entrenamiento, ajuste fino (<em>fine-tuning</em>) o mejora de ningún modelo de inteligencia artificial propio ni de terceros.
+        </div>
+      </section>
+
+      <!-- Section 5 -->
+      <section class="legal-section">
+        <h2><span class="sec-num">05.</span> Cumplimiento con la Política de Datos de Usuario de Google (Google API Services User Data Policy)</h2>
+        <p>
+          El uso y la transferencia que hace Noveleare a cualquier otra aplicación de la información recibida a través de las APIs de Google cumplen rigurosamente con la <strong><a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Política de Datos de Usuario de los Servicios de API de Google</a></strong> (<em>Google API Services User Data Policy</em>), incluyendo en su totalidad los requisitos de <strong>Uso Limitado</strong> (<em>Limited Use requirements</em>):
+        </p>
+        <ul>
+          <li><strong>Finalidad Estricta:</strong> La información recibida de Google (dirección de correo electrónico, nombre, foto de perfil y UID) se emplea únicamente para autenticar la identidad del usuario y sincronizar el estado de su licencia Noveleare Pro en sus dispositivos personales autorizados.</li>
+          <li><strong>Prohibición de Transferencia Injustificada:</strong> No transferimos datos de usuario de Google a terceros, salvo que sea indispensable para el funcionamiento de los servicios de autenticación segura (proveedor de backend Supabase), para cumplir con la legislación aplicable o en el marco de una reestructuración corporativa legal formal.</li>
+          <li><strong>Prohibición de Uso Publicitario:</strong> Los datos de usuario obtenidos a través de las APIs de Google jamás se utilizan para servir anuncios publicitarios, ni se comercializan con redes de publicidad dirigida o intermediarios de datos (<em>data brokers</em>).</li>
+          <li><strong>Prohibición de Lectura Humana No Autorizada:</strong> Ningún miembro del equipo humano de Noveleare lee ni examina los datos de usuario de Google, salvo que contemos con su consentimiento previo y expreso para la resolución de un problema técnico de soporte, sea estrictamente necesario por razones de seguridad informática o sea exigido por un mandamiento legal fundado.</li>
+          <li><strong>Prohibición de Entrenamiento de IA:</strong> Los datos de usuario de Google nunca se emplean para entrenar, reentrenar ni afinar modelos de aprendizaje automático o inteligencia artificial.</li>
         </ul>
       </section>
 
+      <!-- Section 6 -->
       <section class="legal-section">
-        <h2>3. Inicio de Sesión con Google (Google OAuth) y Datos de Cuenta</h2>
+        <h2><span class="sec-num">06.</span> Destinatarios y Encargados del Tratamiento (Terceros Subprocesadores)</h2>
         <p>
-          El inicio de sesión en Noveleare es opcional para las funciones básicas y se utiliza para gestionar tu perfil y validar licencias <strong>Noveleare Pro</strong> mediante Firebase Authentication y Google OAuth. Cuando inicias sesión con tu cuenta de Google, recibimos únicamente los datos básicos de identidad autorizados por ti:
+          Para hacer posible la autenticación y distribución del Software, colaboramos con las siguientes entidades especializadas que cumplen con estándares rigurosos de protección de datos:
         </p>
         <ul>
-          <li><strong>Dirección de correo electrónico</strong> (para identificar tu cuenta y vincular tu licencia Pro).</li>
-          <li><strong>Nombre visible y foto de perfil pública</strong> (para mostrarlos dentro de la interfaz de tu estudio en Noveleare).</li>
-          <li><strong>Identificador único de usuario (UID)</strong> e identificador anónimo de instalación de máquina (para gestionar el límite de hasta 5 dispositivos activos por licencia Pro).</li>
+          <li><strong>Google LLC (EE. UU.):</strong> Proveedor de inicio de sesión seguro (Google OAuth).</li>
+          <li><strong>Supabase Inc. (EE. UU.):</strong> Infraestructura de base de datos segura y gestión de identidades, con cifrado en tránsito (TLS 1.3) y en reposo (AES-256).</li>
+          <li><strong>Lemon Squeezy LLC (EE. UU.):</strong> Plataforma de comercio electrónico y Merchant of Record para el cobro de licencias Pro, gestión fiscal y cumplimiento tributario internacional. Certificación de seguridad PCI-DSS Nivel 1.</li>
+          <li><strong>GitHub Inc. (Microsoft Corporation):</strong> Distribución de versiones ejecutables y consulta estática del manifiesto de actualización <code>latest.yml</code> sin recopilación de telemetría de identidad.</li>
+        </ul>
+      </section>
+
+      <!-- Section 7 -->
+      <section class="legal-section">
+        <h2><span class="sec-num">07.</span> Medidas Técnicas y Organizativas de Seguridad</h2>
+        <p>
+          Noveleare aplica salvaguardas técnicas avanzadas para proteger la confidencialidad e integridad de la información:
+        </p>
+        <ul>
+          <li><strong>Cifrado Criptográfico de Credenciales:</strong> Las claves API se almacenan con algoritmos de cifrado simétrico robustos gestionados directamente por el sistema operativo del usuario a través de Electron <code>safeStorage</code> (DPAPI).</li>
+          <li><strong>Protocolos de Comunicación Segura:</strong> Todas las conexiones externas para autenticación, verificación de licencias y llamadas a modelos de IA se ejecutan exclusivamente sobre canales HTTPS forzados con certificados TLS 1.2 o 1.3.</li>
+          <li><strong>Principio de Mínimo Privilegio:</strong> La aplicación de escritorio no requiere permisos de administrador del sistema operativo para su funcionamiento regular y no tiene capacidad técnica para explorar carpetas del sistema fuera de las explícitamente designadas por el usuario para abrir o guardar sus proyectos <code>.novel</code>.</li>
+        </ul>
+      </section>
+
+      <!-- Section 8 -->
+      <section class="legal-section">
+        <h2><span class="sec-num">08.</span> Conservación y Supresión de Datos</h2>
+        <p>
+          El ciclo de vida de los datos se rige por el principio de minimización:
+        </p>
+        <ul>
+          <li><strong>Datos Locales del Usuario:</strong> Los archivos de proyecto <code>.novel</code>, configuraciones y copias de seguridad locales residen indefinidamente en su equipo bajo su propio control y pueden ser eliminados en cualquier momento por usted simplemente borrando los archivos o desinstalando la aplicación.</li>
+          <li><strong>Datos de Cuenta y Licencia:</strong> La información de su perfil y estado de licencia se conserva mientras mantenga activa su cuenta de usuario. Si solicita la cancelación o eliminación de su cuenta, sus registros en la base de datos de autenticación serán suprimidos de manera definitiva en un plazo máximo de treinta (30) días hábiles.</li>
+        </ul>
+      </section>
+
+      <!-- Section 9 -->
+      <section class="legal-section">
+        <h2><span class="sec-num">09.</span> Derechos del Usuario (Acceso, Rectificación y Supresión)</h2>
+        <p>
+          Usted goza de los siguientes derechos reconocidos internacionalmente en materia de protección de datos personales:
+        </p>
+        <ul>
+          <li><strong>Derecho de Acceso:</strong> Conocer con precisión qué datos de cuenta se encuentran asociados a su usuario.</li>
+          <li><strong>Derecho de Rectificación:</strong> Modificar o actualizar cualquier dato de perfil inexacto.</li>
+          <li><strong>Derecho de Supresión («Derecho al Olvido»):</strong> Solicitar el borrado definitivo de su cuenta y metadatos de activación de nuestros servidores.</li>
+          <li><strong>Derecho de Desvinculación de Dispositivos:</strong> Gestionar y desautorizar de forma autónoma cualquiera de sus 5 equipos activos desde el panel de ajustes de la aplicación.</li>
         </ul>
         <p>
-          El uso y la transferencia que hace Noveleare de la información recibida de las API de Google cumplen estrictamente con la <em>Política de Datos de Usuario de los Servicios API de Google</em> (Google API Services User Data Policy), incluidos los requisitos de Uso Limitado (<em>Limited Use</em>).
+          Para ejercer cualquiera de estos derechos, basta con enviar un correo electrónico con su solicitud a <a href="mailto:noveleare@gmail.com"><strong>noveleare@gmail.com</strong></a> desde la dirección de correo electrónico asociada a su cuenta de Noveleare.
         </p>
       </section>
 
+      <!-- Section 10 -->
       <section class="legal-section">
-        <h2>4. Uso de Proveedores de Inteligencia Artificial (BYOK)</h2>
+        <h2><span class="sec-num">10.</span> Privacidad de Menores</h2>
         <p>
-          Cuando utilizas de forma voluntaria las herramientas del Taller Creativo con IA (embellecimiento de prosa, continuación narrativa, sinónimos contextuales o chat editorial), los fragmentos de texto seleccionados se envían directamente desde tu aplicación hacia la API oficial del proveedor que hayas configurado (Google Gemini, OpenAI, Anthropic o xAI) utilizando tu propia clave API.
-        </p>
-        <p>
-          Noveleare no intercepta, almacena ni registra tus prompts ni las respuestas generadas. El procesamiento por parte del proveedor elegido se rige por las políticas de privacidad de API de dicho proveedor.
+          Noveleare no está dirigido a menores de trece (13) años (o la edad mínima legal aplicable en su país, como dieciséis (16) años en determinados estados miembros de la Unión Europea). No recopilamos conscientemente datos personales de menores de edad. Si un padre, madre o tutor legal toma conocimiento de que un menor a su cargo ha facilitado datos de cuenta a Noveleare, puede contactarnos en <a href="mailto:noveleare@gmail.com">noveleare@gmail.com</a> para proceder a su eliminación inmediata.
         </p>
       </section>
 
+      <!-- Section 11 -->
       <section class="legal-section">
-        <h2>5. Pagos y Facturación</h2>
+        <h2><span class="sec-num">11.</span> Política de Cookies y Tecnologías de Rastreo</h2>
         <p>
-          Las compras y suscripciones de <strong>Noveleare Pro</strong> son procesadas de forma segura por nuestro comerciante registrado (<em>Merchant of Record</em>), <strong>Lemon Squeezy</strong>. Noveleare no almacena ni procesa números de tarjetas bancarias ni datos financieros sensibles.
+          El software de escritorio de Noveleare <strong>no utiliza cookies publicitarias, píxeles de seguimiento ni kits de desarrollo de software (SDK) de perfilado comercial</strong>.
+        </p>
+        <p>
+          En el sitio web oficial (<a href="https://noveleare.vercel.app">https://noveleare.vercel.app</a>), únicamente se sirven archivos estáticos indispensables para la visualización de la documentación, las descargas y el contenido legal, sin implementar mecanismos de rastreo de navegación cruzada entre sitios web ajenos.
         </p>
       </section>
 
+      <!-- Section 12 -->
       <section class="legal-section">
-        <h2>6. Tus Derechos y Contacto</h2>
+        <h2><span class="sec-num">12.</span> Actualizaciones de esta Política y Canal de Contacto Oficial</h2>
         <p>
-          Puedes desvincular tus dispositivos, cerrar sesión o eliminar tus archivos locales en cualquier momento desde la aplicación. Si deseas solicitar la eliminación definitiva de los metadatos de tu cuenta o tienes cualquier consulta sobre privacidad, escríbenos a:
+          Noveleare podrá actualizar periódicamente esta Política de Privacidad para adaptarla a modificaciones normativas o mejoras técnicas en la arquitectura del Software. La versión en vigor siempre se encontrará disponible públicamente en esta dirección con la indicación expresa de su fecha de revisión.
         </p>
-        <p>
-          <strong>Correo de contacto oficial:</strong> <a href="mailto:noveleare@gmail.com">noveleare@gmail.com</a>
-        </p>
+        <div class="legal-callout">
+          <strong>Oficina de Contacto sobre Privacidad y Protección de Datos:</strong><br>
+          Si tiene cualquier consulta, inquietud o solicitud relativa a esta Política de Privacidad o al tratamiento de sus datos:<br>
+          📧 Correo electrónico oficial: <a href="mailto:noveleare@gmail.com"><strong>noveleare@gmail.com</strong></a><br>
+          🌐 Portal de Privacidad: <a href="https://noveleare.vercel.app/privacy">https://noveleare.vercel.app/privacy</a><br>
+          📄 Términos del Servicio: <a href="https://noveleare.vercel.app/terms">https://noveleare.vercel.app/terms</a>
+        </div>
       </section>
+
     </article>
   </main>
 
+  <!-- Site Footer -->
   <footer class="site-footer">
     <div class="container footer-bottom">
       <span>&copy; 2026 Noveleare. Todos los derechos reservados. Arquitectura Local-First.</span>
       <ul class="footer-links-inline">
         <li><a href="./index.html">Inicio</a></li>
         <li><a href="./download.html">Descargas</a></li>
-        <li><a href="./privacy.html" style="color: var(--accent-pill-text); font-weight: 600;">Política de Privacidad</a></li>
+        <li><a href="./privacy.html" style="color: var(--brand-mint); font-weight: 600;">Política de Privacidad</a></li>
         <li><a href="./terms.html">Términos del Servicio</a></li>
-        <li><a href="mailto:noveleare@gmail.com">noveleare@gmail.com</a></li>
+        <li><a href="mailto:noveleare@gmail.com">Contacto de Privacidad</a></li>
       </ul>
     </div>
   </footer>
