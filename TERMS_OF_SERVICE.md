@@ -60,15 +60,16 @@ Queda terminantemente prohibido descompilar, realizar ingeniería inversa con fi
 
 ---
 
-## 5. Régimen de Licencias: Edición Gratuita y Licencia Pro
+## 5. Régimen de Licencias: Edición Gratuita y Licencia Pro Permanente
 
 Noveleare otorga al Usuario una licencia de uso personal, no exclusiva, intransferible y revocable únicamente bajo las condiciones estipuladas en estos Términos:
 
 ### A. Edición Gratuita (Free Tier)
-Permite el uso sin límite de tiempo de las funcionalidades esenciales de redacción de texto, organización de escenas y almacenamiento local en formato `.novel`, sujeta a los límites de catálogo definidos para la versión base.
+Permite el uso sin límite de tiempo de las funcionalidades esenciales de redacción de texto, organización de escenas y almacenamiento local en formato `.novel`, sujeta a los límites de catálogo definidos para la versión base. Esta edición se pone a disposición del usuario de forma libre («tal cual») para que pueda probar y evaluar la aplicación de manera indefinida antes de tomar cualquier decisión de compra, sin que ello genere compromisos de soporte ni garantías temporales por parte del titular.
 
-### B. Licencia Noveleare Pro
-Desbloquea el estudio literario avanzado: Modo Comparativo 50/50, Revisiones Históricas R1/R2, Inspector de Obra integral con métricas en vivo, Bóveda de Respaldos, Árbol Genealógico interactivo, Mapas y Catálogo Sonoro completo.
+### B. Licencia Noveleare Pro (De por Vida / Permanente)
+Desbloquea de forma vitalicia el estudio literario avanzado: Modo Comparativo 50/50, Revisiones Históricas R1/R2, Inspector de Obra integral con métricas en vivo, Bóveda de Respaldos, Árbol Genealógico interactivo, Mapas y Catálogo Sonoro completo.
+- **Compromiso y Responsabilidad Única del Titular:** La **única obligación y responsabilidad legal que asume el titular y administrador de Noveleare** hacia el comprador de una licencia Pro es garantizar que la clave de activación adquirida **permanezca activa, válida y funcional indefinidamente a través del tiempo**, de modo que su licencia no expire ni se extinga con el paso de los años.
 - **Activación Multi-Dispositivo:** Una sola licencia Noveleare Pro autoriza la activación simultánea en un máximo de **cinco (5) computadoras personales** asociadas a la cuenta del titular.
 - **Identificador de Máquina Anónimo:** Para hacer cumplir el límite de 5 equipos, el Software genera un hash criptográfico local derivado del hardware, el cual no contiene información personal identificable.
 - **Revocación por Fraude:** Noveleare se reserva el derecho de desactivar licencias en caso de reversión no justificada de cargos, contracargos bancarios fraudulentos o publicación de claves de activación en foros de piratería.
@@ -96,21 +97,23 @@ Para salvaguardar la obra del escritor frente a incidentes de hardware, el Softw
 
 ---
 
-## 8. Garantías y Limitación de Responsabilidad
+## 8. Naturaleza de Versión Temprana y Exención Total de Responsabilidad
 
-El Software se suministra «TAL CUAL» (*AS-IS*) y «SEGÚN DISPONIBILIDAD» (*AS-AVAILABLE*), sin garantías de ningún tipo, ya sean expresas o implícitas, incluyendo garantías de comerciabilidad, idoneidad para un fin específico o ausencia de pequeños errores de software inherentes a cualquier producto informático.
+> **Aviso de Software en Desarrollo Activo (Versión Temprana):** Noveleare se encuentra en una etapa de **versión temprana de desarrollo**. Por tal motivo, la aplicación está sujeta a continuas actualizaciones, modificaciones evolutivas y la presencia eventual de incidencias técnicas o bugs de software imprevistos.
 
-En la máxima medida permitida por la legislación aplicable:
-- Noveleare no será responsable ante el Usuario por daños indirectos, incidentales, punitivos o consecuentes, incluyendo lucro cesante, pérdida de datos, corrupción de archivos por fallos de hardware del equipo del usuario, cortes eléctricos o incompatibilidades con software de terceros.
-- **Límite Máximo de Responsabilidad Contractual:** La responsabilidad económica acumulada total de Noveleare ante el Usuario por cualquier reclamación contractual o extracontractual estará estrictamente limitada al monto efectivamente abonado por el Usuario por su licencia de Noveleare durante los doce (12) meses inmediatamente anteriores al hecho causal.
+El Software se suministra «TAL CUAL» (*AS-IS*) y «SEGÚN DISPONIBILIDAD» (*AS-AVAILABLE*), sin garantías temporales de ninguna índole. Al utilizar Noveleare, el Usuario comprende y acepta expresamente las siguientes condiciones de exención:
+- **Usuarios de la Edición Gratuita (Sin Compra):** Para los usuarios que utilicen el Software sin adquirir una clave Pro, el titular no ofrece ninguna garantía, soporte ni obligación más allá del propio funcionamiento de la aplicación en su versión actual, sujeta a cambios, revisiones y posibles errores.
+- **Exención Total Fuera de la Clave Vitalicia:** Salvo por la garantía única y expresa brindada al comprador de que su clave de licencia Pro **no morirá con el paso del tiempo y permanecerá permanentemente funcional para activar el Software**, el titular y administrador queda exento de cualquier otra responsabilidad, garantía implícita o compromiso técnico o temporal.
+- **Daños Indirectos y Pérdida de Datos:** En la máxima medida admitida por la legislación aplicable, Noveleare no será responsable ante el Usuario por daños indirectos, incidentales o consecuentes, incluyendo pérdida de datos, fallos derivados de hardware del equipo del usuario, cortes eléctricos o incompatibilidades causadas por el sistema operativo o aplicaciones de terceros.
+- **Límite Máximo Contractual:** En cualquier circunstancia en que judicialmente no sea aplicable una exención absoluta, la responsabilidad económica total y acumulada del titular de Noveleare frente a un comprador estará estrictamente limitada al importe neto que dicho comprador haya abonado por su clave de licencia.
 
 ---
 
-## 9. Pagos, Facturación y Política de Reembolso
+## 9. Pagos, Facturación y Entrega Definitiva de Claves Digitales
 
 Las transacciones de adquisición de licencias Noveleare Pro son administradas de forma segura por nuestro comerciante registrado oficial (*Merchant of Record*), **Lemon Squeezy**, quien se encarga del cobro, cumplimiento tributario internacional (IVA/sales tax) y emisión de facturas oficiales.
-- **Garantía de Satisfacción de 14 Días:** Si adquiere una licencia Noveleare Pro y considera de buena fe que el Software no satisface sus expectativas, dispone de un plazo de catorce (14) días naturales desde la fecha de compra para solicitar el reembolso íntegro de su dinero escribiendo a `noveleare@gmail.com` con su número de orden.
-- Tras el procesamiento del reembolso, la clave de licencia quedará revocada en el registro de activaciones.
+- **Ventas Definitivas (Sin Reembolsos):** Al tratarse de un bien digital intangible consistente en una clave de activación de suministro y consumo inmediato, y toda vez que Noveleare ofrece una **Edición Gratuita disponible por tiempo ilimitado** para que cualquier interesado pruebe, inspeccione y verifique las características del programa antes de realizar cualquier desembolso, **todas las compras de licencias son definitivas y no admiten reembolso ni derecho de desistimiento una vez despachada la clave**.
+- **Garantía de Llave Perpetua:** En lugar de garantías temporales o períodos de prueba posteriores a la compra, el titular garantiza de por vida que la clave provista mantendrá su validez y no será cancelada ni expirará a lo largo del tiempo.
 
 ---
 
