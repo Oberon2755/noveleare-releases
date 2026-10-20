@@ -700,13 +700,11 @@
       transform: scale(1.02);
     }
 
-    /* Zoom Overlays (centered over the blurred base panorama) */
+    /* Zoom Overlays: Positioned naturally in their real app locations */
     .iw-zoom-overlay {
       position: absolute;
       inset: 0;
       display: none;
-      align-items: center;
-      justify-content: center;
       z-index: 2;
       opacity: 0;
       pointer-events: none;
@@ -720,31 +718,53 @@
       pointer-events: none;
     }
 
-    .iw-zoom-box {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      max-width: 94%;
-      max-height: 92%;
+    /* Header zoom pinned to top */
+    .iw-zoom-header {
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    .iw-zoom-header .iw-zoom-box {
+      width: 100%;
+      max-width: 100%;
+      display: block;
     }
 
     .iw-zoom-header .iw-zoom-box img {
       width: 100%;
-      max-width: 960px;
       height: auto;
-      border-radius: 8px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.14);
-      object-fit: contain;
+      border-radius: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
+      object-fit: cover;
+      object-position: top center;
       display: block;
     }
 
-    .iw-zoom-sidebar .iw-zoom-box img {
-      max-height: 480px;
+    /* Sidebars pinned to the left edge */
+    .iw-zoom-sidebar {
+      align-items: stretch;
+      justify-content: flex-start;
+    }
+
+    .iw-zoom-sidebar .iw-zoom-box {
+      height: 100%;
       width: auto;
-      border-radius: 8px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.14);
-      object-fit: contain;
+      max-height: 100%;
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-start;
+    }
+
+    .iw-zoom-sidebar .iw-zoom-box img {
+      height: 100%;
+      width: auto;
+      max-width: 44%;
+      object-fit: cover;
+      object-position: top left;
+      border-radius: 0;
+      border-right: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 16px 0 40px rgba(0, 0, 0, 0.75);
       display: block;
     }
 
@@ -2412,12 +2432,17 @@
             overlay.classList.add('is-active');
             if (typeof gsap !== 'undefined') {
               gsap.killTweensOf(overlay);
-              gsap.fromTo(overlay, { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.25, ease: 'power2.out' });
+              if (targetKey === 'toolbar') {
+                gsap.fromTo(overlay, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.22, ease: 'power2.out' });
+              } else {
+                gsap.fromTo(overlay, { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.22, ease: 'power2.out' });
+              }
             }
           } else {
             overlay.classList.remove('is-active');
             if (typeof gsap !== 'undefined') {
               gsap.killTweensOf(overlay);
+              gsap.set(overlay, { clearProps: 'all' });
             }
           }
         });
@@ -2434,6 +2459,7 @@
           overlay.classList.remove('is-active');
           if (typeof gsap !== 'undefined') {
             gsap.killTweensOf(overlay);
+            gsap.set(overlay, { clearProps: 'all' });
           }
         });
       }
@@ -2551,6 +2577,6 @@
       });
     });
   </script>
-  <!-- deploy-v1.2.5: 1792525500 -->
+  <!-- deploy-v1.2.6: 1792525900 -->
 </body>
 </html>
