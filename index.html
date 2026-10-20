@@ -390,140 +390,78 @@
       color: #94A3B8;
     }
 
-    /* Hero Right Showcase Window */
-    .hero-showcase-card {
+    /* Hero Right Brand Showcase */
+    .hero-brand-showcase {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
-      background: var(--bg-glass-card);
-      backdrop-filter: blur(20px) saturate(140%);
-      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      width: 100%;
+    }
+
+    .hero-brand-card {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 1 / 1.15;
+      background: radial-gradient(circle at 50% 45%, rgba(157, 227, 208, 0.08) 0%, rgba(12, 16, 24, 0.5) 75%);
+      backdrop-filter: blur(24px) saturate(140%);
+      -webkit-backdrop-filter: blur(24px) saturate(140%);
+      border: 1px solid rgba(157, 227, 208, 0.22);
       border-radius: var(--radius-outer);
-      padding: 10px;
-      box-shadow: var(--shadow-window);
-      border: 1px solid var(--border-subtle);
-    }
-
-    .window-chrome {
+      box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.7), 
+                  0 0 45px rgba(157, 227, 208, 0.12),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.14);
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      padding: 8px 12px 12px;
-      border-bottom: 1px solid var(--border-subtle);
-      gap: 12px;
-    }
-
-    .window-dots {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .window-dots span {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.22);
-    }
-
-    .window-tabs {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      background: rgba(0, 0, 0, 0.35);
-      padding: 3px;
-      border-radius: 10px;
-      border: 1px solid var(--border-subtle);
-    }
-
-    .window-tab-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-sub);
-      font-family: inherit;
-      font-size: 0.76rem;
-      font-weight: 600;
-      padding: 5px 12px;
-      border-radius: 7px;
-      cursor: pointer;
-      transition: color 0.18s ease, background-color 0.18s ease;
-    }
-
-    .window-tab-btn.is-active {
-      background: rgba(255, 255, 255, 0.15);
-      color: var(--text-main);
-    }
-
-    .window-badge {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
-    }
-
-    .media-slot {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      border-radius: var(--radius-inner);
+      justify-content: center;
+      padding: clamp(24px, 4vw, 42px);
       overflow: hidden;
-      background: #080B10;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: transform 0.4s var(--ease-smooth), border-color 0.4s ease, box-shadow 0.4s ease;
     }
 
-    .hero-slide {
+    .hero-brand-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(157, 227, 208, 0.45);
+      box-shadow: 0 32px 80px -12px rgba(0, 0, 0, 0.8), 
+                  0 0 65px rgba(157, 227, 208, 0.22),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    }
+
+    .hero-brand-glow {
       position: absolute;
-      inset: 0;
-      opacity: 0;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(157, 227, 208, 0.28) 0%, rgba(96, 165, 250, 0.12) 48%, transparent 72%);
+      filter: blur(44px);
       pointer-events: none;
-      transition: opacity 0.45s var(--ease-smooth), transform 0.55s var(--ease-smooth);
-      transform: scale(1.015);
+      z-index: 0;
+      animation: brandPulse 6s ease-in-out infinite alternate;
     }
 
-    .hero-slide.is-active {
-      opacity: 1;
-      pointer-events: auto;
-      transform: scale(1);
+    @keyframes brandPulse {
+      0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.7; }
+      100% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
     }
 
-    .hero-slide img {
+    .hero-brand-img {
+      position: relative;
+      z-index: 1;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
+      max-width: 330px;
+      height: auto;
       display: block;
+      filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 28px rgba(157, 227, 208, 0.25));
+      transition: transform 0.5s var(--ease-smooth);
     }
 
-    .media-slot__caption {
-      position: absolute;
-      left: 12px;
-      right: 12px;
-      bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 10px 14px;
-      border-radius: 10px;
-      background: rgba(11, 14, 20, 0.85);
-      backdrop-filter: blur(14px);
-      border: 1px solid var(--border-subtle);
-      font-size: 0.82rem;
-      color: var(--text-sub);
-    }
-
-    .media-slot__caption strong {
-      color: var(--text-main);
-      font-weight: 600;
-    }
-
-    .slot-tag {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--text-sub);
-      background: rgba(255, 255, 255, 0.09);
-      border: 1px solid var(--border-subtle);
-      padding: 3px 9px;
-      border-radius: 6px;
-      white-space: nowrap;
+    .hero-brand-card:hover .hero-brand-img {
+      transform: scale(1.03);
     }
 
     /* 2. ARCHITECTURE PILLARS STRIP */
@@ -1729,44 +1667,18 @@
           </div>
         </div>
 
-        <!-- Right Framed Showcase Window -->
-        <div class="hero-showcase-card gs-hero-visual" data-slot="hero-main-showcase">
-          <div class="window-chrome">
-            <div class="window-dots" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </div>
-            <div class="window-tabs" role="tablist" aria-label="Vistas del estudio Noveleare">
-              <button type="button" class="window-tab-btn is-active" role="tab" aria-selected="true" data-hero-tab="0">Lienzo Editorial</button>
-              <button type="button" class="window-tab-btn" role="tab" aria-selected="false" data-hero-tab="1">Modo Zen</button>
-              <button type="button" class="window-tab-btn" role="tab" aria-selected="false" data-hero-tab="2">Escaleta &amp; Trama</button>
-            </div>
-            <span class="window-badge">PROYECTO · LEGADO</span>
-          </div>
-
-          <div class="media-slot">
-            <div class="hero-slide is-active" data-hero-slide="0">
-              <img src="./assets/showcase-editor.png" alt="Lienzo editorial de Noveleare con capítulos y escenas" width="1280" height="800" fetchpriority="high">
-              <div class="media-slot__caption">
-                <span><strong>Lienzo Editorial Distraction-Free</strong> · Capítulos, escenas delimitadas y árbol de manuscrito</span>
-                <span class="slot-tag">CUADRO #1 · EDITOR</span>
-              </div>
-            </div>
-
-            <div class="hero-slide" data-hero-slide="1">
-              <img src="./assets/showcase-zen.png" alt="Modo Zen de Noveleare con atmósfera nocturna y sonido ambiental" width="1280" height="800" loading="lazy">
-              <div class="media-slot__caption">
-                <span><strong>Santuario Modo Zen</strong> · Atmósferas visuales, lluvia, cafetería y máquina de escribir</span>
-                <span class="slot-tag">CUADRO #2 · MODO ZEN</span>
-              </div>
-            </div>
-
-            <div class="hero-slide" data-hero-slide="2">
-              <img src="./assets/showcase-plot.png" alt="Pizarra de escaleta y arquitectura de trama en Noveleare" width="1280" height="800" loading="lazy">
-              <div class="media-slot__caption">
-                <span><strong>Arquitectura de Trama y Personajes</strong> · Escaleta visual, escenas y fichas profundas</span>
-                <span class="slot-tag">CUADRO #3 · ESCALETA</span>
-              </div>
-            </div>
+        <!-- Right: Majestic Noveleare Brand Showcase -->
+        <div class="hero-brand-showcase gs-hero-visual" data-slot="hero-brand-showcase" aria-label="Noveleare Estudio Literario">
+          <div class="hero-brand-card">
+            <div class="hero-brand-glow" aria-hidden="true"></div>
+            <img 
+              src="./assets/noveleare-hero-logo.png" 
+              alt="Noveleare - Estudio Literario para Escritores" 
+              width="506" 
+              height="675" 
+              class="hero-brand-img"
+              fetchpriority="high"
+            >
           </div>
         </div>
       </div>
@@ -2735,35 +2647,37 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. Interactive Hero Showcase Tabs
+      // 1. Interactive Hero Showcase Tabs (if present)
       const heroTabs = document.querySelectorAll('[data-hero-tab]');
       const heroSlides = document.querySelectorAll('[data-hero-slide]');
-      let heroIndex = 0;
-      let heroTimer = null;
+      if (heroTabs.length > 0 && heroSlides.length > 0) {
+        let heroIndex = 0;
+        let heroTimer = null;
 
-      function setHeroSlide(index) {
-        heroIndex = index;
-        heroTabs.forEach((btn, i) => {
-          const active = i === index;
-          btn.classList.toggle('is-active', active);
-          btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        function setHeroSlide(index) {
+          heroIndex = index;
+          heroTabs.forEach((btn, i) => {
+            const active = i === index;
+            btn.classList.toggle('is-active', active);
+            btn.setAttribute('aria-selected', active ? 'true' : 'false');
+          });
+          heroSlides.forEach((slide, i) => {
+            slide.classList.toggle('is-active', i === index);
+          });
+        }
+
+        heroTabs.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const idx = Number(btn.getAttribute('data-hero-tab'));
+            setHeroSlide(idx);
+            if (heroTimer) clearInterval(heroTimer);
+          });
         });
-        heroSlides.forEach((slide, i) => {
-          slide.classList.toggle('is-active', i === index);
-        });
+
+        heroTimer = setInterval(() => {
+          setHeroSlide((heroIndex + 1) % heroSlides.length);
+        }, 6500);
       }
-
-      heroTabs.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const idx = Number(btn.getAttribute('data-hero-tab'));
-          setHeroSlide(idx);
-          if (heroTimer) clearInterval(heroTimer);
-        });
-      });
-
-      heroTimer = setInterval(() => {
-        setHeroSlide((heroIndex + 1) % heroSlides.length);
-      }, 6500);
 
       // 2. Automated Borderless Zen Gallery (Cycles every 2s, smooth crossfade, no stacking)
       const zenSlider = document.getElementById('zen-pure-slider');
@@ -3040,6 +2954,6 @@
       });
     });
   </script>
-  <!-- deploy-v1.3.0: 1792528300 -->
+  <!-- deploy-v1.3.1: 1792528700 -->
 </body>
 </html>
