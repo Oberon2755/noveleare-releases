@@ -2923,7 +2923,7 @@
         window.addEventListener('load', () => ScrollTrigger.refresh());
       }
 
-      // 0. Hero Animated Brand Logo with Scroll-Driven Contraction/Expansion
+      // 0. Hero Animated Brand Logo with Smooth Scroll-Driven Contraction/Expansion
       const heroRing = document.getElementById('hero-elem-ring');
       const heroStar = document.getElementById('hero-elem-star');
       const heroBall = document.getElementById('hero-elem-ball');
@@ -2934,65 +2934,68 @@
         // Master Logo Timeline: progress 0 = fully collapsed/hidden, progress 1 = fully open/assembled
         const logoTl = gsap.timeline({ paused: true });
 
-        // Phase 1 (0.0 -> 0.45): Outer ring draws clockwise from 1:00 leaving the gap
+        // Phase 1 (0.00 -> 0.46): Outer ring draws leisurely and clearly from 1:00 leaving the gap
         logoTl.fromTo(heroRing, 
           { strokeDashoffset: 1225 }, 
-          { strokeDashoffset: 0, duration: 0.45, ease: 'power2.inOut' }, 
-          0.0
+          { strokeDashoffset: 0, duration: 1.5, ease: 'power2.inOut' }, 
+          0.00
         );
 
-        // Phase 2 (0.35 -> 0.68): Slender star pops up in center
+        // Phase 2 (0.42 -> 0.72): Slender star pops up in center
         logoTl.fromTo(heroStar, 
           { scale: 0, opacity: 0, transformOrigin: '512px 405px' }, 
-          { scale: 1, opacity: 1, duration: 0.33, ease: 'back.out(2.0)' }, 
-          0.35
+          { scale: 1, opacity: 1, duration: 0.65, ease: 'back.out(1.8)' }, 
+          0.42
         );
 
-        // Phase 3 (0.55 -> 0.85): Satellite sphere drops from top-right into the gap
+        // Phase 3 (0.62 -> 0.88): Satellite sphere drops from top-right into the gap with realistic bounce
         logoTl.fromTo(heroBall, 
           { x: 140, y: -280, opacity: 0 }, 
-          { x: 0, y: 0, opacity: 1, duration: 0.35, ease: 'bounce.out' }, 
-          0.55
+          { x: 0, y: 0, opacity: 1, duration: 0.75, ease: 'bounce.out' }, 
+          0.62
         );
 
-        // Phase 4 (0.70 -> 1.00): Noveleare wordmark slides in from left
+        // Phase 4 (0.78 -> 1.00): Noveleare wordmark slides in smoothly from left
         logoTl.fromTo(heroWordmark, 
           { x: -120, opacity: 0 }, 
-          { x: 0, opacity: 1, duration: 0.30, ease: 'power3.out' }, 
-          0.70
+          { x: 0, opacity: 1, duration: 0.60, ease: 'power3.out' }, 
+          0.78
         );
 
         if (heroGlow) {
           logoTl.fromTo(heroGlow, 
             { opacity: 0 }, 
-            { opacity: 0.7, duration: 0.3, ease: 'power2.out' }, 
-            0.70
+            { opacity: 0.75, duration: 0.55, ease: 'power2.out' }, 
+            0.78
           );
         }
 
-        // Initial Page Load: If user is at top, play the grand build entrance
+        // Clean initial state
+        logoTl.progress(0);
+
+        // Initial Page Load: If user is at top of page, play the grand build entrance with generous timing
         const initialScroll = window.scrollY || window.pageYOffset || 0;
         let isIntroPlaying = false;
 
         if (initialScroll < 60) {
-          logoTl.progress(0);
           isIntroPlaying = true;
+          // Smooth, clearly visible entrance taking 3.4 seconds to appreciate every detail calmly
           gsap.to(logoTl, {
             progress: 1,
-            duration: 2.1,
+            duration: 3.4,
             ease: 'power2.out',
             onComplete: () => {
               isIntroPlaying = false;
             }
           });
         } else {
-          // If page loaded scrolled down, match scroll position directly
-          const prog = Math.max(0, Math.min(1, 1 - (initialScroll / 300)));
+          // If loaded scrolled down, position progress accurately
+          const prog = Math.max(0, Math.min(1, 1 - (initialScroll / 800)));
           logoTl.progress(prog);
         }
 
-        // Scroll-driven scrubbing: 0 to 300px contraction/expansion
-        const SCROLL_THRESHOLD = 300;
+        // Scroll-driven scrubbing: extended to 800px with smooth damping
+        const SCROLL_THRESHOLD = 800; // Much wider scroll track so ticks don't rush through steps
         window.addEventListener('scroll', () => {
           const currentY = window.scrollY || window.pageYOffset || 0;
           if (isIntroPlaying) {
@@ -3000,15 +3003,17 @@
             isIntroPlaying = false;
           }
           const targetProgress = Math.max(0, Math.min(1, 1 - (currentY / SCROLL_THRESHOLD)));
+          // Smooth duration of 0.35s creates a luxurious analog-wheel damping feel
           gsap.to(logoTl, {
             progress: targetProgress,
-            duration: 0.14,
-            ease: 'power1.out',
+            duration: 0.35,
+            ease: 'power2.out',
             overwrite: 'auto'
           });
         }, { passive: true });
       }
 
+      // Hero text entrance (no longer fades out the hero-visual card so the SVG draws visibly from the start)
       const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
       heroTl
         .from('.gs-hero-text > *', {
@@ -3016,13 +3021,7 @@
           opacity: 0,
           duration: 0.7,
           stagger: 0.08
-        })
-        .from('.gs-hero-visual', {
-          y: 26,
-          opacity: 0,
-          scale: 0.985,
-          duration: 0.85
-        }, '-=0.5');
+        });
 
       gsap.utils.toArray('.gs-reveal').forEach((el) => {
         gsap.from(el, {
@@ -3082,6 +3081,6 @@
       });
     });
   </script>
-  <!-- deploy-v1.3.2: 1792530350 -->
+  <!-- deploy-v1.3.3: 1792530550 -->
 </body>
 </html>
