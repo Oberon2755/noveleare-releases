@@ -1332,37 +1332,40 @@
       line-height: 1.62;
     }
 
-    .extra-tools-grid {
+    .extra-tools-list {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px 24px;
+      padding: 6px 0;
     }
 
-    .tool-tag {
-      display: inline-flex;
+    .tool-list-item {
+      display: flex;
       align-items: center;
-      gap: 10px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-size: 0.86rem;
+      gap: 12px;
+      background: transparent;
+      border: none;
+      padding: 4px 0;
+      font-size: 0.95rem;
       font-weight: 500;
       color: var(--text-main);
-      transition: all 0.2s ease;
     }
 
-    .tool-tag:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: var(--border-hover);
-      transform: translateY(-1px);
-    }
-
-    .tool-tag svg {
-      width: 14px;
-      height: 14px;
-      color: #93C5FD;
+    .tool-list-item .check-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.12);
+      color: #38BDF8;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
+    }
+
+    .tool-list-item .check-icon svg {
+      width: 13px;
+      height: 13px;
     }
 
     .extra-tools-footer {
@@ -2430,67 +2433,97 @@
             </p>
           </div>
 
-          <div class="extra-tools-grid">
-            <span class="tool-tag">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="extra-tools-list">
+            <div class="tool-list-item">
+              <span class="check-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
               <span>Fichas de Personaje</span>
-            </span>
-            <span class="tool-tag">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tool-list-item">
+              <span class="check-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
               <span>Fichas de Razas y Especies</span>
-            </span>
-            <span class="tool-tag">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tool-list-item">
+              <span class="check-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
               <span>Fichas de Lore y Trasfondo</span>
-            </span>
-            <span class="tool-tag">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tool-list-item">
+              <span class="check-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
               <span>Fichas de Lugares y Ciudades</span>
-            </span>
-            <span class="tool-tag">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tool-list-item">
+              <span class="check-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
               <span>Fichas de Conceptos y Datos Clave</span>
-            </span>
-            <span class="tool-tag">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tool-list-item">
+              <span class="check-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
               <span>Creador de Mapas</span>
-            </span>
-            <span class="tool-tag">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tool-list-item">
+              <span class="check-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
               <span>Planeador de Trama y Líneas Temporales</span>
-            </span>
-            <span class="tool-tag">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tool-list-item">
+              <span class="check-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
               <span>Árbol Genealógico Interactivo</span>
-            </span>
-            <span class="tool-tag">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tool-list-item">
+              <span class="check-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
               <span>Corrector Ortotipográfico y de Estilo</span>
-            </span>
-            <span class="tool-tag">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tool-list-item">
+              <span class="check-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
               <span>Construcción General de Mundo</span>
-            </span>
-            <span class="tool-tag">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tool-list-item">
+              <span class="check-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
               <span>Dictado por Voz</span>
-            </span>
-            <span class="tool-tag">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tool-list-item">
+              <span class="check-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
               <span>Visor de Análisis y Métricas</span>
-            </span>
-            <span class="tool-tag">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tool-list-item">
+              <span class="check-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
               <span>Modo Lectura Inmersivo</span>
-            </span>
-            <span class="tool-tag">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tool-list-item">
+              <span class="check-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
               <span>Personalización Editorial de Hoja</span>
-            </span>
-            <span class="tool-tag">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tool-list-item">
+              <span class="check-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
               <span>Radiografía de Manuscrito</span>
-            </span>
+            </div>
           </div>
 
           <div class="extra-tools-footer">
@@ -3007,6 +3040,6 @@
       });
     });
   </script>
-  <!-- deploy-v1.2.9: 1792528000 -->
+  <!-- deploy-v1.3.0: 1792528300 -->
 </body>
 </html>
