@@ -1,6 +1,6 @@
 # 🔒 Política de Privacidad de Noveleare
 
-**Última actualización:** 21 de octubre de 2026 · Versión 1.2.2  
+**Última actualización:** 21 de octubre de 2026 · Versión 1.2.3  
 **Responsable del tratamiento:** Noveleare (Oberon2755)  
 **Contacto Oficial de Privacidad:** noveleare@gmail.com  
 **Sitio Web Oficial:** https://noveleare.vercel.app  
