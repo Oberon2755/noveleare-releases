@@ -1,7 +1,8 @@
 # 🔒 Política de Privacidad de Noveleare
 
-**Última actualización:** 21 de octubre de 2026 · Versión 1.2.3  
-**Responsable del tratamiento:** Noveleare (Oberon2755)  
+**Última actualización:** 21 de octubre de 2026 · Versión 1.2.7 (Fase Beta)  
+**Responsable del tratamiento:** Noveleare (Proyecto de software independiente por Oberon2755)  
+**Naturaleza jurídica:** Desarrollador Independiente (Indie Developer)  
 **Contacto Oficial de Privacidad:** noveleare@gmail.com  
 **Sitio Web Oficial:** https://noveleare.vercel.app  
 **Portal de Privacidad:** https://noveleare.vercel.app/privacy  
@@ -9,22 +10,23 @@
 
 ---
 
-## Resumen Ejecutivo de Privacidad
+## Resumen Ejecutivo de Privacidad y Blindaje Autoral
 
-1. **Aislamiento Local (Local-First):** Tus proyectos literarios `.novel`, borradores, capítulos y fichas de lore residen exclusivamente en el disco duro de tu computadora personal. Noveleare no dispone de servidores centrales para alojar tus obras.
+1. **Aislamiento Local (Local-First):** Tus proyectos literarios `.novel`, borradores, capítulos y fichas de lore residen exclusivamente en el disco duro de tu computadora personal. Noveleare no dispone ni opera servidores centrales para alojar o custodiar tus obras.
 2. **Cero Entrenamiento de IA:** Noveleare **nunca** recopila, vende, lee ni utiliza el contenido de tus novelas para entrenar, afinar o alimentar modelos de Inteligencia Artificial propios ni de terceros.
 3. **Cumplimiento Google API Services:** Cumplimiento riguroso con la *Google API Services User Data Policy*, incluidos todos los requisitos de **Uso Limitado** (*Limited Use*). Tus datos de Google OAuth se usan exclusivamente para autenticación y verificación de licencia (hasta 5 equipos por cuenta), sin rastreo ni publicidad.
 4. **Claves Cifradas (BYOK):** Tus credenciales de API personales se almacenan localmente en tu sistema operativo mediante `safeStorage` (DPAPI en Windows) y se comunican directamente con los endpoints oficiales de cada proveedor de IA sin intermediación de Noveleare.
+5. **Protección para el Desarrollador Indie:** Al no existir custodia en la nube de manuscritos ni almacenamiento centralizado de textos creativos, el desarrollador independiente no actúa como custodio ni depositario de tus archivos literarios, quedando legalmente exento de responsabilidades relativas a filtraciones de contenido o fallos en servidores de almacenamiento externos.
 
 ---
 
 ## 1. Responsable del Tratamiento y Compromiso Fundamental
 
-El responsable del tratamiento de los datos personales asociados a la aplicación de escritorio **Noveleare** y al sitio web oficial (`https://noveleare.vercel.app`) es el titular y desarrollador del software (en adelante, **«Noveleare»** o **«Nosotros»**), con canal de contacto oficial y directo en el correo electrónico `noveleare@gmail.com`.
+El responsable del tratamiento de los datos personales asociados a la aplicación de escritorio **Noveleare** y al sitio web oficial (`https://noveleare.vercel.app`) es el desarrollador y creador independiente del software (en adelante, **«el Desarrollador Indie»**, **«Noveleare»** o **«Nosotros»**), con canal de contacto oficial y directo en el correo electrónico `noveleare@gmail.com`.
 
-En Noveleare reconocemos que la labor literaria requiere el máximo grado de confidencialidad, intimidad y seguridad. Por esta razón, el software ha sido concebido y desarrollado bajo el estándar de **Privacidad por Diseño** (*Privacy by Design*) y una estricta arquitectura **Local-First** (primero en tu equipo local).
+En Noveleare reconocemos que la labor literaria exige el máximo grado de confidencialidad, intimidad y seguridad. Por esta razón, el software ha sido concebido y desarrollado bajo el estándar de **Privacidad por Diseño** (*Privacy by Design*) y una estricta arquitectura **Local-First** (primero en tu equipo local).
 
-> **Principio Rector de Intangibilidad Literaria:** Noveleare no dispone ni mantiene servidores propios para el almacenamiento, alojamiento o procesamiento en la nube del contenido de sus obras, novelas, escenas, poemas, guiones o notas creativas. Su material narrativo reside física y exclusivamente en el almacenamiento local de su dispositivo.
+> **Principio Rector de Intangibilidad Literaria:** Noveleare no dispone, no alquila ni mantiene servidores propios para el almacenamiento, custodia o procesamiento en la nube del contenido de sus obras, novelas, escenas, poemas, guiones o notas creativas. Su material narrativo reside física y exclusivamente en el almacenamiento local de su dispositivo.
 
 ---
 
@@ -79,7 +81,7 @@ Noveleare incorpora herramientas de asistencia creativa que operan bajo el esque
 
 El uso y la transferencia que hace Noveleare a cualquier otra aplicación de la información recibida a través de las APIs de Google cumplen rigurosamente con la [Política de Datos de Usuario de los Servicios de API de Google](https://developers.google.com/terms/api-services-user-data-policy) (*Google API Services User Data Policy*), incluyendo en su totalidad los requisitos de **Uso Limitado** (*Limited Use requirements*):
 - **Finalidad Estricta:** La información recibida de Google (dirección de correo electrónico, nombre, foto de perfil y UID) se emplea únicamente para autenticar la identidad del usuario y sincronizar el estado de su licencia Noveleare Pro en sus dispositivos personales autorizados.
-- **Prohibición de Transferencia Injustificada:** No transferimos datos de usuario de Google a terceros, salvo que sea indispensable para el funcionamiento de los servicios de autenticación segura (proveedor de backend Supabase), para cumplir con la legislación aplicable o en el marco de una reestructuración corporativa legal formal.
+- **Prohibición de Transferencia Injustificada:** No transferimos datos de usuario de Google a terceros, salvo que sea indispensable para el funcionamiento de los servicios de autenticación segura (proveedor de backend Supabase), para cumplir con la legislación aplicable o en el marco de una reestructuración legal formal.
 - **Prohibición de Uso Publicitario:** Los datos de usuario obtenidos a través de las APIs de Google jamás se utilizan para servir anuncios publicitarios, ni se comercializan con redes de publicidad dirigida o intermediarios de datos (*data brokers*).
 - **Prohibición de Lectura Humana No Autorizada:** Ningún miembro del equipo humano de Noveleare lee ni examina los datos de usuario de Google, salvo que contemos con su consentimiento previo y expreso para la resolución de un problema técnico de soporte, sea estrictamente necesario por razones de seguridad informática o sea exigido por un mandamiento legal fundado.
 - **Prohibición de Entrenamiento de IA:** Los datos de usuario de Google nunca se emplean para entrenar, reentrenar ni afinar modelos de aprendizaje automático o inteligencia artificial.
@@ -141,7 +143,7 @@ En el sitio web oficial (`https://noveleare.vercel.app`), únicamente se sirven 
 
 ## 12. Actualizaciones de esta Política y Canal de Contacto Oficial
 
-Noveleare podrá actualizar periódicamente esta Política de Privacidad para adaptarla a modificaciones normativas o mejoras técnicas en la arquitectura del Software. La versión en vigor siempre se encontrará disponible públicamente en esta dirección con la indicación expresa de su fecha de revisión.
+El desarrollador independiente podrá actualizar periódicamente esta Política de Privacidad para adaptarla a modificaciones normativas o mejoras técnicas en la arquitectura del Software. La versión en vigor siempre se encontrará disponible públicamente en esta dirección con la indicación expresa de su fecha de revisión.
 
 ### Canal de Contacto Oficial de Privacidad
 - 📧 **Correo electrónico:** `noveleare@gmail.com`  
