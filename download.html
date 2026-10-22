@@ -471,6 +471,141 @@
       .nav-links { display: none; }
       .installer-specs { grid-template-columns: 1fr; }
       .download-main-card { padding: 28px 22px; }
+      .notice-highlights { grid-template-columns: 1fr !important; }
+      .screenshot-row { grid-template-columns: 1fr !important; }
+    }
+
+    /* SmartScreen & Indie Security Notice Banner */
+    .indie-security-notice {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.07) 0%, rgba(13, 148, 136, 0.07) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.32);
+      border-radius: var(--radius-inner);
+      padding: 18px 20px;
+      margin: 18px 0 6px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .notice-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .notice-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #FBBF24;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .notice-body {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    .notice-body p {
+      margin-bottom: 8px;
+    }
+
+    .notice-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 10px 0;
+    }
+
+    .highlight-card {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .highlight-card strong {
+      display: block;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      font-size: 0.84rem;
+    }
+
+    .notice-examples-toggle {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .notice-examples-toggle summary {
+      cursor: pointer;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: #38BDF8;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      gap: 8px;
+    }
+
+    .notice-examples-toggle summary:hover {
+      color: #7DD3FC;
+    }
+
+    .examples-content {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .screenshot-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .screenshot-item {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .screenshot-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #0B0E14;
+    }
+
+    .screenshot-item span {
+      padding: 10px 12px;
+      font-size: 0.78rem;
+      color: var(--text-sub);
+      line-height: 1.45;
+      background: rgba(0, 0, 0, 0.45);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
   </style>
 </head>
@@ -530,6 +665,65 @@
             <div class="spec-item">
               <span class="spec-label">Plataforma</span>
               <span class="spec-value">Windows 10 / 11</span>
+            </div>
+          </div>
+
+          <!-- Aviso de Confianza y Seguridad para Software Independiente (SmartScreen) -->
+          <div class="indie-security-notice" role="region" aria-label="Aviso de seguridad para software independiente">
+            <div class="notice-header">
+              <span class="notice-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Software Independiente · 100% Seguro
+              </span>
+            </div>
+
+            <div class="notice-body">
+              <p>
+                <strong>¿Por qué Microsoft Edge o Windows muestran «No se descarga habitualmente»?</strong>
+              </p>
+              <p>
+                Noveleare es un proyecto de software <strong>independiente (indie)</strong>, creado de forma transparente por y para la comunidad de escritores y novelistas. Los filtros automatizados como <em>Microsoft Defender SmartScreen</em> marcan de forma preventiva los programas nuevos hasta que acumulan miles de descargas mundiales en su base de datos.
+              </p>
+              
+              <div class="notice-highlights">
+                <div class="highlight-card">
+                  <strong>🛡️ Cero Malware y Sin Interferencias</strong>
+                  Aplicación segura: no interfiere con procesos de tu PC ni instala componentes ocultos ni adware.
+                </div>
+                <div class="highlight-card">
+                  <strong>🔒 100% Local-First y Privado</strong>
+                  Tus novelas y notas no salen de tu equipo. Cero conexiones externas no autorizadas.
+                </div>
+              </div>
+
+              <!-- Menú Desplegable con Ejemplos Visuales Reales -->
+              <details class="notice-examples-toggle">
+                <summary>
+                  <span>📸 Ver cómo luce este aviso en Edge y los 2 clics para continuar</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </summary>
+                
+                <div class="examples-content">
+                  <p style="font-size: 0.82rem; color: var(--text-sub); margin-bottom: 6px;">
+                    Si al descargar aparece el mensaje de advertencia preventiva en Edge o Chrome, sigue estos pasos:
+                  </p>
+                  
+                  <div class="screenshot-row">
+                    <div class="screenshot-item">
+                      <img src="./assets/smartscreen-edge-warning.png" alt="Aviso preventivo en la lista de descargas de Edge" loading="lazy">
+                      <span><strong>Paso 1:</strong> En la barra de descargas, pasa el cursor sobre el archivo descargado y haz clic en los tres puntos <strong>(···)</strong> o la advertencia.</span>
+                    </div>
+                    <div class="screenshot-item">
+                      <img src="./assets/smartscreen-edge-detail.png" alt="Ventana de SmartScreen con opciones de conservación" loading="lazy">
+                      <span><strong>Paso 2:</strong> Pulsa en <strong>«Conservar»</strong> &rarr; haz clic en <em>«Mostrar más»</em> &rarr; selecciona <strong>«Mantener de todos modos»</strong>.</span>
+                    </div>
+                  </div>
+
+                  <div style="font-size: 0.8rem; color: #94A3B8; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.2); padding: 8px 12px; border-radius: 6px;">
+                    💡 <strong>Al abrir el instalador:</strong> Si Windows muestra la ventana de advertencia azul con «Windows protegió su PC», haz clic en el enlace subrayado <strong>«Más información»</strong> y luego en el botón <strong>«Ejecutar de todas formas»</strong>.
+                  </div>
+                </div>
+              </details>
             </div>
           </div>
 
