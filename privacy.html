@@ -435,17 +435,17 @@
 
       <nav aria-label="Navegación principal">
         <ul class="nav-links">
-          <li><a href="./index.html">Inicio</a></li>
-          <li><a href="./index.html#hoja-editorial">Hoja de Trabajo</a></li>
-          <li><a href="./index.html#inspector">Inspector</a></li>
+          <li><a href="./index.html#hoja-editorial">Funciones</a></li>
+          <li><a href="./index.html#ediciones">Ediciones</a></li>
           <li><a href="./download.html">Descargas</a></li>
+          <li><a href="./faq.html">Preguntas Frecuentes</a></li>
           <li><a href="./privacy.html" aria-current="page">Privacidad</a></li>
           <li><a href="./terms.html">Términos</a></li>
         </ul>
       </nav>
 
       <div>
-        <a href="./download.html" class="btn">Descargar v1.2.7 (Beta)</a>
+        <a href="./download.html" class="btn">Descargar v1.3.8 (Beta)</a>
       </div>
     </div>
   </header>
@@ -457,7 +457,7 @@
       <p class="subtitle">
         La privacidad literaria es un principio no negociable. Diseñado desde su origen bajo arquitectura Local-First para que tus historias nunca salgan de tu control.
       </p>
-      <p class="legal-updated">Última actualización: 21 de octubre de 2026 · Versión 1.2.7 (Fase Beta)</p>
+      <p class="legal-updated">Última actualización: 19 de noviembre de 2026 · Versión 1.3.8 (Fase Beta)</p>
     </div>
 
     <!-- Summary Bento Cards -->
@@ -484,9 +484,9 @@
 
       <!-- Section 1 -->
       <section class="legal-section">
-        <h2><span class="sec-num">01.</span> Responsable del Tratamiento y Compromiso Fundamental</h2>
+        <h2><span class="sec-num">01.</span> Responsables del Tratamiento y Compromiso Fundamental</h2>
         <p>
-          El responsable del tratamiento de los datos personales asociados a la aplicación de escritorio <strong>Noveleare</strong> y al sitio web oficial (<a href="https://noveleare.vercel.app">https://noveleare.vercel.app</a>) es el creador y desarrollador independiente del software (en adelante, <strong>«el Desarrollador Indie»</strong>, <strong>«Noveleare»</strong> o <strong>«Nosotros»</strong>), con canal de contacto oficial y directo en el correo electrónico <a href="mailto:noveleare@gmail.com"><strong>noveleare@gmail.com</strong></a>.
+          Los responsables del tratamiento de los datos personales asociados a la aplicación de escritorio <strong>Noveleare</strong> y al sitio web oficial (<a href="https://noveleare.vercel.app">https://noveleare.vercel.app</a>) son sus creadores y desarrolladores independientes en asociación (dos socios personas físicas sin sociedad mercantil ni empresa constituida, en adelante <strong>«los Desarrolladores Independientes»</strong>, <strong>«Noveleare»</strong> o <strong>«Nosotros»</strong>), con sede principal en <strong>Tlajomulco de Zúñiga, Jalisco, México</strong>, y canal de contacto oficial y directo en el correo electrónico <a href="mailto:noveleare@gmail.com"><strong>noveleare@gmail.com</strong></a>.
         </p>
         <p>
           En Noveleare reconocemos que la labor literaria requiere el máximo grado de confidencialidad, intimidad y seguridad. Por esta razón, el software ha sido concebido y desarrollado bajo el estándar de <strong>Privacidad por Diseño</strong> (<em>Privacy by Design</em>) y una estricta arquitectura <strong>Local-First</strong> (primero en tu equipo local).
@@ -513,7 +513,7 @@
 
         <h3>B. Claves API de Inteligencia Artificial (BYOK) — 100% Local Cifrado</h3>
         <ul>
-          <li>Si el Usuario opta por utilizar las funciones de asistencia creativa de IA, suministra sus propias claves API personales (Google Gemini, OpenAI, Anthropic Claude o xAI Grok).</li>
+          <li>Si el Usuario opta por utilizar las funciones de asistencia creativa de IA (Copiloto, Embellecedor, Taller de Diálogos, Dictado por IA, Modo Catarsis o Inspector de Obra), suministra sus propias claves API personales (<strong>Google Gemini</strong> o <strong>Groq</strong>).</li>
           <li><strong>Cifrado nativo del Sistema Operativo:</strong> Estas claves se almacenan localmente cifradas a través de la API <code>safeStorage</code> de Electron, la cual hace uso de la interfaz DPAPI (<em>Data Protection API</em>) en Windows.</li>
           <li>Las claves API <strong>jamás se transmiten ni se sincronizan con servidores de Noveleare</strong>.</li>
         </ul>
@@ -529,9 +529,9 @@
           <li><strong>Identificador Anónimo de Dispositivo:</strong> un hash criptográfico no reversible derivado de parámetros de hardware del equipo para verificar el cumplimiento del límite de hasta <strong>cinco (5) computadoras personales</strong> autorizadas por licencia Pro.</li>
         </ul>
 
-        <h3>D. Datos de Transacción y Facturación — Gestionados por Merchant of Record</h3>
+        <h3>D. Datos de Transacción y Facturación — Gestionados por Pasarelas de Pago Externas</h3>
         <p>
-          Las transacciones económicas para la compra de licencias Pro son gestionadas directamente por <strong>Lemon Squeezy LLC</strong>, que actúa como comerciante registrado oficial (<em>Merchant of Record</em>). Noveleare <strong>no almacena, no procesa ni tiene acceso a números de tarjetas de crédito o débito</strong>, cuentas bancarias ni datos financieros sensibles.
+          Cuando se habiliten las ventas comerciales de licencias permanentes o suscripciones Pro, las transacciones económicas serán gestionadas directamente por plataformas o pasarelas de pago externas autorizadas que actúen como procesadores o comerciantes registrados (<em>Merchant of Record</em>, tales como <strong>Lemon Squeezy</strong> u otras plataformas habilitadas en el punto de venta). Noveleare <strong>no almacena, no procesa ni tiene acceso a números de tarjetas de crédito o débito</strong>, cuentas bancarias ni datos financieros sensibles.
         </p>
       </section>
 
@@ -558,7 +558,7 @@
           Noveleare incorpora herramientas de asistencia creativa que operan bajo el esquema <strong>Bring Your Own Key</strong> (<em>trae tu propia clave</em>):
         </p>
         <ul>
-          <li><strong>Transmisión Directa Cliente-Servidor:</strong> Cuando el Autor pulsa un botón de embellecimiento, sugerencia de continuidad o consulta en el chat creativo, la porción de texto expresamente seleccionada es enviada de forma directa y cifrada mediante HTTPS/TLS desde el proceso local de Noveleare hacia los servidores oficiales de la API del proveedor configurado (Google LLC, Anthropic PBC, OpenAI LLC o xAI Corp).</li>
+          <li><strong>Transmisión Directa Cliente-Servidor:</strong> Cuando el Autor invoca expresamente una herramienta de IA, la porción de texto o audio seleccionada es enviada de forma directa y cifrada mediante HTTPS/TLS desde el proceso local de Noveleare hacia los servidores oficiales de la API del proveedor configurado por el propio usuario (<strong>Google Gemini</strong> o <strong>Groq</strong>).</li>
           <li><strong>Ausencia de Servidores Puente:</strong> La comunicación no es intermediada, reenviada ni registrada en ningún servidor de Noveleare.</li>
           <li><strong>Condiciones del Proveedor de IA:</strong> El procesamiento de los fragmentos textuales por parte del proveedor seleccionado se rige exclusivamente por sus correspondientes términos y políticas de privacidad para clientes de API comerciales.</li>
         </ul>
@@ -591,7 +591,7 @@
         <ul>
           <li><strong>Google LLC (EE. UU.):</strong> Proveedor de inicio de sesión seguro (Google OAuth).</li>
           <li><strong>Supabase Inc. (EE. UU.):</strong> Infraestructura de base de datos segura y gestión de identidades, con cifrado en tránsito (TLS 1.3) y en reposo (AES-256).</li>
-          <li><strong>Lemon Squeezy LLC (EE. UU.):</strong> Plataforma de comercio electrónico y Merchant of Record para el cobro de licencias Pro, gestión fiscal y cumplimiento tributario internacional. Certificación de seguridad PCI-DSS Nivel 1.</li>
+          <li><strong>Pasarelas de Pago Externas Autorizadas (ej. Lemon Squeezy LLC u otras):</strong> Cuando se habilite la tienda comercial, actuarán como procesadores de pago seguros con certificación PCI-DSS para el cobro de licencias permanentes o suscripciones Pro sin compartir datos bancarios con Noveleare.</li>
           <li><strong>GitHub Inc. (Microsoft Corporation):</strong> Distribución de versiones ejecutables y consulta estática del manifiesto de actualización <code>latest.yml</code> sin recopilación de telemetría de identidad.</li>
         </ul>
       </section>
@@ -617,7 +617,7 @@
         </p>
         <ul>
           <li><strong>Datos Locales del Usuario:</strong> Los archivos de proyecto <code>.novel</code>, configuraciones y copias de seguridad locales residen indefinidamente en su equipo bajo su propio control y pueden ser eliminados en cualquier momento por usted simplemente borrando los archivos o desinstalando la aplicación.</li>
-          <li><strong>Datos de Cuenta y Licencia:</strong> La información de su perfil y estado de licencia se conserva mientras mantenga activa su cuenta de usuario. Si solicita la cancelación o eliminación de su cuenta, sus registros en la base de datos de autenticación serán suprimidos de manera definitiva en un plazo máximo de treinta (30) días hábiles.</li>
+          <li><strong>Datos de Cuenta y Licencia:</strong> La información de su perfil y estado de licencia se conserva mientras mantenga activa su cuenta de usuario. Si solicita la cancelación o eliminación de su cuenta escribiendo a <code>noveleare@gmail.com</code>, sus registros en la base de datos de autenticación serán suprimidos de manera definitiva en un plazo máximo de <strong>quince (15) días hábiles</strong>.</li>
         </ul>
       </section>
 
@@ -659,9 +659,9 @@
 
       <!-- Section 12 -->
       <section class="legal-section">
-        <h2><span class="sec-num">12.</span> Actualizaciones de esta Política y Canal de Contacto Oficial</h2>
+        <h2><span class="sec-num">12.</span> Jurisdicción, Actualizaciones y Canal de Contacto Oficial</h2>
         <p>
-          Noveleare podrá actualizar periódicamente esta Política de Privacidad para adaptarla a modificaciones normativas o mejoras técnicas en la arquitectura del Software. La versión en vigor siempre se encontrará disponible públicamente en esta dirección con la indicación expresa de su fecha de revisión.
+          Esta Política de Privacidad se rige e interpreta de conformidad con las leyes aplicables de los <strong>Estados Unidos Mexicanos (México)</strong>, con sede principal en <strong>Tlajomulco de Zúñiga, Jalisco, México</strong>. Los Desarrolladores Independientes podrán actualizar periódicamente esta Política para adaptarla a modificaciones normativas o mejoras técnicas en la arquitectura del Software. La versión en vigor siempre se encontrará disponible públicamente en esta dirección con la indicación expresa de su fecha de revisión.
         </p>
         <div class="legal-callout">
           <strong>Oficina de Contacto sobre Privacidad y Protección de Datos:</strong><br>
