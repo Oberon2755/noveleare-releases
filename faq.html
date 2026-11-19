@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="es" style="color-scheme: dark;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0B0E14">
+  <title>Preguntas Frecuentes — Noveleare</title>
+  <meta name="description" content="Respuestas claras sobre Noveleare: privacidad Local-First, conexión con API Keys propias de Gemini o Groq, compatibilidad, seguridad en Windows y respaldo de manuscritos.">
+  <link rel="icon" type="image/png" href="./assets/noveleare-symbol-transparent.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #07090E;
+      --bg-card: rgba(13, 17, 25, 0.72);
+      --bg-card-hover: rgba(18, 24, 36, 0.84);
+      --bg-glass-nav: rgba(9, 12, 18, 0.84);
+      --border-subtle: rgba(255, 255, 255, 0.09);
+      --border-hover: rgba(255, 255, 255, 0.22);
+      --text-main: #FFFFFF;
+      --text-sub: #D1D5DB;
+      --text-muted: #8E9BAE;
+      --brand-mint: #B5E5D8;
+      --radius-card: 14px;
+      --radius-pill: 9999px;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      background-image:
+        linear-gradient(180deg, rgba(7, 9, 14, 0.78) 0%, rgba(7, 9, 14, 0.90) 55%, rgba(7, 9, 14, 0.97) 100%),
+        url('./assets/misty-morning-forest.jpg');
+      background-size: cover;
+      background-position: center top;
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: #FFFFFF;
+      color: #07090E;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      z-index: 1000;
+      text-decoration: none;
+    }
+    .skip-link:focus { top: 16px; }
+
+    .container {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-glass-nav);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 20px;
+    }
+
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      transition: color 0.18s ease, background-color 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.18s ease, border-color 0.18s ease, transform 0.15s ease;
+    }
+
+    .btn-sm {
+      padding: 8px 16px;
+      font-size: 0.85rem;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--border-hover);
+    }
+
+    .btn-primary {
+      background: #FFFFFF;
+      color: #07090E;
+      border: 1px solid #FFFFFF;
+      padding: 12px 22px;
+      font-size: 0.94rem;
+    }
+
+    .btn-primary:hover {
+      background: #E5E7EB;
+    }
+
+    /* Main FAQ Section */
+    main {
+      flex: 1;
+      padding: 64px 0 88px;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .faq-kicker {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brand-mint);
+      margin-bottom: 12px;
+    }
+
+    .faq-title {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--text-main);
+      margin-bottom: 14px;
+    }
+
+    .faq-subtitle {
+      font-size: 1.02rem;
+      color: var(--text-sub);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .faq-toolbar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 16px;
+    }
+
+    .faq-toggle-all {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: color 0.18s ease, background-color 0.18s ease;
+    }
+
+    .faq-toggle-all:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+      overflow: hidden;
+    }
+
+    .faq-item:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-card-hover);
+    }
+
+    .faq-item.is-open {
+      border-color: rgba(255, 255, 255, 0.24);
+      background: rgba(16, 21, 31, 0.86);
+    }
+
+    .faq-question-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 20px 24px;
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      font-family: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .faq-question-left {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .faq-num {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+      flex-shrink: 0;
+    }
+
+    .faq-item.is-open .faq-num {
+      color: var(--brand-mint);
+    }
+
+    .faq-question-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.4;
+      color: var(--text-main);
+    }
+
+    .faq-chevron {
+      width: 20px;
+      height: 20px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      transition: transform 0.25s ease, color 0.2s ease;
+    }
+
+    .faq-item.is-open .faq-chevron {
+      transform: rotate(180deg);
+      color: var(--text-main);
+    }
+
+    .faq-answer-panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .faq-item.is-open .faq-answer-panel {
+      grid-template-rows: 1fr;
+    }
+
+    .faq-answer-inner {
+      overflow: hidden;
+    }
+
+    .faq-answer-body {
+      padding: 0 24px 22px 54px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-answer-lead {
+      font-size: 0.98rem;
+      color: var(--text-main);
+      font-weight: 500;
+      line-height: 1.65;
+    }
+
+    .faq-answer-detail {
+      font-size: 0.92rem;
+      color: var(--text-sub);
+      line-height: 1.68;
+    }
+
+    .faq-bottom-actions {
+      margin-top: 44px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--border-subtle);
+      background: rgba(7, 9, 14, 0.9);
+      padding: 28px 0;
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links-inline {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 18px;
+    }
+
+    .footer-links-inline a {
+      color: var(--text-sub);
+      text-decoration: none;
+    }
+
+    .footer-links-inline a:hover {
+      color: var(--text-main);
+    }
+
+    @media (max-width: 780px) {
+      .nav-links { display: none; }
+      .faq-question-btn { padding: 18px; }
+      .faq-answer-body { padding: 14px 18px 18px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <header class="site-header">
+    <div class="container nav-container nav-bar">
+      <a href="./index.html" class="brand-link" aria-label="Noveleare Inicio">
+        <img src="./assets/noveleare-symbol-transparent.png" alt="Símbolo de Noveleare" width="30" height="30">
+        <span>Noveleare</span>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <ul class="nav-links">
+          <li><a href="./index.html#hoja-editorial">Funciones</a></li>
+          <li><a href="./index.html#ediciones">Ediciones</a></li>
+          <li><a href="./download.html">Descargas</a></li>
+          <li><a href="./faq.html" aria-current="page">Preguntas Frecuentes</a></li>
+          <li><a href="./privacy.html">Privacidad</a></li>
+          <li><a href="./terms.html">Términos</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <a href="./index.html" class="btn btn-secondary btn-sm">Volver al Inicio</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="container">
+      <header class="faq-header">
+        <div class="faq-kicker">Centro de Claridad</div>
+        <h1 class="faq-title">Preguntas Frecuentes</h1>
+        <p class="faq-subtitle">
+          Respuestas directas sobre cómo funciona Noveleare, la privacidad absoluta de tus manuscritos y la conexión con tu propia inteligencia artificial.
+        </p>
+      </header>
+
+      <div class="faq-toolbar">
+        <button type="button" class="faq-toggle-all" id="faq-toggle-all">Expandir todas</button>
+      </div>
+
+      <div class="faq-list" id="faq-list">
+        <!-- 01 -->
+        <article class="faq-item is-open">
+          <button type="button" class="faq-question-btn" aria-expanded="true" aria-controls="faq-ans-1" id="faq-q-1">
+            <span class="faq-question-left">
+              <span class="faq-num">01</span>
+              <span class="faq-question-text">¿Qué es Noveleare y para qué sirve?</span>
+            </span>
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M5 7.5l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer-panel" id="faq-ans-1" role="region" aria-labelledby="faq-q-1">
+            <div class="faq-answer-inner">
+              <div class="faq-answer-body">
+                <p class="faq-answer-lead">
+                  Noveleare es una suite de escritorio creada específicamente para escritores de ficción y novelistas. Reúne en un solo programa todo lo necesario para planear, redactar, revisar y organizar una novela de principio a fin sin depender de aplicaciones dispersas.
+                </p>
+                <p class="faq-answer-detail">
+                  A diferencia de un procesador de textos de oficina como Word, su entorno está pensado para obras largas: separa tu historia en capítulos y escenas navegables, integra Biblia del Mundo, mapas interactivos, red de relaciones, árbol genealógico, Modo Zen, Modo Catarsis contra el bloqueo creativo, dictado por IA, corrector gramatical en español e Inspector de Obra.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 02 -->
+        <article class="faq-item">
+          <button type="button" class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">
+            <span class="faq-question-left">
+              <span class="faq-num">02</span>
+              <span class="faq-question-text">¿Funciona sin conexión a internet?</span>
+            </span>
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M5 7.5l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer-panel" id="faq-ans-2" role="region" aria-labelledby="faq-q-2">
+            <div class="faq-answer-inner">
+              <div class="faq-answer-body">
+                <p class="faq-answer-lead">
+                  Sí. Puedes escribir, editar, organizar capítulos, consultar tu Biblia del Mundo, usar el Modo Zen, el Modo Catarsis, el reproductor ambiental y el corrector ortográfico en español al 100% sin conexión a internet.
+                </p>
+                <p class="faq-answer-detail">
+                  Únicamente necesitarás acceso a la red cuando decidas invocar alguna herramienta de Inteligencia Artificial (Copiloto, Embellecedor, Diálogos IA, Dictado IA o Inspector de Obra), descargar por primera vez el paquete de audio o comprobar actualizaciones. Tus manuscritos nunca quedan bloqueados por falta de conexión.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 03 -->
+        <article class="faq-item">
+          <button type="button" class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">
+            <span class="faq-question-left">
+              <span class="faq-num">03</span>
+              <span class="faq-question-text">¿Para qué plataformas está disponible?</span>
+            </span>
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M5 7.5l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer-panel" id="faq-ans-3" role="region" aria-labelledby="faq-q-3">
+            <div class="faq-answer-inner">
+              <div class="faq-answer-body">
+                <p class="faq-answer-lead">
+                  Actualmente Noveleare está disponible de forma nativa para computadoras con Windows 10 y Windows 11 en arquitectura de 64 bits.
+                </p>
+                <p class="faq-answer-detail">
+                  La aplicación se instala de manera local mediante su instalador oficial y recibe mejoras rápidas sin necesidad de reinstalar todo el programa cada vez. La prioridad actual de la fase Beta es garantizar estabilidad, rendimiento y fluidez en Windows antes de evaluar otros sistemas operativos.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 04 -->
+        <article class="faq-item">
+          <button type="button" class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-4" id="faq-q-4">
+            <span class="faq-question-left">
+              <span class="faq-num">04</span>
+              <span class="faq-question-text">¿Los proyectos hechos en Noveleare pueden ser vistos por otras personas o por sus creadores?</span>
+            </span>
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M5 7.5l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer-panel" id="faq-ans-4" role="region" aria-labelledby="faq-q-4">
+            <div class="faq-answer-inner">
+              <div class="faq-answer-body">
+                <p class="faq-answer-lead">
+                  No. Todos tus proyectos se guardan exclusivamente de forma local en tu computadora y absolutamente nada de lo que escribes puede ser visto por terceros, ni siquiera por el creador de Noveleare.
+                </p>
+                <p class="faq-answer-detail">
+                  Noveleare sigue una arquitectura 100% Local-First: cada obra vive en un archivo propio (<code>.novel</code>) dentro del disco duro que tú elijas, sin sincronizaciones ocultas ni bases de datos en la nube leyendo tus textos. Tu propiedad intelectual permanece bajo tu control total en todo momento.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 05 -->
+        <article class="faq-item">
+          <button type="button" class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-5" id="faq-q-5">
+            <span class="faq-question-left">
+              <span class="faq-num">05</span>
+              <span class="faq-question-text">¿Cómo se conecta o se accede a la IA de Noveleare?</span>
+            </span>
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M5 7.5l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer-panel" id="faq-ans-5" role="region" aria-labelledby="faq-q-5">
+            <div class="faq-answer-inner">
+              <div class="faq-answer-body">
+                <p class="faq-answer-lead">
+                  A través de tus propias claves de API (API Keys) de Google Gemini o Groq, las cuales introduces directamente en la configuración local de la aplicación.
+                </p>
+                <p class="faq-answer-detail">
+                  Al usar el modelo BYOK (Bring Your Own Key), la aplicación se comunica directo desde tu equipo con el proveedor que elijas, sin intermediarios ni suscripciones infladas por consumo de tokens. Además, puedes escanear en vivo qué modelos tienes disponibles y asignar un modelo distinto para cada tarea creativa.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 06 -->
+        <article class="faq-item">
+          <button type="button" class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-6" id="faq-q-6">
+            <span class="faq-question-left">
+              <span class="faq-num">06</span>
+              <span class="faq-question-text">¿La IA usa mis novelas para entrenar modelos?</span>
+            </span>
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M5 7.5l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer-panel" id="faq-ans-6" role="region" aria-labelledby="faq-q-6">
+            <div class="faq-answer-inner">
+              <div class="faq-answer-body">
+                <p class="faq-answer-lead">
+                  No desde Noveleare. La aplicación nunca envía tus textos automáticamente en segundo plano; solo transmite el fragmento que tú selecciones o consultes cuando pulsas una herramienta de IA.
+                </p>
+                <p class="faq-answer-detail">
+                  Como la conexión se realiza con tu propia clave de API en Google Gemini o Groq, tú conservas el control sobre qué contexto compartes mediante los conectores selectivos del Copiloto y bajo las políticas directas de privacidad de tu cuenta en el proveedor que hayas elegido.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 07 -->
+        <article class="faq-item">
+          <button type="button" class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-7" id="faq-q-7">
+            <span class="faq-question-left">
+              <span class="faq-num">07</span>
+              <span class="faq-question-text">¿Por qué mi navegador o Windows muestran una advertencia al descargar el instalador?</span>
+            </span>
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M5 7.5l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer-panel" id="faq-ans-7" role="region" aria-labelledby="faq-q-7">
+            <div class="faq-answer-inner">
+              <div class="faq-answer-body">
+                <p class="faq-answer-lead">
+                  Es un filtro preventivo automático de Windows SmartScreen y de los navegadores para cualquier software independiente nuevo que aún no cuenta con un certificado comercial de gran corporación o historial masivo de descargas.
+                </p>
+                <p class="faq-answer-detail">
+                  El instalador oficial de Noveleare está limpio y libre de malware. Si aparece el aviso en tu navegador, basta con elegir «Conservar / Mantener de todos modos», y en la pantalla azul de Windows pulsar «Más información» y luego «Ejecutar de todas formas» (en la página de Descargas tienes la guía visual paso a paso).
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 08 -->
+        <article class="faq-item">
+          <button type="button" class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-8" id="faq-q-8">
+            <span class="faq-question-left">
+              <span class="faq-num">08</span>
+              <span class="faq-question-text">¿Puedo importar una novela que ya empecé en Word o texto plano?</span>
+            </span>
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M5 7.5l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer-panel" id="faq-ans-8" role="region" aria-labelledby="faq-q-8">
+            <div class="faq-answer-inner">
+              <div class="faq-answer-body">
+                <p class="faq-answer-lead">
+                  Sí. Noveleare incluye un Asistente de Importación Modular para traer manuscritos en formato <code>.docx</code> y <code>.txt</code> y dividirlos automáticamente en capítulos y escenas.
+                </p>
+                <p class="faq-answer-detail">
+                  El importador te guía en fases para incorporar primero el texto base y, si lo deseas, extraer progresivamente personajes, geografía y elementos de lore hacia tu Biblia del Mundo. Cuando necesites sacar tu obra de regreso, puedes exportar a <code>.docx</code>, <code>.odt</code> (LibreOffice), <code>.pdf</code>, <code>.html</code>, <code>.md</code> o <code>.txt</code>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 09 -->
+        <article class="faq-item">
+          <button type="button" class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-9" id="faq-q-9">
+            <span class="faq-question-left">
+              <span class="faq-num">09</span>
+              <span class="faq-question-text">¿Qué pasa si borro algo por error o se va la luz?</span>
+            </span>
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M5 7.5l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer-panel" id="faq-ans-9" role="region" aria-labelledby="faq-q-9">
+            <div class="faq-answer-inner">
+              <div class="faq-answer-body">
+                <p class="faq-answer-lead">
+                  Tu trabajo queda protegido por una Bóveda automática de hasta 40 copias de seguridad rotativas en segundo plano y una Papelera de reciclaje interna para restaurar capítulos, escenas o fichas eliminadas.
+                </p>
+                <p class="faq-answer-detail">
+                  Además, antes de probar cambios arriesgados en un capítulo puedes crear revisiones independientes (<code>R1, R2...</code>) y compararlas lado a lado en pantalla dividida 50/50 sin sobrescribir ni perder tu texto original.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="faq-bottom-actions">
+        <a href="./index.html" class="btn btn-secondary">Volver al Inicio</a>
+        <a href="./download.html" class="btn btn-primary">Ir a Descargas (v1.3.8 Beta)</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container nav-container footer-bottom">
+      <span>&copy; 2026 Noveleare. Todos los derechos reservados.</span>
+      <ul class="footer-links-inline">
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="./download.html">Descargas</a></li>
+        <li><a href="./privacy.html">Política de Privacidad</a></li>
+        <li><a href="./terms.html">Términos del Servicio</a></li>
+        <li><a href="mailto:noveleare@gmail.com">noveleare@gmail.com</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const items = Array.from(document.querySelectorAll('.faq-item'));
+      const toggleAllBtn = document.getElementById('faq-toggle-all');
+
+      items.forEach((item) => {
+        const btn = item.querySelector('.faq-question-btn');
+        if (!btn) return;
+        btn.addEventListener('click', () => {
+          const willOpen = !item.classList.contains('is-open');
+          item.classList.toggle('is-open', willOpen);
+          btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+          syncToggleAllLabel();
+        });
+      });
+
+      function syncToggleAllLabel() {
+        if (!toggleAllBtn) return;
+        const allOpen = items.every((it) => it.classList.contains('is-open'));
+        toggleAllBtn.textContent = allOpen ? 'Contraer todas' : 'Expandir todas';
+      }
+
+      if (toggleAllBtn) {
+        toggleAllBtn.addEventListener('click', () => {
+          const shouldOpen = !items.every((it) => it.classList.contains('is-open'));
+          items.forEach((item) => {
+            item.classList.toggle('is-open', shouldOpen);
+            const btn = item.querySelector('.faq-question-btn');
+            if (btn) btn.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+          });
+          syncToggleAllLabel();
+        });
+      }
+
+      syncToggleAllLabel();
+    })();
+  </script>
+</body>
+</html>
