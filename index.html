@@ -1365,6 +1365,217 @@
       height: 22px;
     }
 
+    /* Comparison Table Section */
+    .comparison-section {
+      position: relative;
+      z-index: 2;
+    }
+
+    .comparison-card {
+      background: var(--bg-glass-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .comparison-table-wrap {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+      text-align: left;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.9rem;
+      line-height: 1.45;
+      vertical-align: middle;
+    }
+
+    .comparison-table thead th {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .comparison-table thead th.col-noveleare {
+      color: var(--brand-mint);
+      background: rgba(181, 229, 216, 0.08);
+    }
+
+    .comparison-table tbody td.col-feature {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .comparison-table tbody td.col-noveleare {
+      color: var(--text-main);
+      font-weight: 600;
+      background: rgba(181, 229, 216, 0.04);
+    }
+
+    .comparison-table tbody td.col-other {
+      color: var(--text-muted);
+    }
+
+    .comparison-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cmp-yes {
+      color: var(--brand-mint);
+      font-weight: 700;
+      margin-right: 6px;
+    }
+
+    .cmp-no {
+      color: #64748B;
+      margin-right: 6px;
+    }
+
+    .cmp-partial {
+      color: #CBD5E1;
+      margin-right: 6px;
+    }
+
+    /* Simple Gallery Lightbox Modal */
+    .nav-gallery-trigger {
+      background: transparent;
+      border: none;
+      color: var(--text-sub);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: color 0.18s ease, background-color 0.18s ease;
+    }
+
+    .nav-gallery-trigger:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .gallery-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(4, 6, 10, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .gallery-modal.is-open {
+      display: flex;
+    }
+
+    .gallery-dialog {
+      position: relative;
+      width: 100%;
+      max-width: 1120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .gallery-topbar {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-sub);
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .gallery-close-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.15rem;
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .gallery-close-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: var(--border-hover);
+    }
+
+    .gallery-stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      max-height: 76vh;
+      background: #07090E;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.75);
+    }
+
+    .gallery-stage img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .gallery-controls {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .gallery-nav-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .gallery-nav-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: var(--border-hover);
+    }
+
     /* 4. AI Creative Suite Section */
     .ai-section {
       background: rgba(14, 18, 26, 0.45);
@@ -1822,6 +2033,7 @@
       <nav aria-label="Navegación principal">
         <ul class="nav-links">
           <li><a href="#hoja-editorial">Funciones</a></li>
+          <li><button type="button" class="nav-gallery-trigger" id="open-gallery-btn">Galería</button></li>
           <li><a href="#ediciones">Ediciones</a></li>
           <li><a href="./download.html">Descargas</a></li>
           <li><a href="./faq.html">Preguntas Frecuentes</a></li>
@@ -3116,6 +3328,104 @@
       </div>
     </section>
 
+    <!-- 5.5 COMPARISON TABLE SECTION -->
+    <section id="comparativa" class="comparison-section">
+      <div class="container">
+        <div class="section-header gs-reveal">
+          <div class="section-eyebrow">
+            <span>Comparativa Objetiva</span>
+          </div>
+          <h2 class="section-title">
+            Noveleare frente a <span class="highlight">las alternativas habituales</span>
+          </h2>
+          <p class="section-subtitle">
+            Los procesadores de oficina, las suites clásicas antiguas y las apps genéricas de notas en la nube obligan a fragmentar tu novela. Noveleare unifica todo en un estudio soberano.
+          </p>
+        </div>
+
+        <div class="comparison-card gs-card">
+          <div class="comparison-table-wrap">
+            <table class="comparison-table" aria-label="Comparativa de Noveleare frente a otros programas de escritura">
+              <thead>
+                <tr>
+                  <th>Capacidad / Criterio</th>
+                  <th class="col-noveleare">Noveleare</th>
+                  <th>Procesadores de Oficina</th>
+                  <th>Suites Literarias Clásicas</th>
+                  <th>Apps de Notas en la Nube</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="col-feature">Arquitectura Local-First (.novel)</td>
+                  <td class="col-noveleare"><span class="cmp-yes">✓</span> 100% en tu disco, sin nube obligatoria</td>
+                  <td class="col-other"><span class="cmp-partial">~</span> Local o nube forzada</td>
+                  <td class="col-other"><span class="cmp-yes">✓</span> Local</td>
+                  <td class="col-other"><span class="cmp-no">✕</span> Dependiente de la nube</td>
+                </tr>
+                <tr>
+                  <td class="col-feature">Privacidad de IA y Entrenamiento</td>
+                  <td class="col-noveleare"><span class="cmp-yes">✓</span> Cero entrenamiento · Modelo BYOK directo</td>
+                  <td class="col-other"><span class="cmp-no">✕</span> Suscripción IA integrada en nube</td>
+                  <td class="col-other"><span class="cmp-no">✕</span> Sin IA nativa</td>
+                  <td class="col-other"><span class="cmp-no">✕</span> IA corporativa con coste extra</td>
+                </tr>
+                <tr>
+                  <td class="col-feature">Ortotipografía y Raya Española (—)</td>
+                  <td class="col-noveleare"><span class="cmp-yes">✓</span> Nativa + Motor gramatical RAE offline</td>
+                  <td class="col-other"><span class="cmp-partial">~</span> Atajos manuales / genérico</td>
+                  <td class="col-other"><span class="cmp-no">✕</span> Pensado para inglés</td>
+                  <td class="col-other"><span class="cmp-no">✕</span> Sin reglas editoriales RAE</td>
+                </tr>
+                <tr>
+                  <td class="col-feature">Worldbuilding Visual Integrado</td>
+                  <td class="col-noveleare"><span class="cmp-yes">✓</span> Biblia, Mapas, Red de Relaciones y Genealogía</td>
+                  <td class="col-other"><span class="cmp-no">✕</span> Inexistente</td>
+                  <td class="col-other"><span class="cmp-partial">~</span> Solo fichas de texto básicas</td>
+                  <td class="col-other"><span class="cmp-partial">~</span> Manual y desordenado por páginas</td>
+                </tr>
+                <tr>
+                  <td class="col-feature">Comparación 50/50 y Revisiones (R1, C1)</td>
+                  <td class="col-noveleare"><span class="cmp-yes">✓</span> Doble hoja editable en vivo</td>
+                  <td class="col-other"><span class="cmp-no">✕</span> Archivos duplicados manuales</td>
+                  <td class="col-other"><span class="cmp-partial">~</span> Instantáneas de solo lectura</td>
+                  <td class="col-other"><span class="cmp-no">✕</span> Historial básico sin vista dual</td>
+                </tr>
+                <tr>
+                  <td class="col-feature">Inspector Forense y Repeticiones</td>
+                  <td class="col-noveleare"><span class="cmp-yes">✓</span> 6 auditorías + sinónimos conjugados</td>
+                  <td class="col-other"><span class="cmp-no">✕</span> Inexistente</td>
+                  <td class="col-other"><span class="cmp-no">✕</span> Solo conteo de palabras</td>
+                  <td class="col-other"><span class="cmp-no">✕</span> Inexistente</td>
+                </tr>
+                <tr>
+                  <td class="col-feature">Bloqueo Creativo e Inmersión</td>
+                  <td class="col-noveleare"><span class="cmp-yes">✓</span> Modo Catarsis + Modo Zen y Audio Dual</td>
+                  <td class="col-other"><span class="cmp-no">✕</span> Interfaz corporativa fría</td>
+                  <td class="col-other"><span class="cmp-partial">~</span> Pantalla completa básica</td>
+                  <td class="col-other"><span class="cmp-no">✕</span> Sin inmersión sonora ni trance</td>
+                </tr>
+                <tr>
+                  <td class="col-feature">Respaldo y Protección de Obra</td>
+                  <td class="col-noveleare"><span class="cmp-yes">✓</span> Bóveda de 40 copias + Papelera + Soft-Lock</td>
+                  <td class="col-other"><span class="cmp-partial">~</span> Autoguardado simple</td>
+                  <td class="col-other"><span class="cmp-yes">✓</span> Respaldos en zip</td>
+                  <td class="col-other"><span class="cmp-no">✕</span> Riesgo ante cierre de cuenta</td>
+                </tr>
+                <tr>
+                  <td class="col-feature">Modelo de Licencia</td>
+                  <td class="col-noveleare"><span class="cmp-yes">✓</span> Gratis funcional + Pago único vitalicio o plazo</td>
+                  <td class="col-other"><span class="cmp-no">✕</span> Suscripción anual obligatoria</td>
+                  <td class="col-other"><span class="cmp-yes">✓</span> Pago por versión</td>
+                  <td class="col-other"><span class="cmp-no">✕</span> Suscripción mensual perpetua</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 6. EDITIONS SECTION -->
     <section id="ediciones">
       <div class="container">
@@ -3310,11 +3620,109 @@
     </div>
   </footer>
 
+  <!-- Simple Image Gallery Lightbox Modal -->
+  <div class="gallery-modal" id="galeria-lightbox" role="dialog" aria-modal="true" aria-label="Galería de Noveleare" hidden>
+    <div class="gallery-dialog">
+      <div class="gallery-topbar">
+        <span id="gallery-counter">1 / 17</span>
+        <button type="button" class="gallery-close-btn" id="gallery-close-btn" aria-label="Cerrar galería">&times;</button>
+      </div>
+      <div class="gallery-stage">
+        <img id="gallery-active-img" src="./assets/workspace-canvas.png" alt="Captura de pantalla de Noveleare">
+      </div>
+      <div class="gallery-controls">
+        <button type="button" class="gallery-nav-btn" id="gallery-prev-btn" aria-label="Imagen anterior">&larr; Anterior</button>
+        <button type="button" class="gallery-nav-btn" id="gallery-next-btn" aria-label="Siguiente imagen">Siguiente &rarr;</button>
+      </div>
+    </div>
+  </div>
+
   <!-- GSAP 3.12.5 + ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // 0. Simple Image Gallery Lightbox
+      const galleryImages = [
+        { src: './assets/workspace-canvas.png', alt: 'Espacio principal de trabajo en Noveleare' },
+        { src: './assets/world-mapas.png', alt: 'Taller de mapas en Noveleare' },
+        { src: './assets/world-relaciones.png', alt: 'Red de relaciones de personajes en Noveleare' },
+        { src: './assets/world-genealogia.png', alt: 'Árbol genealógico interactivo en Noveleare' },
+        { src: './assets/world-biblia.png', alt: 'Biblia enciclopédica de personajes en Noveleare' },
+        { src: './assets/zen-slide-1.png', alt: 'Modo Zen — Personalizador de atmósferas' },
+        { src: './assets/zen-slide-2.png', alt: 'Modo Zen — Aurora boreal' },
+        { src: './assets/zen-slide-3.png', alt: 'Modo Zen — Noche estrellada' },
+        { src: './assets/zen-slide-5.png', alt: 'Modo Zen — Cumbre brumosa' },
+        { src: './assets/catarsis-trance.png', alt: 'Modo Catarsis — Sesión de trance con llama viva' },
+        { src: './assets/catarsis-cosecha.png', alt: 'Modo Catarsis — Manuscrito en bruto cosechado' },
+        { src: './assets/catarsis-transmutacion.png', alt: 'Modo Catarsis — Configuración de transmutación IA' },
+        { src: './assets/inspector-tension.png', alt: 'Inspector de Obra — Curva de tensión' },
+        { src: './assets/inspector-muletillas.png', alt: 'Inspector de Obra — Muletillas y Show vs Tell' },
+        { src: './assets/inspector-personajes.png', alt: 'Inspector de Obra — Personajes y voces' },
+        { src: './assets/inspector-balance.png', alt: 'Inspector de Obra — Balance narrativo' },
+        { src: './assets/inspector-continuidad.png', alt: 'Inspector de Obra — Continuidad y cabos sueltos' }
+      ];
+      const galleryModal = document.getElementById('galeria-lightbox');
+      const galleryImg = document.getElementById('gallery-active-img');
+      const galleryCounter = document.getElementById('gallery-counter');
+      const openGalleryBtn = document.getElementById('open-gallery-btn');
+      const closeGalleryBtn = document.getElementById('gallery-close-btn');
+      const prevGalleryBtn = document.getElementById('gallery-prev-btn');
+      const nextGalleryBtn = document.getElementById('gallery-next-btn');
+      let galleryIdx = 0;
+
+      function renderGallerySlide(idx) {
+        galleryIdx = (idx + galleryImages.length) % galleryImages.length;
+        const item = galleryImages[galleryIdx];
+        if (galleryImg) {
+          galleryImg.src = item.src;
+          galleryImg.alt = item.alt;
+        }
+        if (galleryCounter) {
+          galleryCounter.textContent = `${galleryIdx + 1} / ${galleryImages.length}`;
+        }
+      }
+
+      function openGallery() {
+        if (!galleryModal) return;
+        renderGallerySlide(galleryIdx);
+        galleryModal.hidden = false;
+        galleryModal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeGallery() {
+        if (!galleryModal) return;
+        galleryModal.classList.remove('is-open');
+        galleryModal.hidden = true;
+        document.body.style.overflow = '';
+        if (window.location.hash === '#galeria') {
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+      }
+
+      if (openGalleryBtn) openGalleryBtn.addEventListener('click', openGallery);
+      if (closeGalleryBtn) closeGalleryBtn.addEventListener('click', closeGallery);
+      if (prevGalleryBtn) prevGalleryBtn.addEventListener('click', () => renderGallerySlide(galleryIdx - 1));
+      if (nextGalleryBtn) nextGalleryBtn.addEventListener('click', () => renderGallerySlide(galleryIdx + 1));
+
+      if (galleryModal) {
+        galleryModal.addEventListener('click', (e) => {
+          if (e.target === galleryModal) closeGallery();
+        });
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (!galleryModal || !galleryModal.classList.contains('is-open')) return;
+        if (e.key === 'Escape') closeGallery();
+        if (e.key === 'ArrowLeft') renderGallerySlide(galleryIdx - 1);
+        if (e.key === 'ArrowRight') renderGallerySlide(galleryIdx + 1);
+      });
+
+      if (window.location.hash === '#galeria') {
+        openGallery();
+      }
+
       // 1. Interactive Hero Showcase Tabs (if present)
       const heroTabs = document.querySelectorAll('[data-hero-tab]');
       const heroSlides = document.querySelectorAll('[data-hero-slide]');
