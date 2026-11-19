@@ -27,22 +27,15 @@ Noveleare se distribuye actualmente como una **Versión Beta pública en desarro
 
 ---
 
-## 2. Definición del Software: Qué ES y Qué NO ES Noveleare
+## 2. Definición del Software y Arquitectura Local-First
 
-Noveleare es una suite de productividad y creación literaria desarrollada de manera independiente, diseñada para novelistas, dramaturgos, guionistas y arquitectos de mundos ficticios con arquitectura **Local-First**:
+Noveleare es una suite de productividad y creación literaria desarrollada de manera independiente, diseñada para novelistas, dramaturgos, guionistas y arquitectos de mundos ficticios bajo el principio técnico fundamental de **Local-First** (primero en tu equipo local):
 
-### Qué ES Noveleare
-- Un **entorno de desarrollo literario de escritorio (IDE)** para planificar, redactar y estructurar novelas en proyectos locales `.novel`.
-- Un ecosistema de **worldbuilding visual y auditoría editorial client-side** (Biblia del Mundo, Mapas, Red de Relaciones, Árbol Genealógico, Modo Zen, Modo Catarsis, Pactos y Metas, Inspector de Obra y ortotipografía RAE).
-- Un conector directo seguro que permite enlazar tus propias claves de inteligencia artificial (BYOK: Google Gemini o Groq) sin servidores puente.
-- Una **Bóveda de Respaldos automáticos** que genera hasta 40 instantáneas locales periódicas de tu trabajo en tu propio equipo.
-
-### Qué NO ES Noveleare
-- **NO es un servicio en la nube de custodia centralizada:** no guardamos, no leemos ni tenemos acceso a tus manuscritos en ningún servidor.
-- **NO es una granja de entrenamiento de IA:** jamás vendemos, cedemos ni usamos tus textos para entrenar modelos propios ni de terceros.
-- **NO es un intermediario revendedor de tokens:** no cobramos comisiones ocultas ni sobreprecios por el uso de modelos de lenguaje de terceros.
-- **NO es un coautor ni agencia con derechos sobre tu obra:** no cobramos regalías ni reclamamos porcentaje sobre tus publicaciones o ventas.
-- **NO es un servicio gestionado con soporte 24/7:** es una aplicación de software independiente para ejecución local.
+- **Entorno Editorial Local (IDE Literario):** Noveleare es una aplicación de escritorio de ejecución local para planificar, redactar y estructurar novelas en proyectos `.novel` almacenados exclusivamente en su computadora.
+- **Procesamiento Client-Side e Independencia de Conexión:** El procesador de texto, la gestión de capítulos, la Biblia del Mundo, la red de relaciones, los árboles genealógicos, el motor ortotipográfico RAE y los algoritmos de inspección editorial se ejecutan localmente en su equipo sin requerir conexión continua a Internet.
+- **Sin Custodia en la Nube ni Entrenamiento de IA:** Noveleare no es un servicio de almacenamiento en la nube ni una plataforma de entrenamiento de modelos; no alojamos, no leemos, no vendemos ni utilizamos sus manuscritos para entrenar algoritmos propios ni de terceros.
+- **Conector Directo BYOK sin Intermediarios:** La asistencia de IA funciona enlazando directamente sus propias claves API (**Google Gemini** o **Groq**) sin servidores puente ni comisiones ocultas por consumo de tokens.
+- **Naturaleza Independiente:** Noveleare es un software de escritorio con Bóveda local de hasta 40 respaldos automáticos, no un coautor ni agencia editorial con derechos o regalías sobre sus publicaciones, ni un servicio gestionado en la nube con soporte 24/7.
 
 ---
 
