@@ -1203,19 +1203,32 @@
     }
 
     .world-tabs-nav {
-      grid-template-columns: repeat(4, 1fr);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
     }
 
-    @media (max-width: 900px) {
-      .world-tabs-nav {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    .world-kpi-mint {
+      color: #B5E5D8;
     }
 
-    @media (max-width: 520px) {
-      .world-tabs-nav {
-        grid-template-columns: 1fr;
-      }
+    .world-kpi-slate {
+      color: #CBD5E1;
+    }
+
+    .world-kpi-ice {
+      color: #93C5FD;
+    }
+
+    .world-module-badge {
+      color: #B5E5D8;
+      background: rgba(181, 229, 216, 0.08);
+      border-color: rgba(181, 229, 216, 0.22);
+    }
+
+    .world-features-list li::before {
+      color: #B5E5D8;
     }
 
     .catarsis-section {
@@ -1238,10 +1251,10 @@
 
     .catarsis-showcase-card {
       background: rgba(12, 13, 18, 0.78);
-      border: 1px solid rgba(245, 158, 11, 0.22);
+      border: 1px solid var(--border-subtle);
       border-radius: 16px;
       padding: 14px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 40px rgba(217, 119, 6, 0.08);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
       display: flex;
       flex-direction: column;
       gap: 12px;
@@ -1307,15 +1320,15 @@
     }
 
     .catarsis-tab-btn:hover {
-      background: rgba(245, 158, 11, 0.08);
-      border-color: rgba(245, 158, 11, 0.3);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--border-hover);
       color: var(--text-main);
     }
 
     .catarsis-tab-btn.is-active {
-      background: rgba(217, 119, 6, 0.16);
-      border-color: rgba(245, 158, 11, 0.55);
-      color: #FDE68A;
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.35);
+      color: #FFFFFF;
     }
 
     .catarsis-tab-num {
@@ -1324,26 +1337,32 @@
       justify-content: center;
       width: 20px;
       height: 20px;
-      border-radius: 50%;
+      border-radius: 5px;
       background: rgba(255, 255, 255, 0.08);
       font-size: 0.72rem;
       font-weight: 700;
+      color: var(--text-sub);
       flex-shrink: 0;
     }
 
     .catarsis-tab-btn.is-active .catarsis-tab-num {
-      background: rgba(245, 158, 11, 0.3);
-      color: #FEF3C7;
-    }
-
-    .catarsis-pillar-card {
-      border-color: rgba(245, 158, 11, 0.14);
+      background: rgba(255, 255, 255, 0.18);
+      color: #FFFFFF;
     }
 
     .catarsis-pillar-card .feature-point-icon {
-      color: #F59E0B;
-      background: rgba(245, 158, 11, 0.1);
-      border-color: rgba(245, 158, 11, 0.22);
+      color: #FFFFFF;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      width: auto;
+      height: auto;
+      padding: 2px 4px 0 0;
+    }
+
+    .catarsis-pillar-card .feature-point-icon svg {
+      width: 22px;
+      height: 22px;
     }
 
     /* 4. AI Creative Suite Section */
@@ -2136,15 +2155,17 @@
             </button>
           </div>
 
-          <div class="inspector-stage-viewport">
+          <div class="inspector-panes-wrapper">
             <!-- PANE 0: MAPAS INTERACTIVOS -->
             <div class="inspector-pane is-active" role="tabpanel" data-world-pane="0">
-              <div class="inspector-pane-grid">
-                <div class="inspector-visual-frame">
-                  <img src="./assets/world-mapas.png" alt="Mapa interactivo de mundo en Noveleare con ciudades, lagos, montañas y escala cartográfica" width="1024" height="768" loading="lazy">
+              <div class="inspector-pane__grid" style="align-items: center;">
+                <div class="inspector-pane__visual">
+                  <div class="inspector-img-frame">
+                    <img src="./assets/world-mapas.png" alt="Mapa interactivo de mundo en Noveleare con ciudades, lagos, montañas y escala cartográfica" width="1024" height="768" loading="lazy">
+                  </div>
                 </div>
-                <div class="inspector-info-panel">
-                  <div class="inspector-pane-badge">Cartografía y Geografía</div>
+                <div class="inspector-pane__content">
+                  <div class="inspector-module-badge world-module-badge">Cartografía y Geografía</div>
                   <h3>Taller de Mapas y Visor Cartográfico Oficial</h3>
                   <p>
                     Construye la geografía de tu novela desde un boceto esquemático o importa tu mapa ilustrado oficial en alta resolución. Ubica reinos, ríos, búnkeres y rutas para mantener coherencia espacial en cada viaje.
@@ -2152,18 +2173,18 @@
                   <div class="inspector-kpi-row">
                     <div class="kpi-mini-card">
                       <span class="kpi-label">Modos</span>
-                      <span class="kpi-value highlight-score">Esquema + Oficial</span>
+                      <span class="kpi-value world-kpi-mint">Esquema + Oficial</span>
                     </div>
                     <div class="kpi-mini-card">
                       <span class="kpi-label">Vínculos</span>
-                      <span class="kpi-value">Escenas y Lore</span>
+                      <span class="kpi-value world-kpi-slate">Escenas y Lore</span>
                     </div>
                     <div class="kpi-mini-card">
                       <span class="kpi-label">Capas</span>
-                      <span class="kpi-value gold-score">Zonas e Iconos</span>
+                      <span class="kpi-value world-kpi-ice">Zonas e Iconos</span>
                     </div>
                   </div>
-                  <ul class="inspector-features-list">
+                  <ul class="inspector-features-list world-features-list">
                     <li><strong>Pinceles y Zonas Curvas:</strong> Pinta biomas, fronteras y regiones con etiquetas tipográficas adaptadas al relieve.</li>
                     <li><strong>Marcadores Enlazados:</strong> Conecta cada ciudad o enclave directamente con sus fichas de Lore y escenas del manuscrito.</li>
                     <li><strong>Exportación y Escala Real:</strong> Calcula distancias y áreas para que los desplazamientos de tus personajes sean siempre verosímiles.</li>
@@ -2174,12 +2195,14 @@
 
             <!-- PANE 1: RED DE RELACIONES -->
             <div class="inspector-pane" role="tabpanel" data-world-pane="1">
-              <div class="inspector-pane-grid">
-                <div class="inspector-visual-frame">
-                  <img src="./assets/world-relaciones.png" alt="Red de Relaciones de Personajes en Noveleare con fichas circulares y vectores curvos etiquetados" width="1024" height="576" loading="lazy">
+              <div class="inspector-pane__grid" style="align-items: center;">
+                <div class="inspector-pane__visual">
+                  <div class="inspector-img-frame">
+                    <img src="./assets/world-relaciones.png" alt="Red de Relaciones de Personajes en Noveleare con fichas circulares y vectores curvos etiquetados" width="1024" height="576" loading="lazy">
+                  </div>
                 </div>
-                <div class="inspector-info-panel">
-                  <div class="inspector-pane-badge">Psicología Social del Elenco</div>
+                <div class="inspector-pane__content">
+                  <div class="inspector-module-badge world-module-badge">Psicología Social del Elenco</div>
                   <h3>Red de Relaciones de Personajes</h3>
                   <p>
                     Visualiza la telaraña viva de alianzas, traiciones, romances, mentorías y rivalidades que mueven tu trama. Crea múltiples tableros por acto o facción y domina repartos complejos de un vistazo.
@@ -2187,18 +2210,18 @@
                   <div class="inspector-kpi-row">
                     <div class="kpi-mini-card">
                       <span class="kpi-label">Anclajes</span>
-                      <span class="kpi-value highlight-score">8 Vectores</span>
+                      <span class="kpi-value world-kpi-mint">8 Vectores</span>
                     </div>
                     <div class="kpi-mini-card">
                       <span class="kpi-label">Tableros</span>
-                      <span class="kpi-value">Múltiples</span>
+                      <span class="kpi-value world-kpi-slate">Múltiples</span>
                     </div>
                     <div class="kpi-mini-card">
                       <span class="kpi-label">Trazos</span>
-                      <span class="kpi-value gold-score">Curvos y Color</span>
+                      <span class="kpi-value world-kpi-ice">Curvos y Color</span>
                     </div>
                   </div>
-                  <ul class="inspector-features-list">
+                  <ul class="inspector-features-list world-features-list">
                     <li><strong>Fichas Circulares Magnéticas:</strong> Nodos con retrato sincronizados con tu Biblia y 8 puntos perimetrales para trazos limpios sin cruces caóticos.</li>
                     <li><strong>Catálogo Temático por Colores:</strong> Preajustes inmediatos para amores, rivalidades, jerarquías, lealtades y vínculos secretos con dirección editable.</li>
                     <li><strong>Navegación y Filtros:</strong> Zoom fluido, búsqueda por personaje, deshacer/rehacer y acceso directo a cada ficha biográfica.</li>
@@ -2209,12 +2232,14 @@
 
             <!-- PANE 2: ÁRBOL GENEALÓGICO -->
             <div class="inspector-pane" role="tabpanel" data-world-pane="2">
-              <div class="inspector-pane-grid">
-                <div class="inspector-visual-frame">
-                  <img src="./assets/world-genealogia.png" alt="Árbol Genealógico interactivo en Noveleare mostrando generaciones, matrimonios y descendencia" width="1024" height="576" loading="lazy">
+              <div class="inspector-pane__grid" style="align-items: center;">
+                <div class="inspector-pane__visual">
+                  <div class="inspector-img-frame">
+                    <img src="./assets/world-genealogia.png" alt="Árbol Genealógico interactivo en Noveleare mostrando generaciones, matrimonios y descendencia" width="1024" height="576" loading="lazy">
+                  </div>
                 </div>
-                <div class="inspector-info-panel">
-                  <div class="inspector-pane-badge">Linajes y Dinastías</div>
+                <div class="inspector-pane__content">
+                  <div class="inspector-module-badge world-module-badge">Linajes y Dinastías</div>
                   <h3>Árboles Genealógicos Interactivos</h3>
                   <p>
                     Trazar sagas familiares, casas nobles o herencias generacionales deja de ser un rompecabezas. Conecta matrimonios, lazos biológicos, adopciones y hermandades sobre un lienzo limpio y expansible.
@@ -2222,18 +2247,18 @@
                   <div class="inspector-kpi-row">
                     <div class="kpi-mini-card">
                       <span class="kpi-label">Vínculos</span>
-                      <span class="kpi-value highlight-score">4 Tipos</span>
+                      <span class="kpi-value world-kpi-mint">4 Tipos</span>
                     </div>
                     <div class="kpi-mini-card">
                       <span class="kpi-label">Generaciones</span>
-                      <span class="kpi-value">Ilimitadas</span>
+                      <span class="kpi-value world-kpi-slate">Ilimitadas</span>
                     </div>
                     <div class="kpi-mini-card">
                       <span class="kpi-label">Sincronía</span>
-                      <span class="kpi-value gold-score">Biblia Viva</span>
+                      <span class="kpi-value world-kpi-ice">Biblia Viva</span>
                     </div>
                   </div>
-                  <ul class="inspector-features-list">
+                  <ul class="inspector-features-list world-features-list">
                     <li><strong>Lazos Diferenciados:</strong> Distingue visualmente matrimonio, filiación biológica, adopción y hermandad con leyenda cromática permanente.</li>
                     <li><strong>Retratos y Edades Sincronizadas:</strong> Arrastra personajes directo desde tu panel lateral de fichas con su estado vital y edad actualizados.</li>
                     <li><strong>Control Preciso:</strong> Curvas limpias, zoom inteligente y edición no destructiva para evolucionar tus dinastías a lo largo de varios libros.</li>
@@ -2244,12 +2269,14 @@
 
             <!-- PANE 3: BIBLIA ENCICLOPÉDICA -->
             <div class="inspector-pane" role="tabpanel" data-world-pane="3">
-              <div class="inspector-pane-grid">
-                <div class="inspector-visual-frame">
-                  <img src="./assets/world-biblia.png" alt="Biblia Enciclopédica de Personajes en Noveleare con tarjetas detalladas y categorías de rol" width="1024" height="576" loading="lazy">
+              <div class="inspector-pane__grid" style="align-items: center;">
+                <div class="inspector-pane__visual">
+                  <div class="inspector-img-frame">
+                    <img src="./assets/world-biblia.png" alt="Biblia Enciclopédica de Personajes en Noveleare con tarjetas detalladas y categorías de rol" width="1024" height="576" loading="lazy">
+                  </div>
                 </div>
-                <div class="inspector-info-panel">
-                  <div class="inspector-pane-badge">Enciclopedia Canónica</div>
+                <div class="inspector-pane__content">
+                  <div class="inspector-module-badge world-module-badge">Enciclopedia Canónica</div>
                   <h3>Biblia del Mundo en 6 Registros Especializados</h3>
                   <p>
                     Centraliza Personajes, Razas y Especies, Bestiario y Fauna, Lore, Locaciones y Conceptos Canónicos. Todo tu universo vive estructurado y disponible en un clic mientras redactas cada capítulo.
@@ -2257,18 +2284,18 @@
                   <div class="inspector-kpi-row">
                     <div class="kpi-mini-card">
                       <span class="kpi-label">Registros</span>
-                      <span class="kpi-value highlight-score">6 Módulos</span>
+                      <span class="kpi-value world-kpi-mint">6 Módulos</span>
                     </div>
                     <div class="kpi-mini-card">
                       <span class="kpi-label">Categorías</span>
-                      <span class="kpi-value">Personalizables</span>
+                      <span class="kpi-value world-kpi-slate">Personalizables</span>
                     </div>
                     <div class="kpi-mini-card">
                       <span class="kpi-label">Contexto IA</span>
-                      <span class="kpi-value gold-score">Conectado</span>
+                      <span class="kpi-value world-kpi-ice">Conectado</span>
                     </div>
                   </div>
-                  <ul class="inspector-features-list">
+                  <ul class="inspector-features-list world-features-list">
                     <li><strong>Perfiles Tridimensionales:</strong> Registra arquetipo, defecto psicológico, motivación, tono de voz y retrato encuadrado de cada personaje.</li>
                     <li><strong>Memoria Viva para el Copiloto:</strong> Conecta tus fichas al Copiloto IA y al Taller de Diálogos para mantener coherencia absoluta con tu canon.</li>
                     <li><strong>Glosario Automático de Dictado:</strong> Los nombres propios y lugares de tu Biblia alimentan automáticamente el dictado por IA para transcribirlos sin errores.</li>
