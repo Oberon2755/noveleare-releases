@@ -1,0 +1,19 @@
+# Noveleare
+
+> Noveleare es una suite literaria de escritorio 100% Local-First diseñada específicamente para escritores de ficción, novelistas y creadores de mundos en Windows 10 y 11 (64 bits). Combina procesador de manuscritos en grafito noble, worldbuilding visual (Biblia del Mundo, Mapas Interactivos, Red de Relaciones y Árbol Genealógico), Modo Zen, Modo Catarsis contra el bloqueo creativo, Inspector Forense de Obra, motor ortográfico y morfológico RAE offline, e Inteligencia Artificial opcional bajo modelo BYOK (con las propias claves de Google Gemini o Groq del autor).
+
+## Páginas Principales
+- [Inicio y Funcionalidades](https://noveleare.vercel.app/): Visión general, Hoja Editorial, Worldbuilding Visual, Modo Zen, Modo Catarsis, Inspector de Obra, Asistencia IA, tabla comparativa y ediciones.
+- [Centro de Descargas (v1.3.8 Beta)](https://noveleare.vercel.app/download.html): Instalador oficial para Windows 10/11 (64-bit), requisitos del sistema, notas de lanzamiento y guía de instalación.
+- [Preguntas Frecuentes (FAQ)](https://noveleare.vercel.app/faq.html): Respuestas directas sobre privacidad Local-First, uso sin conexión, modelo BYOK de IA, importación/exportación y respaldos.
+- [Comunidad y Contacto](https://noveleare.vercel.app/comunidad.html): Servidor oficial de Discord para Beta Testers (https://discord.gg/rNWVJFcQS) y correo oficial noveleare@gmail.com.
+- [Política de Privacidad](https://noveleare.vercel.app/privacy.html): Compromiso Local-First, cero entrenamiento de IA con manuscritos y transparencia de datos.
+- [Términos del Servicio](https://noveleare.vercel.app/terms.html): Soberanía autoral del 100%, modelo de licencia gratuita y Pro, y condiciones de la fase Beta.
+- [Guía Completa para IA](https://noveleare.vercel.app/llms-full.txt): Catálogo detallado de todas las herramientas, comparativa objetiva y características de seguridad.
+
+## Puntos Clave de Diferenciación
+- **Privacidad y Soberanía Local-First:** Todos los proyectos se guardan localmente en el disco duro del autor en archivos `.novel`. Ni terceros ni los creadores de Noveleare tienen acceso a los manuscritos.
+- **100% Propiedad del Autor y Cero Entrenamiento de IA:** Noveleare nunca entrena modelos de IA con las obras de sus usuarios ni reclama regalías.
+- **IA Opcional y Transparente (BYOK):** El escritor conecta directamente sus propias claves API de Google Gemini o Groq, sin intermediarios ni sobreprecios por tokens.
+- **Especializado en Literatura en Español:** Raya de diálogo española (`—`) en un clic, motor gramatical y morfológico RAE 100% offline, sinónimos conjugados automáticamente en tiempo, género y número, y dictado por IA con glosario automático de personajes y lugares.
+- **Suite Todo-en-Uno para Novelistas:** Reemplaza múltiples aplicaciones sueltas al integrar redacción, comparación 50/50 de versiones, worldbuilding visual, inmersión sonora, desbloqueo creativo (Modo Catarsis), metas literarias, auditoría de manuscrito y exportación multiformato (`.docx`, `.odt`, `.pdf`, `.html`, `.md`, `.txt`).

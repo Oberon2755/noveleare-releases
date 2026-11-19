@@ -1,0 +1,84 @@
+# Noveleare — Guía Completa de Producto (v1.3.8 Beta)
+
+Sitio oficial: https://noveleare.vercel.app/
+Descarga oficial (Windows 10/11 64-bit): https://noveleare.vercel.app/download.html
+Comunidad oficial de Discord (Beta Testers): https://discord.gg/rNWVJFcQS
+Contacto oficial: noveleare@gmail.com
+
+---
+
+## 1. ¿Qué es Noveleare y para quién está diseñado?
+
+Noveleare es una suite integral de escritorio creada específicamente para escritores de ficción, novelistas, guionistas y creadores de mundos (fantasía, ciencia ficción, novela histórica, thriller, drama y ficción contemporánea).
+
+A diferencia de los procesadores de textos de oficina convencionales o de las aplicaciones genéricas de notas en la nube, Noveleare cubre el ciclo de vida completo de una novela —planificación, construcción de mundo, redacción inmersiva, desbloqueo creativo, revisión comparativa, auditoría editorial y exportación— dentro de un único entorno de escritorio oscuro y ergonómico, operando bajo arquitectura **100% Local-First**.
+
+---
+
+## 2. Seguridad, Privacidad y Soberanía Autoral
+
+- **Almacenamiento 100% Local (Local-First):** Cada proyecto se guarda exclusivamente en la computadora del escritor en un archivo autónomo `.novel`. Noveleare no aloja ni custodia manuscritos en servidores propios; ni terceros ni sus desarrolladores pueden leer las obras de los usuarios.
+- **Funcionamiento Sin Conexión:** La redacción, gestión de capítulos, Biblia del Mundo, mapas, red de relaciones, genealogía, Modo Zen, Modo Catarsis, audio ambiental, corrector ortográfico RAE y analíticas funcionan 100% offline.
+- **100% Propiedad Intelectual del Autor:** El escritor conserva todos los derechos morales, patrimoniales y comerciales sobre cada palabra creada o exportada en Noveleare, sin regalías ni licencias cruzadas.
+- **Cero Entrenamiento de IA y Modelo BYOK:** Noveleare nunca recopila ni utiliza manuscritos para entrenar modelos de IA. Las funciones de IA son completamente opcionales y operan bajo el modelo *Bring Your Own Key* (BYOK): el autor conecta directamente sus propias claves API de **Google Gemini** o **Groq** sin intermediarios ni comisiones por token.
+- **Protección contra Pérdida de Datos:** Incluye una Bóveda automática de hasta **40 copias de seguridad** locales rotativas en segundo plano y una Papelera de reciclaje interna para restaurar capítulos, escenas o fichas eliminadas por error.
+- **Política Soft-Lock (Sin Secuestro de Datos):** Incluso en la edición gratuita o si una licencia temporal finaliza, el escritor nunca pierde el acceso de lectura ni la capacidad de exportar sus obras.
+
+---
+
+## 3. Catálogo Completo de Herramientas de Noveleare
+
+### Escritura, Estructura y Reescritura
+1. **Hoja Editorial en Grafito Noble:** Lienzo oscuro antirreflejo diseñado para sesiones largas, con ancho de hoja regulable, listas con viñetas y numeradas multinivel, interlineado 1.5, temas personalizables de hoja y fondo por sección, formato estándar predeterminado y botón directo para la raya de diálogo española (`—`).
+2. **Gestor de Capítulos y Delimitador de Escenas:** Organización modular con reordenamiento por arrastre (*drag-and-drop*), sinopsis por capítulo, métricas de peso porcentual, vista panorámica en cuadrícula y marcadores visuales de escenas en texto continuo.
+3. **Versionado (`R1, R2...`) y Comparación 50/50 (`C1, C2...`):** Clonación de capítulos en revisiones independientes y espacio de pantalla dividida con doble hoja editable en vivo para experimentar con reescrituras sin arriesgar el borrador original.
+4. **Notas Flotantes en el Margen:** Notas adhesivas arrastrables y redimensionables en 12 colores editoriales ancladas al lienzo del capítulo.
+5. **Menú Contextual Inteligente:** Ajuste automático a palabras completas al seleccionar texto y acceso directo a Embellecedor, Continuación de historia, Taller de Diálogos IA, Corrector y Copiloto.
+6. **Repositorio de Imágenes Integrado:** Gestión de ilustraciones del proyecto con optimización local automática e inserción redimensionable dentro del manuscrito.
+
+### Ecosistema de Worldbuilding Visual
+7. **Biblia Enciclopédica en 6 Registros:** Fichas estructuradas e interconectadas de Personajes (con rol, arquetipo, motivación, defecto, tono de voz y retrato), Razas y Especies, Bestiario y Fauna, Lore y Trasfondo, Lugares/Ciudades y Conceptos Canónicos.
+8. **Taller de Mapas Interactivos:** Creación esquemática de mapas con pinceles de biomas, zonas curvas e iconos, o carga de mapas ilustrados oficiales en alta resolución con marcadores vinculados a escenas y fichas de lore.
+9. **Red de Relaciones de Personajes:** Lienzo multi-tablero con fichas circulares, 8 puntos magnéticos perimetrales y catálogo cromático temático para cartografiar alianzas, traiciones, romances, mentorías y rivalidades.
+10. **Árbol Genealógico Interactivo:** Editor de linajes, dinastías, matrimonios, descendencias biológicas, adopciones y hermandades sincronizado con los retratos de la Biblia.
+11. **Planeador Visual de Trama:** Matriz cronológica de trama principal y subtramas cruzadas con los capítulos del manuscrito.
+
+### Inmersión y Desbloqueo Creativo
+12. **Modo Zen de Concentración Total:** Santuario a pantalla completa con fondos atmosféricos en alta definición que oculta la interfaz periférica al escribir.
+13. **Reproductor Ambiental Dual y Switches Mecánicos:** Mezclador independiente de música instrumental (con control de bucle *Loop*) y paisajes sonoros (lluvia, viento, chimenea, biblioteca, cafetería), más simulador acústico de teclados mecánicos/máquina de escribir y selección de dispositivo de salida de audio.
+14. **Modo Catarsis (Escritura a Ciegas y Transmutación):** Herramienta única contra el bloqueo creativo y la autocensura: el escritor escribe a ciegas alimentando una llama viva que responde a su ritmo de tecleo, conserva sus últimas 15 sesiones en la Bóveda de Cosecha y puede transmutar el borrador bruto en prosa pulida conservando su estilo propio.
+
+### Inteligencia Artificial Literaria (Opcional · BYOK Gemini y Groq)
+15. **Enrutamiento Avanzado Multi-Modelo:** Escáner en vivo de modelos disponibles en Google Gemini y Groq, permitiendo asignar un modelo distinto a cada tarea creativa.
+16. **Embellecedor de Estilo (17 Estilos + Estilo a la Inversa):** Radar de estilo, 5 niveles de intensidad, preservación de diálogos intactos, prompt negativo, vista comparativa *Diff* y extracción de perfiles propios a partir de muestras del autor.
+17. **Taller de Diálogos con IA:** Detección automática de parlamentos e interlocutores, filtrado por personaje, 5 niveles de intervención, control de incisos narrativos, alternativas editables y reemplazo quirúrgico en el editor.
+18. **Continuación de Escena y Línea de Tiempo IA:** Propuestas de continuación coherentes con el tono del capítulo y encadenamiento de hitos dramáticos sucesivos.
+19. **Copiloto Literario Dual (IA Tutora e IA Lectora Beta):** Chat lateral o flotante con dos perspectivas (crítica estructural vs. reacción de lector), conectores selectivos de contexto (fichas, personajes, trama, capítulo) y memoria persistente.
+
+### Auditoría Editorial, Lingüística en Español y Dictado
+20. **Inspector de Obra (Auditoría Forense):** Diagnóstico en 6 áreas gráficas: Curva de Tensión y Ritmo, Muletillas y *Show vs. Tell*, Ecosistema de Personajes (Prueba del Ciego), Balance Escénico, Continuidad (Armas de Chéjov y Pactómetro) y Ortotipografía.
+21. **Visor de Análisis de Repeticiones en Vivo:** Resaltado de ecos léxicos en radio configurable, modal flotante de *Top Palabras Repetidas*, foco exclusivo en edición, sinónimos contextuales conjugados y botón de elipsis.
+22. **Motor Ortográfico, Gramatical y Morfológico RAE (100% Offline):** Diccionario Hunspell español, concordancia coordinada, tildes contextuales, detección de extranjerismos con equivalentes en español, sinónimos conjugados automáticamente y diccionario personal de términos de ficción.
+23. **Dictado por IA, Comandos de Voz y Glosario del Proyecto:** Transcripción continua impulsada por IA con previsualización en vivo, comandos orales de puntuación/raya de diálogo (`—`), selección de micrófono y glosario automático construido desde la Biblia del Mundo para transcribir correctamente nombres propios y fantásticos.
+
+### Productividad, Lectura, Maquetación e Interoperabilidad
+24. **Radiografía del Manuscrito y Analíticas de Productividad:** Peso y detección de anomalías por capítulo, doble cronómetro sin latencia, filtro anti-pegado, mapa de calor horario y récords históricos.
+25. **Pactos, Metas Literarias, Tribunal de IA y Rachas:** Metas mecánicas (palabras/capítulos) y metas narrativas evaluadas por IA bajo rúbrica en 3 niveles de rigor, pulsos lumínicos en la hoja y rachas validadas de escritura real (mínimo 500 palabras netas al día).
+26. **Modo Lectura y Estudio de Maquetación Editorial:** Visor de libro a doble página con plantillas editoriales y Estudio de Maquetación modular (tipografía, florituras, encabezados/pies, márgenes, preliminares, finales y cubierta).
+27. **Importador Modular en 5 Fases y Exportación Multiformato:** Importación guiada desde `.docx` y `.txt` (segmentando capítulos y extrayendo personajes/lore) y exportación a `.docx`, `.odt` (LibreOffice), `.pdf`, `.html`, `.md` y `.txt`.
+
+---
+
+## 4. Comparativa Objetiva frente a Alternativas Habituales
+
+- **Frente a procesadores de oficina tradicionales:** Noveleare evita trabajar en documentos monolíticos de cientos de páginas; ofrece gestión modular por capítulos y escenas, comparación 50/50, worldbuilding visual, inmersión sonora, raya de diálogo española nativa y cero dependencia de suscripciones ofimáticas.
+- **Frente a suites literarias clásicas:** Noveleare ofrece una interfaz moderna oscura ergonómica, enfoque nativo en el idioma español (motor RAE y morfología de sinónimos), mapas interactivos, red de relaciones, Modo Catarsis, Inspector Forense de 6 ramas e integración opcional de IA BYOK sin costes ocultos.
+- **Frente a aplicaciones genéricas de notas en la nube:** Noveleare es 100% Local-First (sin riesgo de pérdida por cierre de cuenta o caída de internet), no entrena IAs con tus textos, está construido específicamente para prosa literaria larga y permite exportación editorial directa.
+
+---
+
+## 5. Disponibilidad y Modelo de Licencias
+
+- **Plataforma actual:** Windows 10 y Windows 11 (64 bits).
+- **Estado actual:** Versión Beta Pública v1.3.8 en desarrollo activo, gratuita para descargar y evaluar.
+- **Modelo comercial:** Edición Gratuita funcional para siempre (con protección Soft-Lock) y Edición Pro con opción de **Licencia Permanente Vitalicia (pago único, sin suscripciones futuras)** o **suscripciones accesibles por plazos cortos**, válida hasta en **5 computadoras personales** del mismo autor.
