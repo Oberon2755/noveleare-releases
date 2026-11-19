@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="es" style="color-scheme: dark;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0B0E14">
+  <title>Comunidad y Contacto — Noveleare</title>
+  <meta name="description" content="Únete a la comunidad oficial de Discord para Beta Testers de Noveleare o contáctanos directamente en noveleare@gmail.com para dudas, sugerencias y reportes.">
+  <link rel="icon" type="image/png" href="./assets/noveleare-symbol-transparent.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #07090E;
+      --bg-card: rgba(13, 17, 25, 0.74);
+      --bg-card-hover: rgba(18, 24, 36, 0.86);
+      --bg-glass-nav: rgba(9, 12, 18, 0.84);
+      --border-subtle: rgba(255, 255, 255, 0.09);
+      --border-hover: rgba(255, 255, 255, 0.22);
+      --text-main: #FFFFFF;
+      --text-sub: #D1D5DB;
+      --text-muted: #8E9BAE;
+      --brand-mint: #B5E5D8;
+      --radius-card: 16px;
+      --radius-pill: 9999px;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      background-image:
+        linear-gradient(180deg, rgba(7, 9, 14, 0.78) 0%, rgba(7, 9, 14, 0.90) 55%, rgba(7, 9, 14, 0.97) 100%),
+        url('./assets/misty-morning-forest.jpg');
+      background-size: cover;
+      background-position: center top;
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: #FFFFFF;
+      color: #07090E;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      z-index: 1000;
+      text-decoration: none;
+    }
+    .skip-link:focus { top: 16px; }
+
+    .container {
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-glass-nav);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 20px;
+    }
+
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      transition: color 0.18s ease, background-color 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: inherit;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.18s ease, border-color 0.18s ease, transform 0.15s ease;
+    }
+
+    .btn-sm {
+      padding: 8px 16px;
+      font-size: 0.85rem;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 12px 22px;
+      font-size: 0.94rem;
+    }
+
+    .btn-secondary.btn-sm {
+      padding: 8px 16px;
+      font-size: 0.85rem;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--border-hover);
+    }
+
+    .btn-primary {
+      background: #FFFFFF;
+      color: #07090E;
+      border: 1px solid #FFFFFF;
+      padding: 12px 22px;
+      font-size: 0.94rem;
+    }
+
+    .btn-primary:hover {
+      background: #E5E7EB;
+    }
+
+    /* Main Content */
+    main {
+      flex: 1;
+      padding: 64px 0 88px;
+    }
+
+    .community-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .community-kicker {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brand-mint);
+      margin-bottom: 12px;
+    }
+
+    .community-title {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--text-main);
+      margin-bottom: 14px;
+    }
+
+    .community-subtitle {
+      font-size: 1.02rem;
+      color: var(--text-sub);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .community-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 860px) {
+      .community-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .community-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      padding: 32px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .community-card:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-card-hover);
+    }
+
+    .card-top {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .channel-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .channel-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-main);
+      flex-shrink: 0;
+    }
+
+    .channel-logo svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .channel-tag {
+      display: block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand-mint);
+      margin-bottom: 2px;
+    }
+
+    .community-card h2 {
+      font-size: 1.38rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+    }
+
+    .community-card p {
+      font-size: 0.96rem;
+      color: var(--text-sub);
+      line-height: 1.68;
+    }
+
+    .channel-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 4px;
+    }
+
+    .channel-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-sub);
+    }
+
+    .channel-points svg {
+      width: 18px;
+      height: 18px;
+      color: var(--brand-mint);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .email-highlight-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .email-address-text {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .email-address-text:hover {
+      color: var(--brand-mint);
+    }
+
+    .copy-email-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-sub);
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.18s ease, color 0.18s ease;
+    }
+
+    .copy-email-btn:hover {
+      background: rgba(255, 255, 255, 0.14);
+      color: var(--text-main);
+    }
+
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .card-actions .btn {
+      width: 100%;
+    }
+
+    .community-bottom-actions {
+      margin-top: 44px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .community-bottom-actions .btn {
+      min-width: 230px;
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--border-subtle);
+      background: rgba(7, 9, 14, 0.9);
+      padding: 28px 0;
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links-inline {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 18px;
+    }
+
+    .footer-links-inline a {
+      color: var(--text-sub);
+      text-decoration: none;
+    }
+
+    .footer-links-inline a:hover {
+      color: var(--text-main);
+    }
+
+    @media (max-width: 780px) {
+      .nav-links { display: none; }
+      .community-card { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <header class="site-header">
+    <div class="container nav-container nav-bar">
+      <a href="./index.html" class="brand-link" aria-label="Noveleare Inicio">
+        <img src="./assets/noveleare-symbol-transparent.png" alt="Símbolo de Noveleare" width="30" height="30">
+        <span>Noveleare</span>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <ul class="nav-links">
+          <li><a href="./index.html#hoja-editorial">Funciones</a></li>
+          <li><a href="./index.html#galeria">Galería</a></li>
+          <li><a href="./index.html#ediciones">Ediciones</a></li>
+          <li><a href="./download.html">Descargas</a></li>
+          <li><a href="./faq.html">Preguntas Frecuentes</a></li>
+          <li><a href="./comunidad.html" aria-current="page">Comunidad</a></li>
+          <li><a href="./privacy.html">Privacidad</a></li>
+          <li><a href="./terms.html">Términos</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <a href="./index.html" class="btn btn-secondary btn-sm">Volver al Inicio</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="container">
+      <header class="community-header">
+        <div class="community-kicker">Beta Pública y Contacto Directo</div>
+        <h1 class="community-title">Comunidad y Contacto</h1>
+        <p class="community-subtitle">
+          Noveleare crece junto a sus autores. Únete a nuestra comunidad oficial en Discord para participar en la prueba Beta o escríbenos directamente por correo electrónico.
+        </p>
+      </header>
+
+      <div class="community-grid">
+        <!-- Discord Card -->
+        <article class="community-card">
+          <div class="card-top">
+            <div class="channel-head">
+              <div class="channel-logo" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                </svg>
+              </div>
+              <div>
+                <span class="channel-tag">Comunidad Oficial</span>
+                <h2>Servidor de Discord (Beta Testers)</h2>
+              </div>
+            </div>
+
+            <p>
+              Nuestro servidor de Discord es el punto de encuentro para escritores y personas que desean probar Noveleare como Beta Testers, sumarse a la prueba Beta pública y ayudar a dar forma a la suite.
+            </p>
+
+            <ul class="channel-points">
+              <li>
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span><strong>Comunicación continua con los desarrolladores:</strong> Conversa directamente con quienes construyen Noveleare día a día.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span><strong>Sugerencias y mejoras reales:</strong> Propón herramientas, flujos o detalles editoriales que necesites en tu escritura.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span><strong>Reportes de errores ágiles:</strong> Reporta fallos al instante para que podamos corregirlos y mejorar cada versión con tu ayuda.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card-actions">
+            <a href="https://discord.gg/rNWVJFcQS" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+              </svg>
+              <span>Unirse a Discord (Beta Testers)</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Email Card -->
+        <article class="community-card">
+          <div class="card-top">
+            <div class="channel-head">
+              <div class="channel-logo" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <path d="M22 6l-10 7L2 6"/>
+                </svg>
+              </div>
+              <div>
+                <span class="channel-tag">Contacto Alterno</span>
+                <h2>Correo Electrónico Oficial</h2>
+              </div>
+            </div>
+
+            <p>
+              Si prefieres no usar Discord o necesitas comunicarte de forma privada, nuestro correo oficial funciona como una vía alternativa directa para resolver dudas, enviar reportes de errores o compartir tus sugerencias.
+            </p>
+
+            <div class="email-highlight-box">
+              <a href="mailto:noveleare@gmail.com" class="email-address-text">noveleare@gmail.com</a>
+              <button type="button" class="copy-email-btn" id="copy-email-btn">Copiar correo</button>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            <a href="mailto:noveleare@gmail.com" class="btn btn-secondary">
+              <span>Enviar Correo a noveleare@gmail.com</span>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <div class="community-bottom-actions">
+        <a href="./index.html" class="btn btn-secondary">Volver al Inicio</a>
+        <a href="./download.html" class="btn btn-primary">Ir a Descargas (v1.3.8 Beta)</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container nav-container footer-bottom">
+      <span>&copy; 2026 Noveleare. Todos los derechos reservados.</span>
+      <ul class="footer-links-inline">
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="./download.html">Descargas</a></li>
+        <li><a href="./faq.html">Preguntas Frecuentes</a></li>
+        <li><a href="./privacy.html">Política de Privacidad</a></li>
+        <li><a href="./terms.html">Términos del Servicio</a></li>
+        <li><a href="mailto:noveleare@gmail.com">noveleare@gmail.com</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const copyBtn = document.getElementById('copy-email-btn');
+      if (!copyBtn) return;
+      copyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText('noveleare@gmail.com');
+          copyBtn.textContent = '¡Copiado!';
+          setTimeout(() => {
+            copyBtn.textContent = 'Copiar correo';
+          }, 2000);
+        } catch {
+          window.location.href = 'mailto:noveleare@gmail.com';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
